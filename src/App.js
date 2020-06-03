@@ -1,26 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Route, Switch, withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {fetchingPoses} from './redux/actions'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import NavBar from './components/NavBar'
+import AboutPage from './components/AboutPage'
+import ErrorPage from './components/ErrorPage'
+
+class App extends React.Component {
+
+  componentDidMount = () => {
+    this.props.fetchingPoses()
+  }
+  //when componentDidMount on App, invoke fetchingPoses function
+  // this function is a prop laundered in by mapDispatchToProps
+
+  render(){
+    return (
+      <div className="App">
+      <NavBar /> 
+      <Switch>
+        <Route exact path="/about" component={AboutPage} />
+        <Route render={ErrorPage} />
+      </Switch>
+      </div>
+    )
+  }
 }
 
-export default App;
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      fetchingPoses: () => {dispatch( fetchingPoses() )}
+    }
+  }
+  // laundering in this function of fetchPoses to props
+  // when this prop function is invoked, it will dispatch
+  // the dispatch is the invoking of fetching poses function
+
+
+export default withRouter(connect(null, mapDispatchToProps)(App))

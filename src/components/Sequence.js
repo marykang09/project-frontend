@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import SequencePose from './SequencePose'
 import { connect } from 'react-redux'
-import { foundSequence } from "../redux/actions"
+import { clickedSequence } from "../redux/actions"
 
 const Sequence = (props) => {
     console.log("Sequence's props:", props)
@@ -16,32 +16,30 @@ const Sequence = (props) => {
                 <Link 
                     className="item" 
                     to={`/mysequences/${props.sequence.id}`}
-                    onClick={()=> {
-                                console.log("clicked on sequence:", props.sequence)
-                                let clickedSequence = props.sequence
-                                props.foundSequence(clickedSequence)}} >
-
+                    onClick={()=> {props.clickedSequence(props.sequence) }} >
+ 
                             {props.sequence.name}
                 </Link>
-
                 </h2>
             
                 <h2>Pose Count: {props.sequence.sequence_poses.length}</h2>
-
-            {/* {props.sequence.sequence_poses.map(
-                                sp => (<SequencePose 
-                                        key={sp.id}
-                                        sp={sp} />))}  */}
 
             </div>
     )
 }
 
+// const mapStateToProps = (state) => {
+
+//     return {
+//         poses: state.poses
+//     }
+// }
 
 const mapDispatchToProps = dispatch => {
     
     return {
-        foundSequence: (sequence) => {dispatch(foundSequence(sequence))}
+        clickedSequence: (sequence) => {dispatch(clickedSequence(sequence))},
+        // foundSequencePoses: (sequence_poses) => {dispatch(foundSequencePoses(sequence_poses))}
     }
 }
 

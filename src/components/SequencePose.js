@@ -22,8 +22,9 @@ const SequencePose = (props) => {
 
 const mapStateToProps = (state, ownProps) => {
     console.log("ownProps:", ownProps )
+
     return {
-        pose: state.poses.find(
+        poses: state.poses.find(
             pose => pose.id === parseInt(ownProps.sp.pose_id)
         )
     }

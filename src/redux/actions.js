@@ -24,13 +24,22 @@ function fetchedSequences(sequences){
     return {type: "FETCHED_SEQUENCES", payload: sequences}
 }
 
+
 function changeSearchText(value){
     return {type: "CHANGE_SEARCH_TEXT", payload: value}
 }
 
-function foundSequence(sequence){
-    console.log("in actions", sequence)
-    return {type: "FOUND_SEQUENCE", payload: sequence}
+function clickedSequence(sequence){
+    // console.log("in actions", sequence)
+    return {type: "CLICKED_SEQUENCE", payload: sequence}
 }
 
-export { fetchingPoses, fetchingSequences, changeSearchText, foundSequence }
+// function fetchingSequencePoses(id){
+//     console.log(id)
+    
+// }
+// function foundSequencePoses(sequence_poses){
+//     return {type: "FOUND_SEQUENCE_POSES", payload: sequence_poses}
+// }
+
+export { fetchingPoses, fetchingSequences, changeSearchText, clickedSequence }

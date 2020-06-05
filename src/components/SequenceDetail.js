@@ -13,9 +13,10 @@ const SequenceDetail = (props) => {
             <h1>Sequence Details</h1>
             <h3>Name: {props.sequence.name}</h3>
             <p>
-                Pose Count: {props.sequence.sequence_poses.length}
+                {/* Pose Count: {props.sequence.sequence_poses.length} */}
                 <br></br>
                 Notes: {props.sequence.notes}
+               
             </p>
             
         </div>
@@ -33,10 +34,7 @@ const mapStateToProps = (state, ownProps) => {
     //have to parseInt because the params id is a string
 
     return {
-        sequence: state.sequence
-        // sequence_poses: state.sequences.find(sequence => sequence.id === sequenceId).sequence_poses
-        // sequence_poses: state.poses.filter(pose => pose.id === state.sequence.sequence_poses.pose_id)
-        // mapDispatchToProps()
+        sequence: state.sequences.find(s => parseInt(s.id) === sequenceId)
     }
 }
 

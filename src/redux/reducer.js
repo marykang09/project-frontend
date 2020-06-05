@@ -27,14 +27,13 @@ const searchTextReducer = (state="", action) => {
     }
 }
 
-const sequenceReducer = (state="", action) => {
-    console.log("in reducer:", action)
 
+const clickedSequenceReducer = (state="", action) => {
     switch (action.type){
-        case "FOUND_SEQUENCE":
+        case "CLICKED_SEQUENCE":
             return action.payload
         default:
-            return state 
+            return state
     }
 }
 
@@ -42,7 +41,7 @@ const rootReducer = combineReducers({
     poses: posesReducer,
     sequences: sequencesReducer,
     searchText: searchTextReducer,
-    sequence: sequenceReducer
+    sequence: clickedSequenceReducer
 })
 
 

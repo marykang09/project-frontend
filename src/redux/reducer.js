@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-const posesReducer = (state = [], action) => {
+const posesReducer = (state=[], action) => {
     switch (action.type) {
         case "FETCHED_POSES":
             return action.payload
@@ -9,8 +9,41 @@ const posesReducer = (state = [], action) => {
     }
 }
 
+const sequencesReducer = (state=[], action) => {
+    switch (action.type){
+        case "FETCHED_SEQUENCES":
+            return action.payload
+        default: 
+            return state
+    }
+}
+
+const searchTextReducer = (state="", action) => {
+    switch (action.type){
+        case "CHANGE_SEARCH_TEXT":
+            return action.payload
+        default:
+           return state
+    }
+}
+
+const sequenceReducer = (state="", action) => {
+    console.log("in reducer:", action)
+
+    switch (action.type){
+        case "FOUND_SEQUENCE":
+            return action.payload
+        default:
+            return state 
+    }
+}
+
 const rootReducer = combineReducers({
-    poses: posesReducer
+    poses: posesReducer,
+    sequences: sequencesReducer,
+    searchText: searchTextReducer,
+    sequence: sequenceReducer
 })
+
 
 export default rootReducer

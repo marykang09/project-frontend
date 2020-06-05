@@ -1,10 +1,14 @@
 import React from 'react'
 
+
 const AboutPage = () => {
     return (
-        <div>
-            this is the AboutPage
-        </div>
+    <div>
+        <h1>Yoga App!</h1>
+        <p>
+            Use this app to create your yoga sequences
+        </p>
+     </div>
     )
 }
 

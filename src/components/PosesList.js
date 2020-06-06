@@ -1,19 +1,27 @@
 import React from 'react'
 import Pose from './Pose'
 import { connect } from 'react-redux'
+import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
 
 const PosesList = (props) => {
     console.log("PosesList props:", props)
 
     return (
         <div>
-            <h3>this is the PosesList</h3>
+            <Container>
+            
+                <Row className="justify-content-md-center">
+                <Col md="auto"></Col>
             {props.poses.map(pose => (
                 <Pose
                     key={pose.id}
                     pose={pose} />
             ))}
-    
+                </Row>
+           
+            </Container>
         </div>
     )
 }

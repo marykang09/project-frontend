@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
+import SequencePose from './SequencePose'
 // import { foundSequence } from "../redux/actions"
 
 
@@ -15,9 +16,15 @@ const SequenceDetail = (props) => {
             <p>
                 {/* Pose Count: {props.sequence.sequence_poses.length} */}
                 <br></br>
+                Pose Count: {props.sequence.sequence_poses.length}
+                <br></br>
+            </p>
+                Poses:  
+                {props.sequence.sequence_poses.map(pose => <SequencePose pose={pose} />)}
+                <br></br>
                 Notes: {props.sequence.notes}
                
-            </p>
+            
             
         </div>
     )

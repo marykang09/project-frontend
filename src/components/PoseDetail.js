@@ -14,7 +14,12 @@ const PoseDetail = (props) => {
                 Sanskrit Name: {props.pose.sanskrit_name}
                 <br>
                 </br>
-                <img src={props.pose.img_url}></img>
+                <img 
+                    src={props.pose.img_url}
+                    width={400}
+                    height={400}
+                    mode="fit"
+                    ></img>
             </p>
             
         </div>

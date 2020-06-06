@@ -1,18 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const SequencePose = (props) => {
-    console.log("props", props)
-    console.log("props.sp", props.sp)
-    console.log("props.sp.poseid", parseInt(props.sp.pose_id))
+import Image from 'react-bootstrap/Image'
 
-    return (!props.sp ? null : 
+
+const SequencePose = (props) => {
+    console.log("SequencePose's props", props)
+
+    return (!props.pose ? null : 
         //need to do this to account for INIT state = []
         <div>
-            <h1>this is the SequencePose</h1>
-
-            <h2> {props.pose.english_name} </h2>
-
+            <Image 
+                src={props.pose.pose.img_url} 
+                width={171}
+                height={180}
+                mode="fit"
+                roundedCircle />
+            <h2> {props.pose.pose.english_name} </h2>
 
             
 
@@ -24,9 +28,9 @@ const mapStateToProps = (state, ownProps) => {
     console.log("ownProps:", ownProps )
 
     return {
-        poses: state.poses.find(
-            pose => pose.id === parseInt(ownProps.sp.pose_id)
-        )
+        // poses: state.poses.find(
+        //     pose => pose.id === parseInt(ownProps.sp.pose_id)
+        // )
     }
 }
 

@@ -17,7 +17,8 @@ const PosesList = (props) => {
             {props.poses.map(pose => (
                 <Pose
                     key={pose.id}
-                    pose={pose} />
+                    pose={pose}
+                    editing={false} />
             ))}
                 </Row>
            

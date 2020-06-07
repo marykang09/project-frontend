@@ -9,7 +9,7 @@ const MySequencesPage = (props) => {
         <div>
             <h1>My Sequences</h1>
             
-            <Route path="/" component={SequencesList} />
+            < SequencesList />
 
         </div>
     )

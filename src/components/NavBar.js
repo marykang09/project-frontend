@@ -14,7 +14,7 @@ const NavBar = (props) => {
                 <Nav className="mr-auto">
                 <Nav.Link href="/poses">Poses</Nav.Link>
                 <br></br>
-                <Nav.Link href="/mysequences">My Sequences</Nav.Link>
+                <Nav.Link href="/sequences">My Sequences</Nav.Link>
                 <br></br>
                 <Nav.Link href="/about">About</Nav.Link>
                 {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
@@ -30,7 +30,25 @@ const NavBar = (props) => {
                 <Form inline>
                 <SearchBar />
                 {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" /> */}
-                <Button variant="outline-warning">Search</Button>
+                    <>
+                    <style type="text/css">
+                        {`
+                        .btn-flat {
+                        background-color: #ABDAE1;
+                        color: white;
+                        }
+
+                        .btn-md {
+                        padding: 1rem 1.5rem;
+                        font-size: 1.5rem;
+                        }
+                        `}
+                    </style>
+
+                    <Button variant="flat" size="md">
+                        Search
+                    </Button>
+                    </>
                 </Form>
 
             </Navbar.Collapse>

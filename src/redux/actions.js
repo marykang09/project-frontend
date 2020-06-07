@@ -34,6 +34,9 @@ function clickedSequence(sequence){
     return {type: "CLICKED_SEQUENCE", payload: sequence}
 }
 
+function editingSequence(){
+    return {type: "EDITING_SEQUENCE", payload: true}
+}
 // function fetchingSequencePoses(id){
 //     console.log(id)
     
@@ -42,4 +45,4 @@ function clickedSequence(sequence){
 //     return {type: "FOUND_SEQUENCE_POSES", payload: sequence_poses}
 // }
 
-export { fetchingPoses, fetchingSequences, changeSearchText, clickedSequence }
+export { fetchingPoses, fetchingSequences, changeSearchText, clickedSequence, editingSequence }

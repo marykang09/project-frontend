@@ -2,9 +2,7 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import SequencePose from './SequencePose'
-import { render } from 'react-dom'
-// import { foundSequence } from "../redux/actions"
-
+import Button from 'react-bootstrap/Button'
 
 class SequenceDetail extends React.Component {
 
@@ -21,17 +19,42 @@ class SequenceDetail extends React.Component {
         
             <div>
                 
-                <h1>Sequence Details</h1>
-                <h3>Name: {this.props.sequence.name}</h3>
-                <p>
+                <h1>Sequence: {this.props.sequence.name} </h1>
+                <br></br>
+
+                <>
+                <style type="text/css">
+                    {`
+                    .btn-flat {
+                    background-color: #ABDAE1;
+                    color: white;
+                    }
+
+                    .btn-md {
+                    padding: 1rem 1.5rem;
+                    font-size: 1.5rem;
+                    }
+                    `}
+                </style>
+                <Link to={`${this.props.sequence.id}/edit`}>
+                {/* why wont the link above work?!?! */}
+                {/* <Link to={`/sequences/${this.props.sequence.id}`}> */}
+                    <Button variant="flat" size="md">
+                    Edit
+                    </Button>
+                </Link>
+                </>
+
+                <br></br>
+                <h2>
                     {/* Pose Count: {props.sequence.sequence_poses.length} */}
                     <br></br>
                     Pose Count: {this.props.sequence.sequence_poses.length}
                     <br></br>
-                </p>
+                </h2>
                     Poses:  
                     
-                    {this.sortedPoses().map(pose => <SequencePose pose={pose} />)}
+                    {this.sortedPoses().map(pose => <SequencePose pose={pose} key={pose.id}/>)}
                 
                     {/* {props.sequence.sequence_poses.map(pose => <SequencePose pose={pose} />)} */}
                     <br></br>
@@ -49,7 +72,7 @@ class SequenceDetail extends React.Component {
 
 
 const mapStateToProps = (state, ownProps) => {
-    console.log("SequenceDetail's ownProps", ownProps)
+    // console.log("SequenceDetail's ownProps", ownProps)
     //first, find the current sequence
     //then, need to find the poses for this sequence
     //use seqence_poses array, use the pose_id
@@ -71,4 +94,4 @@ const mapStateToProps = (state, ownProps) => {
 
 
 export default withRouter(connect(mapStateToProps)(SequenceDetail))
-// export default SequenceDetail
+

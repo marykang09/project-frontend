@@ -11,6 +11,7 @@ import MySequencesPage from './components/MySequencesPage';
 import PosesPage from './components/PosesPage'
 import PoseDetail from './components/PoseDetail'
 import SequenceDetail from './components/SequenceDetail'
+import SequenceForm from './components/SequenceForm'
 
 class App extends React.Component {
 
@@ -31,12 +32,20 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={PosesPage} />
           <Route exact path="/about" component={AboutPage} />
-          <Route exact path="/mysequences" component={MySequencesPage} />
+          <Route exact path="/sequences" component={MySequencesPage} />
           <Route 
-                    path="/mysequences/:id" 
+                    exact path="/sequences/:id" 
                     render={ (routerProps) => {
                         return (<SequenceDetail {...routerProps} />)
                     }} /> 
+          <Route 
+                    exact path="/sequences/:id/edit" 
+                    render={ (routerProps) => {
+                      return (<SequenceForm {...routerProps} />)
+                  }} /> 
+          {/* <Route exact path="/:id/edit" component={SequenceForm} /> */}
+          {/* this is a placeholder until i can get the route above to work */}
+
           <Route exact path="/poses" component={PosesPage} />
           <Route 
                     path="/poses/:id" 

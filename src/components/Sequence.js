@@ -21,7 +21,7 @@ const Sequence = (props) => {
                                 <Card.Text>
                                     <Link 
                             className="item" 
-                            to={`/mysequences/${props.sequence.id}`}
+                            to={`/sequences/${props.sequence.id}`}
                             onClick={()=> {props.clickedSequence(props.sequence) }} >
                                         {props.sequence.name}
                                     </Link>

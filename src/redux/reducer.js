@@ -37,11 +37,21 @@ const clickedSequenceReducer = (state="", action) => {
     }
 }
 
+const editingReducer = (state=false, action) => {
+    switch (action.type){
+        case "EDITING_SEQUENCE":
+            return action.payload
+        default: 
+            return state 
+    }
+}
+
 const rootReducer = combineReducers({
     poses: posesReducer,
     sequences: sequencesReducer,
     searchText: searchTextReducer,
-    sequence: clickedSequenceReducer
+    sequence: clickedSequenceReducer,
+    editMode: editingReducer
 })
 
 

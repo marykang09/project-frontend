@@ -5,7 +5,7 @@ import Image from 'react-bootstrap/Image'
 
 
 const SequencePose = (props) => {
-    console.log("SequencePose's props", props)
+    // console.log("SequencePose's props", props)
 
     return (!props.pose ? null : 
         //need to do this to account for INIT state = []

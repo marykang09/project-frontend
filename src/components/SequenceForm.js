@@ -1,9 +1,7 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import Col from 'react-bootstrap/Col'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
+import {Col, Container, Row} from 'react-bootstrap'
 import SequencePose from './SequencePose'
 import Pose from './Pose'
 
@@ -40,7 +38,10 @@ class SequenceForm extends React.Component {
                         <h2> Pose Count: {this.props.sequence.sequence_poses.length} </h2>
 
                         <h2> Poses in Sequence: </h2>
+                        <Row className="justify-content-md-center">
+                        <Col md="auto"></Col>
                         {this.sortedPoses().map(pose => <SequencePose pose={pose} key={pose.id}/>)}
+                        </Row>
                         <br></br>
                         <Row className="justify-content-md-center">
                         <p>
@@ -73,8 +74,13 @@ const mapStateToProps = (state, ownProps) => {
     //have to parseInt because the params id is a string
 
     return {
-        poses: state.poses,
-        sequence: state.sequences.find(s => parseInt(s.id) === sequenceId)
+        sequence: state.sequences.find(s => parseInt(s.id) === sequenceId),
+        poses: state.poses.filter(
+            pose => 
+                pose.english_name.toLowerCase().includes(state.searchText.toLowerCase()) ||
+                pose.sanskrit_name.toLowerCase().includes(state.searchText.toLowerCase())
+        ),
+        sequenceposes: state.sequence.sequence_poses.sort((a, b) => (a.position_num  > b.position_num) ? 1: -1)
     }
 }
 

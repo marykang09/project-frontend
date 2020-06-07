@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
+import Card from 'react-bootstrap/Card'
 import Image from 'react-bootstrap/Image'
 
 
@@ -10,16 +10,15 @@ const SequencePose = (props) => {
     return (!props.pose ? null : 
         //need to do this to account for INIT state = []
         <div>
-            <Image 
-                src={props.pose.pose.img_url} 
-                width={171}
-                height={180}
-                mode="fit"
-                roundedCircle />
-            <h2> {props.pose.pose.english_name} </h2>
 
+             <Card border="light" style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={props.pose.pose.img_url} />
+                <Card.Body>
+                    <Card.Title>{props.pose.pose.english_name}</Card.Title>
+                    <Card.Text>{props.pose.pose.sanskrit_name}</Card.Text>
+                </Card.Body>
+            </Card>
             
-
         </div>
     )
 }

@@ -10,7 +10,7 @@ const SequencesList = (props) => {
     return (
         <div>
             <Container>
-            <br></br>
+                
                 <Row className="justify-content-md-center">
                 <Col md="auto"></Col>
             {props.sequences.map(sequence => (

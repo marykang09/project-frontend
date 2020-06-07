@@ -2,7 +2,8 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import SequencePose from './SequencePose'
-import Button from 'react-bootstrap/Button'
+import {Button, Col, Container, Row} from 'react-bootstrap'
+
 
 class SequenceDetail extends React.Component {
 
@@ -18,50 +19,55 @@ class SequenceDetail extends React.Component {
         //need to do this to account for INIT state = []
         
             <div>
-                
-                <h1>Sequence: {this.props.sequence.name} </h1>
-                <br></br>
-
-                <>
-                <style type="text/css">
-                    {`
-                    .btn-flat {
-                    background-color: #ABDAE1;
-                    color: white;
-                    }
-
-                    .btn-md {
-                    padding: 1rem 1.5rem;
-                    font-size: 1.5rem;
-                    }
-                    `}
-                </style>
-                <Link to={`${this.props.sequence.id}/edit`}>
-                {/* why wont the link above work?!?! */}
-                {/* <Link to={`/sequences/${this.props.sequence.id}`}> */}
-                    <Button variant="flat" size="md">
-                    Edit
-                    </Button>
-                </Link>
-                </>
-
-                <br></br>
-                <h2>
-                    {/* Pose Count: {props.sequence.sequence_poses.length} */}
+                <Container>
+                    <Row className="justify-content-md-center">
+                        <Col md="auto"></Col>
+                        <h1>Sequence: {this.props.sequence.name} </h1>
+                    </Row>
                     <br></br>
-                    Pose Count: {this.props.sequence.sequence_poses.length}
+
+                    <>
+                    <style type="text/css">
+                        {`
+                        .btn-flat {
+                        background-color: #ABDAE1;
+                        color: white;
+                        }
+
+                        .btn-md {
+                        padding: 1rem 1.5rem;
+                        font-size: 1.5rem;
+                        }
+                        `}
+                    </style>
+                    <Link to={`${this.props.sequence.id}/edit`}>
+                    {/* why wont the link above work?!?! */}
+                    {/* <Link to={`/sequences/${this.props.sequence.id}`}> */}
+                        <Button variant="flat" size="md">
+                        Edit
+                        </Button>
+                    </Link>
+                    </>
+
                     <br></br>
-                </h2>
-                    Poses:  
-                    
-                    {this.sortedPoses().map(pose => <SequencePose pose={pose} key={pose.id}/>)}
-                
-                    {/* {props.sequence.sequence_poses.map(pose => <SequencePose pose={pose} />)} */}
-                    <br></br>
-                    Notes: {this.props.sequence.notes}
-                
-                
-                
+                    <h2>
+                        {/* Pose Count: {props.sequence.sequence_poses.length} */}
+                        <br></br>
+                        Pose Count: {this.props.sequence.sequence_poses.length}
+                        <br></br>
+                    </h2>
+                        Poses:  
+                        <Row className="justify-content-md-center">
+                        <Col md="auto"></Col>
+                        {this.sortedPoses().map(pose => <SequencePose pose={pose} key={pose.id}/>)}
+                        </Row>
+                        <br></br>
+                        <Row className="justify-content-md-center">
+                            <p>
+                            Notes: {this.props.sequence.notes}
+                            </p>
+                        </Row>
+                </Container>
             </div>
         )
     }

@@ -1,6 +1,7 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
 import SequencesList from './SequencesList'
+import { connect } from 'react-redux'
 
 const MySequencesPage = (props) => {
     console.log("MySequencesPage props:", props)
@@ -8,11 +9,18 @@ const MySequencesPage = (props) => {
     return (
         <div>
             <h1>My Sequences</h1>
+            <br></br>
+            {props.sequences.length === 0 ? <h2>You don't have any sequences yet!</h2> : < SequencesList /> }
             
-            < SequencesList />
-
+            
         </div>
     )
 }
 
-export default MySequencesPage
+const mapStateToProps = (state, ownProps) => {
+    return {
+        sequences: state.sequences
+    }
+}
+
+export default withRouter(connect(mapStateToProps)(MySequencesPage))

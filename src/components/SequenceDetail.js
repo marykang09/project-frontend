@@ -2,16 +2,27 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import SequencePose from './SequencePose'
-import {Button, Col, Container, Row} from 'react-bootstrap'
-
+import {Button, ButtonGroup, ButtonToolbar, Col, Container, Row} from 'react-bootstrap'
+import { deleteSequence } from '../redux/actions'
 
 class SequenceDetail extends React.Component {
+
 
     sortedPoses = () => {
         return(!this.props.sequence ? null : 
         this.props.sequence.sequence_poses.sort((a, b) => (a.position_num  > b.position_num) ? 1: -1)
     //list.sort((a, b) => (a.color > b.color) ? 1 : -1)
         )
+    }
+
+    onDelete = (event) => {
+        event.preventDefault()
+
+        let info ={
+            sequenceId: this.props.sequence.id
+        }
+
+        this.props.deleteSequence(info)
     }
 
     render(){
@@ -40,16 +51,23 @@ class SequenceDetail extends React.Component {
                         }
                         `}
                     </style>
-                    <Link to={`${this.props.sequence.id}/edit`}>
-                    {/* why wont the link above work?!?! */}
-                    {/* <Link to={`/sequences/${this.props.sequence.id}`}> */}
-                        <Button variant="flat" size="md">
-                        Edit
-                        </Button>
-                    </Link>
+                    
+                    
+                    <ButtonGroup>
+                        <Link to={`${this.props.sequence.id}/edit`}>
+                        {/* why wont the link above work?!?! */}
+                        {/* <Link to={`/sequences/${this.props.sequence.id}`}> */}
+                            <Button variant="flat" size="md"> Edit </Button>
+                        </Link>    
+                    </ButtonGroup>
+                    &nbsp;
+                    <ButtonGroup>
+                            <Button variant="flat" size="md" onClick={this.onDelete}> Delete </Button>
+                    </ButtonGroup>
+                    
                     </>
-
                     <br></br>
+
                     <h2>
                         {/* Pose Count: {props.sequence.sequence_poses.length} */}
                         <br></br>
@@ -74,8 +92,6 @@ class SequenceDetail extends React.Component {
 }
 
 
-    
-
 
 const mapStateToProps = (state, ownProps) => {
     // console.log("SequenceDetail's ownProps", ownProps)
@@ -92,12 +108,10 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         foundSequence: (sequence) => {dispatch(foundSequence(sequence))}
-//     }
-// }
+const mapDispatchToProps = dispatch => ({
+    deleteSequence: (info) => {dispatch(deleteSequence(info))}
+})
 
 
-export default withRouter(connect(mapStateToProps)(SequenceDetail))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SequenceDetail))
 

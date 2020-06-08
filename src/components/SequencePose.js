@@ -6,7 +6,7 @@ import { removingFromSequence } from '../redux/actions'
 
 class SequencePose extends React.Component {
 
-    onRemove = event => {
+    onRemove = (event) => {
         event.preventDefault()
 
         let info = {

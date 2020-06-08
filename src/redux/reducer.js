@@ -37,6 +37,10 @@ const sequencesReducer = (state=[], action) => {
                     return sequence
                 }
             })
+        
+        case "DELETED_SEQUENCE":
+            return state.filter(sequence => sequence.id !== action.payload.sequenceId)
+            
         default: 
             return state
     }

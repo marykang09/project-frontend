@@ -56,8 +56,6 @@ function addingToSequence(info){
         // }
         //fetch(`${url}/sequences/${info.sequenceId}`
 
-
-
         fetch(`${url}/sequence_poses`, {
             method: "POST",
             headers: {"Content-Type" : "application/json"},
@@ -99,8 +97,25 @@ function removedFromSequence(info){
     }
 }
 
+function deleteSequence(info){
+    return (dispatch, getState) => {
+    fetch(`${url}/sequences/${info.sequenceId}`, {
+        method: "DELETE"
+    }) //this updates the backend
+
+    console.log(info)
+    dispatch(deletedSequence(info))
+    }
+}
+
+function deletedSequence(info){
+    
+    return {
+        type: "DELETED_SEQUENCE",
+        payload: info
+    }
+}
 
 
 
-
-export { fetchingPoses, fetchingSequences, changeSearchText, clickedSequence, addingToSequence, addedToSequence, removingFromSequence, removedFromSequence }
+export { fetchingPoses, fetchingSequences, changeSearchText, clickedSequence, addingToSequence, addedToSequence, removingFromSequence, removedFromSequence, deleteSequence }

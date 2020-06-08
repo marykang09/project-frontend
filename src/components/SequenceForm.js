@@ -28,7 +28,7 @@ class SequenceForm extends React.Component {
     render(){
         console.log("SequenceForm's props", this.props)
 
-        return (!this.props ? null : 
+        return (!this.props.sequence ? null : 
                 <div>
                     <Container>
                         <Row className="justify-content-md-center">

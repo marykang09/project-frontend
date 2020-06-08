@@ -56,13 +56,15 @@ function addingToSequence(info){
         // }
         //fetch(`${url}/sequences/${info.sequenceId}`
 
+
+
         fetch(`${url}/sequence_poses`, {
             method: "POST",
             headers: {"Content-Type" : "application/json"},
             body: JSON.stringify({
                 sequence_id: info.sequenceId,
                 pose_id: info.pose.id,
-                position_num: currentSequencePoses.length ++
+                position_num: ++ currentSequencePoses.length
             })
         })
         .then(response => response.json())
@@ -84,18 +86,13 @@ function removingFromSequence(info){
             method: "DELETE"
         }) // this updates the backend
 
-        // let sequence = getState().sequences.find(s => s.id === info.sequenceId)
-        // let updatedSequencePoses = sequence.sequence_poses
-        // console.log("sequence:", sequence)
-        // console.log("sequence's sequenceposes:", sequence.sequence_poses)
-        // console.log("info:", info)
         dispatch(removedFromSequence(info))
     } 
 }
 
 function removedFromSequence(info){
     console.log(info)
-    
+
     return {
         type: "REMOVED_SEQUENCE_POSE",
         payload: info

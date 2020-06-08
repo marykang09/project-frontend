@@ -84,18 +84,21 @@ function removingFromSequence(info){
             method: "DELETE"
         }) // this updates the backend
 
-        let sequence = getState().sequences.find(s => s.id === info.sequenceId)
-        let updatedSequencePoses = sequence.sequence_poses
-        console.log(updatedSequencePoses)
-
-        // dispatch(removedFromSequence(info.sequenceId))
+        // let sequence = getState().sequences.find(s => s.id === info.sequenceId)
+        // let updatedSequencePoses = sequence.sequence_poses
+        // console.log("sequence:", sequence)
+        // console.log("sequence's sequenceposes:", sequence.sequence_poses)
+        // console.log("info:", info)
+        dispatch(removedFromSequence(info))
     } 
 }
 
-function removedFromSequence(sequenceId){
+function removedFromSequence(info){
+    console.log(info)
+    
     return {
         type: "REMOVED_SEQUENCE_POSE",
-        payload: sequenceId
+        payload: info
     }
 }
 
@@ -103,4 +106,4 @@ function removedFromSequence(sequenceId){
 
 
 
-export { fetchingPoses, fetchingSequences, changeSearchText, clickedSequence, addingToSequence, addedToSequence, removingFromSequence }
+export { fetchingPoses, fetchingSequences, changeSearchText, clickedSequence, addingToSequence, addedToSequence, removingFromSequence, removedFromSequence }

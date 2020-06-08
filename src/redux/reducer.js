@@ -27,8 +27,16 @@ const sequencesReducer = (state=[], action) => {
             })
 
         case "REMOVED_SEQUENCE_POSE":
-            return state.filter(sequence => sequence.id !== action.payload)
-
+            return state.map(sequence => {
+                if (sequence.id === action.payload.sequenceId){
+                    return {
+                        ...sequence,
+                        sequence_poses: sequence.sequence_poses.filter(sp => sp.id !== action.payload.sequencePoseId)
+                    }
+                } else {
+                    return sequence
+                }
+            })
         default: 
             return state
     }

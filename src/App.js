@@ -12,12 +12,23 @@ import PosesPage from './components/PosesPage'
 import PoseDetail from './components/PoseDetail'
 import SequenceDetail from './components/SequenceDetail'
 import SequenceForm from './components/SequenceForm'
+import {Spinner} from 'react-bootstrap'
 
 class App extends React.Component {
+
+  constructor(){
+    super()
+    this.state = {
+      loading: true
+    }
+  }
 
   componentDidMount = () => {
     this.props.fetchingPoses()
     this.props.fetchingSequences()
+    this.setState({
+      loading: false
+    })
   }
   //when componentDidMount on App, invoke fetchingPoses function
   // this function is a prop laundered in by mapDispatchToProps
@@ -25,36 +36,40 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-      <div className="sticky">
+        <div className="sticky">
           <NavBar /> 
-      </div>
-      <div className="main">
-        <Switch>
-          <Route exact path="/" component={PosesPage} />
-          <Route exact path="/about" component={AboutPage} />
-          <Route exact path="/sequences" component={MySequencesPage} />
-          <Route 
-                    exact path="/sequences/:id" 
-                    render={ (routerProps) => {
-                        return (<SequenceDetail {...routerProps} />)
-                    }} /> 
-          <Route 
-                    exact path="/sequences/:id/edit" 
-                    render={ (routerProps) => {
-                      return (<SequenceForm {...routerProps} />)
-                  }} /> 
-          {/* <Route exact path="/:id/edit" component={SequenceForm} /> */}
-          {/* this is a placeholder until i can get the route above to work */}
+        </div>
 
-          <Route exact path="/poses" component={PosesPage} />
-          <Route 
-                    path="/poses/:id" 
-                    render={ (routerProps) => {
-                        return (<PoseDetail {...routerProps} />)
-                    }} />
-          <Route render={ErrorPage} />
-        </Switch>
-      </div>
+      {this.state.loading ? <Spinner animation="border" variant="info" /> : 
+        
+          <div className="main">
+              <Switch>
+                <Route exact path="/" component={PosesPage} />
+                <Route exact path="/about" component={AboutPage} />
+                <Route exact path="/sequences" component={MySequencesPage} />
+                <Route 
+                          exact path="/sequences/:id" 
+                          render={ (routerProps) => {
+                              return (<SequenceDetail {...routerProps} />)
+                          }} /> 
+                <Route 
+                          exact path="/sequences/:id/edit" 
+                          render={ (routerProps) => {
+                            return (<SequenceForm {...routerProps} />)
+                        }} /> 
+                {/* <Route exact path="/:id/edit" component={SequenceForm} /> */}
+                {/* this is a placeholder until i can get the route above to work */}
+
+                <Route exact path="/poses" component={PosesPage} />
+                <Route 
+                          path="/poses/:id" 
+                          render={ (routerProps) => {
+                              return (<PoseDetail {...routerProps} />)
+                          }} />
+                <Route render={ErrorPage} />
+              </Switch>
+            </div> }
+
       </div>
     )
   }

@@ -1,36 +1,64 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Card from 'react-bootstrap/Card'
-import Image from 'react-bootstrap/Image'
+import {Card, Image, Button} from 'react-bootstrap'
+import { removingFromSequence } from '../redux/actions'
 
 
-const SequencePose = (props) => {
-    // console.log("SequencePose's props", props)
+class SequencePose extends React.Component {
 
-    return (!props.pose ? null : 
+    onRemove = event => {
+        event.preventDefault()
+
+        let info = {
+            sequencePoseId: this.props.pose.id,
+            sequenceId: this.props.pose.sequence_id
+        }
+
+        this.props.removingFromSequence(info)
+    }
+
+    render(){
+    console.log("SequencePose's props", this.props.pose)
+
+    return (!this.props.pose ? null : 
         //need to do this to account for INIT state = []
         <div>
 
              <Card border="light" style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={props.pose.pose.img_url} />
+                <Card.Img variant="top" src={this.props.pose.pose.img_url} />
                 <Card.Body>
-                    <Card.Title>{props.pose.pose.english_name}</Card.Title>
-                    <Card.Text>{props.pose.pose.sanskrit_name}</Card.Text>
+                    <Card.Title>{this.props.pose.pose.english_name}</Card.Title>
+                    <Card.Text>{this.props.pose.pose.sanskrit_name}</Card.Text>
+                    {this.props.editing ? (
+                                                <>
+                                                <style type="text/css">
+                                                    {`
+                                                    .btn-flat {
+                                                    background-color: #A09CB0;
+                                                    color: white;
+                                                    }
+                            
+                                                    .btn-md {
+                                                    padding: 1rem 1.5rem;
+                                                    font-size: 1.5rem;
+                                                    }
+                                                    `}
+                                                </style>
+                            
+                                                <Button variant="flat" size="md" onClick={this.onRemove} >
+                                                    Remove
+                                                </Button>
+                                                </> ) : null
+                                    }
                 </Card.Body>
             </Card>
-            
+
         </div>
-    )
+    )}
 }
 
-const mapStateToProps = (state, ownProps) => {
-    console.log("ownProps:", ownProps )
+const mapDispatchToProps = dispatch => ({
+    removingFromSequence: (info) => { dispatch (removingFromSequence(info))}
+})
 
-    return {
-        // poses: state.poses.find(
-        //     pose => pose.id === parseInt(ownProps.sp.pose_id)
-        // )
-    }
-}
-
-export default connect(mapStateToProps)(SequencePose)
+export default connect(null, mapDispatchToProps)(SequencePose)

@@ -34,7 +34,7 @@ function clickedSequence(sequence){
     return {type: "CLICKED_SEQUENCE", payload: sequence}
 }
 
-function updatingSequence(info){
+function addingToSequence(info){
     return (dispatch, getState) => {
         let sequence = getState().sequences.find(s => s.id === info.sequenceId)
         let currentSequencePoses = sequence.sequence_poses
@@ -62,19 +62,45 @@ function updatingSequence(info){
             body: JSON.stringify({
                 sequence_id: info.sequenceId,
                 pose_id: info.pose.id,
-                position_num: currentSequencePoses.length + 1
+                position_num: currentSequencePoses.length ++
             })
         })
         .then(response => response.json())
-        .then(sequencePoses => dispatch(updatedSequence(sequencePoses)))
+        .then(sequencePose => dispatch(addedToSequence(sequencePose)))
     } // this updates the backend
 }
 
-function updatedSequence(sequencePoses){
+function addedToSequence(sequencePose){
     return {
-        type: "UPDATE_SEQUENCE_POSES",
-        payload: sequencePoses
+        type: "CREATED_SEQUENCE_POSE",
+        payload: sequencePose
     }
 }
 
-export { fetchingPoses, fetchingSequences, changeSearchText, clickedSequence, updatingSequence, updatedSequence }
+function removingFromSequence(info){
+    return (dispatch, getState) => {
+        
+        fetch(`${url}/sequence_poses/${info.sequencePoseId}`, {
+            method: "DELETE"
+        }) // this updates the backend
+
+        let sequence = getState().sequences.find(s => s.id === info.sequenceId)
+        let updatedSequencePoses = sequence.sequence_poses
+        console.log(updatedSequencePoses)
+
+        // dispatch(removedFromSequence(info.sequenceId))
+    } 
+}
+
+function removedFromSequence(sequenceId){
+    return {
+        type: "REMOVED_SEQUENCE_POSE",
+        payload: sequenceId
+    }
+}
+
+
+
+
+
+export { fetchingPoses, fetchingSequences, changeSearchText, clickedSequence, addingToSequence, addedToSequence, removingFromSequence }

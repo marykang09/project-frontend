@@ -59,7 +59,7 @@ class SequenceDetail extends React.Component {
                         Poses:  
                         <Row className="justify-content-md-center">
                         <Col md="auto"></Col>
-                        {this.sortedPoses().map(pose => <SequencePose pose={pose} key={pose.id}/>)}
+                        {this.sortedPoses().map(pose => <SequencePose pose={pose} key={pose.id} editing={false}/>)}
                         </Row>
                         <br></br>
                         <Row className="justify-content-md-center">

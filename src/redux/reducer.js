@@ -13,7 +13,8 @@ const sequencesReducer = (state=[], action) => {
     switch (action.type){
         case "FETCHED_SEQUENCES":
             return action.payload
-        case "UPDATE_SEQUENCE_POSES":
+
+        case "CREATED_SEQUENCE_POSE":
             return state.map(sequence => {
                 if (sequence.id === action.payload.sequence_id) {
                     return {
@@ -24,6 +25,10 @@ const sequencesReducer = (state=[], action) => {
                     return sequence
                 }
             })
+
+        case "REMOVED_SEQUENCE_POSE":
+            return state.filter(sequence => sequence.id !== action.payload)
+
         default: 
             return state
     }

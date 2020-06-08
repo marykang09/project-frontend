@@ -40,7 +40,7 @@ class SequenceForm extends React.Component {
                         <h2> Poses in Sequence: </h2>
                         <Row className="justify-content-md-center">
                         <Col md="auto"></Col>
-                        {this.sortedPoses().map(pose => <SequencePose pose={pose} key={pose.id}/>)}
+                        {this.sortedPoses().map(pose => <SequencePose pose={pose} sequence={this.props.sequence} editing={true}/>)}
                         </Row>
                         <br></br>
                         <Row className="justify-content-md-center">
@@ -80,8 +80,8 @@ const mapStateToProps = (state, ownProps) => {
             pose => 
                 pose.english_name.toLowerCase().includes(state.searchText.toLowerCase()) ||
                 pose.sanskrit_name.toLowerCase().includes(state.searchText.toLowerCase())
-        ),
-        sequenceposes: state.sequence.sequence_poses.sort((a, b) => (a.position_num  > b.position_num) ? 1: -1)
+        )
+        // sequenceposes: state.sequence.sequence_poses.sort((a, b) => (a.position_num  > b.position_num) ? 1: -1)
     }
 }
 

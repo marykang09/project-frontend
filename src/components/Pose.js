@@ -2,16 +2,9 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import {Button, Card} from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { updatingSequence } from '../redux/actions'
+import { addingToSequence } from '../redux/actions'
 
 class Pose extends React.Component {
-    constructor(props){
-        super(props)
-        // this.state = {
-        //     sequenceId: this.props.sequence.id,
-        //     pose: this.props.pose
-        // }
-    }
 
     onAdd = event => {
         event.preventDefault()
@@ -21,7 +14,7 @@ class Pose extends React.Component {
             pose: this.props.pose
         }
         
-        this.props.updatingSequence(info)
+        this.props.addingToSequence(info)
     }
 
     render(){
@@ -67,7 +60,7 @@ class Pose extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    updatingSequence: (info) => { dispatch ( updatingSequence(info))}
+    addingToSequence: (info) => { dispatch ( addingToSequence(info))}
 })
 
 export default connect(null, mapDispatchToProps)(Pose)

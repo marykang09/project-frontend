@@ -59,6 +59,7 @@ class SequenceForm extends React.Component {
                             <Pose
                                 key={pose.id}
                                 pose={pose}
+                                sequence={this.props.sequence}
                                 editing={true} />
                         ))}
                     </Row>

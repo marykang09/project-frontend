@@ -18,7 +18,8 @@ const PosesList = (props) => {
                 <Pose
                     key={pose.id}
                     pose={pose}
-                    editing={false} />
+                    editing={false}
+                    sequence={""} />
             ))}
                 </Row>
            

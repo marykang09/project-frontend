@@ -13,6 +13,17 @@ const sequencesReducer = (state=[], action) => {
     switch (action.type){
         case "FETCHED_SEQUENCES":
             return action.payload
+        case "UPDATE_SEQUENCE_POSES":
+            return state.map(sequence => {
+                if (sequence.id === action.payload.sequence_id) {
+                    return {
+                        ...sequence,
+                        sequence_poses: [...sequence.sequence_poses, action.payload]
+                    }
+                } else {
+                    return sequence
+                }
+            })
         default: 
             return state
     }
@@ -37,21 +48,12 @@ const clickedSequenceReducer = (state="", action) => {
     }
 }
 
-const editingReducer = (state=false, action) => {
-    switch (action.type){
-        case "EDITING_SEQUENCE":
-            return action.payload
-        default: 
-            return state 
-    }
-}
 
 const rootReducer = combineReducers({
     poses: posesReducer,
     sequences: sequencesReducer,
     searchText: searchTextReducer,
-    sequence: clickedSequenceReducer,
-    editMode: editingReducer
+    sequence: clickedSequenceReducer
 })
 
 

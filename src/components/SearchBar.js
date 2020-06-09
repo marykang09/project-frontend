@@ -9,7 +9,7 @@ const SearchBar = (props) => {
         <div>
             <FormControl 
                 type="text" 
-                placeholder="Search" 
+                placeholder="Search for a pose..." 
                 className="mr-sm-2"
                 value={props.value}
                 onChange={e => props.onChange(e.target.value)} />

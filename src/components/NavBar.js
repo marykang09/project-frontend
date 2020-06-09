@@ -29,7 +29,6 @@ const NavBar = (props) => {
 
                 <Form inline>
                 <SearchBar />
-                {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" /> */}
                     <>
                     <style type="text/css">
                         {`

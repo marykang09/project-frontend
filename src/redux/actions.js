@@ -1,5 +1,7 @@
 const url = "http://localhost:3000"
 
+/////////////////////////////////////////////////////////////////////////////////////////
+
 function fetchingPoses(){
     return (dispatch) => {
         fetch(`${url}/poses`)
@@ -11,6 +13,8 @@ function fetchingPoses(){
 function fetchedPoses(poses){
     return {type: "FETCHED_POSES", payload: poses}
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////
 
 function fetchingSequences(){
     return (dispatch) => {
@@ -24,37 +28,25 @@ function fetchedSequences(sequences){
     return {type: "FETCHED_SEQUENCES", payload: sequences}
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////
 
 function changeSearchText(value){
     return {type: "CHANGE_SEARCH_TEXT", payload: value}
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////
 
 function clickedSequence(sequence){
     // console.log("in actions", sequence)
     return {type: "CLICKED_SEQUENCE", payload: sequence}
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////
+
 function addingToSequence(info){
     return (dispatch, getState) => {
         let sequence = getState().sequences.find(s => s.id === info.sequenceId)
         let currentSequencePoses = sequence.sequence_poses
-        // let newSequencePose = {
-        //     sequnce_id: info.sequenceId,
-        //     pose_id: info.pose.id,
-        //     position_num: currentSequencePoses.length + 1,
-        //     pose: {
-        //         id: info.pose.id,
-        //         english_name: info.pose.english_name,
-        //         sanskrit_name: info.pose.sanskrit_name,
-        //         img_url: info.pose.img_url,
-        //         muscle_identifer: info.pose.muscle_identifer
-        //     }
-        // }
-
-        // let obj = {
-        //     sequence_poses: [...currentSequencePoses, newSequencePose]
-        // }
-        //fetch(`${url}/sequences/${info.sequenceId}`
 
         fetch(`${url}/sequence_poses`, {
             method: "POST",
@@ -67,7 +59,7 @@ function addingToSequence(info){
         })
         .then(response => response.json())
         .then(sequencePose => dispatch(addedToSequence(sequencePose)))
-    } // this updates the backend
+    } // this updates the backend, then dispatches to update frontend
 }
 
 function addedToSequence(sequencePose){
@@ -77,19 +69,20 @@ function addedToSequence(sequencePose){
     }
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////
+
 function removingFromSequence(info){
-    return (dispatch, getState) => {
+    return (dispatch) => {
         
         fetch(`${url}/sequence_poses/${info.sequencePoseId}`, {
             method: "DELETE"
         }) // this updates the backend
 
         dispatch(removedFromSequence(info))
-    } 
+    } // this will update the frontend
 }
 
 function removedFromSequence(info){
-    console.log(info)
 
     return {
         type: "REMOVED_SEQUENCE_POSE",
@@ -97,14 +90,15 @@ function removedFromSequence(info){
     }
 }
 
-function deleteSequence(info){
-    return (dispatch, getState) => {
-    fetch(`${url}/sequences/${info.sequenceId}`, {
-        method: "DELETE"
-    }) //this updates the backend
+/////////////////////////////////////////////////////////////////////////////////////////
 
-    console.log(info)
-    dispatch(deletedSequence(info))
+function deleteSequence(info){
+    return (dispatch) => {
+        fetch(`${url}/sequences/${info.sequenceId}`, {
+            method: "DELETE"
+        }) //this updates the backend
+
+        dispatch(deletedSequence(info))
     }
 }
 
@@ -116,6 +110,32 @@ function deletedSequence(info){
     }
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////
 
+function addingNewSequence(info){
+    return (dispatch, getState) => {
+        fetch(`${url}/sequences`, {
+            method: "POST",
+            headers: {"Content-Type" : "application/json"},
+            body: JSON.stringify({
+                user_id: 9,
+                name: info.newSequenceName,
+                notes: info.newSequenceNotes
+            })
+        })
+        .then(response => response.json())
+        .then(sequence => dispatch(addedSequence(sequence)))
+    }
+}
 
-export { fetchingPoses, fetchingSequences, changeSearchText, clickedSequence, addingToSequence, addedToSequence, removingFromSequence, removedFromSequence, deleteSequence }
+function addedSequence(sequence){
+
+    return {
+        type: "ADDED_SEQUENCE",
+        payload: sequence
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+export { fetchingPoses, fetchingSequences, changeSearchText, clickedSequence, addingToSequence, addedToSequence, removingFromSequence, removedFromSequence, deleteSequence, addingNewSequence, addedSequence }

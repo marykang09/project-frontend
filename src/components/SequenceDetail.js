@@ -73,6 +73,7 @@ class SequenceDetail extends React.Component {
                         Pose Count: {this.props.sequence.sequence_poses.length}
                         <br></br>
                     </h2>
+    
                         Poses:  
                         <Row className="justify-content-md-center">
                         <Col md="auto"></Col>

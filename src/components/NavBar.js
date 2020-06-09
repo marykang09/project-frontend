@@ -28,7 +28,7 @@ const NavBar = (props) => {
                 </Nav>
 
                 <Form inline>
-                <SearchBar />
+                    <SearchBar />
                     <>
                     <style type="text/css">
                         {`

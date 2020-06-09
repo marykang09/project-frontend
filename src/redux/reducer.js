@@ -9,6 +9,8 @@ const posesReducer = (state=[], action) => {
     }
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////
+
 const sequencesReducer = (state=[], action) => {
     switch (action.type){
         case "FETCHED_SEQUENCES":
@@ -41,10 +43,15 @@ const sequencesReducer = (state=[], action) => {
         case "DELETED_SEQUENCE":
             return state.filter(sequence => sequence.id !== action.payload.sequenceId)
             
+        case "ADDED_SEQUENCE":
+            return [...state, action.payload]
+            
         default: 
             return state
     }
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////
 
 const searchTextReducer = (state="", action) => {
     switch (action.type){
@@ -55,6 +62,7 @@ const searchTextReducer = (state="", action) => {
     }
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////
 
 const clickedSequenceReducer = (state="", action) => {
     switch (action.type){
@@ -66,12 +74,13 @@ const clickedSequenceReducer = (state="", action) => {
 }
 
 
+/////////////////////////////////////////////////////////////////////////////////////////
+
 const rootReducer = combineReducers({
     poses: posesReducer,
     sequences: sequencesReducer,
     searchText: searchTextReducer,
     sequence: clickedSequenceReducer
 })
-
 
 export default rootReducer

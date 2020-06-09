@@ -7,7 +7,6 @@ import { deleteSequence } from '../redux/actions'
 
 class SequenceDetail extends React.Component {
 
-
     sortedPoses = () => {
         return(!this.props.sequence ? null : 
         this.props.sequence.sequence_poses.sort((a, b) => (a.position_num  > b.position_num) ? 1: -1)
@@ -108,9 +107,15 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-const mapDispatchToProps = dispatch => ({
-    deleteSequence: (info) => {dispatch(deleteSequence(info))}
-})
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        deleteSequence: info => {
+            dispatch(deleteSequence (info, ownProps))
+            ownProps.history.push('/sequences')
+        }
+    } // this reroutes after deleting the sequence, back to sequence page
+}
+   
 
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SequenceDetail))

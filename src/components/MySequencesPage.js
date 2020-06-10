@@ -24,19 +24,19 @@ class MySequencesPage extends React.Component {
                             <Form inline>
                             <FormControl 
                                 type="text" 
-                                placeholder="New sequence name" 
+                                placeholder="NEW SEQUENCE NAME" 
                                 className="mr-sm-2"
                                 value={this.state.newSequenceName}
                                 onChange={(event) => this.setState({ newSequenceName: event.target.value})} />
 
                             <FormControl 
                                 type="text" 
-                                placeholder="New sequence notes" 
+                                placeholder="NEW SEQUENCE NOTES" 
                                 className="mr-sm-2"
                                 value={this.state.newSequenceNotes}
                                 onChange={(event) => this.setState({ newSequenceNotes: event.target.value})} />
                             
-                            <Button variant="flat" size="sm" onClick={this.onCreate}>Create</Button>
+                            <Button variant="flat" size="sm" onClick={this.onCreate}> CREATE </Button>
                             </Form>
                         </Row>
                     </Container>
@@ -70,17 +70,17 @@ class MySequencesPage extends React.Component {
     render(){
         return (
             <div>
-                <h1>My Sequences</h1>
+                <h1> MY SEQUENCES: </h1>
                 <br></br>
                 <Button variant="flat" size="md" onClick={this.onShowCreateForm}  >    
-                    {this.state.showCreateForm ? "Done with adding" : "Add a new sequence"}
+                    {this.state.showCreateForm ? "FINISHED ADDING" : "ADD A NEW SEQUENCE"}
                 </Button>
                 <br></br>
                 <br></br>
                 {this.showCreateFormDiv()}
                 <br></br>
                 &nbsp;
-                {this.props.sequences.length === 0 ? <h2>You don't have any sequences yet!</h2> : < SequencesList /> }
+                {this.props.sequences.length === 0 ? <h2>NO SEQUENCES YET</h2> : < SequencesList /> }
                 
                 
             </div>

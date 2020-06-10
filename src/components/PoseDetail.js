@@ -8,11 +8,11 @@ const PoseDetail = (props) => {
     return (!props.pose ? null : 
     //need to do this to account for INIT state = []
         <div>
-            <h1>Pose Details</h1>
+            <h1> POSE DETAILS </h1>
             <br></br>
-            <h3>Name: {props.pose.english_name}</h3>
+            <h3>NAME: {props.pose.english_name}</h3>
             <p>
-                Sanskrit Name: {props.pose.sanskrit_name}
+                SANSKRIT NAME: {props.pose.sanskrit_name}
                 <br>
                 </br>
                 <br>

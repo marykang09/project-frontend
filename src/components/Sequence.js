@@ -13,7 +13,7 @@ const Sequence = (props) => {
             <Card border="light" style={{ width: '18rem' }}>
                 <Card.Body>
                     
-                        <Card.Title> Sequence: </Card.Title>
+                        <Card.Title> SEQUENCE: </Card.Title>
                     
                             <Card.Text>
                                 <Link 
@@ -24,7 +24,7 @@ const Sequence = (props) => {
                                 </Link>
                                 <br></br>
                                 <br></br>
-                                Pose Count: {props.sequence.sequence_poses.length}
+                                POSE COUNT: {props.sequence.sequence_poses.length}
 
                             </Card.Text>
                 </Card.Body>            

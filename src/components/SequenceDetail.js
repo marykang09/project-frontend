@@ -6,6 +6,12 @@ import {Button, ButtonGroup, ButtonToolbar, Col, Container, Row} from 'react-boo
 import { deleteSequence } from '../redux/actions'
 
 class SequenceDetail extends React.Component {
+    constructor(){
+        super()
+        this.state = {
+            showNotes: false
+        }
+    }
 
     sortedPoses = () => {
         return(!this.props.sequence ? null : 
@@ -24,6 +30,28 @@ class SequenceDetail extends React.Component {
         this.props.deleteSequence(info)
     }
 
+    onReadNotes = (event) => {
+        event.preventDefault()
+        this.setState({ showNotes: !this.state.showNotes})
+    }
+
+    showReadNotesDiv = () => {
+        if (this.state.showNotes){
+            return (
+                <div>
+                    <Container>
+                        <Row className="justify-content-md-center">
+                            <p>
+                                {this.props.sequence.notes}
+                            </p>
+                        </Row>
+                    </Container>
+                </div>
+            )
+        }
+    }
+
+
     render(){
         return (!this.props.sequence ? null : 
         //need to do this to account for INIT state = []
@@ -32,7 +60,7 @@ class SequenceDetail extends React.Component {
                 <Container>
                     <Row className="justify-content-md-center">
                         <Col md="auto"></Col>
-                        <h1>Sequence: {this.props.sequence.name} </h1>
+                        <h1> SEQUENCE: {this.props.sequence.name} </h1>
                     </Row>
                     <br></br>
 
@@ -56,12 +84,12 @@ class SequenceDetail extends React.Component {
                         <Link to={`${this.props.sequence.id}/edit`}>
                         {/* why wont the link above work?!?! */}
                         {/* <Link to={`/sequences/${this.props.sequence.id}`}> */}
-                            <Button variant="flat" size="md"> Edit </Button>
+                            <Button variant="flat" size="md"> EDIT </Button>
                         </Link>    
                     </ButtonGroup>
                     &nbsp;
                     <ButtonGroup>
-                            <Button variant="flat" size="md" onClick={this.onDelete}> Delete </Button>
+                            <Button variant="flat" size="md" onClick={this.onDelete}> DELETE </Button>
                     </ButtonGroup>
                     
                     </>
@@ -70,21 +98,28 @@ class SequenceDetail extends React.Component {
                     <h2>
                         {/* Pose Count: {props.sequence.sequence_poses.length} */}
                         <br></br>
-                        Pose Count: {this.props.sequence.sequence_poses.length}
+                        {this.props.sequence.sequence_poses.length === 0 ? "ADD SOME POSES" : `POSE COUNT: ${this.props.sequence.sequence_poses.length}`}
+
                         <br></br>
                     </h2>
-    
-                        Poses:  
+                        <br></br>
+                        POSES IN SEQUENCE:  
                         <Row className="justify-content-md-center">
                         <Col md="auto"></Col>
                         {this.sortedPoses().map(pose => <SequencePose pose={pose} key={pose.id} editing={false}/>)}
                         </Row>
                         <br></br>
                         <Row className="justify-content-md-center">
-                            <p>
-                            Notes: {this.props.sequence.notes}
-                            </p>
+                            <Col md="auto">
+                                <Button variant="flat" size="sm" onClick={this.onReadNotes}> {this.state.showNotes ? "HIDE NOTES" : "READ NOTES" }</Button>
+                                <br></br>
+                                <br></br>
+                                {this.showReadNotesDiv()}
+                                <br></br>
+                                <br></br>
+                            </Col>
                         </Row>
+
                 </Container>
             </div>
         )

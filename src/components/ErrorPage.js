@@ -4,7 +4,8 @@ const ErrorPage = () => {
     
     return (
         <div>
-            this is the ErrorPage
+            
+            NAMASTE
 
         </div>
     )

@@ -7,16 +7,16 @@ const NavBar = (props) => {
 
     return (
         <Navbar style={{backgroundColor: "teal"}} className="color-nav" fixed="top" className="sticky" bg="light" variant="light" expand="lg">
-            <Navbar.Brand href="/"> Yoga App </Navbar.Brand>
+            <Navbar.Brand href="/"> YOGA APP  </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                <Nav.Link href="/poses">Poses</Nav.Link>
+                <Nav.Link href="/poses"> POSES </Nav.Link>
                 <br></br>
-                <Nav.Link href="/sequences">My Sequences</Nav.Link>
+                <Nav.Link href="/sequences">MY SEQUENCES </Nav.Link>
                 <br></br>
-                <Nav.Link href="/about">About</Nav.Link>
+                <Nav.Link href="/about"> ABOUT </Nav.Link>
                 {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -45,7 +45,7 @@ const NavBar = (props) => {
                     </style>
 
                     <Button variant="flat" size="md">
-                        Search
+                        SEARCH
                     </Button>
                     </>
                 </Form>

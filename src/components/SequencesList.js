@@ -13,7 +13,7 @@ const SequencesList = (props) => {
                 
                 <Row className="justify-content-md-center">
                 <Col md="auto"></Col>
-            {props.sequences.map(sequence => (
+                   {props.sequences.map(sequence => (
                 <Sequence
                     key={sequence.id}
                     sequence={sequence} />

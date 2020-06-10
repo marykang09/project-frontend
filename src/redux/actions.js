@@ -54,7 +54,7 @@ function addingToSequence(info){
             body: JSON.stringify({
                 sequence_id: info.sequenceId,
                 pose_id: info.pose.id,
-                position_num: ++ currentSequencePoses.length
+                position_num: currentSequencePoses.length
             })
         })
         .then(response => response.json())

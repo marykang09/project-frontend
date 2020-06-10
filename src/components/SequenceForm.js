@@ -5,11 +5,17 @@ import {Col, Container, Row} from 'react-bootstrap'
 import SequencePose from './SequencePose'
 import Pose from './Pose'
 
-class SequenceForm extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
+// import CardContainer from './CardContainer'
+////// tutorial ////////
+// import Card from './Card' 
+// import { DragDropContext, HTML5Backend } from 'react-dnd'
+// const update = require('immutability-helper');
 
+
+class SequenceForm extends React.Component {
+    constructor() {
+        super()
+        this.state = {
         }
     }
 
@@ -18,12 +24,30 @@ class SequenceForm extends React.Component {
         //updated sequence info
     }
 
-    sortedPoses = () => {
-        return(!this.props.sequence ? null : 
-        this.props.sequence.sequence_poses.sort((a, b) => (a.position_num  > b.position_num) ? 1: -1)
-    //list.sort((a, b) => (a.color > b.color) ? 1 : -1)
-        )
-    }
+    // sortedPoses = () => {
+    //     return(!this.props.sequence ? null : 
+    //     this.props.sequence.sequence_poses.sort((a, b) => (a.position_num  > b.position_num) ? 1: -1)
+    // //list.sort((a, b) => (a.color > b.color) ? 1 : -1)
+    //     )
+    // } 
+    // this is to sort, if i need to sort by the position number attribute, use in place of this sequences poses when mapping to render <SequencePose> below
+
+
+    /////////////////////////// this is part of the tutorial ///////////////////////////
+    // moveCard = (dragIndex, hoverIndex) => {
+    //     const { cards } = this.state
+    //     const dragCard = cards[dragIndex]
+    
+    //     this.setState(
+    //       update(this.state, {
+    //         cards: {
+    //           $splice: [[dragIndex, 1], [hoverIndex, 0, dragCard]],
+    //         },
+    //       }),
+    //     )
+    // }
+    /////////////////////////// this is part of the tutorial ///////////////////////////
+
 
     render(){
         console.log("SequenceForm's props", this.props)
@@ -33,25 +57,34 @@ class SequenceForm extends React.Component {
                     <Container>
                         <Row className="justify-content-md-center">
                         <Col md="auto"></Col>
-                        <h1> Sequence: {this.props.sequence.name} </h1>
+                        <h1> SEQUENCE: {this.props.sequence.name} </h1>
                         </Row>
-                        <h2> Pose Count: {this.props.sequence.sequence_poses.length} </h2>
+                        <h2> 
+                            {this.props.sequence.sequence_poses.length === 0 ? "ADD SOME POSES" : `POSE COUNT: ${this.props.sequence.sequence_poses.length}`}
+                        </h2>    
 
-                        <h2> Poses in Sequence: </h2>
+
+                        <h2> POSES IN SEQUENCE:  </h2>
                         <Row className="justify-content-md-center">
                         <Col md="auto"></Col>
-                        {this.sortedPoses().map(pose => <SequencePose pose={pose} sequence={this.props.sequence} editing={true}/>)}
+                        {this.props.sequence.sequence_poses.map(pose => <SequencePose pose={pose} sequence={this.props.sequence} editing={true}/>)}
                         </Row>
                         <br></br>
                         <Row className="justify-content-md-center">
+                        
+                        {/* ///////////////////// adding the card container div here as i follow along with the tutuorial ///////////////////// */}
+                        
+                        {/* ///////////////////// adding the card container div here as i follow along with the tutuorial ///////////////////// */}
+
+                        <br></br>
                         <p>
-                            Notes: {this.props.sequence.notes}
+                            NOTES: {this.props.sequence.notes}
                         </p>
                         </Row>
                     </Container>
                     <br></br>
                     <Container>
-                        <h2>Poses:</h2>
+                        <h2>POSES :</h2>
                     <Row className="justify-content-md-center">
                         <br></br>
                         <Col md="auto"></Col>
@@ -90,3 +123,4 @@ const mapStateToProps = (state, ownProps) => {
 // }
 
 export default withRouter(connect(mapStateToProps)(SequenceForm))
+// export default DragDropContext(HTML5Backend)(SequenceForm)

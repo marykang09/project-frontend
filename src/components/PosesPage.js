@@ -7,7 +7,7 @@ const PosesPage = (props) => {
 
     return (
         <div>
-            <h1>Browse Poses</h1>
+            <h1> BROWSE POSES </h1>
 
                 <Route path="/" component={PosesList} />
 

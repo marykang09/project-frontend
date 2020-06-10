@@ -138,4 +138,13 @@ function addedSequence(sequence){
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-export { fetchingPoses, fetchingSequences, changeSearchText, clickedSequence, addingToSequence, addedToSequence, removingFromSequence, removedFromSequence, deleteSequence, addingNewSequence, addedSequence }
+function orderSequencePoseList( oldIndex, newIndex, sequenceId){
+    return {
+        type: "REORDER_SEQUENCE_POSES",
+        payload: { oldIndex, newIndex, sequenceId}
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+export { fetchingPoses, fetchingSequences, changeSearchText, clickedSequence, addingToSequence, addedToSequence, removingFromSequence, removedFromSequence, deleteSequence, addingNewSequence, addedSequence, orderSequencePoseList }

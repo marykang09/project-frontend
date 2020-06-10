@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import { arrayMove } from 'react-sortable-hoc'
 
 const posesReducer = (state=[], action) => {
     switch (action.type) {
@@ -46,6 +47,23 @@ const sequencesReducer = (state=[], action) => {
         case "ADDED_SEQUENCE":
             return [...state, action.payload]
             
+        case "REORDER_SEQUENCE_POSES":
+            console.log("in reducer, action.payload:", action.payload)
+
+            let changedSequencePoses = state.map(sequence => {
+                
+                if (sequence.id === action.payload.sequenceId){
+                    return {
+                        ...sequence,
+                        sequence_poses: arrayMove(sequence.sequence_poses, action.payload.oldIndex, action.payload.newIndex)
+                    }
+                } else { 
+                    return sequence
+                }
+            })
+            // debugger
+            return changedSequencePoses
+            //something like.. state.map(sequence => { if (sequence.id === action.payload.sequence_id){ return { ...sequence, sequence_poses: arrayMove}}})
         default: 
             return state
     }

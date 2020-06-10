@@ -57,6 +57,8 @@ class SequencePose extends React.Component {
     )}
 }
 
+// const mapStateToProps = 
+
 const mapDispatchToProps = dispatch => ({
     removingFromSequence: (info) => { dispatch (removingFromSequence(info))}
 })

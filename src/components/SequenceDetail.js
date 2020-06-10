@@ -2,14 +2,16 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import SequencePose from './SequencePose'
-import {Button, ButtonGroup, ButtonToolbar, Col, Container, Row} from 'react-bootstrap'
+import {Button, ButtonGroup, ButtonToolbar, Col, Container, Row, Alert} from 'react-bootstrap'
 import { deleteSequence } from '../redux/actions'
+import AlertDismissible from './AlertDismissible'
 
 class SequenceDetail extends React.Component {
     constructor(){
         super()
         this.state = {
-            showNotes: false
+            showNotes: false,
+            showAlert: false
         }
     }
 
@@ -20,15 +22,75 @@ class SequenceDetail extends React.Component {
         )
     }
 
-    onDelete = (event) => {
-        event.preventDefault()
+    onDelete = () => {
+        // event.preventDefault()
+        // this.setState({ showAlert: true})
+        // this.handleShowAlert()
+        // why this does not work??
 
-        let info ={
+
+        let info = {
             sequenceId: this.props.sequence.id
         }
 
         this.props.deleteSequence(info)
     }
+
+    // handleHideAlert = () => this.setState({ showAlert: false })
+
+    // handleShowAlert = () => {
+    //     this.setState({ showAlert: true })
+    //     console.log("hit the handleShowAlert")
+        
+    //     return (
+    //         <Alert show={this.state.showAlert} variant="success" style={{ maxWidth: 500 }}>
+    //                 <Alert.Heading> ARE YOU SURE? </Alert.Heading>
+    //                 <div className="d-flex justify-content-end">
+    //                     <Button onclick={()=>{this.handleHideAlert()}} variant="outline-success">
+    //                         DELETE SEQUENCE
+    //                     </Button>
+    //                 </div>
+    //             </Alert>
+    //     )
+    // }
+
+    showAlert = () => {
+        if (this.state.showAlert){
+            return (
+                <Alert show={this.state.showAlert} variant="success" style={{ maxWidth: 500 }}>
+                    <Alert.Heading> ARE YOU SURE? </Alert.Heading>
+                    <div className="d-flex justify-content-end">
+                        <Button onclick={this.handleHideAlert} variant="outline-success">
+                            DELETE SEQUENCE
+                        </Button>
+                    </div>
+                </Alert>
+            )
+        }
+    }
+    // showAlert = () => {
+        
+    //     // if (this.state.showAlert){
+    //     //     console.log("hit the showAlert")
+    //         return (
+    //                 <Alert show={this.state.showAlert} variant="success" style={{ maxWidth: 500 }}>
+    //                     <Alert.Heading>Are you sure?</Alert.Heading>
+    //                     <p>
+    //                         Duis mollis, est non commodo luctus, nisi erat porttitor ligula,
+    //                         eget lacinia odio sem nec elit. Cras mattis consectetur purus sit
+    //                         amet fermentum.
+    //                     </p>
+    //                     <hr />
+    //                     <div className="d-flex justify-content-end">
+    //                         <Button onClick={this.setState({ showAlert: false})} variant="outline-success">
+    //                             Close me ya'll!
+    //                         </Button>
+    //                     </div>
+    //                 </Alert>
+    //         )
+        
+    // } 
+    // //////////// why does this not work
 
     onReadNotes = (event) => {
         event.preventDefault()
@@ -50,6 +112,7 @@ class SequenceDetail extends React.Component {
             )
         }
     }
+
 
 
     render(){
@@ -89,7 +152,9 @@ class SequenceDetail extends React.Component {
                     </ButtonGroup>
                     &nbsp;
                     <ButtonGroup>
-                            <Button variant="flat" size="md" onClick={this.onDelete}> DELETE </Button>
+                            <Button variant="flat" size="md" onClick={() => this.onDelete()}> DELETE </Button>
+                             {/* {this.state.showAlert ? this.showAlert() : null} */}
+                            
                     </ButtonGroup>
                     
                     </>
@@ -106,7 +171,7 @@ class SequenceDetail extends React.Component {
                         POSES IN SEQUENCE:  
                         <Row className="justify-content-md-center">
                         <Col md="auto"></Col>
-                        {this.sortedPoses().map(pose => <SequencePose pose={pose} key={pose.id} editing={false}/>)}
+                        {this.props.sequence.sequence_poses.map(pose => <SequencePose pose={pose} key={pose.id} editing={false}/>)}
                         </Row>
                         <br></br>
                         <Row className="justify-content-md-center">

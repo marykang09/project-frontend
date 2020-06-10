@@ -4,6 +4,9 @@ import { connect } from 'react-redux'
 import {Col, Container, Row} from 'react-bootstrap'
 import SequencePose from './SequencePose'
 import Pose from './Pose'
+import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
+// import Draggable from "react-draggable";
+import { orderSequencePoseList } from '../redux/actions'
 
 // import CardContainer from './CardContainer'
 ////// tutorial ////////
@@ -12,17 +15,6 @@ import Pose from './Pose'
 // const update = require('immutability-helper');
 
 
-class SequenceForm extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-        }
-    }
-
-    onSave = event => {
-        // event.preventDefault()
-        //updated sequence info
-    }
 
     // sortedPoses = () => {
     //     return(!this.props.sequence ? null : 
@@ -31,6 +23,7 @@ class SequenceForm extends React.Component {
     //     )
     // } 
     // this is to sort, if i need to sort by the position number attribute, use in place of this sequences poses when mapping to render <SequencePose> below
+
 
 
     /////////////////////////// this is part of the tutorial ///////////////////////////
@@ -49,9 +42,60 @@ class SequenceForm extends React.Component {
     /////////////////////////// this is part of the tutorial ///////////////////////////
 
 
-    render(){
+
+    //*//*//*//*//*//*//*//*// this is part of the react redux example  //*//*//*//*//*//*//*//*// 
+
+    let SortableItem = SortableElement(({pose, sequence}) => {
+
+        return (
+            // <li className="col-6 col-md-4 col-lg-3 mt-3 px-2">
+            <li className="justify-content-md-center">
+                <SequencePose pose={pose} sequence={sequence} editing={true}/>
+                {/* <SequencePose pose={pose} sequence={props.sequence} editing={true}/> */}
+                {/* <img className="image-item" src={value.img_url}/> */}
+            </li>
+        )
+    })
+    
+    let SortableList = SortableContainer(({poses, sequence}) => {
+        return (
+            <ul className="row">
+                {poses.map((pose, index) => (
+                <SortableItem key={`pose-${pose.id}`} index={index} pose={pose} sequence={sequence} />
+                ))}
+            </ul>
+            )
+        })
+    
+    class SortableComponent extends React.Component {
+        
+        render() {
+        console.log("in SortableComponent, this.props:" ,this.props)
+           
+        return <SortableList poses={this.props.poses} sequence={this.props.sequence} onSortEnd={this.props.onSortEnd} axis="xy"/>;
+        }
+    }
+
+    //*//*//*//*//*//*//*//*// this is part of the react example  //*//*//*//*//*//*//*//*// 
+
+
+
+    class SequenceForm extends React.Component {
+        constructor() {
+            super()
+            this.state = {
+            }
+        }
+    
+        onSave = event => {
+            // event.preventDefault()
+            //updated sequence info
+        }
+
+        render(){
         console.log("SequenceForm's props", this.props)
 
+        
         return (!this.props.sequence ? null : 
                 <div>
                     <Container>
@@ -67,16 +111,20 @@ class SequenceForm extends React.Component {
                         <h2> POSES IN SEQUENCE:  </h2>
                         <Row className="justify-content-md-center">
                         <Col md="auto"></Col>
-                        {this.props.sequence.sequence_poses.map(pose => <SequencePose pose={pose} sequence={this.props.sequence} editing={true}/>)}
+                        {/* {this.props.sequence.sequence_poses.map(pose => <SequencePose pose={pose} sequence={this.props.sequence} editing={true}/> )} */}
                         </Row>
                         <br></br>
                         <Row className="justify-content-md-center">
-                        
-                        {/* ///////////////////// adding the card container div here as i follow along with the tutuorial ///////////////////// */}
-                        
-                        {/* ///////////////////// adding the card container div here as i follow along with the tutuorial ///////////////////// */}
-
+                        <Col md="auto"></Col>
+                        {/* /////////////////////  //*//*//*//*//*//*//*//*// this is part of the react example  //*//*//*//*//*//*//*//*// ///////////////////// */}
+                        {/* <div className="grid-list-container"> */}
+                            <SortableComponent poses={this.props.sequence.sequence_poses} sequence={this.props.sequence} onSortEnd={(args)=>{this.props.orderSequencePoseList(args, this.props.sequence.id)}} />
+                        {/* </div> */}
+                        {/* /////////////////////  //*//*//*//*//*//*//*//*// this is part of the react example  //*//*//*//*//*//*//*//*// ///////////////////// */}
+                        </Row>
                         <br></br>
+                        <Row className="justify-content-md-center">
+                        <Col md="auto"></Col>
                         <p>
                             NOTES: {this.props.sequence.notes}
                         </p>
@@ -106,9 +154,14 @@ const mapStateToProps = (state, ownProps) => {
 
     let sequenceId = parseInt(ownProps.match.params.id)
     //have to parseInt because the params id is a string
-
+    console.log("state.sequences", state.sequences)
     return {
-        sequence: state.sequences.find(s => parseInt(s.id) === sequenceId),
+        // sequence_poses: this.state.sequence.sequence_poses,
+        
+        sequences: state.sequences,
+        sequence: state.sequences.find(s => parseInt(s.id) === sequenceId) || 
+                  state.sequences.find(s => parseInt(s.id) === ownProps.sequenceId),
+        // sequence_poses: state.sequences.find(s => parseInt(s.id) === sequenceId).sequence_poses,
         poses: state.poses.filter(
             pose => 
                 pose.english_name.toLowerCase().includes(state.searchText.toLowerCase()) ||
@@ -118,9 +171,14 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//     updatingSequence: (sequence) => { dispatch (updatingSequence(sequence))}
-// }
+const mapDispatchToProps = (dispatch, props) => ({
+    orderSequencePoseList: ({oldIndex, newIndex}, sequenceId) => { 
+        // console.log(args)
+        dispatch (orderSequencePoseList( oldIndex, newIndex, sequenceId))}
+    }
+)
 
-export default withRouter(connect(mapStateToProps)(SequenceForm))
+
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SequenceForm))
 // export default DragDropContext(HTML5Backend)(SequenceForm)

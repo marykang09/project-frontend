@@ -3,7 +3,6 @@ import './App.css';
 import {Route, Switch, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {fetchingPoses, fetchingSequences} from './redux/actions'
-
 import NavBar from './components/NavBar'
 import AboutPage from './components/AboutPage'
 import ErrorPage from './components/ErrorPage'
@@ -40,6 +39,7 @@ class App extends React.Component {
         <div className="sticky">
           <NavBar /> 
         </div>
+
 
       {this.state.loading ? <Spinner animation="border" variant="info" /> : 
         

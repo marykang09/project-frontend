@@ -1,6 +1,7 @@
 import React from 'react'
 import Demo from './Demo'
 import styled from 'styled-components';
+import headerphoto from './images/twitter_header_photo_1 copy.png'
 
 // Create a <Title> react component that renders an <h1> which is
 // centered, palevioletred and sized at 1.5em
@@ -20,13 +21,21 @@ const Wrapper = styled.section`
 
 const AboutPage = () => {
     return (
-    <div>
         <Wrapper>
-            <Title>Use this app to browse yoga poses, and create your own sequences! Namaste</Title>
+        <img 
+            src={headerphoto} 
+            style={{width:"100%"}}
+            padding="0" />
+            <br></br>
+            <br></br>
+        <Title>Use this app to browse poses and create your own sequences </Title>
         </Wrapper>
-            {/* <Demo/> */}
-     </div>
-    )
+        )
+
+
+            // {/* <Demo/> */}
+
+    
 }
 
 export default AboutPage

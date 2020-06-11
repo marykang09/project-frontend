@@ -44,9 +44,11 @@ const NavBar = (props) => {
                         `}
                     </style>
 
-                    <Button variant="flat" size="md">
-                        SEARCH
-                    </Button>
+                    <Link className="item" to='/' >
+                        <Button variant="flat" size="md">
+                            SEARCH
+                        </Button>
+                    </Link>
                     </>
                 </Form>
 

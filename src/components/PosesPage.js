@@ -2,7 +2,8 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import PosesList from './PosesList'
 import styled from 'styled-components';
-// import header_photo from 'yoga-frontend/yoga/src/components/images/twitter_header_photo_1 copy.png'
+import headerphoto from './images/twitter_header_photo_1 copy.png'
+
 
 // Create a <Title> react component that renders an <h1> which is
 // centered, palevioletred and sized at 1.5em
@@ -26,7 +27,6 @@ const PosesPage = (props) => {
     return (
         <div>
             <Wrapper>
-                header_photo
                 <Title> BROWSE ALL POSES </Title>
 
             </Wrapper>

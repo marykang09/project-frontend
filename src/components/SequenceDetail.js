@@ -5,6 +5,7 @@ import SequencePose from './SequencePose'
 import {Button, ButtonGroup, ButtonToolbar, Col, Container, Row, Alert} from 'react-bootstrap'
 import { deleteSequence } from '../redux/actions'
 import AlertDismissible from './AlertDismissible'
+import styled from 'styled-components';
 
 class SequenceDetail extends React.Component {
     constructor(){
@@ -116,17 +117,46 @@ class SequenceDetail extends React.Component {
 
 
     render(){
+
+        const Title = styled.h1`
+        font-size: 1.5em;
+        text-align: center;
+        color: white;
+        `;
+    
+        const Wrapper = styled.section`
+        padding: 2.5em;
+        background: #a3b9c9;
+        `;
+
+        const TitleWrapper = styled.section`
+        padding: 1.5em;
+        background: #ABDAE1;
+        `;
+
         return (!this.props.sequence ? null : 
         //need to do this to account for INIT state = []
         
             <div>
                 <Container>
-                    <Row className="justify-content-md-center">
-                        <Col md="auto"></Col>
-                        <h1> SEQUENCE: {this.props.sequence.name} </h1>
-                    </Row>
-                    <br></br>
+                    <Wrapper>
+                        <Title>
+                            <Row className="justify-content-md-center">
+                                <Col md="auto"></Col>
+                                <h1> SEQUENCE: {this.props.sequence.name} </h1>
+                            </Row>
+                            <br></br>
+                            <h2>
+                            {this.props.sequence.sequence_poses.length === 0 ? "ADD SOME POSES" : `POSE COUNT: ${this.props.sequence.sequence_poses.length}`}
+                            </h2>
+                            <br></br>
+                        </Title>
+                    </Wrapper>
 
+
+
+                    <br></br>
+                    <br></br>
                     <>
                     <style type="text/css">
                         {`
@@ -160,13 +190,7 @@ class SequenceDetail extends React.Component {
                     </>
                     <br></br>
 
-                    <h2>
-                        {/* Pose Count: {props.sequence.sequence_poses.length} */}
-                        <br></br>
-                        {this.props.sequence.sequence_poses.length === 0 ? "ADD SOME POSES" : `POSE COUNT: ${this.props.sequence.sequence_poses.length}`}
 
-                        <br></br>
-                    </h2>
                         <br></br>
                         POSES IN SEQUENCE:  
                         <Row className="justify-content-md-center">

@@ -8,16 +8,13 @@ import {SortableContainer, SortableElement} from 'react-sortable-hoc';
 import arrayMove from 'array-move' 
 // import Draggable from "react-draggable";
 import { orderSequencePoseList, onSaveNewOrder } from '../redux/actions'
+import styled from 'styled-components'; 
 
 // import CardContainer from './CardContainer'
 ////// tutorial ////////
 // import Card from './Card' 
 // import { DragDropContext, HTML5Backend } from 'react-dnd'
 // const update = require('immutability-helper');
-
-
-
-
 
     /////////////////////////// this is part of the tutorial ///////////////////////////
     // moveCard = (dragIndex, hoverIndex) => {
@@ -96,59 +93,81 @@ import { orderSequencePoseList, onSaveNewOrder } from '../redux/actions'
         render(){
         console.log("SequenceForm's props", this.props)
 
+        const Title = styled.h1`
+        font-size: 1.5em;
+        text-align: center;
+        color: white;
+        `;
+    
+        const Wrapper = styled.section`
+        padding: 2.5em;
+        background: #a3b9c9;
+        `;
+
+        const TitleWrapper = styled.section`
+        padding: 1.5em;
+        background: #ABDAE1;
+        `;
+
         
         return (!this.props.sequence ? null : 
                 <div>
                     <Container>
-                        <Row className="justify-content-md-center">
-                        <Col md="auto"></Col>
-                        <h1> SEQUENCE: {this.props.sequence.name} </h1>
-                        </Row>
-                        <h2> 
-                            {this.props.sequence.sequence_poses.length === 0 ? "ADD SOME POSES" : `POSE COUNT: ${this.props.sequence.sequence_poses.length}`}
-                        </h2>    
-                        <Row className="justify-content-md-center">
-                        <Col md="auto"></Col>
-                            <Button variant="flat" size="md" onClick={()=>{this.props.onSaveNewOrder(this.props.sequence)}}> SAVE </Button>
-                        </Row>
+                        <Wrapper>
+                            <Title>
+                                <Row className="justify-content-md-center">
+                                    <Col md="auto"></Col>
+                                    <h1> SEQUENCE: {this.props.sequence.name} </h1>
+                                </Row>
+                                <br></br>
+                                <h2> 
+                                    {this.props.sequence.sequence_poses.length === 0 ? "ADD SOME POSES" : `POSE COUNT: ${this.props.sequence.sequence_poses.length}`}
+                                </h2> 
+                            </Title>   
+                        </Wrapper>
                         <br></br>
-                        <Row className="justify-content-md-center">
-                        <Col md="auto"></Col>
-                        <h2> POSES IN SEQUENCE:  </h2>
-                        <br></br>
-                        {/* {this.props.sequence.sequence_poses.map(pose => <SequencePose pose={pose} sequence={this.props.sequence} editing={true}/> )} */}
-                        </Row>
-                        <br></br>
-                        <Row className="justify-content-md-center">
-                        <Col md="auto"></Col>
-                        {/* /////////////////////  //*//*//*//*//*//*//*//*// this is part of the react example  //*//*//*//*//*//*//*//*// ///////////////////// */}
-                        {/* <div className="grid-list-container"> */}
-                            <SortableComponent poses={this.props.sequence.sequence_poses} sequence={this.props.sequence} onSortEnd={(args)=>{this.props.orderSequencePoseList(args, this.props.sequence.id)}} />
-                        {/* </div> */}
-                        {/* /////////////////////  //*//*//*//*//*//*//*//*// this is part of the react example  //*//*//*//*//*//*//*//*// ///////////////////// */}
-                        </Row>
-                        <br></br>
-                        <Row className="justify-content-md-center">
-                        <Col md="auto"></Col>
-                        <p>
-                            NOTES: {this.props.sequence.notes}
-                        </p>
-                        </Row>
-                    </Container>
-                    <br></br>
-                    <Container>
-                        <h2>POSES :</h2>
-                    <Row className="justify-content-md-center">
-                        <br></br>
-                        <Col md="auto"></Col>
-                            {this.props.poses.map(pose => (
-                            <Pose
-                                key={pose.id}
-                                pose={pose}
-                                sequence={this.props.sequence}
-                                editing={true} />
-                        ))}
-                    </Row>
+                                <Row className="justify-content-md-center">
+                                <Col md="auto"></Col>
+                                    <Button variant="flat" size="md" onClick={()=>{this.props.onSaveNewOrder(this.props.sequence)}}> SAVE </Button>
+                                </Row>
+                                <br></br>
+                                <Row className="justify-content-md-center">
+                                <Col md="auto"></Col>
+                                <h2> POSES IN SEQUENCE:  </h2>
+                                <br></br>
+                                {/* {this.props.sequence.sequence_poses.map(pose => <SequencePose pose={pose} sequence={this.props.sequence} editing={true}/> )} */}
+                                </Row>
+                                <br></br>
+                                <Row className="justify-content-md-center">
+                                <Col md="auto"></Col>
+                                {/* /////////////////////  //*//*//*//*//*//*//*//*// this is part of the react example  //*//*//*//*//*//*//*//*// ///////////////////// */}
+                                {/* <div className="grid-list-container"> */}
+                                    <SortableComponent poses={this.props.sequence.sequence_poses} sequence={this.props.sequence} onSortEnd={(args)=>{this.props.orderSequencePoseList(args, this.props.sequence.id)}} />
+                                {/* </div> */}
+                                {/* /////////////////////  //*//*//*//*//*//*//*//*// this is part of the react example  //*//*//*//*//*//*//*//*// ///////////////////// */}
+                                </Row>
+                                <br></br>
+                                <Row className="justify-content-md-center">
+                                <Col md="auto"></Col>
+                                <p>
+                                    NOTES: {this.props.sequence.notes}
+                                </p>
+                                </Row>
+                            </Container>
+                            <br></br>
+                            <Container>
+                                <h2>POSES :</h2>
+                            <Row className="justify-content-md-center">
+                                <br></br>
+                                <Col md="auto"></Col>
+                                    {this.props.poses.map(pose => (
+                                    <Pose
+                                        key={pose.id}
+                                        pose={pose}
+                                        sequence={this.props.sequence}
+                                        editing={true} />
+                                ))}
+                            </Row>
                     </Container>
                 </div>
         )

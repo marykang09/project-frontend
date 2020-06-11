@@ -4,6 +4,7 @@ import SequencesList from './SequencesList'
 import { connect } from 'react-redux'
 import { Button, Form, FormControl, Container, Row } from 'react-bootstrap'
 import { addingNewSequence } from '../redux/actions'
+import styled from 'styled-components';
 
 class MySequencesPage extends React.Component {
     constructor(){
@@ -68,18 +69,35 @@ class MySequencesPage extends React.Component {
     }
 
     render(){
+
+        const Title = styled.h1`
+        font-size: 2.0em;
+        text-align: center;
+        color: white;
+        `;
+    
+        const Wrapper = styled.section`
+        padding: 4em;
+        background: #a3b9c9;
+        `;
+
         return (
             <div>
-                <h1> MY SEQUENCES: </h1>
+                <Wrapper>
+                    <Title>
+                    <h1> MY SEQUENCES </h1>
+                    </Title>
+                    <br></br>
+                    <Button variant="flat" size="md" onClick={this.onShowCreateForm}  >    
+                        {this.state.showCreateForm ? "FINISHED ADDING" : "ADD A NEW SEQUENCE"}
+                    </Button>
+                    <br></br>
+                    <br></br>
+                    {this.showCreateFormDiv()}
+                    <br></br>
+                    &nbsp;
+                </Wrapper>
                 <br></br>
-                <Button variant="flat" size="md" onClick={this.onShowCreateForm}  >    
-                    {this.state.showCreateForm ? "FINISHED ADDING" : "ADD A NEW SEQUENCE"}
-                </Button>
-                <br></br>
-                <br></br>
-                {this.showCreateFormDiv()}
-                <br></br>
-                &nbsp;
                 {this.props.sequences.length === 0 ? <h2>NO SEQUENCES YET</h2> : < SequencesList /> }
                 
                 

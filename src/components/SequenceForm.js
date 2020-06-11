@@ -39,7 +39,7 @@ import styled from 'styled-components';
 
         return (
             // <li className="col-6 col-md-4 col-lg-3 mt-3 px-2">
-            <li className="justify-content-md-center">
+            <li className="justify-content-md-center" style={{listStyleType: "none"}}>
                 <SequencePose pose={pose} sequence={sequence} editing={true}/>
                 {/* <SequencePose pose={pose} sequence={props.sequence} editing={true}/> */}
                 {/* <img className="image-item" src={value.img_url}/> */}
@@ -49,7 +49,7 @@ import styled from 'styled-components';
     
     let SortableList = SortableContainer(({poses, sequence}) => {
         return (
-            <ul className="row">
+            <ul className="row" style={{listStyleType: "none"}}>
                 {poses.map((pose, index) => (
                 <SortableItem key={`pose-${pose.id}`} index={index} pose={pose} sequence={sequence} />
                 ))}

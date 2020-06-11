@@ -171,7 +171,7 @@ class SequenceDetail extends React.Component {
                         POSES IN SEQUENCE:  
                         <Row className="justify-content-md-center">
                         <Col md="auto"></Col>
-                        {this.props.sequence.sequence_poses.map(pose => <SequencePose pose={pose} key={pose.id} editing={false}/>)}
+                        {this.sortedPoses().map(pose => <SequencePose pose={pose} key={pose.id} editing={false}/>)}
                         </Row>
                         <br></br>
                         <Row className="justify-content-md-center">

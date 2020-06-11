@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import {Col, Container, Row} from 'react-bootstrap'
+import {Col, Container, Row, Button} from 'react-bootstrap'
 import SequencePose from './SequencePose'
 import Pose from './Pose'
-import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
+import {SortableContainer, SortableElement} from 'react-sortable-hoc';
+import arrayMove from 'array-move' 
 // import Draggable from "react-draggable";
-import { orderSequencePoseList } from '../redux/actions'
+import { orderSequencePoseList, onSaveNewOrder } from '../redux/actions'
 
 // import CardContainer from './CardContainer'
 ////// tutorial ////////
@@ -15,14 +16,6 @@ import { orderSequencePoseList } from '../redux/actions'
 // const update = require('immutability-helper');
 
 
-
-    // sortedPoses = () => {
-    //     return(!this.props.sequence ? null : 
-    //     this.props.sequence.sequence_poses.sort((a, b) => (a.position_num  > b.position_num) ? 1: -1)
-    // //list.sort((a, b) => (a.color > b.color) ? 1 : -1)
-    //     )
-    // } 
-    // this is to sort, if i need to sort by the position number attribute, use in place of this sequences poses when mapping to render <SequencePose> below
 
 
 
@@ -92,6 +85,14 @@ import { orderSequencePoseList } from '../redux/actions'
             //updated sequence info
         }
 
+        sortedPoses = () => {
+            return(!this.props.sequence ? null : 
+            this.props.sequence.sequence_poses.sort((a, b) => (a.position_num  > b.position_num) ? 1: -1)
+        //list.sort((a, b) => (a.color > b.color) ? 1 : -1)
+            )
+        } 
+        // this is to sort, if i need to sort by the position number attribute, use in place of this sequences poses when mapping to render <SequencePose> below
+
         render(){
         console.log("SequenceForm's props", this.props)
 
@@ -106,11 +107,15 @@ import { orderSequencePoseList } from '../redux/actions'
                         <h2> 
                             {this.props.sequence.sequence_poses.length === 0 ? "ADD SOME POSES" : `POSE COUNT: ${this.props.sequence.sequence_poses.length}`}
                         </h2>    
-
-
-                        <h2> POSES IN SEQUENCE:  </h2>
                         <Row className="justify-content-md-center">
                         <Col md="auto"></Col>
+                            <Button variant="flat" size="md" onClick={()=>{this.props.onSaveNewOrder(this.props.sequence)}}> SAVE </Button>
+                        </Row>
+                        <br></br>
+                        <Row className="justify-content-md-center">
+                        <Col md="auto"></Col>
+                        <h2> POSES IN SEQUENCE:  </h2>
+                        <br></br>
                         {/* {this.props.sequence.sequence_poses.map(pose => <SequencePose pose={pose} sequence={this.props.sequence} editing={true}/> )} */}
                         </Row>
                         <br></br>
@@ -172,11 +177,16 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch, props) => ({
+
     orderSequencePoseList: ({oldIndex, newIndex}, sequenceId) => { 
         // console.log(args)
-        dispatch (orderSequencePoseList( oldIndex, newIndex, sequenceId))}
-    }
-)
+        dispatch (orderSequencePoseList( oldIndex, newIndex, sequenceId))},
+    
+    onSaveNewOrder: (sequence) => { 
+        console.log("onSaveNewOrder:", sequence)
+        dispatch (onSaveNewOrder(sequence))}
+})
+
 
 
 

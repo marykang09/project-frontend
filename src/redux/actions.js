@@ -141,10 +141,38 @@ function addedSequence(sequence){
 function orderSequencePoseList( oldIndex, newIndex, sequenceId){
     return {
         type: "REORDER_SEQUENCE_POSES",
-        payload: { oldIndex, newIndex, sequenceId}
+        payload: { oldIndex, newIndex, sequenceId }
     }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-export { fetchingPoses, fetchingSequences, changeSearchText, clickedSequence, addingToSequence, addedToSequence, removingFromSequence, removedFromSequence, deleteSequence, addingNewSequence, addedSequence, orderSequencePoseList }
+function onSaveNewOrder(sequence){
+    console.log("in onSaveNewOrder in actions, what is sequence?:", sequence)
+    console.log("in onSaveNewOrder in actions, what is sequenceposes?:", sequence.sequence_poses)
+    console.log("sp[0]", sequence.sequence_poses[0])
+    console.log(sequence.sequence_poses.indexOf(sequence.sequence_poses[0]))
+    // debugger
+
+    return (dispatch, getState) => {
+
+        let sequencePoseArray = sequence.sequence_poses
+
+        sequencePoseArray.forEach(sp => {
+            fetch(`${url}/sequence_poses/${sp.id}`, {
+                method: "PATCH",
+                headers: {"Content-Type" : "application/json"},
+                body: JSON.stringify({
+                    position_num: sequencePoseArray.indexOf(sp)
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+        })
+
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+export { fetchingPoses, fetchingSequences, changeSearchText, clickedSequence, addingToSequence, addedToSequence, removingFromSequence, removedFromSequence, deleteSequence, addingNewSequence, addedSequence, orderSequencePoseList, onSaveNewOrder }

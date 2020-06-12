@@ -26,7 +26,31 @@ input.customsearch {
   outline: none;
  }
 
- 
+ .line{
+    border-top: .90px solid #ABDAE1;
+    height: 5px;
+    margin-left: 152px;
+    margin-right: 152px;
+}
+/* 
+  h1{
+  font-family: goldenbook, serif; 
+  font-weight: 600; 
+  font-style: normal; 
+  font-size: 100px !important; 
+  line-height: 53px !important;
+} */
+
+/* p{
+      text-align: left;
+      line-height: 30px;
+} */
+
+.Homepage {
+  display: grid;
+  grid-template-columns: 54% 28% 20%;
+}
+
 .main {
   text-align: center;
   padding: 150px;

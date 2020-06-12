@@ -12,6 +12,7 @@ import PoseDetail from './components/PoseDetail'
 import SequenceDetail from './components/SequenceDetail'
 import SequenceForm from './components/SequenceForm'
 import {Spinner} from 'react-bootstrap'
+import HomePage from './containers/Homepage'
 // import AlertDismissible from './components/AlertDismissible'
 
 class App extends React.Component {

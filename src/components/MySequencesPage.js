@@ -83,10 +83,9 @@ class MySequencesPage extends React.Component {
 
         return (
             <div>
-                <Wrapper>
-                    <Title>
                     <h1> MY SEQUENCES </h1>
-                    </Title>
+                    <br></br>
+                    <div className="line"></div>
                     <br></br>
                     <>
                     <style type="text/css">
@@ -111,7 +110,6 @@ class MySequencesPage extends React.Component {
                     {this.showCreateFormDiv()}
                     <br></br>
                     &nbsp;
-                </Wrapper>
                 <br></br>
                 {this.props.sequences.length === 0 ? <h2>NO SEQUENCES YET</h2> : < SequencesList /> }
                 

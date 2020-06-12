@@ -26,11 +26,12 @@ const PosesPage = (props) => {
 
     return (
         <div>
-            <Wrapper>
-                <Title> BROWSE ALL POSES </Title>
-            </Wrapper>
-            <br></br>
-            <SearchBar/>
+ 
+                <h1> BROWSE ALL POSES </h1>
+                <br></br>
+                <div className="line"></div>
+                 <br></br>
+                <SearchBar/>
                 <Route path="/" component={PosesList} />
         </div>
     )

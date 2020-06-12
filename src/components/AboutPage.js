@@ -8,28 +8,31 @@ import headerphoto from './images/twitter_header_photo_1 copy.png'
 const Title = styled.h1`
   font-size: 1.5em;
   text-align: center;
-  color: white;
+  color: #987D7C;
 `;
 
 // Create a <Wrapper> react component that renders a <section> with
 // some padding and a papayawhip background
 const Wrapper = styled.section`
   padding: 4em;
-  background: #987D7C;
+  background: white;
 `;
 
 
 const AboutPage = () => {
     return (
-        <Wrapper>
-        <img 
-            src={headerphoto} 
-            style={{width:"100%"}}
-            padding="0" />
-            <br></br>
-            <br></br>
-        <Title>Use this app to browse poses and create your own sequences </Title>
-        </Wrapper>
+        <div>
+            <img 
+                src={headerphoto} 
+                style={{width:"100%"}}
+                padding="0" />
+                <br></br>
+                <br></br>
+            <Wrapper>
+                <Title>Use this app to browse poses and create your own sequences </Title>
+            </Wrapper>
+        </div>
+
         )
 
 

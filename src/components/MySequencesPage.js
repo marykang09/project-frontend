@@ -77,7 +77,7 @@ class MySequencesPage extends React.Component {
         `;
     
         const Wrapper = styled.section`
-        padding: 4em;
+        padding: 3em;
         background: #a3b9c9;
         `;
 
@@ -88,6 +88,21 @@ class MySequencesPage extends React.Component {
                     <h1> MY SEQUENCES </h1>
                     </Title>
                     <br></br>
+                    <>
+                    <style type="text/css">
+                        {`
+                        .btn-flat {
+                        background-color: #ABDAE1;
+                        color: white;
+                        }
+
+                        .btn-md {
+                        padding: 1rem 1.5rem;
+                        font-size: 1.5rem;
+                        }
+                        `}
+                    </style>
+                    </>
                     <Button variant="flat" size="md" onClick={this.onShowCreateForm}  >    
                         {this.state.showCreateForm ? "FINISHED ADDING" : "ADD A NEW SEQUENCE"}
                     </Button>

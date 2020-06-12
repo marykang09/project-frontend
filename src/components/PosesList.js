@@ -9,20 +9,20 @@ const PosesList = (props) => {
 
     return (
         <div>
-            <Container>
             
+                <br></br>
                 <Row className="justify-content-md-center">
-                <Col md="auto"></Col>
-            {props.poses.map(pose => (
-                <Pose
-                    key={pose.id}
-                    pose={pose}
-                    editing={false}
-                    sequence={""} />
-            ))}
+                    <Col md="auto"></Col>
+                    {props.poses.map(pose => (
+                        <Pose
+                            key={pose.id}
+                            pose={pose}
+                            editing={false}
+                            sequence={""} />
+                    ))}
                 </Row>
            
-            </Container>
+            
         </div>
     )
 }

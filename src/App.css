@@ -1,5 +1,4 @@
 
-
 .App {
   text-align: center;
 }
@@ -11,10 +10,23 @@
   z-index: 100;
 }
 
-.color-nav {
-  background-color: rgb(95, 174, 31)
+.customsearch {
+  width: 750px;
+  margin: 0 auto;
+  
 }
 
+input.customsearch {
+  margin: 0 auto;
+  width: 50%;
+  height: 70px;
+  padding: 0 20px;
+  font-size: 1rem;
+  border: 1px solid #D0CFCE;
+  outline: none;
+ }
+
+ 
 .main {
   text-align: center;
   padding: 150px;

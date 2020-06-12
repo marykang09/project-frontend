@@ -9,6 +9,7 @@ import arrayMove from 'array-move'
 // import Draggable from "react-draggable";
 import { orderSequencePoseList, onSaveNewOrder } from '../redux/actions'
 import styled from 'styled-components'; 
+import SearchBar from './SearchBar'
 
 // import CardContainer from './CardContainer'
 ////// tutorial ////////
@@ -112,7 +113,7 @@ import styled from 'styled-components';
         
         return (!this.props.sequence ? null : 
                 <div>
-                    <Container>
+                    
                         <Wrapper>
                             <Title>
                                 <Row className="justify-content-md-center">
@@ -125,7 +126,11 @@ import styled from 'styled-components';
                                 </h2> 
                             </Title>   
                         </Wrapper>
+
                         <br></br>
+                        <SearchBar/> 
+                        <br></br>
+
                                 <Row className="justify-content-md-center">
                                 <Col md="auto"></Col>
                                     <Button variant="flat" size="md" onClick={()=>{this.props.onSaveNewOrder(this.props.sequence)}}> SAVE </Button>
@@ -153,11 +158,11 @@ import styled from 'styled-components';
                                     NOTES: {this.props.sequence.notes}
                                 </p>
                                 </Row>
-                            </Container>
+                            
                             <br></br>
-                            <Container>
+                        
                                 <h2>POSES :</h2>
-                            <Row className="justify-content-md-center">
+                                <Row className="justify-content-md-center">
                                 <br></br>
                                 <Col md="auto"></Col>
                                     {this.props.poses.map(pose => (
@@ -168,7 +173,7 @@ import styled from 'styled-components';
                                         editing={true} />
                                 ))}
                             </Row>
-                    </Container>
+                    
                 </div>
         )
     }

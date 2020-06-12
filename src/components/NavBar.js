@@ -6,7 +6,7 @@ import SearchBar from './SearchBar'
 const NavBar = (props) => {
 
     return (
-        <Navbar style={{backgroundColor: "teal"}} className="color-nav" fixed="top" className="sticky" bg="light" variant="light" expand="lg">
+        <Navbar className="color-nav" fixed="top" className="sticky" bg="light" variant="light" expand="lg">
             <Navbar.Brand href="/"> YOGA APP  </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
@@ -27,7 +27,7 @@ const NavBar = (props) => {
 
                 </Nav>
 
-                <Form inline>
+                {/* <Form inline>
                     <SearchBar />
                     <>
                     <style type="text/css">
@@ -50,7 +50,7 @@ const NavBar = (props) => {
                         </Button>
                     </Link>
                     </>
-                </Form>
+                </Form> */}
 
             </Navbar.Collapse>
         </Navbar>

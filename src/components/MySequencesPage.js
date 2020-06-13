@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { Button, Form, FormControl, Container, Row } from 'react-bootstrap'
 import { addingNewSequence } from '../redux/actions'
 import styled from 'styled-components';
+import swal from 'sweetalert'
 
 class MySequencesPage extends React.Component {
     constructor(){
@@ -51,9 +52,23 @@ class MySequencesPage extends React.Component {
         this.setState({ showCreateForm: !this.state.showCreateForm})
     }
 
+    validateSequenceNameInput = () => {
+        if (this.state.newSequenceName.length === 0){
+            swal({
+                text: "Sequence name is required",
+                value: true,
+                visible: true,
+                className: "swal",
+                closeModal: true,
+                button: "OK"
+              })
+        }
+    }
+
     onCreate = (event) => {
         console.log("clicked to create new sequence")
         event.preventDefault()
+        this.validateSequenceNameInput()
 
         let info = {
             newSequenceName: this.state.newSequenceName,

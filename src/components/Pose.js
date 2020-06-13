@@ -21,29 +21,29 @@ class Pose extends React.Component {
         return (
             
             <div>
-                <Card border="light" style={{ width: '18rem' }}>
+                <Link className="item" to={`/poses/${this.props.pose.id}`} >
+                <Card className='card' border="light" style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={this.props.pose.img_url} />
                 <Card.Body>
-                    <Link className="item" to={`/poses/${this.props.pose.id}`} >
                         <Card.Title> {this.props.pose.english_name} </Card.Title>
-                    </Link>
                         <Card.Text>
                                     {this.props.pose.sanskrit_name} <br></br>
                                     {this.props.editing ? (
-                                                <>
+                                        <>
                                                 <style type="text/css">
                                                     {`
                                                     .btn-flat {
-                                                    background-color: #ABDAE1;
-                                                    color: white;
+                                                        background-color: #ABDAE1;
+                                                        color: white;
                                                     }
-                            
+                                                    
                                                     .btn-md {
-                                                    padding: 1rem 1.5rem;
-                                                    font-size: 1.5rem;
+                                                        padding: 1rem 1.5rem;
+                                                        font-size: 1.5rem;
                                                     }
                                                     `}
                                                 </style>
+                                                   
                             
                                                 <Button variant="flat" size="md" onClick={this.onAdd}>
                                                     Add
@@ -53,6 +53,7 @@ class Pose extends React.Component {
                         </Card.Text>
                 </Card.Body>
                 </Card>
+                </Link>
             </div>
             
         )

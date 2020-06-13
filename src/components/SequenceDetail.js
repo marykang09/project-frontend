@@ -6,6 +6,7 @@ import {Button, ButtonGroup, ButtonToolbar, Col, Container, Row, Alert} from 're
 import { deleteSequence } from '../redux/actions'
 import AlertDismissible from './AlertDismissible'
 import styled from 'styled-components';
+import swal from '@sweetalert/with-react'
 
 class SequenceDetail extends React.Component {
     constructor(){
@@ -28,7 +29,12 @@ class SequenceDetail extends React.Component {
         // this.setState({ showAlert: true})
         // this.handleShowAlert()
         // why this does not work??
-
+        swal({
+            className: "swal",
+            text: "Sequence deleted",
+            buttons: false,
+            timer: 1000,
+        })
 
         let info = {
             sequenceId: this.props.sequence.id
@@ -37,61 +43,49 @@ class SequenceDetail extends React.Component {
         this.props.deleteSequence(info)
     }
 
-    // handleHideAlert = () => this.setState({ showAlert: false })
+    handleHideAlert = () => this.setState({ showAlert: false })
 
-    // handleShowAlert = () => {
-    //     this.setState({ showAlert: true })
-    //     console.log("hit the handleShowAlert")
+    handleShowAlert = (event, onClick) => {
+        event.preventDefault()
+        console.log("hit the handleShowAlert")
+        this.setState({ showAlert: true })
         
-    //     return (
-    //         <Alert show={this.state.showAlert} variant="success" style={{ maxWidth: 500 }}>
+        swal({
+            className: "swal",
+            text: "Delete this sequence?",
+            button: "Cancel",
+            content: (          
+                    <button className="swal-button"  onClick={this.onDelete}>Continue</button>
+
+            )
+        })
+        
+        // return (
+        //     <Alert show={this.state.showAlert} variant="success" style={{ maxWidth: 500 }}>
+        //             <Alert.Heading> ARE YOU SURE? </Alert.Heading>
+        //             <div className="d-flex justify-content-end">
+        //                 <Button onclick={()=>{this.handleHideAlert()}} variant="outline-success">
+        //                     DELETE SEQUENCE
+        //                 </Button>
+        //             </div>
+        //         </Alert>
+        // )
+    }
+
+    // showAlert = () => {
+    //     if (this.state.showAlert){
+    //         return (
+    //             <Alert show={this.state.showAlert} variant="success" style={{ maxWidth: 500 }}>
     //                 <Alert.Heading> ARE YOU SURE? </Alert.Heading>
     //                 <div className="d-flex justify-content-end">
-    //                     <Button onclick={()=>{this.handleHideAlert()}} variant="outline-success">
+    //                     <Button onclick={this.handleHideAlert} variant="outline-success">
     //                         DELETE SEQUENCE
     //                     </Button>
     //                 </div>
     //             </Alert>
-    //     )
-    // }
-
-    showAlert = () => {
-        if (this.state.showAlert){
-            return (
-                <Alert show={this.state.showAlert} variant="success" style={{ maxWidth: 500 }}>
-                    <Alert.Heading> ARE YOU SURE? </Alert.Heading>
-                    <div className="d-flex justify-content-end">
-                        <Button onclick={this.handleHideAlert} variant="outline-success">
-                            DELETE SEQUENCE
-                        </Button>
-                    </div>
-                </Alert>
-            )
-        }
-    }
-    // showAlert = () => {
-        
-    //     // if (this.state.showAlert){
-    //     //     console.log("hit the showAlert")
-    //         return (
-    //                 <Alert show={this.state.showAlert} variant="success" style={{ maxWidth: 500 }}>
-    //                     <Alert.Heading>Are you sure?</Alert.Heading>
-    //                     <p>
-    //                         Duis mollis, est non commodo luctus, nisi erat porttitor ligula,
-    //                         eget lacinia odio sem nec elit. Cras mattis consectetur purus sit
-    //                         amet fermentum.
-    //                     </p>
-    //                     <hr />
-    //                     <div className="d-flex justify-content-end">
-    //                         <Button onClick={this.setState({ showAlert: false})} variant="outline-success">
-    //                             Close me ya'll!
-    //                         </Button>
-    //                     </div>
-    //                 </Alert>
     //         )
-        
-    // } 
-    // //////////// why does this not work
+    //     }
+    // }
 
     onReadNotes = (event) => {
         event.preventDefault()
@@ -146,9 +140,9 @@ class SequenceDetail extends React.Component {
                                 <h1> SEQUENCE: {this.props.sequence.name} </h1>
                             </Row>
                             <br></br>
-                            <h2>
+                            
                             {this.props.sequence.sequence_poses.length === 0 ? "ADD SOME POSES" : `POSE COUNT: ${this.props.sequence.sequence_poses.length}`}
-                            </h2>
+                            
                             <br></br>
                         </Title>
                     </Wrapper>
@@ -182,7 +176,7 @@ class SequenceDetail extends React.Component {
                     </ButtonGroup>
                     &nbsp;
                     <ButtonGroup>
-                            <Button variant="flat" size="md" onClick={() => this.onDelete()}> DELETE </Button>
+                            <Button variant="flat" size="md" onClick={this.handleShowAlert}> DELETE </Button>
                              {/* {this.state.showAlert ? this.showAlert() : null} */}
                             
                     </ButtonGroup>

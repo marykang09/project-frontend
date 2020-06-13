@@ -10,28 +10,7 @@ import arrayMove from 'array-move'
 import { orderSequencePoseList, onSaveNewOrder } from '../redux/actions'
 import styled from 'styled-components'; 
 import SearchBar from './SearchBar'
-
-// import CardContainer from './CardContainer'
-////// tutorial ////////
-// import Card from './Card' 
-// import { DragDropContext, HTML5Backend } from 'react-dnd'
-// const update = require('immutability-helper');
-
-    /////////////////////////// this is part of the tutorial ///////////////////////////
-    // moveCard = (dragIndex, hoverIndex) => {
-    //     const { cards } = this.state
-    //     const dragCard = cards[dragIndex]
-    
-    //     this.setState(
-    //       update(this.state, {
-    //         cards: {
-    //           $splice: [[dragIndex, 1], [hoverIndex, 0, dragCard]],
-    //         },
-    //       }),
-    //     )
-    // }
-    /////////////////////////// this is part of the tutorial ///////////////////////////
-
+import swal from 'sweetalert'
 
 
     //*//*//*//*//*//*//*//*// this is part of the react redux example  //*//*//*//*//*//*//*//*// 
@@ -75,12 +54,36 @@ import SearchBar from './SearchBar'
         constructor() {
             super()
             this.state = {
+
             }
         }
+
+        componentDidMount(){
+            return(
+                swal({
+                    text: "Add, remove, and drag poses in your sequence.",
+                    value: true,
+                    visible: true,
+                    className: "swal",
+                    closeModal: true,
+                    button: "Got it"
+                  })
+            )
+        }
     
-        onSave = event => {
-            // event.preventDefault()
-            //updated sequence info
+        onSave = () => {
+            this.props.onSaveNewOrder(this.props.sequence)
+            
+            return(
+                swal({
+                    text: "Sequence saved!",
+                    value: true,
+                    visible: true,
+                    className: "swal",
+                    closeModal: true,
+                    button: "OK"
+                  })
+            )
         }
 
         sortedPoses = () => {
@@ -133,7 +136,8 @@ import SearchBar from './SearchBar'
 
                                 <Row className="justify-content-md-center">
                                 <Col md="auto"></Col>
-                                    <Button variant="flat" size="md" onClick={()=>{this.props.onSaveNewOrder(this.props.sequence)}}> SAVE </Button>
+                                    {/* <Button variant="flat" size="md" onClick={()=>{this.props.onSaveNewOrder(this.props.sequence)}}> SAVE </Button> */}
+                                    <Button variant="flat" size="md" onClick={this.onSave}> SAVE </Button>
                                 </Row>
                                 <br></br>
                                 <Row className="justify-content-md-center">
@@ -206,8 +210,7 @@ const mapDispatchToProps = (dispatch, props) => ({
         // console.log(args)
         dispatch (orderSequencePoseList( oldIndex, newIndex, sequenceId))},
     
-    onSaveNewOrder: (sequence) => { 
-        console.log("onSaveNewOrder:", sequence)
+    onSaveNewOrder: (sequence, ownProps) => { 
         dispatch (onSaveNewOrder(sequence))}
 })
 

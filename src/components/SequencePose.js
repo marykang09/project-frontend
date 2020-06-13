@@ -2,7 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {Card, Image, Button} from 'react-bootstrap'
 import { removingFromSequence } from '../redux/actions'
-
+import SweetAlert from 'react-bootstrap-sweetalert'
+import swal from 'sweetalert'
 
 class SequencePose extends React.Component {
 
@@ -17,13 +18,15 @@ class SequencePose extends React.Component {
         this.props.removingFromSequence(info)
     }
 
+
     render(){
     console.log("SequencePose's props", this.props.pose)
 
+
+    
     return (!this.props.pose ? null : 
         //need to do this to account for INIT state = []
         <div>
-
              <Card border="light" style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={this.props.pose.pose.img_url} />
                 <Card.Body>

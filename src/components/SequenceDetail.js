@@ -60,33 +60,10 @@ class SequenceDetail extends React.Component {
             )
         })
         
-        // return (
-        //     <Alert show={this.state.showAlert} variant="success" style={{ maxWidth: 500 }}>
-        //             <Alert.Heading> ARE YOU SURE? </Alert.Heading>
-        //             <div className="d-flex justify-content-end">
-        //                 <Button onclick={()=>{this.handleHideAlert()}} variant="outline-success">
-        //                     DELETE SEQUENCE
-        //                 </Button>
-        //             </div>
-        //         </Alert>
-        // )
+        
     }
 
-    // showAlert = () => {
-    //     if (this.state.showAlert){
-    //         return (
-    //             <Alert show={this.state.showAlert} variant="success" style={{ maxWidth: 500 }}>
-    //                 <Alert.Heading> ARE YOU SURE? </Alert.Heading>
-    //                 <div className="d-flex justify-content-end">
-    //                     <Button onclick={this.handleHideAlert} variant="outline-success">
-    //                         DELETE SEQUENCE
-    //                     </Button>
-    //                 </div>
-    //             </Alert>
-    //         )
-    //     }
-    // }
-
+   
     onReadNotes = (event) => {
         event.preventDefault()
         this.setState({ showNotes: !this.state.showNotes})
@@ -132,17 +109,15 @@ class SequenceDetail extends React.Component {
         //need to do this to account for INIT state = []
         
             <div>
+                <h1> SEQUENCE: {this.props.sequence.name} </h1>
+                <br></br>
+                <div className="line"></div>
+                 <br></br>
                 <Container>
                     <Wrapper>
                         <Title>
-                            <Row className="justify-content-md-center">
-                                <Col md="auto"></Col>
-                                <h1> SEQUENCE: {this.props.sequence.name} </h1>
-                            </Row>
                             <br></br>
-                            
                             {this.props.sequence.sequence_poses.length === 0 ? "ADD SOME POSES" : `POSE COUNT: ${this.props.sequence.sequence_poses.length}`}
-                            
                             <br></br>
                         </Title>
                     </Wrapper>

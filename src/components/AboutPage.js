@@ -1,7 +1,7 @@
 import React from 'react'
 import Demo from './Demo'
 import styled from 'styled-components';
-import headerphoto from './images/twitter_header_photo_1 copy.png'
+import headerphoto from '../assets/images/twitter_header_photo_1 copy.png'
 
 // Create a <Title> react component that renders an <h1> which is
 // centered, palevioletred and sized at 1.5em

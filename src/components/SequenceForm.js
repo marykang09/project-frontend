@@ -73,7 +73,7 @@ import swal from 'sweetalert'
     
         onSave = () => {
             this.props.onSaveNewOrder(this.props.sequence)
-            
+
             return(
                 swal({
                     text: "Sequence saved!",
@@ -116,20 +116,20 @@ import swal from 'sweetalert'
         
         return (!this.props.sequence ? null : 
                 <div>
-                    
+                    <h1> SEQUENCE: {this.props.sequence.name} </h1>
+                    <br></br>
+                    <div className="line"></div>
+                    <br></br>
+                    <Container>
                         <Wrapper>
                             <Title>
-                                <Row className="justify-content-md-center">
-                                    <Col md="auto"></Col>
-                                    <h1> SEQUENCE: {this.props.sequence.name} </h1>
-                                </Row>
                                 <br></br>
                                 <h2> 
                                     {this.props.sequence.sequence_poses.length === 0 ? "ADD SOME POSES" : `POSE COUNT: ${this.props.sequence.sequence_poses.length}`}
                                 </h2> 
                             </Title>   
                         </Wrapper>
-
+                    </Container>
                         <br></br>
                         <SearchBar/> 
                         <br></br>

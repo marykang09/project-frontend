@@ -34,7 +34,7 @@ const SearchBar = (props) => {
                     </style>
                     </>
                 <Link className="item" to='/' >
-                    <Button variant="flat" size="md">
+                    <Button className="my-btn" variant="flat" size="md">
                         SEARCH
                     </Button>
                 </Link>

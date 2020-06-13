@@ -2,7 +2,6 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import PosesList from './PosesList'
 import styled from 'styled-components';
-import headerphoto from './images/twitter_header_photo_1 copy.png'
 import SearchBar from './SearchBar'
 
 // Create a <Title> react component that renders an <h1> which is

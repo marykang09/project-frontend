@@ -80,6 +80,30 @@ input.customsearch {
   outline: none;
  }
 
+ /* BUTTONS */
+ /* .my-btn {
+  background-color: #ABDAE1;
+  outline: #ABDAE1;
+  border: 1px solid #a09cb0;
+  color: white;
+  padding: 1rem 1.5rem;
+  font-size: 1.5rem;
+  } */
+
+ /* .my-btn button:focus{
+  outline: none;
+ } */
+
+ /* .my-btn button:active{
+  background-color:'#a09cb0' !important; 
+}
+
+.my-btn:not([disabled]):hover{
+  background-color:'#a09cb0' !important; 
+  -webkit-transition: all 0.3s ease-in-out; 
+  transition: all 0.3s ease-in-out; 
+ } */ */
+
  /* LINE */
  .line {
     border-top: .90px solid #ABDAE1;

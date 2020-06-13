@@ -19,7 +19,7 @@ const Wrapper = styled.section`
 `;
 
 const TitleWrapper = styled.section`
-    padding: 3.5em;
+    padding: 2em;
     background: #ABDAE1;
     color: white;
     font-size: 2.5em;
@@ -30,28 +30,32 @@ const PoseDetail = (props) => {
     return (!props.pose ? null : 
     //need to do this to account for INIT state = []
         <div>
-            <Wrapper>
-            <TitleWrapper>
-                POSE DETAILS 
-            </TitleWrapper>
-                <br></br>
-            <Title> 
-                <h3>NAME: {props.pose.english_name}</h3>
-                <p>
-                    SANSKRIT NAME: {props.pose.sanskrit_name}
-                    <br>
-                    </br>
-                    <br>
-                    </br>
-                    <img 
-                        src={props.pose.img_url}
-                        width={400}
-                        height={400}
-                        mode="fit"
-                        ></img>
-                </p>
-            </Title>
-            </Wrapper>
+            <h1> POSE DETAILS </h1>
+            <br></br>
+            <div className="line"></div>
+            <br></br>
+            <img 
+                src={props.pose.img_url}
+                width={400}
+                height={400}
+                mode="fit"
+                ></img>
+            <div>
+                <TitleWrapper>
+                    <Title> 
+                        <h3>
+                            NAME: {props.pose.english_name}
+                            <br></br>
+                            SANSKRIT NAME: {props.pose.sanskrit_name}
+                                <br>
+                                </br>
+                                <br>
+                                </br>
+
+                        </h3>
+                    </Title>
+                </TitleWrapper>
+            </div>
         </div>
     )
 }

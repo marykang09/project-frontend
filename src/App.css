@@ -55,11 +55,14 @@
   transform: scale(1.1); 
 }
 
-/* ALL UNVISITED LINKS */
+/* LINKS */
 a:link {
   color: #776D5A !important; 
 }
 
+a:visited {
+  color: #776D5A !important; 
+}
 
 /* NAVBAR */
 .sticky {

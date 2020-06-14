@@ -30,6 +30,20 @@ function fetchedSequences(sequences){
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
+function fetchingQuotes(){
+    return (dispatch) => {
+        fetch(`${url}/quotes`)
+        .then(response => response.json())
+        .then(quotes => { dispatch(fetchedQuotes(quotes))})
+    }
+}
+
+function fetchedQuotes(quotes){
+    return {type: "FETCHED_QUOTES", payload: quotes}
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
 function changeSearchText(value){
     return {type: "CHANGE_SEARCH_TEXT", payload: value}
 }
@@ -148,10 +162,10 @@ function orderSequencePoseList( oldIndex, newIndex, sequenceId){
 /////////////////////////////////////////////////////////////////////////////////////////
 
 function onSaveNewOrder(sequence){
-    console.log("in onSaveNewOrder in actions, what is sequence?:", sequence)
-    console.log("in onSaveNewOrder in actions, what is sequenceposes?:", sequence.sequence_poses)
-    console.log("sp[0]", sequence.sequence_poses[0])
-    console.log(sequence.sequence_poses.indexOf(sequence.sequence_poses[0]))
+    // console.log("in onSaveNewOrder in actions, what is sequence?:", sequence)
+    // console.log("in onSaveNewOrder in actions, what is sequenceposes?:", sequence.sequence_poses)
+    // console.log("sp[0]", sequence.sequence_poses[0])
+    // console.log(sequence.sequence_poses.indexOf(sequence.sequence_poses[0]))
     // debugger
 
     return (dispatch, getState) => {
@@ -175,4 +189,4 @@ function onSaveNewOrder(sequence){
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-export { fetchingPoses, fetchingSequences, changeSearchText, clickedSequence, addingToSequence, addedToSequence, removingFromSequence, removedFromSequence, deleteSequence, addingNewSequence, addedSequence, orderSequencePoseList, onSaveNewOrder }
+export { fetchingPoses, fetchingSequences, changeSearchText, clickedSequence, addingToSequence, addedToSequence, removingFromSequence, removedFromSequence, deleteSequence, addingNewSequence, addedSequence, orderSequencePoseList, onSaveNewOrder, fetchingQuotes }

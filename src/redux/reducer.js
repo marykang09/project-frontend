@@ -73,6 +73,19 @@ const sequencesReducer = (state=[], action) => {
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
+
+const quotesReducer = (state=[], action) => {
+    switch (action.type) {
+        case "FETCHED_QUOTES":
+            return action.payload
+        default: 
+            return state
+    }
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
 const searchTextReducer = (state="", action) => {
     switch (action.type){
         case "CHANGE_SEARCH_TEXT":
@@ -100,7 +113,8 @@ const rootReducer = combineReducers({
     poses: posesReducer,
     sequences: sequencesReducer,
     searchText: searchTextReducer,
-    sequence: clickedSequenceReducer
+    sequence: clickedSequenceReducer,
+    quotes: quotesReducer
 })
 
 export default rootReducer

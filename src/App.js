@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import {Route, Switch, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {fetchingPoses, fetchingSequences} from './redux/actions'
+import {fetchingPoses, fetchingSequences, fetchingQuotes} from './redux/actions'
 import NavBar from './components/NavBar'
 import AboutPage from './components/AboutPage'
 import ErrorPage from './components/ErrorPage'
@@ -13,7 +13,8 @@ import SequenceDetail from './components/SequenceDetail'
 import SequenceForm from './components/SequenceForm'
 import {Spinner} from 'react-bootstrap'
 import HomePage from './containers/Homepage'
-// import AlertDismissible from './components/AlertDismissible'
+// import QuotesPage from './components/QuotesPage'
+import QuotesModal from './components/QuotesModal'
 
 class App extends React.Component {
 
@@ -27,6 +28,8 @@ class App extends React.Component {
   componentDidMount = () => {
     this.props.fetchingPoses()
     this.props.fetchingSequences()
+    this.props.fetchingQuotes()
+
     this.setState({
       loading: false
     })
@@ -68,6 +71,7 @@ class App extends React.Component {
                           render={ (routerProps) => {
                               return (<PoseDetail {...routerProps} />)
                           }} />
+                <Route exact path="/quotes" component={QuotesModal} />
                 <Route render={ErrorPage} />
               </Switch>
             </div> }
@@ -80,7 +84,8 @@ class App extends React.Component {
   const mapDispatchToProps = (dispatch) => {
     return {
       fetchingPoses: () => {dispatch( fetchingPoses() )},
-      fetchingSequences: () => {dispatch( fetchingSequences() )}
+      fetchingSequences: () => {dispatch( fetchingSequences() )},
+      fetchingQuotes: () => {dispatch( fetchingQuotes() )}
     }
 
   }

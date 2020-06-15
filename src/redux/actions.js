@@ -18,17 +18,17 @@ function fetchedPoses(poses){
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-function fetchingSequences(){
-    return (dispatch) => {
-        fetch(`${url}/sequences`)
-        .then(response => response.json())
-        .then(sequences => { dispatch(fetchedSequences(sequences))})
-    }
-}
+// function fetchingSequences(){
+//     return (dispatch) => {
+//         fetch(`${url}/sequences`)
+//         .then(response => response.json())
+//         .then(sequences => { dispatch(fetchedSequences(sequences))})
+//     }
+// }
 
-function fetchedSequences(sequences){
-    return {type: "FETCHED_SEQUENCES", payload: sequences}
-}
+// function fetchedSequences(sequences){
+//     return {type: "FETCHED_SEQUENCES", payload: sequences}
+// }
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -213,8 +213,34 @@ function loginUser(userInfo){
             } else {
                 localStorage.setItem("token", data.token)
                 dispatch(setCurrentUser(data.user_data))
+                dispatch(fetchedUserSequences(data.user_data.sequences))
+                dispatch(fetchedUserQuotes(data.user_data.user_quotes))
+                console.log("user data on login fetch", data)
+                // dispatch(fetchingUserSequences(data.user_data))
+                // dispatch(fetchingUserPoses(data.user_data))
             }
         })
+    }
+}
+
+// function fetchingUserSequences(user_data){
+//     return(dispatch) => {
+//         fetch(`${url}/users/${user_data.id}`)
+//         .then(response => response.json())
+//         .then(userData => dispatch(fetchedUserSequences(userData.sequences)))
+//     }
+// }
+
+function fetchedUserSequences(sequences){
+    return {
+        type: "FETCHED_USER_SEQUENCES", 
+        payload: sequences
+    }
+}
+
+function fetchedUserQuotes(quotes){
+    return {
+        type: "FETCHED_USER_QUOTES", payload: quotes
     }
 }
 
@@ -226,9 +252,19 @@ function findingUser(token){
             }
         })
         .then(response => response.json())
-        .then(user_data => {dispatch(setCurrentUser(user_data))})
+        .then(user_data => {
+            console.log("inside findingUser, what is user_data?", user_data)
+
+            dispatch(setCurrentUser(user_data))
+            dispatch(fetchedUserSequences(user_data.user_data.sequences))
+            dispatch(fetchedUserQuotes(user_data.user_data.user_quotes))
+
+            // dispatch(fetchingUserSequences(user_data)) }
+        })
     }
 }
+
+
 
 function setCurrentUser(user_data){
     console.log(user_data)
@@ -238,6 +274,7 @@ function setCurrentUser(user_data){
         payload: user_data
     }
 }
+
 
 function logoutCurrentUser(){
     localStorage.clear()
@@ -264,6 +301,6 @@ function createNewUser(newUserObj){
  
 
 /////////////////////////////////////////////////////////////////////////////////////////
-export { fetchingPoses, fetchingSequences, changeSearchText, clickedSequence, addingToSequence, addedToSequence, 
+export { fetchingPoses, changeSearchText, clickedSequence, addingToSequence, addedToSequence, 
     removingFromSequence, removedFromSequence, deleteSequence, addingNewSequence, addedSequence, orderSequencePoseList, onSaveNewOrder, fetchingQuotes, 
     findingUser, loginUser, setCurrentUser, logoutCurrentUser, createNewUser }

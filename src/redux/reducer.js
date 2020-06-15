@@ -15,9 +15,8 @@ const posesReducer = (state=[], action) => {
 
 const sequencesReducer = (state=[], action) => {
     switch (action.type){
-        case "FETCHED_SEQUENCES":
+        case "FETCHED_USER_SEQUENCES":
             return action.payload
-
         case "CREATED_SEQUENCE_POSE":
             return state.map(sequence => {
                 if (sequence.id === action.payload.sequence_id) {
@@ -83,7 +82,16 @@ const quotesReducer = (state=[], action) => {
     }
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////
 
+const userQuotesReducer = (state = [], action) => {
+    switch(action.type){
+        case "FETCHED_USER_QUOTES":
+            return action.payload
+        default: 
+            return state 
+    }
+}
 /////////////////////////////////////////////////////////////////////////////////////////
 
 const searchTextReducer = (state="", action) => {
@@ -140,6 +148,7 @@ const rootReducer = combineReducers({
     searchText: searchTextReducer,
     sequence: clickedSequenceReducer,
     quotes: quotesReducer,
+    userQuotes: userQuotesReducer,
     currentUser: userReducer,
     errors: errorsReducer
 })

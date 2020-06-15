@@ -7,7 +7,8 @@ import Card from 'react-bootstrap/Card'
 const Sequence = (props) => {
     console.log("Sequence's props:", props)
 
-    return (
+    return (!props.sequence ? null :
+
         <div>
                 <Link 
                     className="item" 
@@ -30,6 +31,7 @@ const Sequence = (props) => {
                     </Card>
                 </Link>
          </div>
+
     )
 }
 

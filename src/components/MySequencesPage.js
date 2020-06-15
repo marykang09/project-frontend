@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, withRouter } from 'react-router-dom'
 import SequencesList from './SequencesList'
+import Sequence from './Sequence'
 import { connect } from 'react-redux'
 import { Button, Form, FormControl, Container, Row } from 'react-bootstrap'
 import { addingNewSequence } from '../redux/actions'
@@ -12,7 +13,6 @@ class MySequencesPage extends React.Component {
         super()
         this.state = {
             showCreateForm: false,
-
             newSequenceName: "",
             newSequenceNotes: ""
         }
@@ -100,8 +100,11 @@ class MySequencesPage extends React.Component {
         background: #a3b9c9;
         `;
 
-        return (
-            <div>
+        console.log("inside mysequences page", this.props.sequences)
+
+        return (!this.props.sequences ? null : 
+
+                <div>
                     <h1> MY SEQUENCES </h1>
                     <br></br>
                     <div className="line"></div>
@@ -130,18 +133,18 @@ class MySequencesPage extends React.Component {
                     <br></br>
                     &nbsp;
                 <br></br>
-                {this.props.sequences.length === 0 ? <h2>NO SEQUENCES YET</h2> : < SequencesList /> }
+                {this.props.sequences.length === 0 ? <h2>NO SEQUENCES YET</h2> : <SequencesList/> }
                 
                 
-            </div>
-        )
+                </div>
+                )
     }
 }
 
 const mapStateToProps = (state, ownProps) => {
     return {
         sequences: state.sequences,
-        currentUser: state.currentUser //checked this, just added after auth
+        currentUser: state.currentUser //check this, just added after auth
     }
 }
 

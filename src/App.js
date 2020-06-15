@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import {Route, Switch, withRouter, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {fetchingPoses, fetchingSequences, fetchingQuotes, findingUser} from './redux/actions'
+import {fetchingPoses, fetchingQuotes, findingUser} from './redux/actions'
 import NavBar from './components/NavBar'
 import AboutPage from './components/AboutPage'
 import ErrorPage from './components/ErrorPage'
@@ -35,7 +35,7 @@ class App extends React.Component {
       this.props.findingUser(localStorage.getItem("token"))
     }
     
-    this.props.fetchingSequences()
+    // this.props.fetchingSequences()
 
     this.setState({
       loading: false
@@ -57,7 +57,7 @@ class App extends React.Component {
                 
                 <Route exact path="/" component={AboutPage} />
                 <Route exact path="/about" component={AboutPage} />
-                <Route exact path="/sequences" component={MySequencesPage} />
+                <Route exact path="/sequences" render={()=> this.props.currentUser ? <MySequencesPage/> : <Redirect to="/login"/> } />
                 <Route exact path="/sequences/:id" render={ (routerProps) => this.props.currentUser ? <SequenceDetail {...routerProps}/> : <Redirect to="/login"/>}  /> 
                 <Route exact path="/sequences/:id/edit" render={ (routerProps) => this.props.currentUser ? <SequenceForm {...routerProps}/> : <Redirect to="/login"/>} /> 
                 <Route exact path="/poses" component={PosesPage} />
@@ -82,7 +82,7 @@ class App extends React.Component {
   const mapDispatchToProps = (dispatch) => {
     return {
       fetchingPoses: () => {dispatch( fetchingPoses() )},
-      fetchingSequences: () => {dispatch( fetchingSequences() )},
+      // fetchingSequences: () => {dispatch( fetchingSequences() )},
       fetchingQuotes: () => {dispatch( fetchingQuotes() )},
       findingUser: (token) => {dispatch(findingUser(token))}
     }

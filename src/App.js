@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import {Route, Switch, withRouter} from 'react-router-dom'
+import {Route, Switch, withRouter, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {fetchingPoses, fetchingSequences, fetchingQuotes} from './redux/actions'
+import {fetchingPoses, fetchingSequences, fetchingQuotes, findingUser} from './redux/actions'
 import NavBar from './components/NavBar'
 import AboutPage from './components/AboutPage'
 import ErrorPage from './components/ErrorPage'
@@ -15,6 +15,8 @@ import {Spinner} from 'react-bootstrap'
 import HomePage from './containers/Homepage'
 // import QuotesPage from './components/QuotesPage'
 import QuotesModal from './components/QuotesModal'
+import LoginForm from './components/LoginForm'
+import NewUserForm from './components/NewUserForm'
 
 class App extends React.Component {
 
@@ -27,8 +29,13 @@ class App extends React.Component {
 
   componentDidMount = () => {
     this.props.fetchingPoses()
-    this.props.fetchingSequences()
     this.props.fetchingQuotes()
+    
+    if (localStorage.getItem("token")){
+      this.props.findingUser(localStorage.getItem("token"))
+    }
+    
+    this.props.fetchingSequences()
 
     this.setState({
       loading: false
@@ -43,49 +50,41 @@ class App extends React.Component {
         <div className="sticky">
           <NavBar /> 
         </div>
-
-
-      {this.state.loading ? <Spinner animation="border" variant="info" /> : 
+        {this.state.loading ? <Spinner animation="border" variant="info" /> : 
         
           <div className="main">
               <Switch>
-                <Route exact path="/" component={PosesPage} />
+                
+                <Route exact path="/" component={AboutPage} />
                 <Route exact path="/about" component={AboutPage} />
                 <Route exact path="/sequences" component={MySequencesPage} />
-                <Route 
-                          exact path="/sequences/:id" 
-                          render={ (routerProps) => {
-                              return (<SequenceDetail {...routerProps} />)
-                          }} /> 
-                <Route 
-                          exact path="/sequences/:id/edit" 
-                          render={ (routerProps) => {
-                            return (<SequenceForm {...routerProps} />)
-                        }} /> 
-                {/* <Route exact path="/:id/edit" component={SequenceForm} /> */}
-                {/* this is a placeholder until i can get the route above to work */}
-
+                <Route exact path="/sequences/:id" render={ (routerProps) => this.props.currentUser ? <SequenceDetail {...routerProps}/> : <Redirect to="/login"/>}  /> 
+                <Route exact path="/sequences/:id/edit" render={ (routerProps) => this.props.currentUser ? <SequenceForm {...routerProps}/> : <Redirect to="/login"/>} /> 
                 <Route exact path="/poses" component={PosesPage} />
-                <Route 
-                          path="/poses/:id" 
-                          render={ (routerProps) => {
-                              return (<PoseDetail {...routerProps} />)
-                          }} />
+                <Route path="/poses/:id" render={ (routerProps) => {return (<PoseDetail {...routerProps} />)  }} />
                 <Route exact path="/quotes" component={QuotesModal} />
+                <Route exact path="/login" render={() => !this.props.currentUser ? <LoginForm/> : <Redirect to="/sequences"/> } />
+                <Route exact path="/signup" render={()=> !this.props.currentUser ? <NewUserForm/> : <Redirect to="/sequences" /> } />
                 <Route render={ErrorPage} />
-              </Switch>
-            </div> }
 
+              </Switch>
+          </div> }
       </div>
     )
   }
 }
+  const mapStateToProps = (state) => {
+    return {
+      currentUser: state.currentUser
+    }
+  }
 
   const mapDispatchToProps = (dispatch) => {
     return {
       fetchingPoses: () => {dispatch( fetchingPoses() )},
       fetchingSequences: () => {dispatch( fetchingSequences() )},
-      fetchingQuotes: () => {dispatch( fetchingQuotes() )}
+      fetchingQuotes: () => {dispatch( fetchingQuotes() )},
+      findingUser: (token) => {dispatch(findingUser(token))}
     }
 
   }
@@ -94,4 +93,4 @@ class App extends React.Component {
   // the dispatch is the invoking of fetching poses function
 
 
-export default withRouter(connect(null, mapDispatchToProps)(App))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))

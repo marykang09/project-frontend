@@ -12,6 +12,7 @@ class MySequencesPage extends React.Component {
         super()
         this.state = {
             showCreateForm: false,
+
             newSequenceName: "",
             newSequenceNotes: ""
         }
@@ -71,6 +72,7 @@ class MySequencesPage extends React.Component {
         this.validateSequenceNameInput()
 
         let info = {
+            userId: this.props.currentUser.id,              //check this, just added after seeing it after auth
             newSequenceName: this.state.newSequenceName,
             newSequenceNotes: this.state.newSequenceNotes
         }
@@ -78,8 +80,10 @@ class MySequencesPage extends React.Component {
         this.props.addingNewSequence(info)
 
         this.setState({
+
             newSequenceName: "",
-            newSequenceNotes: ""
+            newSequenceNotes: "",
+    
         }) // this is to reset the form 
     }
 
@@ -136,7 +140,8 @@ class MySequencesPage extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        sequences: state.sequences
+        sequences: state.sequences,
+        currentUser: state.currentUser //checked this, just added after auth
     }
 }
 

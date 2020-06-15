@@ -2,6 +2,7 @@ import React from 'react'
 import Demo from './Demo'
 import styled from 'styled-components';
 import headerphoto from '../assets/images/twitter_header_photo_1 copy.png'
+import { Link } from 'react-router-dom'
 
 // Create a <Title> react component that renders an <h1> which is
 // centered, palevioletred and sized at 1.5em
@@ -30,6 +31,11 @@ const AboutPage = () => {
                 <br></br>
             <Wrapper>
                 <Title>Use this app to browse poses and create your own sequences </Title>
+                <h1> 
+                    <Link to="/login"> Log In </Link>
+                    <br></br>
+                    <Link to="/signup"> Sign Up</Link>
+                </h1>
             </Wrapper>
         </div>
 

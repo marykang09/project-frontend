@@ -73,6 +73,19 @@ const sequencesReducer = (state=[], action) => {
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
+
+const quotesReducer = (state=[], action) => {
+    switch (action.type) {
+        case "FETCHED_QUOTES":
+            return action.payload
+        default: 
+            return state
+    }
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
 const searchTextReducer = (state="", action) => {
     switch (action.type){
         case "CHANGE_SEARCH_TEXT":
@@ -96,11 +109,39 @@ const clickedSequenceReducer = (state="", action) => {
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
+const userReducer = (state = null, action) => {
+    switch (action.type){
+        case "SET_CURRENT_USER":
+            return action.payload
+        case "LOGOUT_CURRENT_USER":
+            return null
+        default:
+            return state
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+const errorsReducer = (state=[], action) => {
+    switch (action.type){
+        case "LOGIN_ERROR":
+            return action.payload
+        default:
+            return state
+    }
+
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
 const rootReducer = combineReducers({
     poses: posesReducer,
     sequences: sequencesReducer,
     searchText: searchTextReducer,
-    sequence: clickedSequenceReducer
+    sequence: clickedSequenceReducer,
+    quotes: quotesReducer,
+    currentUser: userReducer,
+    errors: errorsReducer
 })
 
 export default rootReducer

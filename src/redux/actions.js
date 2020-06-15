@@ -1,3 +1,5 @@
+import { useStore } from "react-redux"
+
 const url = "http://localhost:3000"
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -26,6 +28,20 @@ function fetchingSequences(){
 
 function fetchedSequences(sequences){
     return {type: "FETCHED_SEQUENCES", payload: sequences}
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+function fetchingQuotes(){
+    return (dispatch) => {
+        fetch(`${url}/quotes`)
+        .then(response => response.json())
+        .then(quotes => { dispatch(fetchedQuotes(quotes))})
+    }
+}
+
+function fetchedQuotes(quotes){
+    return {type: "FETCHED_QUOTES", payload: quotes}
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -118,7 +134,7 @@ function addingNewSequence(info){
             method: "POST",
             headers: {"Content-Type" : "application/json"},
             body: JSON.stringify({
-                user_id: 9,
+                user_id: info.userId,
                 name: info.newSequenceName,
                 notes: info.newSequenceNotes
             })
@@ -148,10 +164,10 @@ function orderSequencePoseList( oldIndex, newIndex, sequenceId){
 /////////////////////////////////////////////////////////////////////////////////////////
 
 function onSaveNewOrder(sequence){
-    console.log("in onSaveNewOrder in actions, what is sequence?:", sequence)
-    console.log("in onSaveNewOrder in actions, what is sequenceposes?:", sequence.sequence_poses)
-    console.log("sp[0]", sequence.sequence_poses[0])
-    console.log(sequence.sequence_poses.indexOf(sequence.sequence_poses[0]))
+    // console.log("in onSaveNewOrder in actions, what is sequence?:", sequence)
+    // console.log("in onSaveNewOrder in actions, what is sequenceposes?:", sequence.sequence_poses)
+    // console.log("sp[0]", sequence.sequence_poses[0])
+    // console.log(sequence.sequence_poses.indexOf(sequence.sequence_poses[0]))
     // debugger
 
     return (dispatch, getState) => {
@@ -175,4 +191,79 @@ function onSaveNewOrder(sequence){
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-export { fetchingPoses, fetchingSequences, changeSearchText, clickedSequence, addingToSequence, addedToSequence, removingFromSequence, removedFromSequence, deleteSequence, addingNewSequence, addedSequence, orderSequencePoseList, onSaveNewOrder }
+function errorMessages(errors){
+    return {
+        type: "LOGIN_ERROR", 
+        payload: errors
+    }
+}
+
+
+function loginUser(userInfo){
+    return (dispatch) => {
+        fetch(`${url}/login`, {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(userInfo)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error_message){
+                dispatch(errorMessages(data.error_message))
+            } else {
+                localStorage.setItem("token", data.token)
+                dispatch(setCurrentUser(data.user_data))
+            }
+        })
+    }
+}
+
+function findingUser(token){
+    return(dispatch) => {
+        fetch(`${url}/users/decode_token`, {
+            headers: {
+                "Authenticate": token
+            }
+        })
+        .then(response => response.json())
+        .then(user_data => {dispatch(setCurrentUser(user_data))})
+    }
+}
+
+function setCurrentUser(user_data){
+    console.log(user_data)
+
+    return {
+        type: "SET_CURRENT_USER",
+        payload: user_data
+    }
+}
+
+function logoutCurrentUser(){
+    localStorage.clear()
+    return {
+        type: "LOGOUT_CURRENT_USER"
+    }
+}
+
+function createNewUser(newUserObj){
+    return (dispatch) => {
+        fetch(`${url}/users`, {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(newUserObj)
+        })
+        .then(response => response.json())
+        .then(data => {
+            localStorage.setItem("token", data.token)
+            dispatch(setCurrentUser(data.user_data))
+        })
+    }
+}
+
+ 
+
+/////////////////////////////////////////////////////////////////////////////////////////
+export { fetchingPoses, fetchingSequences, changeSearchText, clickedSequence, addingToSequence, addedToSequence, 
+    removingFromSequence, removedFromSequence, deleteSequence, addingNewSequence, addedSequence, orderSequencePoseList, onSaveNewOrder, fetchingQuotes, 
+    findingUser, loginUser, setCurrentUser, logoutCurrentUser, createNewUser }

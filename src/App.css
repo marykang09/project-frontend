@@ -145,6 +145,11 @@ input.customsearch {
   padding: 150px;
 }
 
+.login-form {
+  color: black !important; 
+}
+
+/* -------------------------------------------CUSTOM STUFF UP ABOVE ------------------------------------------- */
 /* THIS STUFF WAS ALREADY HERE */
 .App {
   text-align: center;

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { Form, Button } from 'react-bootstrap'
+import { Form, FormControl, Button } from 'react-bootstrap'
 import { createNewUser } from '../redux/actions'
 import swal from 'sweetalert'
 
@@ -9,8 +9,8 @@ class NewUserForm extends React.Component {
     constructor(){
         super()
         this.state = {
-            firstName: "",
-            lastName: "",
+            first_name: "",
+            last_name: "",
             username: "",
             password: "",
             usernameConfirm: true,
@@ -55,22 +55,28 @@ class NewUserForm extends React.Component {
     }
 
     onChange = (event) => {
+        console.log("inside onChange, event", event)
+        console.log("inside onChange, event.currentTarget.id:", event.currentTarget.id)
+        console.log("inside onChange, event.currentTarget.value :", event.currentTarget.value)
+
         this.setState({
             [event.currentTarget.id]: event.currentTarget.value
         })
 
-        if (event.currentTarget.id === "username"){
-            this.usernameValidation(event.currentTarget.value)
-        }
+        // if (event.currentTarget.id === "username"){
+        //     this.usernameValidation(event.currentTarget.value)
+        // }
     }
 
     onSubmit = (event) => {
         event.preventDefault()
+
         if (this.state.usernameConfirm){
             this.props.createNewUser({ 
+                first_name: this.state.first_name,
+                last_name: this.state.last_name,
                 username: this.state.username,
-                firstName: this.state.firstName,
-                lastName: this.state.lastName
+                password: this.state.password
              })
         }
         
@@ -79,23 +85,27 @@ class NewUserForm extends React.Component {
     render(){
         return this.props.currentUser ? <Redirect to="/sequences" /> : 
 
-        <div className="new-user-form">
-            <div className="error">
-                { !this.state.usernameConfirm ? <div>{this.state.errors.username}</div> : null}
-            </div>
-
+        <div className="user-form">
+            
             <div>
-                <Form>
+                <Form >
                     <Form.Label> FIRST NAME </Form.Label>
-                    <Form.Control type="firstName" placeholder="FIRST NAME" value={this.state.firstName} onChange={this.onChange} />
+                    <FormControl id="first_name" type="text" placeholder="FIRST NAME" value={this.state.first_name} onChange={this.onChange} />
+
                     <Form.Label> LAST NAME </Form.Label>
-                    <Form.Control type="lastName" placeholder="LAST NAME" value={this.state.lastName} onChange={this.onChange} />
+                    <FormControl id="last_name" type="text" placeholder="LAST NAME" value={this.state.last_name} onChange={this.onChange} />
+
                     <Form.Label> USERNAME </Form.Label>
-                    <Form.Control type="username" placeholder="USERNAME" value={this.state.username} onChange={this.onChange} />
+                    <FormControl id="username" type="text" placeholder="USERNAME" value={this.state.username} onChange={this.onChange} />
+
                     <Form.Label> PASSWORD </Form.Label>
-                    <Form.Control type="password" placeholder="PASSWORD" value={this.state.password} onChange={this.onChange} />
+                    <FormControl id="password" type="text" placeholder="PASSWORD" value={this.state.password} onChange={this.onChange} />
+
                     <Button variant="flat" size="md" onClick={this.onSubmit}> CREATE </Button>
                 </Form>
+            </div>
+            <div className="error">
+                { !this.state.usernameConfirm ? <div>{this.state.errors.username}</div> : null}
             </div>
         </div>
     }

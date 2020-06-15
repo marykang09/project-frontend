@@ -47,7 +47,7 @@ class LoginForm extends React.Component {
     render (){
         return this.props.currentUser ? <Redirect to="/sequences" /> : 
 
-            <div className="login-form">
+            <div className="user-form">
                 <h1> Log In</h1>
                 <br></br>
                 <Form inline>

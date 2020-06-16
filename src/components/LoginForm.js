@@ -46,7 +46,7 @@ class LoginForm extends React.Component {
     }
 
     render (){
-        return this.props.currentUser ? <Redirect to="/sequences" /> : 
+        return !this.props.currentUser ? null : 
 
             <div className="login-page">
                 <div className="login-image">

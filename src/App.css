@@ -1,4 +1,27 @@
-/* SWAL */
+/* ------------NAVEXAMPLE------------ */
+/* ul {
+  list-style: none;
+  margin: 0;
+  width: 100%;
+  background-color: #beecea;
+}
+ul li {
+  display: inline-block;
+  padding: 1.25rem 3rem;
+  cursor: pointer;
+  &:hover,
+  &.active {
+    background-color: darken(#beecea, 15%);
+  }
+}
+.window {
+  max-width:1024px;
+  padding: 20px;
+  margin:auto;
+} */
+
+
+/* ------------SWAL------------ */
 .swal{
   font-size: 50px !important;
 }
@@ -50,12 +73,35 @@
   background:  #a09cb0;
 }
 
+
 /* ------------HOMEPAGE------------ */
 .home-image {
   position: absolute;
   right: auto;
 
 }
+
+/* ------------DASHBOARD------------ */
+.dashbaord {
+  margin-left: 120px;
+  margin-right: 120px;
+  margin-top: 32px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.ptag {
+  text-align: center;
+  letter-spacing: 1px;
+  color:#EAD2AC;
+  font-size: 40px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
 
 /* ------------LOGINPAGE------------ */
 .login-page {
@@ -222,7 +268,7 @@ input.customsearch {
 
  /* ------------LINE------------ */
  .line {
-    border-top: .90px solid #ABDAE1;
+    border-top: .90px solid #4281A4;
     height: 5px;
     margin-left: 152px;
     margin-right: 152px;

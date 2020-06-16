@@ -23,10 +23,10 @@ const Wrapper = styled.section`
 const AboutPage = () => {
     return (
         <div>
-            <img 
+            {/* <img 
                 src={headerphoto} 
                 style={{width:"100%"}}
-                padding="0" />
+                padding="0" /> */}
                 <br></br>
                 <br></br>
             <Wrapper>

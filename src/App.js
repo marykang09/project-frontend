@@ -17,7 +17,7 @@ import HomePage from './components/Homepage'
 import QuotesModal from './components/QuotesModal'
 import LoginForm from './components/LoginForm'
 import NewUserForm from './components/NewUserForm'
-
+import Dashboard from './components/Dashboard'
 
 class App extends React.Component {
 
@@ -56,16 +56,17 @@ class App extends React.Component {
           <div className="main">
               <Switch>
                 
-                <Route exact path="/" component={HomePage} />
+                <Route exact path="/" render={()=> this.props.currentUser ? <Dashboard/> : <HomePage/> } />
+                <Route exact path="/dashboard" render={()=> this.props.currentUser ? <Dashboard/> : <Redirect to="/login"/> } />
                 <Route exact path="/about" component={AboutPage} />
-                <Route exact path="/sequences" render={()=> this.props.currentUser ? <MySequencesPage/> : <Redirect to="/login"/> } />
+                <Route exact path="/sequences" render={MySequencesPage} />
                 <Route exact path="/sequences/:id" render={ (routerProps) => this.props.currentUser ? <SequenceDetail {...routerProps}/> : <Redirect to="/login"/>}  /> 
                 <Route exact path="/sequences/:id/edit" render={ (routerProps) => this.props.currentUser ? <SequenceForm {...routerProps}/> : <Redirect to="/login"/>} /> 
                 <Route exact path="/poses" component={PosesPage} />
                 <Route path="/poses/:id" render={ (routerProps) => {return (<PoseDetail {...routerProps} />)  }} />
                 <Route exact path="/quotes" component={QuotesModal} />
-                <Route exact path="/login" render={() => !this.props.currentUser ? <LoginForm/> : <Redirect to="/sequences"/> } />
-                <Route exact path="/signup" render={()=> !this.props.currentUser ? <NewUserForm/> : <Redirect to="/sequences" /> } />
+                <Route exact path="/login" render={() => !this.props.currentUser ? <LoginForm/> : <Redirect to="/dashboard"/> } />
+                <Route exact path="/signup" render={()=> !this.props.currentUser ? <NewUserForm/> : <Redirect to="/dashboard" /> } />
                 <Route render={ErrorPage} />
 
               </Switch>

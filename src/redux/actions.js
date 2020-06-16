@@ -252,12 +252,12 @@ function findingUser(token){
             }
         })
         .then(response => response.json())
-        .then(user_data => {
-            console.log("inside findingUser, what is user_data?", user_data)
+        .then(data => {
+            console.log("inside findingUser, what is user_data?", data)
 
-            dispatch(setCurrentUser(user_data))
-            dispatch(fetchedUserSequences(user_data.user_data.sequences))
-            dispatch(fetchedUserQuotes(user_data.user_data.user_quotes))
+            dispatch(setCurrentUser(data.user_data))
+            dispatch(fetchedUserSequences(data.user_data.sequences))
+            dispatch(fetchedUserQuotes(data.user_data.user_quotes))
 
             // dispatch(fetchingUserSequences(user_data)) }
         })

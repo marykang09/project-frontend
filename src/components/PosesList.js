@@ -15,6 +15,7 @@ const PosesList = (props) => {
                     <Col md="auto"></Col>
                     {props.poses.map(pose => (
                         <Pose
+                            classname="card-pose"
                             key={pose.id}
                             pose={pose}
                             editing={false}

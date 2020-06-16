@@ -8,18 +8,21 @@ import { logoutCurrentUser } from '../redux/actions'
 const NavBar = (props) => {
 
     return (
-        <Navbar className="color-nav" fixed="top" className="sticky" bg="light" variant="light" expand="lg">
+        <Navbar className="sticky" fixed="top" expand="lg">
             <Navbar.Brand href="/"> YOGA APP  </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto">
-                    <Nav.Link href="/poses"> POSES </Nav.Link>
+                <Nav className="ml-auto">
+                    <Nav.Link href="/poses" className="nav-link" style={{color: "white"}}> POSES </Nav.Link>
                     <br></br>
-                    <Nav.Link href="/sequences">MY SEQUENCES </Nav.Link>
                     <br></br>
-                    <Nav.Link href="/quotes"> INSPIRATION </Nav.Link>
+                    <Nav.Link href="/sequences" className="nav-link" style={{color: "white"}}> MY SEQUENCES </Nav.Link>
                     <br></br>
-                    <Nav.Link href="/about"> ABOUT </Nav.Link>
+                    <br></br>
+                    <Nav.Link href="/quotes" className="nav-link" style={{color: "white"}}> INSPIRATION </Nav.Link>
+                    <br></br>
+                    <br></br>
+                    <Nav.Link href="/about" className="nav-link" style={{color: "white"}}> ABOUT </Nav.Link>
                     {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -27,12 +30,26 @@ const NavBar = (props) => {
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown> */}
-
-                    {props.currentUser ? <Button variant="flat" size="md" onClick={()=> props.logoutCurrentUser()}> Sign Out </Button> : null }
+                    <br></br>
+                    {props.currentUser ? <Button className="sign-out" variant="flat" size="md" onClick={()=> props.logoutCurrentUser()}> SIGN OUT </Button> : <Link to="/login"><Button className="sign-in" variant="flat" size="md" onClick> SIGN IN </Button></Link> }
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
-    
+
+ 
+        // testing nav div
+        // <div id="nav-bar">
+        //     <div id="nav-logo">
+        //         Yoga App
+        //     </div>
+
+        //     <div id="nav-menu">
+        //         <div className="nav-button"> POSES </div>
+        //         {props.currentUser ? <div className="nav-button" onClick={()=> props.logoutCurrentUser()} > SIGN OUT </div> : <div className="nav-button"> SIGN IN </div> }
+        //     </div>
+        // </div>
+
+
     )
 }
 

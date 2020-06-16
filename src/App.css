@@ -55,13 +55,21 @@
   transform: scale(1.1); 
 }
 
+/* .card-pose:link {
+  color: #776D5A !important;
+}
+
+.card-pose:visited {
+  color: #776D5A !important; 
+} */
+
 /* LINKS */
 a:link {
-  color: #776D5A !important; 
+  color: #987D7C; 
 }
 
 a:visited {
-  color: #776D5A !important; 
+  color: #987D7C; 
 }
 
 /* NAVBAR */
@@ -70,6 +78,31 @@ a:visited {
   top: 0;
   width: 100%;
   z-index: 100;
+  background-color: #A09CB0 !important; 
+  height: 90px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important
+}
+
+.nav-link{
+  font-weight: normal;
+  font-size: 2.05em;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link:link {
+  color: white !important;
+}
+
+.nav-link:visited {
+  color: white !important;
+}
+
+.sign-out {
+  float: right !important;
+  overflow: hidden !important;
 }
 
 /* SEARCHBAR */

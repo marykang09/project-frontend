@@ -301,6 +301,31 @@ function createNewUser(newUserObj){
  
 
 /////////////////////////////////////////////////////////////////////////////////////////
+
+function addingQuote(userQuoteObj){
+    console.log("in addingQuote, what is userQuoteObj?", userQuoteObj)
+    return (dispatch, getState) => {
+        fetch(`${url}/user_quotes`, {
+            method: "POST",
+            headers: {"Content-Type" : "application/json"},
+            body: JSON.stringify(userQuoteObj)
+        })
+        .then(response => response.json())
+        .then(userQuote => dispatch(addedQuote(userQuote)))
+         // this updates the backend, then dispatches to update the frontend
+    }
+}
+
+function addedQuote(userQuote){
+    return {
+        type: "CREATED_USER_QUOTE",
+        payload: userQuote
+    }
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
 export { fetchingPoses, changeSearchText, clickedSequence, addingToSequence, addedToSequence, 
-    removingFromSequence, removedFromSequence, deleteSequence, addingNewSequence, addedSequence, orderSequencePoseList, onSaveNewOrder, fetchingQuotes, 
-    findingUser, loginUser, setCurrentUser, logoutCurrentUser, createNewUser }
+    removingFromSequence, removedFromSequence, deleteSequence, addingNewSequence, addedSequence, 
+    orderSequencePoseList, onSaveNewOrder, fetchingQuotes, findingUser, loginUser, setCurrentUser, 
+    logoutCurrentUser, createNewUser, addingQuote, addedQuote }

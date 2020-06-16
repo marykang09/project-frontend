@@ -6,6 +6,7 @@ import lotus from '../assets/images/lotus.jpg'
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import '../assets/css/modal.scss'
+import { withRouter } from 'react-router-dom'
 
 class Dashboard extends React.Component {
 
@@ -78,7 +79,7 @@ class Dashboard extends React.Component {
                             </div>
                         </section>
                 </div>
-                        
+                 
             </div>
         )
     }
@@ -94,4 +95,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Dashboard)
+export default withRouter(connect(mapStateToProps)(Dashboard))

@@ -115,7 +115,7 @@ import swal from 'sweetalert'
 
         
         return (!this.props.sequence ? null : 
-                <div>
+                <div className="padding">
                     <h1> SEQUENCE: {this.props.sequence.name} </h1>
                     <br></br>
                     <div className="line"></div>
@@ -133,11 +133,11 @@ import swal from 'sweetalert'
                         <br></br>
                         <SearchBar/> 
                         <br></br>
-
+                            <div>
                                 <Row className="justify-content-md-center">
                                 <Col md="auto"></Col>
                                     {/* <Button variant="flat" size="md" onClick={()=>{this.props.onSaveNewOrder(this.props.sequence)}}> SAVE </Button> */}
-                                    <Button variant="flat" size="md" onClick={this.onSave}> SAVE </Button>
+                                    <Button className="mybtn" variant="flat" size="md" onClick={this.onSave}> SAVE </Button>
                                 </Row>
                                 <br></br>
                                 <Row className="justify-content-md-center">
@@ -163,7 +163,7 @@ import swal from 'sweetalert'
                                 </p>
                                 </Row>
                             
-                            <br></br>
+                                <br></br>
                         
                                 <h2>POSES :</h2>
                                 <Row className="justify-content-md-center">
@@ -176,8 +176,8 @@ import swal from 'sweetalert'
                                         sequence={this.props.sequence}
                                         editing={true} />
                                 ))}
-                            </Row>
-                    
+                                </Row>
+                            </div>
                 </div>
         )
     }

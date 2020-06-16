@@ -48,7 +48,7 @@ class SequencePose extends React.Component {
                                                     `}
                                                 </style>
                             
-                                                <Button variant="flat" size="md" onClick={this.onRemove} >
+                                                <Button className="mybtn" variant="flat" size="md" onClick={this.onRemove} >
                                                     REMOVE
                                                 </Button>
                                                 </> ) : null

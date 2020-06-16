@@ -1,26 +1,53 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import {Container, Row, Col, Button, Card, CardColumns} from 'react-bootstrap'
+import {Container, Row, Col, Button, Card, CardColumns, OverlayTrigger, Tooltip} from 'react-bootstrap'
 import { connect } from 'react-redux'
+import { FcLikePlaceholder, FcLike } from 'react-icons/fc'
+import { addingQuote } from '../redux/actions'
 
 class Quote extends React.Component {
 
-    // onAdd = event => {
-    //     event.preventDefault()
+    onDoubleClick = event => {
+        event.preventDefault()
 
-    //     let info = {
-    //         sequenceId: this.props.sequence.id,
-    //         pose: this.props.pose
-    //     }
+        let userQuoteObj = {
+            user_id: this.props.currentUser.id,
+            quote_id: this.props.quote.id
+        }
         
-    //     this.props.addingToSequence(info)
-    // }
+        this.props.addingQuote(userQuoteObj)
+    }
+
+    renderToolTip = (props) => {
+        return (
+        <Tooltip id="button-tooltip" {...props}> Double Click to Add </Tooltip>
+        )
+    }
 
     render(){
+
+
         return (
             
             <div>
-                {/* <div className="card-columns">
+                    <CardColumns style={{display: 'flex'}}>
+                    <OverlayTrigger placement="right" delay={{show: 150, hide: 200}} overlay={this.renderToolTip}>
+                        <Card className="p-3" style={{flex: 1}}>
+                            <blockquote className="blockquote mb-0 card-body">
+                                <p>{this.props.quote.quote}</p>
+                            <footer className="blockquote-footer">
+                                <small className="text-muted"> {this.props.quote.author} </small>
+                            </footer>
+                            </blockquote>
+                            
+                            
+                                <div className="icon" onDoubleClick={this.onDoubleClick}><FcLikePlaceholder/></div>
+                            </Card>
+                        </OverlayTrigger>
+                    </CardColumns>
+            </div>
+
+                                /* <div className="card-columns">
                     <div className="card" >
                         <blockquote className="blockquote mb-0">
                             <p> {this.props.quote.quote}</p>
@@ -29,25 +56,9 @@ class Quote extends React.Component {
                             </footer>
                         </blockquote>
                     </div>
-                </div> */}
-                
-                    <CardColumns style={{display: 'flex', flexDirection: 'row'}}>
-                        <Card className="p-3" style={{flex: 1}}>
-                            <blockquote className="blockquote mb-0 card-body">
-                                <p>{this.props.quote.quote}</p>
-                            <footer className="blockquote-footer">
-                                <small className="text-muted"> {this.props.quote.author} </small>
-                            </footer>
-                            </blockquote>
-                        </Card>
-                    </CardColumns>
-                
- 
+                </div> */
 
 
-
-                
-            </div>
                 /* <Card className='card' border="light" style={{ width: '18rem' }}>
                 <Card.Body>
                         <Card.Title> {this.props.quote.quote} </Card.Title>
@@ -68,10 +79,15 @@ class Quote extends React.Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        currentUser: state.currentUser
+    }
+}
 
 
-// const mapDispatchToProps = dispatch => ({
-//     addingToSequence: (info) => { dispatch ( addingToSequence(info))}
-// })
+const mapDispatchToProps = dispatch => ({
+    addingQuote: (userQuoteObj) => { dispatch ( addingQuote(userQuoteObj))}
+})
 
-export default Quote
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Quote))

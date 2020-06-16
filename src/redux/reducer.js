@@ -88,6 +88,8 @@ const userQuotesReducer = (state = [], action) => {
     switch(action.type){
         case "FETCHED_USER_QUOTES":
             return action.payload
+        case "CREATED_USER_QUOTE":
+            return [...state, action.payload]
         default: 
             return state 
     }

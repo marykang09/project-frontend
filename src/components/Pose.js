@@ -44,7 +44,7 @@ class Pose extends React.Component {
                                                     `}
                                                 </style>
                             
-                                                <Button variant="flat" size="md" onClick={this.onAdd}>
+                                                <Button className="mybtn" variant="flat" size="md" onClick={this.onAdd}>
                                                     Add
                                                 </Button>
                                                 </> ) : null

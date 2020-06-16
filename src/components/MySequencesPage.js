@@ -27,14 +27,16 @@ class MySequencesPage extends React.Component {
                             <FormControl 
                                 type="text" 
                                 placeholder="NEW SEQUENCE NAME" 
-                                className="mr-sm-2"
+                                className="mx-sm-3"
+                                size="lg"
                                 value={this.state.newSequenceName}
                                 onChange={(event) => this.setState({ newSequenceName: event.target.value})} />
 
                             <FormControl 
                                 type="text" 
                                 placeholder="NEW SEQUENCE NOTES" 
-                                className="mr-sm-2"
+                                className="mx-sm-3"
+                                size="lg"
                                 value={this.state.newSequenceNotes}
                                 onChange={(event) => this.setState({ newSequenceNotes: event.target.value})} />
                             

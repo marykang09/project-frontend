@@ -108,7 +108,7 @@ class SequenceDetail extends React.Component {
         return (!this.props.sequence ? null : 
         //need to do this to account for INIT state = []
         
-            <div>
+            <div className="padding">
                 <h1> SEQUENCE: {this.props.sequence.name} </h1>
                 <br></br>
                 <div className="line"></div>
@@ -146,12 +146,12 @@ class SequenceDetail extends React.Component {
                         <Link to={`${this.props.sequence.id}/edit`}>
                         {/* why wont the link above work?!?! */}
                         {/* <Link to={`/sequences/${this.props.sequence.id}`}> */}
-                            <Button variant="flat" size="md"> EDIT </Button>
+                            <Button className="mybtn" variant="flat" size="md"> EDIT </Button>
                         </Link>    
                     </ButtonGroup>
                     &nbsp;
                     <ButtonGroup>
-                            <Button variant="flat" size="md" onClick={this.handleShowAlert}> DELETE </Button>
+                            <Button className="mybtn" variant="flat" size="md" onClick={this.handleShowAlert}> DELETE </Button>
                              {/* {this.state.showAlert ? this.showAlert() : null} */}
                             
                     </ButtonGroup>
@@ -169,7 +169,7 @@ class SequenceDetail extends React.Component {
                         <br></br>
                         <Row className="justify-content-md-center">
                             <Col md="auto">
-                                <Button variant="flat" size="sm" onClick={this.onReadNotes}> {this.state.showNotes ? "HIDE NOTES" : "READ NOTES" }</Button>
+                                <Button className="mybtn" variant="flat" size="sm" onClick={this.onReadNotes}> {this.state.showNotes ? "HIDE NOTES" : "READ NOTES" }</Button>
                                 <br></br>
                                 <br></br>
                                 {this.showReadNotesDiv()}

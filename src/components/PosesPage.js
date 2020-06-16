@@ -25,12 +25,13 @@ const PosesPage = (props) => {
 
     return (
         <div>
- 
+          <div className="pose-div">
                 <h1> BROWSE ALL POSES </h1>
                 <br></br>
                 <div className="line"></div>
                  <br></br>
                 <SearchBar/>
+          </div>
                 <Route path="/" component={PosesList} />
         </div>
     )

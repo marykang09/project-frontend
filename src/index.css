@@ -12,3 +12,16 @@ code {
     monospace;
 }
 
+/* body, html {
+  height: 100% !important
+}
+
+.bg {
+  background-image: url("https://images.unsplash.com/photo-1528715471579-d1bcf0ba5e83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1670&q=80");
+  height: 100vh;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  overflow-y: visible;
+  overflow-x: visible;
+} */

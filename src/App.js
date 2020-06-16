@@ -12,11 +12,12 @@ import PoseDetail from './components/PoseDetail'
 import SequenceDetail from './components/SequenceDetail'
 import SequenceForm from './components/SequenceForm'
 import {Spinner} from 'react-bootstrap'
-import HomePage from './containers/Homepage'
+import HomePage from './components/Homepage'
 // import QuotesPage from './components/QuotesPage'
 import QuotesModal from './components/QuotesModal'
 import LoginForm from './components/LoginForm'
 import NewUserForm from './components/NewUserForm'
+
 
 class App extends React.Component {
 
@@ -55,7 +56,7 @@ class App extends React.Component {
           <div className="main">
               <Switch>
                 
-                <Route exact path="/" component={AboutPage} />
+                <Route exact path="/" component={HomePage} />
                 <Route exact path="/about" component={AboutPage} />
                 <Route exact path="/sequences" render={()=> this.props.currentUser ? <MySequencesPage/> : <Redirect to="/login"/> } />
                 <Route exact path="/sequences/:id" render={ (routerProps) => this.props.currentUser ? <SequenceDetail {...routerProps}/> : <Redirect to="/login"/>}  /> 

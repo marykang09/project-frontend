@@ -50,7 +50,72 @@
   background:  #a09cb0;
 }
 
-/* CARDS */
+/* ------------HOMEPAGE------------ */
+.home-image {
+  position: absolute;
+  right: auto;
+
+}
+
+/* ------------LOGINPAGE------------ */
+.login-page {
+  margin: auto !important;
+  padding: 20px !important;
+  left: auto !important;
+  right: auto !important;
+  align-content: center !important;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 
+.login-form {
+  position: absolute !important;
+  margin: auto !important;
+  padding: 20px !important;
+  align-content: center !important;
+  left: auto !important;
+  right: auto !important;
+
+} */
+
+/* .login-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  width: 100%
+} */
+
+/* ------------BUTTONS------------ */
+ .mybtn {
+  background-color: #ABDAE1 !important;
+  outline: #ABDAE1 !important;
+  border: 1px solid #a09cb0 !important;
+  color: white;
+  padding: 1rem 1.5rem !important;
+  font-size: 0.8rem !important;
+  position: relative !important;
+  justify-content: center !important;
+  }
+
+ /* .my-btn button:focus{
+  outline: none;
+ } */
+
+ /* .my-btn button:active{
+  background-color:'#a09cb0' !important; 
+}
+
+.my-btn:not([disabled]):hover{
+  background-color:'#a09cb0' !important; 
+  -webkit-transition: all 0.3s ease-in-out; 
+  transition: all 0.3s ease-in-out; 
+ } */ 
+
+/* ------------CARDS------------ */
 .card:hover {
   transform: scale(1.1); 
 }
@@ -63,7 +128,7 @@
   color: #776D5A !important; 
 } */
 
-/* LINKS */
+/* ------------LINKS------------ */
 a:link {
   color: #987D7C; 
 }
@@ -72,13 +137,13 @@ a:visited {
   color: #987D7C; 
 }
 
-/* NAVBAR */
+/* ------------NAVBAR------------ */
 .sticky {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 100;
-  background-color: #A09CB0 !important; 
+  background-color: #4281A4 !important; 
   height: 90px !important;
   display: flex !important;
   justify-content: space-between !important;
@@ -105,7 +170,40 @@ a:visited {
   overflow: hidden !important;
 }
 
-/* SEARCHBAR */
+
+/* NAVBAR */
+  /* position: fixed; */
+  /* top: 0;
+  width: 100%;
+  z-index: 100 !important;
+  background-color: #A09CB0 !important; 
+  height: 90px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.nav-link{
+  font-weight: normal;
+  font-size: 2.05em;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link:link {
+  color: white !important;
+}
+
+.nav-link:visited {
+  color: white !important;
+}
+
+.sign-out {
+  float: right !important;
+  overflow: hidden !important;
+}
+
+/* ------------SEARCHBAR------------ */
 .customsearch {
   width: 750px;
   margin: 0 auto;
@@ -122,31 +220,7 @@ input.customsearch {
   outline: none;
  }
 
- /* BUTTONS */
- /* .my-btn {
-  background-color: #ABDAE1;
-  outline: #ABDAE1;
-  border: 1px solid #a09cb0;
-  color: white;
-  padding: 1rem 1.5rem;
-  font-size: 1.5rem;
-  } */
-
- /* .my-btn button:focus{
-  outline: none;
- } */
-
- /* .my-btn button:active{
-  background-color:'#a09cb0' !important; 
-}
-
-.my-btn:not([disabled]):hover{
-  background-color:'#a09cb0' !important; 
-  -webkit-transition: all 0.3s ease-in-out; 
-  transition: all 0.3s ease-in-out; 
- } */ 
-
- /* LINE */
+ /* ------------LINE------------ */
  .line {
     border-top: .90px solid #ABDAE1;
     height: 5px;
@@ -168,19 +242,31 @@ input.customsearch {
       line-height: 30px;
 } */
 
-.Homepage {
-  display: grid;
-  grid-template-columns: 54% 28% 20%;
-}
+/* body, html {
+  height: 100% 
+} */
+
+/* NOTE- THIS MADE THE NAV BAR CUT OFF */
+/* .home-page {
+  height: 220vh;
+  width: 220vh;
+} */
+
+
+/* .bg {
+  height: 100% !important;
+  width: 100% !important;
+  background-image: url("https://images.unsplash.com/photo-1528715471579-d1bcf0ba5e83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1670&q=80") !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+} */
 
 .main {
   text-align: center;
   padding: 150px;
 }
 
-.login-form {
-  color: black !important; 
-}
 
 /* -------------------------------------------CUSTOM STUFF UP ABOVE ------------------------------------------- */
 /* THIS STUFF WAS ALREADY HERE */

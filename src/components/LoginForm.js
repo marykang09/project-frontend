@@ -4,6 +4,7 @@ import { connect} from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { Form, FormControl, Button} from 'react-bootstrap'
 import swal from '@sweetalert/with-react'
+import yogi from '../assets/images/yogi2.png'
 
 class LoginForm extends React.Component { 
     constructor(){
@@ -47,18 +48,25 @@ class LoginForm extends React.Component {
     render (){
         return this.props.currentUser ? <Redirect to="/sequences" /> : 
 
-            <div className="user-form">
-                <h1> Log In</h1>
-                <br></br>
-                <Form inline>
-                    <FormControl type="text" placeholder="USERNAME" className="mr-sm-2" value={this.state.username} onChange={(event) => this.setState({ username: event.target.value})}  />
-                    <br></br>
-                    <FormControl type="text" placeholder="PASSWORD" className="mr-sm-2" value={this.state.password} onChange={(event) => this.setState({ password: event.target.value})}  />
-                    <Button variant="flat" size="md" onClick={this.onSubmit}> LOGIN </Button>
-                </Form>
+            <div className="login-page">
+                <div className="login-image">
+                    <img src={yogi} style={{width: "50%"}}/>
+                </div>
 
                 <br></br>
-                <div> { this.props.errors ? this.props.errors : null} </div>
+                <br></br>
+
+                <div className="login-form">
+                    <Form inline >
+                        <FormControl size="lg" type="text" placeholder="USERNAME" className="mx-sm-3" value={this.state.username} onChange={(event) => this.setState({ username: event.target.value})}  />
+                        <br></br>
+                        <FormControl size="lg" type="text" placeholder="PASSWORD" className="mx-sm-3" value={this.state.password} onChange={(event) => this.setState({ password: event.target.value})}  />
+                        <Button className="mybtn" variant="flat" size="md" onClick={this.onSubmit}> LOGIN </Button>
+                    </Form>
+                </div>
+
+                <br></br>
+                <div className="login-error"> { this.props.errors ? this.props.errors : null} </div>
             </div>
 
         

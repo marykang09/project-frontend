@@ -33,7 +33,7 @@ const SearchBar = (props) => {
                         `}
                     </style>
                     </>
-                <Link className="item" to='/' >
+                <Link className="item" to='/poses' >
                     <Button className="my-btn" variant="flat" size="md">
                         SEARCH
                     </Button>

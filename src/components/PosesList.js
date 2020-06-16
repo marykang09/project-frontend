@@ -8,8 +8,7 @@ const PosesList = (props) => {
     console.log("PosesList props:", props)
 
     return (
-        <div>
-            
+        <div className="pose-list">
                 <br></br>
                 <Row className="justify-content-md-center">
                     <Col md="auto"></Col>
@@ -22,8 +21,6 @@ const PosesList = (props) => {
                             sequence={""} />
                     ))}
                 </Row>
-           
-            
         </div>
     )
 }

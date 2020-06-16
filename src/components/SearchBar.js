@@ -18,21 +18,7 @@ const SearchBar = (props) => {
                 value={props.value}
                 onChange={e => props.onChange(e.target.value)} />
 
-                    <>
-                    <style type="text/css">
-                        {`
-                        .btn-flat {
-                        background-color: #ABDAE1;
-                        color: white;
-                        }
 
-                        .btn-md {
-                        padding: 1rem 1.5rem;
-                        font-size: 1.5rem;
-                        }
-                        `}
-                    </style>
-                    </>
                 <Link className="item" to='/poses' >
                     <Button className="mybtn" variant="flat" size="md">
                         SEARCH

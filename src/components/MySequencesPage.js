@@ -5,7 +5,6 @@ import Sequence from './Sequence'
 import { connect } from 'react-redux'
 import { Button, Form, FormControl, Container, Row } from 'react-bootstrap'
 import { addingNewSequence } from '../redux/actions'
-import styled from 'styled-components';
 import swal from 'sweetalert'
 
 class MySequencesPage extends React.Component {
@@ -83,29 +82,22 @@ class MySequencesPage extends React.Component {
 
             newSequenceName: "",
             newSequenceNotes: "",
+            name: this.props.currentUser.first_name
     
         }) // this is to reset the form 
     }
 
     render(){
 
-        const Title = styled.h1`
-        font-size: 2.0em;
-        text-align: center;
-        color: white;
-        `;
-    
-        const Wrapper = styled.section`
-        padding: 3em;
-        background: #a3b9c9;
-        `;
 
         console.log("inside mysequences page", this.props.sequences)
+        console.log("what is currentUser?", this.state.name)
 
-        return (!this.props.sequences ? null : 
+        return (!this.props.sequences && !this.props.currentUser ? null : 
 
-                <div>
-                    <h1> MY SEQUENCES </h1>
+                <div className="padding">
+                    <h1> SEQUENCES </h1>
+                        <p> curated by  </p>
                     <br></br>
                     <div className="line"></div>
                     <br></br>

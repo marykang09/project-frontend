@@ -9,7 +9,7 @@ const PosesPage = (props) => {
     console.log("PosesPage props:", props)
 
     return (
-        <div>
+        <div className="pose-page">
           <div className="pose-div">
                 <h1> BROWSE ALL POSES </h1>
                 <br></br>

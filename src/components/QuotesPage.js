@@ -12,11 +12,10 @@ class QuotesPage extends React.Component{
 
     render(){
         return (
-            <div>
-
+            <div className="padding">
                 <div className="quotes">
-                <div className="line"></div>
                     <h1 className="header"> QUOTES </h1>
+                        <div className="line"></div>
                     <br></br>                      
                         {this.props.quotes.map(quote => <Quote key={quote.id} quote={quote}/> )}
                 </div>

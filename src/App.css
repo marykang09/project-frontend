@@ -82,7 +82,7 @@ ul li {
 }
 
 /* ------------DASHBOARD------------ */
-.dashbaord {
+.dashboard {
   margin-left: 120px;
   margin-right: 120px;
   margin-top: 32px;
@@ -261,14 +261,14 @@ a:visited {
 
 /* ------------SEARCHBAR------------ */
 .customsearch {
-  width: 750px;
+  min-width: 750px !important;
   margin: 0 auto;
   
 }
 
 input.customsearch {
   margin: 0 auto;
-  width: 50%;
+  width: 700px;
   height: 70px;
   padding: 0 20px;
   font-size: 1rem;
@@ -276,12 +276,37 @@ input.customsearch {
   outline: none;
  }
 
+ /* ------------POSES PAGE------------ */
+ .pose-page {
+  min-width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden;
+ }
+
+ .pose-div {
+  min-width: 100% !important;
+  margin-top: 100px !important;
+}
+
+.pose-list {
+  min-width: 100% !important;
+  height: 100% !important;
+  overflow: auto !important;
+}
+
+ /* ------------OTHER PAGES------------ */
+.padding {
+  padding-top: 110px;
+}
  /* ------------LINE------------ */
  .line {
     border-top: .90px solid #4281A4;
     height: 5px;
-    margin-left: 152px;
-    margin-right: 152px;
+    width: 1200px !important;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* 
@@ -298,9 +323,10 @@ input.customsearch {
       line-height: 30px;
 } */
 
-/* body, html {
-  height: 100% 
-} */
+body, html {
+  height: 100% !important;
+  width: 100% !important;
+}
 
 /* NOTE- THIS MADE THE NAV BAR CUT OFF */
 /* .home-page {
@@ -320,7 +346,8 @@ input.customsearch {
 
 .main {
   text-align: center;
-  padding: 150px;
+  width: 100%;
+  height: calc(100vh - 90px) !important;
 }
 
 
@@ -328,6 +355,8 @@ input.customsearch {
 /* THIS STUFF WAS ALREADY HERE */
 .App {
   text-align: center;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .App-logo {

@@ -39,7 +39,7 @@ class Dashboard extends React.Component {
 
     render(){
         return (!this.props.currentUser ? null :
-            <div>
+            <div className="padding">
                 <div className="dashboard">
                     <h1 className="header"> NAMASTE, WELCOME BACK </h1>
                     <p className="ptag"><strong> {this.props.currentUser.first_name} </strong></p>

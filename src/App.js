@@ -70,7 +70,8 @@ class App extends React.Component {
                 <Route render={ErrorPage} />
 
               </Switch>
-          </div> }
+            </div>
+          }
       </div>
     )
   }

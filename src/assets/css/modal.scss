@@ -101,13 +101,13 @@ body{
   text-decoration: none;
   font-size: inherit;
   font-family: inherit;
-  width:250px;
-  height:80px;
+  width:150px;
+  height:20px;
   color:#16a085;
   background-color:white;
   border:none;
-  font-size:1.7em;
-  font-weight:700;
+  font-size:1.5em;
+  font-weight:400;
   z-index:20;
 }
 
@@ -138,8 +138,8 @@ body{
   @include box-shadow();
   width:95%;
   opacity:0;
-  max-height:550px;
-  max-width:1500px;
+  max-height:650px;
+  max-width:1000px;
   height:90%;
   background-color:white;
   z-index:10;
@@ -315,10 +315,10 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center !important;
+  justify-content: center !important;
   margin: 0;
-  min-height: 100vh;
+  min-height: 00vh;
   background: $bg;
 }
 
@@ -332,14 +332,15 @@ button {
   text-decoration: none;
   font-size: 20px;
   font-family: 'Rubik', sans-serif;
+  padding-bottom: 2em !important;
   &.opener {
-    font-weight: 600;
+    font-weight: 400;
     color: $text;
     text-transform: uppercase;
-    padding: 1.25em 2em;
+    padding: 1.25em 1em;
     background: $light-pink;
     border: 2px solid $pink-border;
-    border-radius: 0.75em;
+    border-radius: 0.85em;
     transform-style: preserve-3d;
     transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
     &::before {

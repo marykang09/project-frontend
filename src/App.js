@@ -13,8 +13,8 @@ import SequenceDetail from './components/SequenceDetail'
 import SequenceForm from './components/SequenceForm'
 import {Spinner} from 'react-bootstrap'
 import HomePage from './components/Homepage'
-// import QuotesPage from './components/QuotesPage'
-import QuotesModal from './components/QuotesModal'
+import QuotesPage from './components/QuotesPage'
+// import QuotesModal from './components/QuotesModal'
 import LoginForm from './components/LoginForm'
 import NewUserForm from './components/NewUserForm'
 import Dashboard from './components/Dashboard'
@@ -64,7 +64,7 @@ class App extends React.Component {
                 <Route exact path="/sequences/:id/edit" render={ (routerProps) => this.props.currentUser ? <SequenceForm {...routerProps}/> : <Redirect to="/login"/>} /> 
                 <Route exact path="/poses" component={PosesPage} />
                 <Route path="/poses/:id" render={ (routerProps) => {return (<PoseDetail {...routerProps} />)  }} />
-                <Route exact path="/quotes" component={QuotesModal} />
+                <Route exact path="/quotes" component={QuotesPage} />
                 <Route exact path="/login" render={() => !this.props.currentUser ? <LoginForm/> : <Redirect to="/dashboard"/> } />
                 <Route exact path="/signup" render={()=> !this.props.currentUser ? <NewUserForm/> : <Redirect to="/dashboard" /> } />
                 <Route render={ErrorPage} />

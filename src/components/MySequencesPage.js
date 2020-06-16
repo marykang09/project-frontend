@@ -39,7 +39,7 @@ class MySequencesPage extends React.Component {
                                 value={this.state.newSequenceNotes}
                                 onChange={(event) => this.setState({ newSequenceNotes: event.target.value})} />
                             
-                            <Button variant="flat" size="sm" onClick={this.onCreate}> CREATE </Button>
+                            <Button className="mybtn" variant="flat" size="sm" onClick={this.onCreate}> CREATE </Button>
                             </Form>
                         </Row>
                     </Container>
@@ -109,22 +109,7 @@ class MySequencesPage extends React.Component {
                     <br></br>
                     <div className="line"></div>
                     <br></br>
-                    <>
-                    <style type="text/css">
-                        {`
-                        .btn-flat {
-                        background-color: #ABDAE1;
-                        color: white;
-                        }
-
-                        .btn-md {
-                        padding: 1rem 1.5rem;
-                        font-size: 1.5rem;
-                        }
-                        `}
-                    </style>
-                    </>
-                    <Button variant="flat" size="md" onClick={this.onShowCreateForm}  >    
+                    <Button className="mybtn" ariant="flat" size="md" onClick={this.onShowCreateForm}  >    
                         {this.state.showCreateForm ? "FINISHED ADDING" : "ADD A NEW SEQUENCE"}
                     </Button>
                     <br></br>

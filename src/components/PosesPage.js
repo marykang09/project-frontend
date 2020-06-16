@@ -14,6 +14,7 @@ const PosesPage = (props) => {
                 <h1> BROWSE ALL POSES </h1>
                 <br></br>
                 <div className="line"></div>
+                <br></br>
                 <SearchBar/>
                 <br></br>
           </div>

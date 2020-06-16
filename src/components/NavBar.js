@@ -19,6 +19,9 @@ const NavBar = (props) => {
                     <Nav.Link href="/sequences" className="nav-link" style={{color: "white"}}> MY SEQUENCES </Nav.Link>
                     <br></br>
                     <br></br>
+                    <Nav.Link href="/dashboard" className="nav-link" style={{color: "white"}}> DASHBOARD </Nav.Link>
+                    <br></br>
+                    <br></br>
                     <Nav.Link href="/quotes" className="nav-link" style={{color: "white"}}> INSPIRATION </Nav.Link>
                     <br></br>
                     <br></br>
@@ -31,7 +34,7 @@ const NavBar = (props) => {
                     <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown> */}
                     <br></br>
-                    {props.currentUser ? <Button className="sign-out" variant="flat" size="md" onClick={()=> props.logoutCurrentUser()}> SIGN OUT </Button> : <Link to="/login"><Button className="sign-in" variant="flat" size="md" onClick> SIGN IN </Button></Link> }
+                    {props.currentUser ? <Button className="mybtn" variant="flat" size="md" onClick={()=> props.logoutCurrentUser()}> SIGN OUT </Button> : <Link to="/login"><Button className="mybtn" variant="flat" size="md" onClick> SIGN IN </Button></Link> }
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

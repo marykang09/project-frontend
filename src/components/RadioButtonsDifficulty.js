@@ -21,7 +21,7 @@ class RadioButtonsDifficulty extends React.Component {
                     <div className="col-sm-12">
                         <form>
                         {/* <form onSubmit={this.handleFormSubmit}> */}
-                        Difficulty
+                        <label className="radiolabel">Difficulty</label>
                         <div className="form-check">
                             <label>
                             <input

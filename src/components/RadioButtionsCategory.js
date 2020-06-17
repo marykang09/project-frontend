@@ -22,13 +22,13 @@ class RadioButtonsCategory extends React.Component {
                     <div className="col-sm-12">
                         <form>
                         {/* <form onSubmit={this.handleFormSubmit}> */}
-                        Category
+                        <label className="radiolabel">Category</label>
                         <div className="form-check">
                             <label>
                             <input
                                 type="radio"
                                 name="category"
-                                value="All categories"
+                                value="All Categories"
                                 checked={this.state.selectedCategory === "All Categories"}
                                 onChange={this.handleOptionChange}
                                 className="form-check-input"

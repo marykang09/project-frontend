@@ -21,7 +21,7 @@ class RadioButtonsAction extends React.Component {
                     <div className="col-sm-12">
                         <form>
                         {/* <form onSubmit={this.handleFormSubmit}> */}
-                        Action
+                        <label className="radiolabel">Action</label>
                         <div className="form-check">
                             <label>
                             <input

@@ -14,7 +14,7 @@ const PosesPage = (props) => {
                 <br></br>
                 <div className="line"></div>
                 <br></br>
-                <SearchBar/>
+                {/* <SearchBar/> */}
                 <RadioButtonsAll/>
                 <br></br>
           </div>

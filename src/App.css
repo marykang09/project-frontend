@@ -31,7 +31,7 @@ ul li {
   border-radius: 2px;
   background-color: #9CAFB7 !important; 
   background:  #9CAFB7 ; 
-  font-size: 20px;
+  font-size: 20px !important;
   border: 1px solid #9CAFB7;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
   background:  #9CAFB7;
@@ -59,7 +59,7 @@ ul li {
  }
 
 .swal-overlay {
-  background-color: rgba(156, 175, 183, 0.60);
+  background-color: rgba(156, 175, 183, 0.90);
 }
 
 .swal-button{
@@ -67,7 +67,7 @@ ul li {
   border-radius: 2px;
   background-color: #9CAFB7 !important; 
   background:  #9CAFB7 ; 
-  font-size: 12px;
+  font-size: 20px !important;
   border: 1px solid #9CAFB7;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
   background:  #9CAFB7;
@@ -94,15 +94,37 @@ ul li {
 }
 
 /* ------------ RADIO BUTTONS ------------ */
+.radiobuttontop {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
 .radiobuttons {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-content: space-evenly;
+  align-content: center;
   margin-right: 40px;
-
+  margin-left: 40px;;
+  
 }
 
+.radiolabel {
+  text-align: center !important;
+  font-size: 24px !important;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.form-check{
+  font-size: 1.8em !important;
+  text-align: left !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
 
 /* ------------DASHBOARD------------ */
 .dash-container{
@@ -381,7 +403,7 @@ input.customsearch {
  .line {
     border-top: .90px solid #4281A4;
     height: 5px;
-    width: 1200px !important;
+    width: 1650px !important;
     margin-left: auto;
     margin-right: auto;
 }

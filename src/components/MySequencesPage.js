@@ -95,11 +95,11 @@ class MySequencesPage extends React.Component {
         console.log("inside mysequences page", this.props.sequences)
         console.log("what is currentUser?", this.state.name)
 
-        return (!this.props.sequences && !this.props.currentUser ? null : 
+        return (!this.props.sequences || !this.props.currentUser ? null : 
 
                 <div className="padding">
                     <h1> SEQUENCES </h1>
-                        <p> curated by  </p>
+                        <p> curated by {this.props.currentUser.first_name} </p>
                     <br></br>
                     <div className="line"></div>
                     <br></br>

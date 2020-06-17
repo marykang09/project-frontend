@@ -76,12 +76,58 @@ ul li {
 
 /* ------------HOMEPAGE------------ */
 .home-image {
+  padding-top: 40px;
+  padding-right: 3vh;
   position: absolute;
-  right: auto;
+}
 
+.ml12 {
+  font-weight: 200;
+  font-size: 1.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+}
+
+.ml12 .letter {
+  display: inline-block;
+  line-height: 1em;
 }
 
 /* ------------DASHBOARD------------ */
+.dash-container{
+  display: grid;
+  grid-template-columns: 30vw 40vw 30vw;
+  grid-template-rows: 5vh 5vh;
+  grid-column-gap: 5px;
+  grid-template-areas:
+    "userwelcome userwelcome userwelcome"
+    "userquotes userinspire usersequences";
+  /* padding-top: -10em; */
+}
+
+.welcome {
+  grid-area: userwelcome;
+  font-size: 2.5vw;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.userquotes {
+  grid-area: userquotes;
+  text-align: center;
+}
+
+.userinspire {
+  grid-area: userinspire;
+  text-align: center;
+}
+
+.usersequences {
+  grid-area: usersequences;
+  text-align: center;
+}
+
 .dashboard {
   margin-left: 120px;
   margin-right: 120px;
@@ -100,6 +146,27 @@ ul li {
   font-size: 40px;
   text-transform: uppercase;
   margin-bottom: 30px;
+}
+
+
+
+
+
+/* .dashboard-image {
+  position: absolute;
+  justify-content: flex-end;
+} */
+
+/* .right-div {
+  margin-top: 80px;
+  position: relative;
+  margin-left: 60em;
+} */
+
+.right-div2{
+  margin-right: 100vh;
+  margin-bottom: ;
+
 }
 
 
@@ -134,6 +201,9 @@ ul li {
   margin-top: auto;
   width: 100%
 } */
+
+
+
 
 /* ------------BUTTONS------------ */
  .mybtn {

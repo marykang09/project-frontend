@@ -13,17 +13,17 @@ const SearchBar = (props) => {
             <FormControl 
                 bsPrefix="customsearch"
                 type="text" 
-                placeholder="SEARCH FOR A POSE..." 
+                placeholder="SEARCH..." 
                 className="mr-sm-2"
                 value={props.value}
                 onChange={e => props.onChange(e.target.value)} />
 
 
-                <Link className="item" to='/poses' >
+                {/* <Link className="item" to='/poses' > */}
                     <Button className="mybtn" variant="flat" size="md">
                         SEARCH
                     </Button>
-                </Link>
+                {/* </Link> */}
                     <br></br>
             {/* <form class="search-container" >
                 <input type="text" id="search-bar" placeholder="What can I help you with today?">

@@ -238,6 +238,7 @@ function fetchedUserSequences(sequences){
     }
 }
 
+
 function fetchedUserQuotes(quotes){
     return {
         type: "FETCHED_USER_QUOTES", payload: quotes

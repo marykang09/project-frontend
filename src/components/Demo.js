@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDragListView from './Drag/index.js';
 import './Drag/index.less';
+import { connect } from 'react-redux'
 
 class Demo extends React.Component {
   constructor(props) {
@@ -49,4 +50,14 @@ class Demo extends React.Component {
   }
 }
 
-export default Demo
+const mapStateToProps = (state) => {
+  console.log("state.userQuotes",state.userQuotes)
+  console.log("state.quotes filtered", state.userQuotes.forEach(quote => (state.quotes.map(q => q.id === quote.quote_id))))
+
+  return { 
+    userQuotes: state.userQuotes  
+    // quotes: state.quotes.filter(q => q.id === state.userQuotes.quote_id)
+  }
+}
+
+export default connect(mapStateToProps)(Demo)

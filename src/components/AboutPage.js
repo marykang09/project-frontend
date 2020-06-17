@@ -30,6 +30,7 @@ const AboutPage = () => {
                 <br></br>
                 <br></br>
             <Wrapper>
+            // <Demo/>
                 <Title>Use this app to browse poses and create your own sequences </Title>
                 <h1> 
                     <Link to="/login"> Log In </Link>
@@ -42,7 +43,7 @@ const AboutPage = () => {
         )
 
 
-            // {/* <Demo/> */}
+           
 
     
 }

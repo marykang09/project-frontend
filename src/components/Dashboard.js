@@ -78,6 +78,7 @@ class Dashboard extends React.Component {
                             </div>
                             </div>
                         </section>
+                    <div className="vline"></div>
                 </div>
                  
             </div>

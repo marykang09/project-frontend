@@ -309,6 +309,14 @@ input.customsearch {
     margin-right: auto;
 }
 
+.vline {
+  top: 20rem;
+  border-left: .90px solid #4281A4;
+  height: 950px;
+  position: absolute;
+  margin-left: 300px;
+}
+
 /* 
   h1{
   font-family: goldenbook, serif; 

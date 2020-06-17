@@ -10,8 +10,10 @@ const DashboardContainer = (props) => {
             <div className="welcome"> WELCOME BACK <p className="ptag"><strong> {props.currentUser.first_name} </strong></p> </div>
             <div className="line"></div>
             <div className="dash-container">
-                <UserQuotes/>            
+                <UserQuotes/>
+                <br></br><br></br>   
                 <UserInspire/>
+                <br></br><br></br>
                 <UserSequences/>
             </div>
         </div>

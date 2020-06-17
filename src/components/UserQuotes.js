@@ -12,9 +12,9 @@ class UserQuotes extends React.Component{
                 
                 <br></br><br></br> <br></br><br></br> <br></br>
                 <DropdownButton id="dropdown-item-button" title=" My Quotes " size="lg" bsPrefix="mybtn">
-                    {this.props.user_quotes.map(uq=> <Dropdown.Item as="button" bsPrefix="mybtn"> {uq.quote.quote} </Dropdown.Item>)}
+                    {this.props.user_quotes.map(uq=> <Dropdown.Item > {uq.quote.quote} </Dropdown.Item>)}
                     <Dropdown.Divider/>
-                    <Link to="/quotes"><Dropdown.Item as="button"> All Quotes </Dropdown.Item></Link>
+                    <Link to="/quotes"><Dropdown.Item className="mybtn" as="button"> All Quotes </Dropdown.Item></Link>
                 </DropdownButton>
                 
             </div>

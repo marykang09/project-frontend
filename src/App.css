@@ -93,6 +93,17 @@ ul li {
   line-height: 1em;
 }
 
+/* ------------ RADIO BUTTONS ------------ */
+.radiobuttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: space-evenly;
+  margin-right: 40px;
+
+}
+
+
 /* ------------DASHBOARD------------ */
 .dash-container{
   display: grid;
@@ -147,10 +158,6 @@ ul li {
   text-transform: uppercase;
   margin-bottom: 30px;
 }
-
-
-
-
 
 /* .dashboard-image {
   position: absolute;

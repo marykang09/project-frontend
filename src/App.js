@@ -57,10 +57,10 @@ class App extends React.Component {
           <div className="main">
               <Switch>
                 
-                <Route exact path="/" render={()=> this.props.currentUser ? <HomePage/> : <HomePage/> } />
+                <Route exact path="/" component={HomePage} />
                 <Route exact path="/dashboard" render={()=> this.props.currentUser ? <DashboardContainer/> : <Redirect to="/login"/> } />
                 <Route exact path="/about" component={AboutPage} />
-                <Route exact path="/sequences" render={MySequencesPage} />
+                <Route exact path="/sequences" component={MySequencesPage} />
                 <Route exact path="/sequences/:id" render={ (routerProps) => this.props.currentUser ? <SequenceDetail {...routerProps}/> : <Redirect to="/login"/>}  /> 
                 <Route exact path="/sequences/:id/edit" render={ (routerProps) => this.props.currentUser ? <SequenceForm {...routerProps}/> : <Redirect to="/login"/>} /> 
                 <Route exact path="/poses" component={PosesPage} />

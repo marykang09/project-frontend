@@ -1,9 +1,8 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import PosesList from './PosesList'
-import styled from 'styled-components';
 import SearchBar from './SearchBar'
-
+import RadioButtonsAll from './RadioButtonsAll'
 
 const PosesPage = (props) => {
     console.log("PosesPage props:", props)
@@ -16,6 +15,7 @@ const PosesPage = (props) => {
                 <div className="line"></div>
                 <br></br>
                 <SearchBar/>
+                <RadioButtonsAll/>
                 <br></br>
           </div>
           <PosesList/>

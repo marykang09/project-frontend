@@ -14,9 +14,9 @@ class UserSequences extends React.Component{
                 
                 <br></br><br></br> <br></br><br></br> <br></br>
                 <DropdownButton id="dropdown-item-button" title=" My Sequences " size="lg" bsPrefix="mybtn">
-                    {this.props.sequences.map(sequence=> <Link to={`/sequences/${sequence.id}`}><Dropdown.Item as="button" bsPrefix="mybtn"> {sequence.name} </Dropdown.Item></Link>)}
+                    {this.props.sequences.map(sequence=> <Link to={`/sequences/${sequence.id}`}><Dropdown.Item as="button" className="mybtn"> {sequence.name} </Dropdown.Item></Link>)}
                     <Dropdown.Divider/>
-                    <Link to="/sequences"><Dropdown.Item as="button"> All Sequences </Dropdown.Item></Link>
+                    <Link to="/sequences"><Dropdown.Item className="mybtn" as="button"> All Sequences </Dropdown.Item></Link>
                 </DropdownButton>
                 
             </div>

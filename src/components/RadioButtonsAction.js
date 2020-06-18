@@ -6,15 +6,15 @@ class RadioButtonsAction extends React.Component {
     constructor(){
         super()
         this.state = {
-            selectedAction: "All Actions"
+            action: "All Actions"
         }
     }
 
-    handleOptionChange = (event) => {
-        this.setState({
-            selectedAction: event.target.value
-        })
-        this.props.clickedAction(event.target.value)
+
+    onChange = (event) => {
+        this.setState({ action: event.target.value})
+
+        this.props.updateChange(event.target.value)
     }
 
     render(){
@@ -31,8 +31,8 @@ class RadioButtonsAction extends React.Component {
                                 type="radio"
                                 name="action"
                                 value="All Actions"
-                                checked={this.state.selectedAction === "All Actions"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.action === "All Actions"}
+                                onChange={this.onChange}
                                 className="form-check-input"
                             />
                             All Actions
@@ -44,8 +44,8 @@ class RadioButtonsAction extends React.Component {
                                 type="radio"
                                 name="action"
                                 value="back bend"
-                                checked={this.state.selectedAction === "back bend"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.action === "back bend"}
+                                onChange={this.onChange}
                                 className="form-check-input"
                             />
                             Back Bend
@@ -57,8 +57,8 @@ class RadioButtonsAction extends React.Component {
                                 type="radio"
                                 name="action"
                                 value="forward bend"
-                                checked={this.state.selectedAction === "forward bend"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.action === "forward bend"}
+                                onChange={this.onChange}
                                 className="form-check-input"
                             />
                             Forward Bend
@@ -70,8 +70,8 @@ class RadioButtonsAction extends React.Component {
                                 type="radio"
                                 name="action"
                                 value="lateral bend"
-                                checked={this.state.selectedAction === "lateral bend"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.action === "lateral bend"}
+                                onChange={this.onChange}
                                 className="form-check-input"
                             />
                             Lateral Bend
@@ -83,8 +83,8 @@ class RadioButtonsAction extends React.Component {
                                 type="radio"
                                 name="action"
                                 value="twist"
-                                checked={this.state.selectedAction === "twist"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.action=== "twist"}
+                                onChange={this.onChange}
                                 className="form-check-input"
                             />
                             Twist
@@ -96,8 +96,8 @@ class RadioButtonsAction extends React.Component {
                                 type="radio"
                                 name="action"
                                 value="balance"
-                                checked={this.state.selectedAction === "balance"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.action === "balance"}
+                                onChange={this.onChange}
                                 className="form-check-input"
                             />
                             Balance
@@ -109,8 +109,8 @@ class RadioButtonsAction extends React.Component {
                                 type="radio"
                                 name="action"
                                 value="neutral"
-                                checked={this.state.selectedAction === "neutral"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.action=== "neutral"}
+                                onChange={this.onChange}
                                 className="form-check-input"
                             />
                             Neutral

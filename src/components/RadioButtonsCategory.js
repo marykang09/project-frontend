@@ -6,24 +6,15 @@ class RadioButtonsCategory extends React.Component {
     constructor(){
         super()
         this.state = {
-            selectedCategory: "All Categories"
+            category: "All Categories"
         }
     }
 
-    handleOptionChange = (event) => {
-        console.log("inside radiobuttons handleoptionchange")
+    onChange = (event) => {
+        console.log("inside radiobuttons what is event.target?", event.target.value)
+        this.setState({ category: event.target.value})
 
-        this.setState({
-            selectedCategory: event.target.value
-        })
-        // let obj = {
-        //     selectedCategory: event.target.value
-        // }
-        if(event.target.value === "All Categories"){
-        this.props.clickedAllCategory(event.target.value)
-        } else {
-        this.props.clickedCategory(event.target.value)
-        }
+        this.props.updateChange(event.target.value)
     }
 
     render(){
@@ -40,8 +31,8 @@ class RadioButtonsCategory extends React.Component {
                                 type="radio"
                                 name="category"
                                 value="All Categories"
-                                checked={this.state.selectedCategory === "All Categories"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.category === "All Categories"}
+                                onChange={this.onChange}
                                 className="form-check-input"
                             />
                             All Categories
@@ -53,8 +44,8 @@ class RadioButtonsCategory extends React.Component {
                                 type="radio"
                                 name="category"
                                 value="standing"
-                                checked={this.state.selectedCategory === "standing"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.category === "standing"}
+                                onChange={this.onChange}
                                 className="form-check-input"
                             />
                             Standing
@@ -66,8 +57,8 @@ class RadioButtonsCategory extends React.Component {
                                 type="radio"
                                 name="category"
                                 value="seated"
-                                checked={this.state.selectedCategory === "seated"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.category === "seated"}
+                                onChange={this.onChange}
                                 className="form-check-input"
                             />
                             Seated
@@ -79,8 +70,8 @@ class RadioButtonsCategory extends React.Component {
                                 type="radio"
                                 name="category"
                                 value="supine"
-                                checked={this.state.selectedCategory === "supine"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.category === "supine"}
+                                onChange={this.onChange}
                                 className="form-check-input"
                             />
                             Supine
@@ -92,8 +83,8 @@ class RadioButtonsCategory extends React.Component {
                                 type="radio"
                                 name="category"
                                 value="prone"
-                                checked={this.state.selectedCategory === "prone"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.category === "prone"}
+                                onChange={this.onChange}
                                 className="form-check-input"
                             />
                             Prone
@@ -105,8 +96,8 @@ class RadioButtonsCategory extends React.Component {
                                 type="radio"
                                 name="category"
                                 value="arm and leg support"
-                                checked={this.state.selectedCategory === "arm and leg support"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.category === "arm and leg support"}
+                                onChange={this.onChange}
                                 className="form-check-input"
                             />
                             Arm & Leg Support
@@ -118,8 +109,8 @@ class RadioButtonsCategory extends React.Component {
                                 type="radio"
                                 name="category"
                                 value="arm balance and inversion"
-                                checked={this.state.selectedCategory === "arm balance and inversion"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.category === "arm balance and inversion"}
+                                onChange={this.onChange}
                                 className="form-check-input"
                             />
                             Arm Balance & Inversion
@@ -134,12 +125,13 @@ class RadioButtonsCategory extends React.Component {
                     </div>
                 </div>
             </div>
-        );        
+        )        
     }
         
     
 }
 
+export default RadioButtonsCategory
 
 // const mapDispatchToProps = (dispatch) => ({
 //     clickedCategory: (option) => { dispatch(clickedCategory(option))},
@@ -148,4 +140,3 @@ class RadioButtonsCategory extends React.Component {
 // })
 
 // export default connect(null, mapDispatchToProps)(RadioButtonsCategory)
-export default RadioButtonsCategory

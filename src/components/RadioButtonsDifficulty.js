@@ -6,15 +6,14 @@ class RadioButtonsDifficulty extends React.Component {
     constructor(){
         super()
         this.state = {
-            selectedDifficulty: "All Difficulties"
+            difficulty: "All Difficulties"
         }
     }
 
-    handleOptionChange = (event) => {
-        this.setState({
-            selectedDifficulty: event.target.value
-        })
-        this.props.clickedDifficulty(event.target.value)
+    onChange = (event) => {
+        this.setState({ difficulty: event.target.value})
+
+        this.props.updateChange(event.target.value)
     }
 
     render(){
@@ -31,8 +30,8 @@ class RadioButtonsDifficulty extends React.Component {
                                 type="radio"
                                 name="difficulty"
                                 value="All Difficulties"
-                                checked={this.state.selectedDifficulty === "All Difficulties"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.difficulty === "All Difficulties"}
+                                onChange={this.onChange}
                                 className="form-check-input"
                             />
                             All Difficulties
@@ -44,8 +43,8 @@ class RadioButtonsDifficulty extends React.Component {
                                 type="radio"
                                 name="difficulty"
                                 value="beginner"
-                                checked={this.state.selectedDifficulty === "beginner"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.difficulty === "beginner"}
+                                onChange={this.onChange}
                                 className="form-check-input"
                             />
                             Beginner
@@ -57,8 +56,8 @@ class RadioButtonsDifficulty extends React.Component {
                                 type="radio"
                                 name="difficulty"
                                 value="intermediate"
-                                checked={this.state.selectedDifficulty === "intermediate"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.difficulty === "intermediate"}
+                                onChange={this.onChange}
                                 className="form-check-input"
                             />
                             Intermediate
@@ -70,8 +69,8 @@ class RadioButtonsDifficulty extends React.Component {
                                 type="radio"
                                 name="difficulty"
                                 value="advanced"
-                                checked={this.state.selectedDifficulty === "advanced"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.difficulty === "advanced"}
+                                onChange={this.onChange}
                                 className="form-check-input"
                             />
                             Advanced

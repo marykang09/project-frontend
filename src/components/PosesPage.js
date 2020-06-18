@@ -11,7 +11,7 @@ const PosesPage = (props) => {
         <div className="pose-page">
           <div className="pose-div">
                 <div className="poseheader">
-                    <h1> BROWSE ALL POSES </h1>
+                    <h1 className="page-headers"> BROWSE ALL POSES </h1>
                     <br></br>
                     <div className="line"></div>
                     <br></br>

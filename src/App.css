@@ -92,6 +92,12 @@ ul li {
   display: inline-block;
   line-height: 1em;
 }
+/* ------------ PAGE HEADER H1 ------------ */
+
+.page-headers {
+  font-weight: bolder;
+  font-size: 45px;;
+}
 
 /* ------------ RADIO BUTTONS ------------ */
 .radiobuttontop {
@@ -117,7 +123,8 @@ ul li {
   text-align: left !important;
   font-size: 24px !important;
   font-style: normal;
-  font-weight: bold;
+  font-weight: bolder;
+  color: #4281A4; 
 }
 
 .form-check{
@@ -263,12 +270,16 @@ ul li {
   transform: scale(1.1); 
 }
 
-/* .card-pose:link {
-  color: #776D5A !important;
-}
-.card-pose:visited {
-  color: #776D5A !important; 
+/* .card-pose{
+  font-size: px !important;
 } */
+
+/* .card-pose:link {
+  color: #4281A4 !important;
+} */
+/* .card-pose:visited {
+  color: #776D5A !important; 
+}  */
 
 /* ------------CARDS -- QUOTES------------ */
 .card-columns {

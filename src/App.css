@@ -220,7 +220,6 @@ ul li {
   align-content: center !important;
   left: auto !important;
   right: auto !important;
-
 } */
 
 /* .login-image {
@@ -253,7 +252,6 @@ ul li {
  /* .my-btn button:active{
   background-color:'#a09cb0' !important; 
 }
-
 .my-btn:not([disabled]):hover{
   background-color:'#a09cb0' !important; 
   -webkit-transition: all 0.3s ease-in-out; 
@@ -268,7 +266,6 @@ ul li {
 /* .card-pose:link {
   color: #776D5A !important;
 }
-
 .card-pose:visited {
   color: #776D5A !important; 
 } */
@@ -337,27 +334,22 @@ a:visited {
   justify-content: space-between !important;
   align-items: center !important;
 }
-
 .nav-link{
   font-weight: normal;
   font-size: 2.05em;
   display: flex;
   align-items: center;
 }
-
 .nav-link:link {
   color: white !important;
 }
-
 .nav-link:visited {
   color: white !important;
 }
-
 .sign-out {
   float: right !important;
   overflow: hidden !important;
 }
-
 /* ------------SEARCHBAR------------ */
 .customsearch {
   min-width: 750px !important;
@@ -381,7 +373,7 @@ input.customsearch {
   height: 100% !important;
   display: row;
   flex-direction: column !important;
-  overflow: auto !important;
+  overflow: scroll !important;
  }
 
  .pose-div {

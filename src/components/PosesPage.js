@@ -10,18 +10,20 @@ const PosesPage = (props) => {
     return (
         <div className="pose-page">
           <div className="pose-div">
-                <h1> BROWSE ALL POSES </h1>
-                <br></br>
-                <div className="line"></div>
-                <br></br>
-                <SearchBar/>
+                <div className="poseheader">
+                    <h1> BROWSE ALL POSES </h1>
+                    <br></br>
+                    <div className="line"></div>
+                    <br></br>
+                    <SearchBar/>
+                </div>
                 <RadioButtonsAll/>
                 <br></br>
           </div>
-                {/* <PosesList/> */}
-                {/* <Route path="/" component={PosesList} /> */}
         </div>
     )
 }
+                // {/* <PosesList/> */}
+                // {/* <Route path="/" component={PosesList} /> */}
 
 export default PosesPage

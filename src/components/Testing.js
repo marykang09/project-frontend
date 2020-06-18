@@ -2,8 +2,9 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import yogi4 from '../assets/images/yogi4.jpg'
 import Image from './Image'
+import yogi2 from '../assets/images/yogi2.png'
 
-const HomePage = () => {
+const Testing = () => {
 
     return(
         <div >
@@ -20,4 +21,4 @@ const HomePage = () => {
     
 }
 
-export default HomePage
+export default Testing

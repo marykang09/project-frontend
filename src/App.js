@@ -19,6 +19,7 @@ import LoginForm from './components/LoginForm'
 import NewUserForm from './components/NewUserForm'
 import Dashboard from './components/Dashboard'
 import DashboardContainer from './components/DashboardContainer'
+import Testing from './components/Testing'
 
 class App extends React.Component {
 

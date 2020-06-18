@@ -19,7 +19,81 @@ ul li {
   padding: 20px;
   margin:auto;
 } */
+/* ------------HOMEPAGE------------ */
+.home-page {
+  display: inline-flexbox;
+  grid-template-columns: 
+  /* grid-template-rows: 50vh 50vh;
+  grid-column-gap: 5px;
+  grid-template-areas:
+    "userwelcome userwelcome userwelcome"
+    "userquotes userinspire usersequences"; */
+}
 
+.home-image {
+  padding-top: 40px;
+  padding-left: vh;
+  position: fixed;
+}
+
+.home-header{
+  font-weight: 200px !important;
+  font-size: 1.8em !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  text-align: left !important;
+}
+
+.ml12 {
+  font-weight: 200;
+  font-size: 1.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+}
+
+.ml12 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+.homepage-img{
+  display: grid;
+  grid-template-columns: 67vw 1vw 5vw;
+  padding-top: 210px;
+  padding-right: 700px;
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+.homepage-text {
+  display: inline block;
+  font-size: 8em;
+  font-weight: bold;
+  justify-content: right;
+  align-content: right;
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: 'Merriweather Sans', sans-serif !important;
+  color:#4281A4;
+  padding-top: 20px;
+}
+
+/* .dash-container{
+  display: grid;
+  grid-template-columns: 30vw 40vw 30vw;
+  grid-template-rows: 5vh 5vh;
+  grid-column-gap: 5px;
+  grid-template-areas:
+    "userwelcome userwelcome userwelcome"
+    "userquotes userinspire usersequences";
+  /* padding-top: -10em; */
+/* } */
+
+/* .welcome {
+  grid-area: userwelcome;
+  font-size: 2.5vw;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+} */ */
 
 /* ------------SWAL------------ */
 .swal{
@@ -74,24 +148,6 @@ ul li {
 }
 
 
-/* ------------HOMEPAGE------------ */
-.home-image {
-  padding-top: 40px;
-  padding-right: 3vh;
-  position: absolute;
-}
-
-.ml12 {
-  font-weight: 200;
-  font-size: 1.8em;
-  text-transform: uppercase;
-  letter-spacing: 0.5em;
-}
-
-.ml12 .letter {
-  display: inline-block;
-  line-height: 1em;
-}
 
 /* ------------DASHBOARD------------ */
 .dash-container{
@@ -405,12 +461,6 @@ body, html {
   height: 100% !important;
   width: 100% !important;
 }
-
-/* NOTE- THIS MADE THE NAV BAR CUT OFF */
-/* .home-page {
-  height: 220vh;
-  width: 220vh;
-} */
 
 
 /* .bg {

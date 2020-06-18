@@ -6,9 +6,10 @@ import styled from 'styled-components';
 // Create a <Title> react component that renders an <h1> which is
 // centered, palevioletred and sized at 1.5em
 const Title = styled.h1`
-  font-size: 650em;
+  font-size: 2.5rem !important;
   text-align: center;
   color: #4281A4;
+  
 `;
 
 // Create a <Wrapper> react component that renders a <section> with
@@ -19,11 +20,11 @@ const Wrapper = styled.section`
 `;
 
 const TitleWrapper = styled.section`
-    padding: 2em;
+    padding: 1em;
     background: #EAD2AC;
     color: white;
-    font-weight: 700;
-    font-size: 1.5em;
+    font-weight: 800px;
+    font-size:2.5em;
 `;
 
 const PoseDetail = (props) => {
@@ -31,7 +32,7 @@ const PoseDetail = (props) => {
     return (!props.pose ? null : 
     //need to do this to account for INIT state = []
         <div className="padding">
-            <h1> POSE DETAILS </h1>
+            <h1 className="page-headers"> POSE DETAILS </h1>
             <br></br>
             <div className="line"></div>
             <br></br>
@@ -44,7 +45,7 @@ const PoseDetail = (props) => {
             <div>
                 <TitleWrapper>
                     <Title> 
-                        <h3>
+                        
                             Name: {props.pose.english_name}
                             <br></br>
                             Sanksrit Name: {props.pose.sanskrit_name}
@@ -55,7 +56,7 @@ const PoseDetail = (props) => {
                             <br></br>
                             Difficulty: {props.pose.difficulty}
 
-                        </h3>
+                        
                     </Title>
                 </TitleWrapper>
             </div>

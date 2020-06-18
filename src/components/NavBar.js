@@ -9,7 +9,7 @@ const NavBar = (props) => {
 
     return (
         <Navbar className="sticky" fixed="top" expand="lg">
-        <Navbar.Brand href="/"> YOGA APP  </Navbar.Brand>
+        <Navbar.Brand href="/"> &#10061; </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">

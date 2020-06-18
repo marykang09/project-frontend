@@ -316,6 +316,9 @@ a:visited {
 .nav-link:visited {
   color: white !important;
 }
+/* .nav-link:active {
+  color: EAD2AC !important;
+} */
 
 .sign-out {
   float: right !important;

@@ -101,6 +101,12 @@ ul li {
   font-size: 45px;;
 }
 
+.seq-headers{
+  font-weight: bolder;
+  color: #EAD2AC;
+  font-size: 35px;
+}
+
 .home-header {
   font-weight: bolder;
   font-size: 55px;
@@ -179,6 +185,7 @@ ul li {
 .userinspire {
   grid-area: userinspire;
   text-align: center;
+  margin-top: -38px;
 }
 
 .usersequences {
@@ -255,12 +262,13 @@ ul li {
 
 /* ------------BUTTONS------------ */
  .mybtn {
-  background-color: #ABDAE1 !important;
-  outline: #ABDAE1 !important;
-  border: 1px solid #a09cb0 !important;
-  color: white;
+  background-color: #E6B89C !important;
+  outline: #E6B89C !important;
+  border: 1px solid #E6B89C !important;
+  color: 4281A4;
   padding: 1rem 1.5rem !important;
-  font-size: 0.8rem !important;
+  font-size: 2rem !important;
+  font-weight: normal;
   position: relative !important;
   justify-content: center !important;
   }

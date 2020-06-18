@@ -98,8 +98,8 @@ class MySequencesPage extends React.Component {
         return (!this.props.sequences || !this.props.currentUser ? null : 
 
                 <div className="padding">
-                    <h1> SEQUENCES </h1>
-                        <p> curated by {this.props.currentUser.first_name} </p>
+                    <h1 className="page-headers"> SEQUENCES </h1>
+                        <h1 className="seq-headers"> curated by {this.props.currentUser.first_name} </h1>
                     <br></br>
                     <div className="line"></div>
                     <br></br>

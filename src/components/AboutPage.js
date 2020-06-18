@@ -3,6 +3,7 @@ import Demo from './Demo'
 import styled from 'styled-components';
 import headerphoto from '../assets/images/twitter_header_photo_1 copy.png'
 import { Link } from 'react-router-dom'
+import Homepage from './Homepage'
 
 // Create a <Title> react component that renders an <h1> which is
 // centered, palevioletred and sized at 1.5em
@@ -23,6 +24,7 @@ const Wrapper = styled.section`
 const AboutPage = () => {
     return (
         <div>
+        <div className="about-page">
             {/* <img 
                 src={headerphoto} 
                 style={{width:"100%"}}
@@ -31,7 +33,7 @@ const AboutPage = () => {
                 <br></br>
             <Wrapper>
             {/* <Demo/> */}
-                <Title>Use this app to browse poses and create your own sequences </Title>
+                <Title> Use this app to browse poses and create your own sequences </Title>
                 <h1> 
                     <Link to="/login"> Log In </Link>
                     <br></br>
@@ -39,7 +41,7 @@ const AboutPage = () => {
                 </h1>
             </Wrapper>
         </div>
-
+        </div>
         )
 
 

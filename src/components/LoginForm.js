@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom'
 import { Form, FormControl, Button} from 'react-bootstrap'
 import swal from '@sweetalert/with-react'
 import yogi from '../assets/images/yogi2.png'
+import { Link } from 'react-router-dom'
 
 class LoginForm extends React.Component { 
     constructor(){
@@ -50,20 +51,27 @@ class LoginForm extends React.Component {
             <div className="padding">
                 <div className="login-page">
                     <div className="login-image">
-                        <img src={yogi} style={{width: "50%"}}/>
+                         
                     </div>
 
                     <br></br>
                     <br></br>
 
                     <div className="login-form">
+                        
                         <Form inline >
                             <FormControl size="lg" type="text" placeholder="USERNAME" className="mx-sm-3" value={this.state.username} onChange={(event) => this.setState({ username: event.target.value})}  />
-                            <br></br>
                             <FormControl size="lg" type="text" placeholder="PASSWORD" className="mx-sm-3" value={this.state.password} onChange={(event) => this.setState({ password: event.target.value})}  />
-                            <Button className="mybtn" variant="flat" size="md" onClick={this.onSubmit}> LOGIN </Button>
+                            <Button className="mybtn" variant="flat" size="md" onClick={this.onSubmit}> SIGN IN </Button>
+                            <br></br>
+                            <br></br>
+                            <img src={yogi} style={{width: "50%"}}/> 
+                            <Link to="/signup"><h2 className="login-header"> New? Sign Up </h2></Link>
+                            
                         </Form>
+                       
                     </div>
+                    {/* <img src={yogi} style={{width: "50%"}}/> */}
 
                     <br></br>
                     <div className="login-error"> { this.props.errors ? this.props.errors : null} </div>

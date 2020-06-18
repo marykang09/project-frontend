@@ -75,6 +75,7 @@ ul li {
 
 
 /* ------------HOMEPAGE------------ */
+
 .home-image {
   padding-top: 40px;
   padding-right: 3vh;
@@ -92,13 +93,29 @@ ul li {
   display: inline-block;
   line-height: 1em;
 }
-/* ------------ PAGE HEADER H1 ------------ */
+/* ------------ HEADER H1 ------------ */
 
 .page-headers {
+  padding-top: -10px;
   font-weight: bolder;
   font-size: 45px;;
 }
 
+.home-header {
+  font-weight: bolder;
+  font-size: 55px;
+  color: #EAD2AC;
+}
+
+.about-page{
+  overflow: hidden;
+}
+
+.login-header{
+  padding-left: 30px;
+  font-weight: bold;
+  font-size: 35px;
+}
 /* ------------ RADIO BUTTONS ------------ */
 .radiobuttontop {
   display: grid;
@@ -214,20 +231,16 @@ ul li {
   right: auto !important;
   align-content: center !important;
   width: 60%;
-  display: flex;
+  display: inline-block;
   justify-content: center;
   align-items: center;
 }
 
-/* 
+
 .login-form {
-  position: absolute !important;
-  margin: auto !important;
-  padding: 20px !important;
   align-content: center !important;
-  left: auto !important;
-  right: auto !important;
-} */
+  justify-content: space-evenly !important;
+}
 
 /* .login-image {
   display: block;

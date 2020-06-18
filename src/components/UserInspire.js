@@ -46,7 +46,7 @@ class UserInspire extends React.Component {
                     <Clock format={'HH:mm'} ticking={true} timezone={'America/New_York'} />
                     <br></br>
                     <img src={yogiman} style={{width:"85%"}}/>
-                    <br></br><br></br><br></br><br></br>
+                    <br></br><br></br>
                 <h1 className="header"> looking for inspiration? </h1>
                     <button className="opener" id={this.state.depth} onClick={this.openPopUp} style={{width:"5%"}}> + </button>
                         <section id="pop-up" className={this.state.animation_name}>
@@ -63,7 +63,7 @@ class UserInspire extends React.Component {
                                     <p> {this.props.quotes.quote} </p>
                                             <p> {`- ${this.props.quotes.author}` }</p>
 
-                                <button className="mybtn">Check it out</button>
+                                {/* <button className="mybtn">Check it out</button> */}
                             </div>
                             <br></br>
                             <div className="photo">

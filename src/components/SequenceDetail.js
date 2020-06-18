@@ -90,19 +90,19 @@ class SequenceDetail extends React.Component {
     render(){
 
         const Title = styled.h1`
-        font-size: 1.5em;
+        font-size: 2.5em;
         text-align: center;
         color: white;
         `;
     
         const Wrapper = styled.section`
         padding: 2.5em;
-        background: #a3b9c9;
+        background: #EAD2AC;
         `;
 
         const TitleWrapper = styled.section`
         padding: 1.5em;
-        background: #ABDAE1;
+        background: #EAD2AC;
         `;
 
         return (!this.props.sequence ? null : 
@@ -119,6 +119,7 @@ class SequenceDetail extends React.Component {
                             <br></br>
                             {this.props.sequence.sequence_poses.length === 0 ? "ADD SOME POSES" : `POSE COUNT: ${this.props.sequence.sequence_poses.length}`}
                             <br></br>
+                           
                         </Title>
                     </Wrapper>
 

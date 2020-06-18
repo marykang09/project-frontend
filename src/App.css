@@ -177,6 +177,7 @@ ul li {
 .userinspire {
   grid-area: userinspire;
   text-align: center;
+  margin-top: -38px;
 }
 
 .usersequences {
@@ -228,7 +229,44 @@ ul li {
 
 /* ------------LOGINPAGE------------ */
 .login-page {
-  margin: auto !important;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50vh 50vh;
+  grid-column-gap: 5px;
+  overflow: auto !important;
+  padding-top: 110px;
+  padding-left: 60px;
+  margin-right: 0 !important;
+  overflow: hidden;
+  min-width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  margin-top: 100px !important;
+  
+}
+  
+  .pose-list {
+    min-width: 100% !important;
+    height: 100% !important;
+    overflow: auto !important;
+  }
+
+
+/* .color-bg{ */
+  /* background-image: url("https://blush.ly/IM0BNaeNW/p"); */
+  /* background-color: white;
+  min-height: 100%;
+  min-width: 100%;
+  background-position-x: center;
+  background-position-y: top;
+  background-repeat: round; */
+
+  /* align-items: left;
+  margin-left: -10px; */
+
+
+/* } */
+  /* margin: auto !important;
   padding: 20px !important;
   left: auto !important;
   right: auto !important;
@@ -236,8 +274,18 @@ ul li {
   width: 60%;
   display: flex;
   justify-content: center;
-  align-items: center;
-}
+  align-items: center;  */
+
+
+/* display: grid;
+grid-template-columns: 30vw 40vw 30vw;
+grid-template-rows: 5vh 5vh;
+grid-column-gap: 5px;
+grid-template-areas:
+  "userwelcome userwelcome userwelcome"
+  "userquotes userinspire usersequences"; */
+
+
 
 /* 
 .login-form {
@@ -263,12 +311,13 @@ ul li {
 
 /* ------------BUTTONS------------ */
  .mybtn {
-  background-color: #ABDAE1 !important;
-  outline: #ABDAE1 !important;
-  border: 1px solid #a09cb0 !important;
-  color: white;
+  background-color: #E6B89C !important;
+  outline: #E6B89C !important;
+  border: 1px solid #E6B89C !important;
+  color: 4281A4;
   padding: 1rem 1.5rem !important;
-  font-size: 0.8rem !important;
+  font-size: 2rem !important;
+  font-weight: normal;
   position: relative !important;
   justify-content: center !important;
   }
@@ -312,21 +361,22 @@ ul li {
 
 /* ------------LINKS------------ */
 a:link {
-  color: #987D7C; 
+  color: #4281A4; 
+
 }
 
 a:visited {
-  color: #987D7C; 
+  color: #4281A4; 
 }
 
 /* ------------NAVBAR------------ */
 .sticky {
   position: fixed;
   top: 0;
-  width: 100%;
+  min-width: 100% !important;
   z-index: 100;
   background-color: #4281A4 !important; 
-  height: 90px !important;
+  min-height: 90px !important;
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important

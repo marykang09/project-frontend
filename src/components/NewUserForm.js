@@ -85,27 +85,29 @@ class NewUserForm extends React.Component {
     render(){
         return this.props.currentUser ? <Redirect to="/sequences" /> : 
 
-        <div className="user-form">
-            
-            <div>
-                <Form >
-                    <Form.Label> FIRST NAME </Form.Label>
-                    <FormControl id="first_name" type="text" placeholder="FIRST NAME" value={this.state.first_name} onChange={this.onChange} />
+        <div className="padding">
+            <div className="user-form">
+                
+                <div>
+                    <Form >
+                        <Form.Label> FIRST NAME </Form.Label>
+                        <FormControl id="first_name" type="text" placeholder="FIRST NAME" value={this.state.first_name} onChange={this.onChange} />
 
-                    <Form.Label> LAST NAME </Form.Label>
-                    <FormControl id="last_name" type="text" placeholder="LAST NAME" value={this.state.last_name} onChange={this.onChange} />
+                        <Form.Label> LAST NAME </Form.Label>
+                        <FormControl id="last_name" type="text" placeholder="LAST NAME" value={this.state.last_name} onChange={this.onChange} />
 
-                    <Form.Label> USERNAME </Form.Label>
-                    <FormControl id="username" type="text" placeholder="USERNAME" value={this.state.username} onChange={this.onChange} />
+                        <Form.Label> USERNAME </Form.Label>
+                        <FormControl id="username" type="text" placeholder="USERNAME" value={this.state.username} onChange={this.onChange} />
 
-                    <Form.Label> PASSWORD </Form.Label>
-                    <FormControl id="password" type="text" placeholder="PASSWORD" value={this.state.password} onChange={this.onChange} />
+                        <Form.Label> PASSWORD </Form.Label>
+                        <FormControl id="password" type="text" placeholder="PASSWORD" value={this.state.password} onChange={this.onChange} />
 
-                    <Button variant="flat" size="md" onClick={this.onSubmit}> CREATE </Button>
-                </Form>
-            </div>
-            <div className="error">
-                { !this.state.usernameConfirm ? <div>{this.state.errors.username}</div> : null}
+                        <Button variant="flat" size="md" onClick={this.onSubmit}> CREATE </Button>
+                    </Form>
+                </div>
+                <div className="error">
+                    { !this.state.usernameConfirm ? <div>{this.state.errors.username}</div> : null}
+                </div>
             </div>
         </div>
     }

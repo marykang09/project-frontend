@@ -52,6 +52,36 @@ function changeSearchText(value){
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+// function clickedAction(option){
+//     return {type: "CLICKED_RADIO_ACTION", payload: option}
+// }
+
+// function clickedDifficulty(option){
+//     return {type: "CLICKED_RADIO_DIFFICULTY", payload: option}
+// }
+
+// function clickedRadioButton(poses){
+//     return {type: "CLICKED_RADIO_BUTTON", payload: poses}
+// }
+
+// function clickedCategory(option){
+//     return (dispatch, getState) => {
+//         let poses = getState().poses.filter(p => p.category === option)
+//         dispatch(clickedRadioButton(poses))
+//     }
+// }
+
+// function clickedAllCategory(option){
+//     return (dispatch, getState) => {
+//         let poses = getState().filteredPoses.filter(p => )
+//     }
+// }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
 function clickedSequence(sequence){
     // console.log("in actions", sequence)
     return {type: "CLICKED_SEQUENCE", payload: sequence}

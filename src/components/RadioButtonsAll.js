@@ -1,8 +1,9 @@
 import React from 'react'
-import RadioButtonsCategory from './RadioButtionsCategory'
+import RadioButtonsCategory from './RadioButtonsCategory'
 import RadioButtonsAction from './RadioButtonsAction'
 import RadioButtonsDifficulty from './RadioButtonsDifficulty.js'
-import SearchBar from './SearchBar'
+
+import PoseList from './PosesList'
 
 class RadioButtonsAll extends React.Component {
     constructor(){
@@ -15,14 +16,13 @@ class RadioButtonsAll extends React.Component {
     render(){
         return(
             <div className="radiobuttontop">
-                <SearchBar/>
                 <div className="radiobuttons">
                     <RadioButtonsCategory/>
                     <RadioButtonsAction/>
                     <RadioButtonsDifficulty/>
-                
                 </div>
-            </div>
+                <PoseList/>
+            </div> 
         )
     }
 }

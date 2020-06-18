@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 
 class RadioButtonsAction extends React.Component {
     constructor(){
@@ -12,6 +14,7 @@ class RadioButtonsAction extends React.Component {
         this.setState({
             selectedAction: event.target.value
         })
+        this.props.clickedAction(event.target.value)
     }
 
     render(){
@@ -128,4 +131,9 @@ class RadioButtonsAction extends React.Component {
     
 }
 
+// const mapDispatchToProps = (dispatch) => ({
+//     clickedAction: (obj) => { dispatch(clickedAction(obj))}
+// })
+
+// export default connect(null, mapDispatchToProps)(RadioButtonsAction)
 export default RadioButtonsAction

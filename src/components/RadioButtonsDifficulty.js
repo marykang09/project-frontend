@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 
 class RadioButtonsDifficulty extends React.Component {
     constructor(){
@@ -12,6 +14,7 @@ class RadioButtonsDifficulty extends React.Component {
         this.setState({
             selectedDifficulty: event.target.value
         })
+        this.props.clickedDifficulty(event.target.value)
     }
 
     render(){
@@ -89,4 +92,9 @@ class RadioButtonsDifficulty extends React.Component {
     
 }
 
+// const mapDispatchToProps = (dispatch) => ({
+//     clickedDifficulty: (obj) => { dispatch(clickedDifficulty(obj))}
+// })
+
+// export default connect(null, mapDispatchToProps)(RadioButtonsDifficulty)
 export default RadioButtonsDifficulty

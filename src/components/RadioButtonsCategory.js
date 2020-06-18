@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 
 class RadioButtonsCategory extends React.Component {
     constructor(){
@@ -10,9 +12,18 @@ class RadioButtonsCategory extends React.Component {
 
     handleOptionChange = (event) => {
         console.log("inside radiobuttons handleoptionchange")
+
         this.setState({
             selectedCategory: event.target.value
         })
+        // let obj = {
+        //     selectedCategory: event.target.value
+        // }
+        if(event.target.value === "All Categories"){
+        this.props.clickedAllCategory(event.target.value)
+        } else {
+        this.props.clickedCategory(event.target.value)
+        }
     }
 
     render(){
@@ -129,4 +140,12 @@ class RadioButtonsCategory extends React.Component {
     
 }
 
+
+// const mapDispatchToProps = (dispatch) => ({
+//     clickedCategory: (option) => { dispatch(clickedCategory(option))},
+//     clickedAllCategory: (option) => { dispatch(clickedAllCategory(option))}
+
+// })
+
+// export default connect(null, mapDispatchToProps)(RadioButtonsCategory)
 export default RadioButtonsCategory

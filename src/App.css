@@ -95,25 +95,26 @@ ul li {
 
 /* ------------ RADIO BUTTONS ------------ */
 .radiobuttontop {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 20vw 80vw;
+  grid-column-gap: 0px;
+  /* align-items: center;
   align-content: center;
-  justify-content: center;
+  justify-content: center; */
 }
 
 .radiobuttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: center;
-  margin-right: 40px;
-  margin-left: 40px;;
+  display: table-column;
+  flex-direction: column;
+  justify-content: left;
+  align-content: left;
+  margin-right: auto;
+  margin-left: auto;;
   
 }
 
 .radiolabel {
-  text-align: center !important;
+  text-align: left !important;
   font-size: 24px !important;
   font-style: normal;
   font-weight: bold;
@@ -194,7 +195,6 @@ ul li {
 
 .right-div2{
   margin-right: 100vh;
-  margin-bottom: ;
 
 }
 
@@ -379,9 +379,9 @@ input.customsearch {
  .pose-page {
   min-width: 100% !important;
   height: 100% !important;
-  display: flex !important;
+  display: row;
   flex-direction: column !important;
-  overflow: hidden;
+  overflow: auto !important;
  }
 
  .pose-div {

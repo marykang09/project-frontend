@@ -11,6 +11,22 @@ const posesReducer = (state=[], action) => {
     }
 }
 
+// const filterPosesReducer = (state = [], action) => {
+//     switch (action.type){
+//         case "CLICKED_RADIO_BUTTON":
+//             return action.payload
+//             console.log(state.filter(pose => pose.category === action.payload))
+//         case "CLICKED_RADIO_CATEGORY_ALL":
+//             console.log(state.filter(pose => pose.category))
+//         case "CLICKED_RADIO_ACTION":
+//             return state.filter(pose => pose.action === action.payload)
+//         case "CLICKED_RADIO_DIFFICULTY":
+//             return state.filter(pose => pose.difficulty === action.payload)
+//         default: 
+//             return state
+//     }
+// }
+
 /////////////////////////////////////////////////////////////////////////////////////////
 
 const sequencesReducer = (state=[], action) => {
@@ -101,9 +117,10 @@ const searchTextReducer = (state="", action) => {
         case "CHANGE_SEARCH_TEXT":
             return action.payload
         default:
-           return state
+            return state
     }
 }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -146,6 +163,7 @@ const errorsReducer = (state=[], action) => {
 
 const rootReducer = combineReducers({
     poses: posesReducer,
+    // filteredPoses: filterPosesReducer,
     sequences: sequencesReducer,
     searchText: searchTextReducer,
     sequence: clickedSequenceReducer,

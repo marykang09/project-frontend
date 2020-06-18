@@ -34,7 +34,7 @@ const NavBar = (props) => {
                     <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown> */}
                     <br></br>
-                    {props.currentUser ? <Button className="mybtn" variant="flat" size="md" onClick={()=> props.logoutCurrentUser()}> SIGN OUT </Button> : <Link to="/login"><Button className="mybtn" variant="flat" size="md" onClick> SIGN IN </Button></Link> }
+                    {props.currentUser ? <Button className="mybtn" variant="flat" size="md" onClick={()=> props.logoutCurrentUser()}> SIGN OUT </Button> : <Link to="/login"><Button className="mybtn" variant="flat" size="md"> SIGN IN </Button></Link> }
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

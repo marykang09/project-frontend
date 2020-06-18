@@ -4,12 +4,14 @@ import { Navbar, Nav, Form, NavDropdown, FormControl, Button } from 'react-boots
 import SearchBar from './SearchBar'
 import { connect } from 'react-redux'
 import { logoutCurrentUser } from '../redux/actions'
+import { GrYoga } from 'react-icons/gr'
+import smalllotus from '../assets/images/smalllotus.jpeg'
 
 const NavBar = (props) => {
 
     return (
         <Navbar className="sticky" fixed="top" expand="lg">
-        <Navbar.Brand href="/"> YOGA APP  </Navbar.Brand>
+        <Navbar.Brand href="/">  &#10061;	</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">

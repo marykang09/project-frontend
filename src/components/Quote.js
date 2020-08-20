@@ -25,12 +25,14 @@ class Quote extends React.Component {
     }
 
     render(){
+        // console.log("inside Quote, what is this.props.userQuotes?", this.props.userQuotes.includes(457))
 
 
         return (
             
-            <div>
-                    <CardColumns style={{display: 'flex'}}>
+            <div className="inspPage">
+                    <CardColumns className="quoteCol">
+                    {/* <CardColumns style={{display: 'flex'}}> */}
                     <OverlayTrigger placement="right" delay={{show: 150, hide: 200}} overlay={this.renderToolTip}>
                         <Card className="p-3" style={{flex: 1}}>
                             <blockquote className="blockquote mb-0 card-body">
@@ -41,7 +43,7 @@ class Quote extends React.Component {
                             </blockquote>
                             
                             
-                                <div className="icon" onDoubleClick={this.onDoubleClick}><FcLikePlaceholder/></div>
+                                <div className="icon" onDoubleClick={this.onDoubleClick}>  <FcLikePlaceholder/> </div>
                             </Card>
                         </OverlayTrigger>
                     </CardColumns>
@@ -81,7 +83,8 @@ class Quote extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        currentUser: state.currentUser
+        currentUser: state.currentUser,
+        userQuotes: state.userQuotes
     }
 }
 

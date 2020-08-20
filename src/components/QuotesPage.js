@@ -14,7 +14,7 @@ class QuotesPage extends React.Component{
 
             <div className="padding">
                 <div className="quotes">
-                    <h1 className="header"> QUOTES </h1>
+                    <h1 className="page-headers"> INSPIRATION </h1>
                         <div className="line"></div>
                     <br></br>
                         <SearchBar/> 

@@ -47,7 +47,7 @@ class UserInspire extends React.Component {
                     <br></br>
                     <img src={yogiman} style={{width:"85%"}}/>
                     <br></br><br></br>
-                <h1 className="header"> looking for inspiration? </h1>
+                <h1 className="seq-headers"> looking for inspiration? </h1>
                     <button className="opener" id={this.state.depth} onClick={this.openPopUp} style={{width:"5%"}}> + </button>
                         <section id="pop-up" className={this.state.animation_name}>
                             <div id="innerPopUp" className={this.state.fade}>
@@ -56,14 +56,15 @@ class UserInspire extends React.Component {
                                 <div className="black"></div>
                             </div>
                             <div className="text">
-                                <h1 className="header">Namaste</h1>
+                                <h1 className="seq-headers">Namaste</h1>
                                 <hr/>
                                 <br></br>
-                                <p className="close" onClick={this.closePopUp}> &nbsp; X </p>
-                                    <p> {this.props.quotes.quote} </p>
+                                <button className="mybtnClose" onClick={this.closePopUp}> X </button>
+                                {/* <p className="close" onClick={this.closePopUp}> &nbsp; X </p> */}
+                                    <p className="quotepop"> {this.props.quotes.quote} </p>
                                             <p> {`- ${this.props.quotes.author}` }</p>
 
-                                <button className="mybtn">Check it out</button>
+                                
                             </div>
                             <br></br>
                             <div className="photo">

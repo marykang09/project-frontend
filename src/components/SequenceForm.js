@@ -13,7 +13,7 @@ import SearchBar from './SearchBar'
 import swal from 'sweetalert'
 
 
-    //*//*//*//*//*//*//*//*// this is part of the react redux example  //*//*//*//*//*//*//*//*// 
+    //*//*//*//*//*//*//*//*// sort  //*//*//*//*//*//*//*//*// 
 
     let SortableItem = SortableElement(({pose, sequence}) => {
 
@@ -46,7 +46,7 @@ import swal from 'sweetalert'
         }
     }
 
-    //*//*//*//*//*//*//*//*// this is part of the react example  //*//*//*//*//*//*//*//*// 
+    //*//*//*//*//*//*//*//*// sort //*//*//*//*//*//*//*//*// 
 
 
 
@@ -166,17 +166,19 @@ import swal from 'sweetalert'
                                 <br></br>
                         
                                 <h2>POSES :</h2>
-                                <Row className="justify-content-md-center">
-                                <br></br>
-                                <Col md="auto"></Col>
-                                    {this.props.poses.map(pose => (
-                                    <Pose
-                                        key={pose.id}
-                                        pose={pose}
-                                        sequence={this.props.sequence}
-                                        editing={true} />
-                                ))}
-                                </Row>
+                                <div className="seqdiv">
+                                    <Row className="justify-content-md-center">
+                                    <br></br>
+                                    <Col md="auto"></Col>
+                                        {this.props.poses.map(pose => (
+                                        <Pose
+                                            key={pose.id}
+                                            pose={pose}
+                                            sequence={this.props.sequence}
+                                            editing={true} />
+                                    ))}
+                                    </Row>
+                                </div>
                             </div>
                 </div>
         )

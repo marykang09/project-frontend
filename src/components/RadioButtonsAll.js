@@ -79,11 +79,10 @@ class RadioButtonsAll extends React.Component {
 
     render(){
         let showFilteredPoses = this.state.filteredPoses.length > 0 ? this.state.filteredPoses : this.props.poses
-        let searchFilteredPoses = showFilteredPoses
-        // let searchFilteredPoses = showFilteredPoses.filter(pose => 
-        //                                                     pose.english_name.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
-        //                                                     pose.sanskrit_name.toLowerCase().includes(this.state.searchText.toLowerCase())
-        //                                                     )
+        let searchFilteredPoses = showFilteredPoses.filter( pose => 
+                                                                pose.english_name.toLowerCase().includes(this.props.searchText.toLowerCase()) ||
+                                                                pose.sanskrit_name.toLowerCase().includes(this.props.searchText.toLowerCase()))
+
 
         return(
             <div className="radiobuttontop">

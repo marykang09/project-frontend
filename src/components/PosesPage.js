@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import PosesList from './PosesList'
 import SearchBar from './SearchBar'
 import RadioButtonsAll from './RadioButtonsAll'
 
@@ -11,7 +10,8 @@ const PosesPage = (props) => {
         <div className="pose-page">
           <div className="pose-div">
                 <div className="poseheader">
-                    <h1 className="page-headers"> BROWSE ALL POSES </h1>
+                    <h1 className="page-headers"> BROWSE
+                     POSES </h1>
                     <br></br>
                     <div className="line"></div>
                     <br></br>
@@ -23,7 +23,6 @@ const PosesPage = (props) => {
         </div>
     )
 }
-                // {/* <PosesList/> */}
-                // {/* <Route path="/" component={PosesList} /> */}
+
 
 export default PosesPage

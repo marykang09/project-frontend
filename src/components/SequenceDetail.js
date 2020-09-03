@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import SequencePose from './SequencePose'
 import {Button, ButtonGroup, ButtonToolbar, Col, Container, Row, Alert} from 'react-bootstrap'
 import { deleteSequence } from '../redux/actions'
-import AlertDismissible from './AlertDismissible'
 import styled from 'styled-components';
 import swal from '@sweetalert/with-react'
 

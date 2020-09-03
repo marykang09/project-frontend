@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Demo from './Demo'
 import yogi3 from '../assets/images/yogi3.png'
 import lotus from '../assets/images/lotus.jpg'
 import plant from '../assets/images/fancy-plants.png'

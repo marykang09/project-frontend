@@ -12,10 +12,15 @@ class Quote extends React.Component {
 
         let userQuoteObj = {
             user_id: this.props.currentUser.id,
-            quote_id: this.props.quote.id
+            quote_id: this.props.quote.id,
         }
+        console.log("this is the quote", this.props.quote)
         
         this.props.addingQuote(userQuoteObj)
+
+        console.log(this.props.userQuotes)
+        console.log(this.props.userQuotes.find(q => q.quote_id === this.props.quote.id) ? "yes already liked" : "no, not liked")
+
     }
 
     renderToolTip = (props) => {
@@ -25,7 +30,8 @@ class Quote extends React.Component {
     }
 
     render(){
-        // console.log("inside Quote, what is this.props.userQuotes?", this.props.userQuotes.includes(457))
+        // console.log("inside Quote, what is this.props.userQuotes?", this.props.userQuotes)
+        // console.log("inside Quotes, what is this quote?", this.props.quote.id)
 
 
         return (
@@ -33,7 +39,7 @@ class Quote extends React.Component {
             <div className="inspPage">
                     <CardColumns className="quoteCol">
                     {/* <CardColumns style={{display: 'flex'}}> */}
-                    <OverlayTrigger placement="right" delay={{show: 150, hide: 200}} overlay={this.renderToolTip}>
+                    <OverlayTrigger placement="right" delay={{show: 100, hide: 200}} overlay={this.renderToolTip}>
                         <Card className="p-3" style={{flex: 1}}>
                             <blockquote className="blockquote mb-0 card-body">
                                 <p>{this.props.quote.quote}</p>
@@ -42,8 +48,8 @@ class Quote extends React.Component {
                             </footer>
                             </blockquote>
                             
-                            
-                                <div className="icon" onDoubleClick={this.onDoubleClick}>  <FcLikePlaceholder/> </div>
+
+            <div className="icon" onDoubleClick={this.onDoubleClick}> {this.props.userQuotes.find(q => q.quote_id === this.props.quote.id) ? <FcLike/> : <FcLikePlaceholder/>} </div>
                             </Card>
                         </OverlayTrigger>
                     </CardColumns>

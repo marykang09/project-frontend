@@ -24,9 +24,15 @@ class Quote extends React.Component {
     }
 
     renderToolTip = (props) => {
-        return (
-        <Tooltip id="button-tooltip" {...props}> Double Click to Add </Tooltip>
-        )
+        if (this.props.userQuotes.find(q => q.quote_id === this.props.quote.id)){
+            return (
+            <Tooltip id="button-tooltip" {...props}> Double Click to Remove </Tooltip>
+            )
+        } else {
+            return (
+                <Tooltip id="button-tooltip" {...props}> Double Click to Add </Tooltip>
+            )
+        }
     }
 
     render(){

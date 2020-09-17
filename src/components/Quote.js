@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom'
 import {Container, Row, Col, Button, Card, CardColumns, OverlayTrigger, Tooltip} from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { FcLikePlaceholder, FcLike } from 'react-icons/fc'
-import { addingQuote } from '../redux/actions'
+import { addingQuote, removingQuote } from '../redux/actions'
 
 class Quote extends React.Component {
 
@@ -14,11 +14,19 @@ class Quote extends React.Component {
             user_id: this.props.currentUser.id,
             quote_id: this.props.quote.id,
         }
-        console.log("this is the quote", this.props.quote)
-        
-        this.props.addingQuote(userQuoteObj)
 
-        console.log(this.props.userQuotes)
+        let userQuoteId
+                
+        if (this.props.userQuotes.find(q => q.quote_id === this.props.quote.id)){
+            console.log("delete this quote from userQuotes")
+            let theID = this.props.userQuotes.find(q =>q.quote_id === this.props.quote.id).id
+            console.log("theID", theID)
+            this.props.removingQuote(theID)
+        } else {
+            console.log("adding this quote to userQuotes")
+            this.props.addingQuote(userQuoteObj)
+        }
+
         console.log(this.props.userQuotes.find(q => q.quote_id === this.props.quote.id) ? "yes already liked" : "no, not liked")
 
     }
@@ -102,7 +110,8 @@ const mapStateToProps = (state) => {
 
 
 const mapDispatchToProps = dispatch => ({
-    addingQuote: (userQuoteObj) => { dispatch ( addingQuote(userQuoteObj))}
+    addingQuote: (userQuoteObj) => { dispatch ( addingQuote(userQuoteObj))},
+    removingQuote: (theID) => { dispatch ( removingQuote(theID))}
 })
 
 export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Quote))

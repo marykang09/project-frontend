@@ -106,6 +106,8 @@ const userQuotesReducer = (state = [], action) => {
             return action.payload
         case "CREATED_USER_QUOTE":
             return [...state, action.payload]
+        case "REMOVED_USER_QUOTE":
+            return state.filter(userquote => userquote.id !== action.payload)
         default: 
             return state 
     }

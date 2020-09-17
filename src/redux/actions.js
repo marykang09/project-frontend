@@ -354,9 +354,27 @@ function addedQuote(userQuote){
     }
 }
 
+function removingQuote(theID){
+    console.log("in removingQuote, what is userQuoteOjbs", theID)
+
+    return (dispatch) => {
+        fetch(`${url}/user_quotes/${theID}`, {
+            method: "DELETE"
+        })
+
+        dispatch(removedQuote(theID))
+    }
+}
+
+function removedQuote(theID){
+    return {
+        type: "REMOVED_USER_QUOTE",
+        payload: theID
+    }
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////
 export { fetchingPoses, changeSearchText, clickedSequence, addingToSequence, addedToSequence, 
     removingFromSequence, removedFromSequence, deleteSequence, addingNewSequence, addedSequence, 
     orderSequencePoseList, onSaveNewOrder, fetchingQuotes, findingUser, loginUser, setCurrentUser, 
-    logoutCurrentUser, createNewUser, addingQuote, addedQuote }
+    logoutCurrentUser, createNewUser, addingQuote, addedQuote, removingQuote, removedQuote }

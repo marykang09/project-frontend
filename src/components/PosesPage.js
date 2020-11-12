@@ -4,23 +4,19 @@ import SearchBar from './SearchBar'
 import RadioButtonsAll from './RadioButtonsAll'
 
 const PosesPage = (props) => {
-    console.log("PosesPage props:", props)
 
     return (
-        <div className="pose-page">
-          <div className="pose-div">
-                <div className="poseheader">
-                    <h1 className="page-headers"> BROWSE
-                     POSES </h1>
-                    <br></br>
+        <section id="poses-page">
+            <div className="poses">
+                    <h1 className="page-headers"> BROWSE POSES </h1>
                     <div className="line"></div>
                     <br></br>
+                    <h3> search by english or sanskrit name </h3>
                     <SearchBar/>
-                </div>
-                <RadioButtonsAll/>
-                <br></br>
-          </div>
-        </div>
+                    <br></br>
+                    <RadioButtonsAll/>
+            </div>
+        </section>
     )
 }
 

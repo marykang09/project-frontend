@@ -6,7 +6,7 @@ import plant from '../assets/images/fancy-plants.png'
 import plant2 from '../assets/images/fancy-plants2.png'
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
-import '../assets/css/modal.scss'
+
 import { withRouter } from 'react-router-dom'
 import Clock from 'react-live-clock';
 

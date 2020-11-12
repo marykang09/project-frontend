@@ -1,24 +1,17 @@
 import React from 'react'
 import Sequence from './Sequence.js'
 import { connect } from 'react-redux'
-import Col from 'react-bootstrap/Col'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
 import { withRouter } from 'react-router-dom'
 
 const SequencesList = (props) => {
 
-    return (!props.sequences ? <h2> null </h2> : 
+    return (!props.sequences ? null : 
 
-        <div>
-            <Container>
-                
-                <Row className="justify-content-md-center">
-                <Col md="auto"></Col>
-                    {props.sequences.map(sequence => ( <Sequence key={sequence.id} sequence={sequence} /> ))}
-                </Row>
-            </Container>
-        </div>
+        <section id="sequenceslist">
+            <div className="sequencelist-div">
+                {props.sequences.map(sequence => ( <Sequence key={sequence.id} sequence={sequence} /> ))}
+            </div>
+        </section>
     )
 }
 

@@ -20,7 +20,6 @@ class RadioButtonsCategory extends React.Component {
     render(){
         return(
             <div className="radiocontainer">
-                <div className="row mt-5">
                     <div className="col-sm-12">
                         <form>
                         {/* <form onSubmit={this.handleFormSubmit}> */}
@@ -117,13 +116,9 @@ class RadioButtonsCategory extends React.Component {
                             </label>
                         </div>
                         <div className="form-group">
-                            {/* <button className="btn btn-primary mt-2" type="submit">
-                            Save
-                            </button> */}
                         </div>
                         </form>
                     </div>
-                </div>
             </div>
         )        
     }

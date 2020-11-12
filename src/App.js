@@ -14,11 +14,11 @@ import SequenceForm from './components/SequenceForm'
 import {Spinner} from 'react-bootstrap'
 import HomePage from './components/Homepage'
 import QuotesPage from './components/QuotesPage'
-// import QuotesModal from './components/QuotesModal'
 import LoginForm from './components/LoginForm'
 import NewUserForm from './components/NewUserForm'
 import Dashboard from './components/Dashboard'
 import DashboardContainer from './components/DashboardContainer'
+import Footer from './components/Footer'
 
 class App extends React.Component {
 
@@ -49,32 +49,33 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        <div className="sticky">
-          <NavBar /> 
-        </div>
-        {this.state.loading ? <Spinner animation="border" variant="info" /> : 
-        
           <div className="main">
+          <NavBar /> 
+          
+          {this.state.loading ? <Spinner animation="border" variant="info" /> : 
+        
+              
               <Switch>
                 
                 <Route exact path="/" component={HomePage} />
+                <Route exact path="/home" component={HomePage} />
                 <Route exact path="/dashboard" render={()=> this.props.currentUser ? <DashboardContainer/> : <Redirect to="/login"/> } />
                 <Route exact path="/about" component={AboutPage} />
-                <Route exact path="/sequences" component={MySequencesPage} />
+                <Route exact path="/sequences" render={()=> this.props.currentUser ? <MySequencesPage/> : <Redirect to="/login"/> }  />
                 <Route exact path="/sequences/:id" render={ (routerProps) => this.props.currentUser ? <SequenceDetail {...routerProps}/> : <Redirect to="/login"/>}  /> 
                 <Route exact path="/sequences/:id/edit" render={ (routerProps) => this.props.currentUser ? <SequenceForm {...routerProps}/> : <Redirect to="/login"/>} /> 
                 <Route exact path="/poses" component={PosesPage} />
                 <Route path="/poses/:id" render={ (routerProps) => {return (<PoseDetail {...routerProps} />)  }} />
                 <Route exact path="/quotes" component={QuotesPage}/> 
                 <Route exact path="/login" render={() => !this.props.currentUser ? <LoginForm/> : <Redirect to="/dashboard"/> } />
-                <Route exact path="/signup" render={()=> !this.props.currentUser ? <NewUserForm/> : <Redirect to="/dashboard" /> } />
                 <Route render={ErrorPage} />
 
               </Switch>
-            </div>
           }
-      </div>
-    )
+          </div>
+          <Footer/>
+        </div>
+      )
   }
 }
   const mapStateToProps = (state) => {

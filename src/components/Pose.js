@@ -1,6 +1,5 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom'
-import {Button, Card} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { addingToSequence } from '../redux/actions'
 
@@ -20,40 +19,19 @@ class Pose extends React.Component {
     render(){
         return (
             
-            <div>
-                <Link className="item" to={`/poses/${this.props.pose.id}`} >
-                <Card className='card' border="light" style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={this.props.pose.img_url} />
-                <Card.Body>
-                        <Card.Title> {this.props.pose.english_name} </Card.Title>
-                        <Card.Text>
-                                    {this.props.pose.sanskrit_name} <br></br>
-                                    {this.props.editing ? (
-                                        <>
-                                                <style type="text/css">
-                                                    {`
-                                                    .btn-flat {
-                                                        background-color: #ABDAE1;
-                                                        color: white;
-                                                    }
-                                                    
-                                                    .btn-md {
-                                                        padding: 1rem 1.5rem;
-                                                        font-size: 1.5rem;
-                                                    }
-                                                    `}
-                                                </style>
-                            
-                                                <Button className="mybtn" variant="flat" size="md" onClick={this.onAdd}>
-                                                    Add
-                                                </Button>
-                                                </> ) : null
-                                    }
-                        </Card.Text>
-                </Card.Body>
-                </Card>
+            <section id="pose-card">
+                <Link className="card-link" to={`/poses/${this.props.pose.id}`} >
+                    <div className="card">
+                        <img src={this.props.pose.img_url} alt={this.props.pose.english_name} className="pose-card-img"/>
+                        <br></br>
+                        <div className="pose-card-info">
+                            <h3> {this.props.pose.english_name} </h3>
+                            <p> {this.props.pose.sanskrit_name} </p>
+                            {this.props.editing ? <button className="add" onClick={this.onAdd}> Add </button> : null}
+                        </div>
+                    </div>
                 </Link>
-            </div>
+            </section>
             
         )
     }

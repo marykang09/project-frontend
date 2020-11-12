@@ -1,9 +1,7 @@
 import React from 'react'
-import { Route, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import SequencesList from './SequencesList'
-import Sequence from './Sequence'
 import { connect } from 'react-redux'
-import { Button, Form, FormControl, Container, Row } from 'react-bootstrap'
 import { addingNewSequence } from '../redux/actions'
 import swal from 'sweetalert'
 
@@ -20,30 +18,27 @@ class MySequencesPage extends React.Component {
     showCreateFormDiv = () => {
         if (this.state.showCreateForm){
             return (
-                <div>
-                    <Container>
-                    <Row className="justify-content-md-center">
-                            <Form inline>
-                            <FormControl 
-                                type="text" 
-                                placeholder="NEW SEQUENCE NAME" 
-                                className="mx-sm-3"
-                                size="lg"
-                                value={this.state.newSequenceName}
-                                onChange={(event) => this.setState({ newSequenceName: event.target.value})} />
-
-                            <FormControl 
-                                type="text" 
-                                placeholder="NEW SEQUENCE NOTES" 
-                                className="mx-sm-3"
-                                size="lg"
-                                value={this.state.newSequenceNotes}
-                                onChange={(event) => this.setState({ newSequenceNotes: event.target.value})} />
-                            
-                            <Button className="mybtn" variant="flat" size="sm" onClick={this.onCreate}> CREATE </Button>
-                            </Form>
-                        </Row>
-                    </Container>
+                <div className="create-sequence-form">
+                    <form>
+                        <label> Sequence Name </label>
+                        <br></br>
+                        <input 
+                            type="text" 
+                            placeholder="" 
+                            value={this.state.newSequenceName}
+                            onChange={(event) => this.setState({ newSequenceName: event.target.value})}></input>
+                        <br></br>
+                        <label> Sequence Notes </label>
+                        <br></br>
+                        <input
+                            type="text"
+                            placeholder=""
+                            value={this.state.newSequenceNotes}
+                            onChange={(event) => this.setState({ newSequenceNotes: event.target.value})}></input>
+                        <br></br>
+                        <br></br>
+                        <button className="add" onClick={this.onCreate}> Create! </button>
+                    </form>
                 </div>
                 )
         }
@@ -54,68 +49,76 @@ class MySequencesPage extends React.Component {
         this.setState({ showCreateForm: !this.state.showCreateForm})
     }
 
-    validateSequenceNameInput = () => {
+    onCreate = (event) => {
+        event.preventDefault()
+
         if (this.state.newSequenceName.length === 0){
             swal({
-                text: "Sequence name is required",
+                className: "swal",
+                text: "Please enter a name for your sequence!",
                 value: true,
                 visible: true,
-                className: "swal",
                 closeModal: true,
                 button: "OK"
-              })
+            })
+        } else {
+            let info = {
+                userId: this.props.currentUser.id,              //check this, just added after seeing it after auth
+                newSequenceName: this.state.newSequenceName,
+                newSequenceNotes: this.state.newSequenceNotes
+            }
+            
+            this.props.addingNewSequence(info)
+
+            this.setState({
+                newSequenceName: "",
+                newSequenceNotes: "",
+                name: this.props.currentUser.first_name
+            }) // this is to reset the form 
         }
     }
 
-    onCreate = (event) => {
-        console.log("clicked to create new sequence")
-        event.preventDefault()
-        this.validateSequenceNameInput()
-
-        let info = {
-            userId: this.props.currentUser.id,              //check this, just added after seeing it after auth
-            newSequenceName: this.state.newSequenceName,
-            newSequenceNotes: this.state.newSequenceNotes
-        }
-        
-        this.props.addingNewSequence(info)
-
-        this.setState({
-
-            newSequenceName: "",
-            newSequenceNotes: "",
-            name: this.props.currentUser.first_name
-    
-        }) // this is to reset the form 
-    }
 
     render(){
+        // console.log("inside mysequences page", this.props.sequences)
+        // console.log("what is currentUser?", this.state.name)
 
-
-        console.log("inside mysequences page", this.props.sequences)
-        console.log("what is currentUser?", this.state.name)
 
         return (!this.props.sequences || !this.props.currentUser ? null : 
 
-                <div className="padding">
+                <section id="sequencespage">
                     <h1 className="page-headers"> SEQUENCES </h1>
-                        <h1 className="seq-headers"> curated by {this.props.currentUser.first_name} </h1>
-                    <br></br>
+                    <p className="ptag"> curated by <strong> {this.props.currentUser.first_name} </strong></p>
                     <div className="line"></div>
                     <br></br>
-                    <Button className="mybtn" ariant="flat" size="md" onClick={this.onShowCreateForm}  >    
-                        {this.state.showCreateForm ? "FINISHED ADDING" : "ADD A NEW SEQUENCE"}
-                    </Button>
-                    <br></br>
-                    <br></br>
-                    {this.showCreateFormDiv()}
+                    <div className="sequences-grid">
+
+                        <div className="sequences-grid-sequences">
+                            {this.props.sequences.length === 0 ? <h2>NO SEQUENCES YET</h2> : <SequencesList/> }
+                        </div>
+
+                        <div className="sequences-grid-add-seq">
+                            <h3> You have <br></br><span> {this.props.sequences.length} </span><br></br> sequences </h3>
+                            <br></br>
+                            <br></br>
+                            
+                            <h3> Create a <br></br><span> new </span><br></br> sequence </h3>
+                            <button className="add" variant="flat" size="md" onClick={this.onShowCreateForm}>    
+                                {this.state.showCreateForm ? "-" : "+"}
+                            </button>
+                            {this.showCreateFormDiv()}
+                            <br></br>
+                        </div>
+                        
+                    </div>
+                    
+
                     <br></br>
                     &nbsp;
-                <br></br>
-                {this.props.sequences.length === 0 ? <h2>NO SEQUENCES YET</h2> : <SequencesList/> }
+
                 
                 
-                </div>
+                </section>
                 )
     }
 }

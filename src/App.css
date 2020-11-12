@@ -1,185 +1,6 @@
-/* ------------NAVEXAMPLE------------ */
-/* ul {
-  list-style: none;
-  margin: 0;
-  width: 100%;
-  background-color: #beecea;
-}
-ul li {
-  display: inline-block;
-  padding: 1.25rem 3rem;
-  cursor: pointer;
-  &:hover,
-  &.active {
-    background-color: darken(#beecea, 15%);
-  }
-}
-.window {
-  max-width:1024px;
-  padding: 20px;
-  margin:auto;
-} */
 
-
-/* ------------SWAL------------ */
-.swal{
-  font-size: 50px !important;
-}
-
-.swal-button--confirm {
-  padding: 7px 20px;
-  border-radius: 2px;
-  background-color: #9CAFB7 !important; 
-  background:  #9CAFB7 ; 
-  font-size: 20px !important;
-  border: 1px solid #9CAFB7;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
-  background:  #9CAFB7;
-}
-
-.swal button:hover { 
-  background-color:'#9CAFB7' !important; 
-  -webkit-transition: all 0.3s ease-in-out; 
-  transition: all 0.3s ease-in-out; 
-
-}
-
-.swal button:focus{
-  outline: none
-}
-
-.swal button:active{
-  background-color:'#9CAFB7' !important; 
-}
-
-.swal:not([disabled]):hover{
-  background-color:'#9CAFB7' !important; 
-  -webkit-transition: all 0.3s ease-in-out; 
-  transition: all 0.3s ease-in-out; 
- }
-
-.swal-overlay {
-  background-color: rgba(156, 175, 183, 0.90);
-}
-
-.swal-button{
-  padding: 1rem 1.5rem !important;
-  border-radius: 2px;
-  background-color: #9CAFB7 !important; 
-  background:  #9CAFB7 ; 
-  font-size: 20px !important;
-  border: 1px solid #9CAFB7;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
-  background:  #9CAFB7;
-}
-
-
-/* ------------HOMEPAGE------------ */
-
-.home-image {
-  padding-top: 40px;
-  padding-right: 3vh;
-  position: absolute;
-}
-
-.ml12 {
-  font-weight: 200;
-  font-size: 1.8em;
-  text-transform: uppercase;
-  letter-spacing: 0.5em;
-}
-
-.ml12 .letter {
-  display: inline-block;
-  line-height: 1em;
-}
-/* ------------ HEADER H1 ------------ */
-
-.page-headers {
-  padding-top: -10px;
-  font-weight: bolder;
-  font-size: 45px;;
-}
-
-.seq-headers{
-  font-weight: bolder;
-  color: #EAD2AC;
-  font-size: 35px;
-}
-
-.home-header {
-  font-weight: bolder;
-  font-size: 55px;
-  color: #EAD2AC;
-}
-
-.about-page{
-  overflow: hidden;
-}
-
-.login-header{
-  padding-left: 30px;
-  font-weight: bold;
-  font-size: 35px;
-}
-
-.quotepop{
-  font-size: 25px;
-}
-/* ------------ RADIO BUTTONS ------------ */
-.radiobuttontop {
-  display: grid;
-  grid-template-columns: 20vw 80vw;
-  grid-column-gap: 0px;
-  /* align-items: center;
-  align-content: center;
-  justify-content: center; */
-}
-
-.radiobuttons {
-  display: table-column;
-  flex-direction: column;
-  justify-content: left;
-  align-content: left;
-  margin-right: auto;
-  margin-left: auto;;
-  
-}
-
-.radiolabel {
-  text-align: left !important;
-  font-size: 24px !important;
-  font-style: normal;
-  font-weight: bolder;
-  color: #4281A4; 
-}
-
-.form-check{
-  font-size: 1.8em !important;
-  text-align: left !important;
-  padding-left: 24px !important;
-  padding-right: 24px !important;
-}
 
 /* ------------DASHBOARD------------ */
-.dash-container{
-  display: grid;
-  grid-template-columns: 30vw 40vw 30vw;
-  grid-template-rows: 5vh 5vh;
-  grid-column-gap: 5px;
-  grid-template-areas:
-    "userwelcome userwelcome userwelcome"
-    "userquotes userinspire usersequences";
-  /* padding-top: -10em; */
-}
-
-.welcome {
-  grid-area: userwelcome;
-  font-size: 2.5vw;
-  font-weight: 600;
-  text-align: center;
-  text-transform: uppercase;
-}
 
 .userquotes {
   grid-area: userquotes;
@@ -197,25 +18,11 @@ ul li {
   text-align: center;
 }
 
-.dashboard {
-  margin-left: 120px;
-  margin-right: 120px;
-  margin-top: 32px;
-}
-
 .header {
     text-align: center;
     margin-bottom: 8px;
 }
 
-.ptag {
-  text-align: center;
-  letter-spacing: 1px;
-  color:#EAD2AC;
-  font-size: 40px;
-  text-transform: uppercase;
-  margin-bottom: 30px;
-}
 
 /* .dashboard-image {
   position: absolute;
@@ -228,14 +35,9 @@ ul li {
   margin-left: 60em;
 } */
 
-.right-div2{
-  margin-right: 100vh;
-
-}
-
 
 /* ------------LOGINPAGE------------ */
-.login-page {
+/* .login-page {
   margin: auto !important;
   padding: 20px !important;
   left: auto !important;
@@ -251,7 +53,7 @@ ul li {
 .login-form {
   align-content: center !important;
   justify-content: space-evenly !important;
-}
+} */
 
 /* .login-image {
   display: block;
@@ -265,7 +67,7 @@ ul li {
 
 
 /* ------------BUTTONS------------ */
- .mybtn {
+ /* .mybtn {
   background-color: #E6B89C !important;
   outline: #E6B89C !important;
   border: 1px solid #E6B89C !important;
@@ -275,10 +77,10 @@ ul li {
   font-weight: normal;
   position: relative !important;
   justify-content: center !important;
-  }
+  } */
 
 
-  .mybtnClose{
+  /* .mybtnClose{
     background-color: #E6B89C !important;
     outline: #E6B89C !important;
     border: 1px solid #E6B89C !important;
@@ -290,9 +92,7 @@ ul li {
     text-align: right;
     top: -45px;
     right: 6.9px;
-    /* width: 6.8px; */
-
-    /* position:absolute;
+    position:absolute;
     text-align: right;
     top:-10px;
     right:10px;
@@ -300,8 +100,9 @@ ul li {
     font-weight:700;
     font-size:2em;
     color:black;
-    cursor:pointer; */
-  }
+    cursor:pointer;
+  } */
+
  /* .my-btn button:focus{
   outline: none;
  } */
@@ -316,9 +117,9 @@ ul li {
  } */ 
 
 /* ------------CARDS------------ */
-.card:hover {
+/* .card:hover {
   transform: scale(1.1); 
-}
+} */
 
 /* .card-pose{
   font-size: px !important;
@@ -332,16 +133,16 @@ ul li {
 }  */
 
 /* ------------CARDS -- QUOTES------------ */
-.card-columns {
+/* .card-columns {
   media-breakpoint-only(lg) {
     column-count: 4;
   };
   media-breakpoint-only(xl) {
     column-count: 5;
   };
-}
+} */
 /* ------------- QUOTES------------ */
-.inspPage{
+/* .inspPage{
   max-width: 90;
   overflow: hidden !important;
 }
@@ -349,19 +150,12 @@ ul li {
 .quoteCol{
   display: inline;
   
-}
+} */
 
-/* ------------LINKS------------ */
-a:link {
-  color: #987D7C; 
-}
 
-a:visited {
-  color: #987D7C; 
-}
 
 /* ------------NAVBAR------------ */
-.sticky {
+/* .sticky {
   position: fixed;
   top: 0;
   width: 100%;
@@ -386,15 +180,15 @@ a:visited {
 
 .nav-link:visited {
   color: white !important;
-}
+} */
 /* .nav-link:active {
   color: EAD2AC !important;
 } */
 
-.sign-out {
+/* .sign-out {
   float: right !important;
   overflow: hidden !important;
-}
+} */
 
 
 /* NAVBAR */
@@ -424,25 +218,9 @@ a:visited {
   float: right !important;
   overflow: hidden !important;
 }
-/* ------------SEARCHBAR------------ */
-.customsearch {
-  min-width: 750px !important;
-  margin: 0 auto;
-  
-}
-
-input.customsearch {
-  margin: 0 auto;
-  width: 700px;
-  height: 70px;
-  padding: 0 20px;
-  font-size: 1rem;
-  border: 1px solid #D0CFCE;
-  outline: none;
- }
 
  /* ------------POSES PAGE------------ */
- .pose-page {
+ /* .pose-page {
   min-width: 100% !important;
   height: 100% !important;
   display: row;
@@ -459,20 +237,9 @@ input.customsearch {
   min-width: 100% !important;
   height: 100% !important;
   overflow: auto !important;
-}
+} */
 
- /* ------------OTHER PAGES------------ */
-.padding {
-  padding-top: 110px;
-}
- /* ------------LINE------------ */
- .line {
-    border-top: .90px solid #4281A4;
-    height: 5px;
-    width: 1650px !important;
-    margin-left: auto;
-    margin-right: auto;
-}
+
 
 .vline {
   top: 20rem;
@@ -482,87 +249,827 @@ input.customsearch {
   margin-left: 300px;
 }
 
-/* 
-  h1{
-  font-family: goldenbook, serif; 
-  font-weight: 600; 
-  font-style: normal; 
-  font-size: 100px !important; 
-  line-height: 53px !important;
-} */
 
-/* p{
-      text-align: left;
-      line-height: 30px;
-} */
 
-body, html {
-  height: 100% !important;
-  width: 100% !important;
+
+
+
+
+/*/------------- REFRESH STARTS HERE ------------- /*/
+/*/------------- REFRESH STARTS HERE ------------- /*/
+/*/------------- REFRESH STARTS HERE ------------- /*/
+/*/------------- REFRESH STARTS HERE ------------- /*/
+
+/* ------------------------------------------------------------------ */
+/*  General Styles
+/* ------------------------------------------------------------------ */
+
+.App {
+  padding-top: 90px;
+  text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
 }
-
-/* NOTE- THIS MADE THE NAV BAR CUT OFF */
-/* .home-page {
-  height: 220vh;
-  width: 220vh;
-} */
-
-
-/* .bg {
-  height: 100% !important;
-  width: 100% !important;
-  background-image: url("https://images.unsplash.com/photo-1528715471579-d1bcf0ba5e83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1670&q=80") !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-} */
 
 .main {
+  min-height: 85vh;
+}
+
+.ptag {
   text-align: center;
+  letter-spacing: 1px;
+  color:#EAD2AC;
+  font-size: 25px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+/* ---- SCROLL ----- */
+#scroll {
+  position: fixed;
+  color: rgb(92, 92, 92);
+  width: 100px;
+  padding-top: 4px;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  cursor: pointer;
+}
+
+#scroll:hover {
+  color:  #4281A4
+}
+
+@media only screen and (max-width:620px) {
+  /* For mobile phones: */
+  #scroll {
+    width: 65px;
+    right: 5px;
+
+  }
+}
+
+/* ---- LINKS ---- */
+a:link {
+  color: #bda681; 
+}
+
+a:hover {
+  color: #978464 !important; 
+}
+
+a:visited {
+  color: #bda681; 
+}
+
+/* ---- LINE ---- */
+.line {
+  border-top: .90px solid #4281A4;
+  height: 5px;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
-  height: calc(100vh - 90px) !important;
+}
+
+ /* ---- BUTTONS ---- */
+button {
+  background-color: #EAD2AC;
+  outline: #EAD2AC;
+  border: 1px solid #EAD2AC;
+  color: black;
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+.add, .save {
+	box-shadow:inset 0px 1px 0px 0px #f8fadc;
+	background:linear-gradient(to bottom, #fae9be 5%, #e8ca7f 100%);
+	background-color:#fae9be;
+	border-radius:6px;
+	border:1px solid #f2e385;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:12px;
+	font-weight:bold;
+	padding:4px 20px;
+	text-decoration:none;
+  text-shadow:0px 1px 0px #cca454;
+}
+.add:hover {
+	background:linear-gradient(to bottom, #e8ca7f 5%, #fae9be 100%);
+	background-color:#e8ca7f;
+}
+.add:active {
+	position:relative;
+	top:1px;
+}
+
+.remove {
+	box-shadow:inset 0px 1px 0px 0px #f8fadc;
+	background:linear-gradient(to bottom, #facabe 5%, #e6a87e 100%);
+	background-color:#facabe;
+	border-radius:6px;
+	border:1px solid #f0a184;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:12px;
+	font-weight:bold;
+	padding:4px 20px;
+	text-decoration:none;
+  text-shadow:0px 1px 0px #cc5a56;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.remove:hover {
+	background:linear-gradient(to bottom, #e6a87e 5%, #facabe 100%);
+	background-color:#e6a87e;
+}
+.remove:active {
+	position:relative;
+	top:1px;
+}
+
+/* ---- HEADER H1 ---- */
+.page-headers {
+  font-weight: bolder;
+  font-size: 35px;
+  letter-spacing: 1px;
 }
 
 
-/* -------------------------------------------CUSTOM STUFF UP ABOVE ------------------------------------------- */
-/* THIS STUFF WAS ALREADY HERE */
-.App {
-  text-align: center;
-  width: 100% !important;
-  height: 100% !important;
+/* ------------SWAL------------ */
+.swal{
+  font-size: 10px
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.swal-button{
+  border-radius: 2px;
+  background-color: #9CAFB7; 
+  font-size: 14px;
+  border: 1px solid #9CAFB7;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.swal-button:hover {
+  background-color: #84969e !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.swal-overlay {
+  background-color: rgba(156, 175, 183, 0.90);
+}
+
+/*.
+.swal-button--confirm {
+  border-radius: 1px;
+  background-color: #9CAFB7; 
+  background:  #9CAFB7; 
+  font-size: 14px;
+  border: 1px solid #9CAFB7;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+}
+
+.swal-button--confirm :hover { 
   color: white;
+  background-color: white;
+  -webkit-transition: all 0.3s ease-in-out; 
+  transition: all 0.3s ease-in-out; 
+
 }
 
-.App-link {
-  color: #61dafb;
+.swal button:hover {
+  color: black;
+  background-color: #886659;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.swal button:focus{
+  outline: none;
+  background-color: #8698a0;
+}
+
+.swal button:active{
+  background-color: white;
+
+}
+
+.swal:not([disabled]):hover{
+  background-color: white; 
+  -webkit-transition: all 0.3s ease-in-out; 
+  transition: all 0.3s ease-in-out; 
+}
+*/
+
+
+/* ------------------------------------------------------------------ */
+/*  Nav Styles
+/* ------------------------------------------------------------------ */
+
+
+#nav-wrap ul, #nav-wrap li, #nav-wrap a {
+  /* margin: 0; */
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+#nav-wrap {
+  font-size: 15px;
+  width: 100%;
+  letter-spacing: 1.5px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 100;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #4281A4;
+}
+
+ul#nav {
+  min-height: 44px;
+  width: auto;
+  text-align: center;
+}
+
+ul#nav li {
+  position: relative;
+  list-style: none;
+  height: 30px;
+  display: inline-block;
+}
+
+ul#nav li a {
+  display: inline-block;
+  padding: 10px 9px;
+  line-height: 32px;
+  color: white;
+  text-decoration: none;
+}
+
+ul#nav .signout {
+  display: inline-block;
+  padding: 8px 13px;
+  line-height: 32px;
+  color: white;
+  text-decoration: none;
+}
+
+ul#nav li a:active {
+  color: rgb(199, 184, 118);
+}
+
+ul#nav li a.current {
+  color: rgb(190, 162, 83);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Searchbar Styles
+/* ------------------------------------------------------------------ */
+
+form.searchbar-form input[type=text] {
+  padding: 10px;
+  font-size: 15px;
+  border: 0.9px solid rgb(202, 200, 200);
+  width: 30%;
+}
+
+form.searchbar-form input:active {
+  border: 0.9px solid rgb(0, 0, 0);
+}
+
+#searchbar i {
+  size: 40px;
+}
+
+/* ------------------------------------------------------------------ */
+/*  HomePage Styles
+/* ------------------------------------------------------------------ */
+
+#homepage .homepage-grid {
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Quotes Styles
+/* ------------------------------------------------------------------ */
+
+#quotespage {
+  padding-bottom: 30px;
+}
+
+#quotespage h3 {
+  font-size: 14px;
+}
+
+#quotespage .quotes-grid {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px; 
+  /* padding-left: 10px; */
+}
+
+@media only screen and (max-width:620px) {
+  #quotespage .quotes-grid {
+    grid-template-columns: 100%;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+#quote .card {
+    transition: 0.3s;
+    width: 100%;
+    height: 100%;
+}
+  
+ #quote .card:hover {
+    box-shadow: 0 2px 17px 2px rgba(0,0,0,0.2);
+}
+
+/* ------------------------------------------------------------------ */
+/*  About Styles
+/* ------------------------------------------------------------------ */
+
+/* #about-page {
+  padding-top: 90px;
+} */
+
+/* ------------------------------------------------------------------ */
+/*  Poses Styles
+/* ------------------------------------------------------------------ */
+#poses-page h3 {
+  font-size: 14px;
+}
+
+#radiobuttonsall .poses-grid {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-column-gap: 25px;
+}
+
+.radiobuttons {
+  display: table-column;
+  flex-direction: column;
+  justify-content: left;
+  align-content: left;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 7px;
+  
+}
+
+.radiolabel {
+  text-align: left !important;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: bolder;
+  color: #4281A4; 
+}
+
+.form-check{
+  font-size: 1.8em !important;
+  text-align: left !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+
+#radiobuttonsall .pose-list {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-row-gap: 2px;
+  grid-column-gap: 2px;
+}
+
+
+/* ------------------------------------------------------------------ */
+/*  Pose Card Styles
+/* ------------------------------------------------------------------ */
+
+#pose-card {
+  text-align: center;
+}
+#pose-card .card {
+  transition: 0.3s;
+  border: none;
+  width: 45%;
+  height: 100%;
+}
+
+#pose-card .card:hover {
+  opacity: 0.5;
+  /* box-shadow: 0 0px 6px 1px rgba(0,0,0,0.2); */
+}
+
+#pose-card .card h3 {
+  color: black;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+#pose-card .card p {
+  color: black;
+  font-size: 12px;
+  /* letter-spacing: 1px; */
+}
+
+#pose-card .pose-card-img {
+  text-align: center;
+}
+#pose-card .card img {
+  height: 5vw;
+  width: 100%;
+}
+
+
+
+/* ------------------------------------------------------------------ */
+/*  Pose Detail Styles
+/* ------------------------------------------------------------------ */
+
+#pose-detail .pose-detail-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding-top: 20px;
+}
+
+#pose-detail .pose-detail-grid-info {
+  font-size: 16px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 1px solid #EAD2AC;
+}
+
+.pose-detail-grid-info span {
+  color:  #bda681;
+  font-weight: bolder;
+}
+/* ------------------------------------------------------------------ */
+/*  Login Styles
+/* ------------------------------------------------------------------ */
+
+#login-page .login-grid {
+  display: grid;
+  grid-template-columns: 45% auto;
+  overflow: hidden;
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+
+#login-page .login-error {
+  font-size: 16px;
+}
+
+#login-page button {
+  border: 1px solid #928f8d
+
+}
+
+#login-page .login-img img {
+  width: 50%;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Dashboard Styles
+/* ------------------------------------------------------------------ */
+
+.dash-container {
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  grid-column-gap: 5px;
+}
+
+.user img {
+  width: 100%;
+  padding-top: 60px;
+}
+
+.user {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.user p {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.user-quotes h3, .user-sequences h3 {
+  letter-spacing: 1px;
+}
+
+.user button {
+  margin-top: 30px;
+}
+
+.user-quotes-grid, .user-sequences-grid{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding-top: 13px;
+  max-height: 500px;
+  overflow: scroll;
+}
+
+@media only screen and (max-width:620px) {
+  .dash-container {
+    grid-template-columns: 100%;
   }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Sequences Styles
+/* ------------------------------------------------------------------ */
+
+.sequencelist-div {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+
+@media only screen and (max-width:620px) {
+  .sequencelist-div {
+    grid-template-columns: 50% 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.sequences-grid {
+  display: grid;
+  grid-template-columns: 80% 20%;
+}
+
+@media only screen and (max-width:620px) {
+  .sequences-grid {
+    grid-template-columns: 100%;
+  }
+}
+
+.sequences-grid-add-seq {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  /* background-color: #EAD2AC; */
+  border: 1px solid #EAD2AC;
+  /* min-height: 350px; */
+}
+
+.sequences-grid-add-seq span {
+  color:  #bda681;
+  font-weight: bolder;
+}
+
+.create-sequence-form {
+  padding-top: 20px;
+  font-size: 15px;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Sequence Card Styles
+/* ------------------------------------------------------------------ */
+
+#sequence-card a {
+  text-decoration: none;
+}
+
+.seq-card {
+  background-image: url("../src/assets/images/goldcircle.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 150px;
+  height: 150px;
+}
+
+.seq-card:hover {
+  opacity: 0.6;
+  color: black;
+}
+
+.seq-card h3 {
+  padding-top: 50px;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Sequence Detail Styles
+/* ------------------------------------------------------------------ */
+
+.sequence-detail-grid {
+  display: grid;
+  grid-template-columns: 80% 20%;
+}
+
+.seq-detail-grid-pose {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  padding-right: 10px;
+}
+
+.seq-form-grid-all-poses {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  padding-right: 10px;
+  padding-bottom: 45px;
+}
+
+.seq-detail-grid-actions {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border: 1px solid #EAD2AC;
+  /* background-color: #EAD2AC; */
+}
+
+.seq-detail-grid-actions span {
+  color:  #bda681;
+  font-weight: bolder;
+}
+
+#sequence-detail a {
+    color:black; 
+}
+
+#sequence-detail a:hover {
+  color: #b38e54; 
+  text-decoration: none;
+}
+
+.seq-detail-grid-actions h3.delete:hover {
+  color: #b38e54;
+  cursor: pointer;
+}
+
+.seq-detail-pose-section h1 {
+  text-align: center;
+  letter-spacing: 1px;
+  color:black;
+  font-size: 25px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+@media only screen and (max-width:620px) {
+  .sequence-detail-grid {
+    grid-template-columns: 100%;
+  }
+  .seq-detail-grid-pose {
+    grid-template-columns: 50% 50%;
+  }
+  .seq-form-grid-all-poses {
+    grid-template-columns: 50% 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Sequence Pose Styles
+/* ------------------------------------------------------------------ */
+
+#seqpose-card {
+  text-align: center;
+}
+#seqpose-card .card {
+  transition: 0.3s;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+#seqpose-card .card:hover {
+  opacity: 0.5;
+}
+
+#seqpose-card .seqpose-card-info h3 {
+  color: black;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+#seqpose-card .seqpose-card-info p {
+  color: black;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+#seqpose-card .card img {
+  height: 4vw;
+  width: 100%;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Sequence Form Styles
+/* ------------------------------------------------------------------ */
+
+.top-grid {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  padding-bottom: 20px;
+}
+.seq-form-grid-action {
+  margin-top: 80px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid #EAD2AC;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  max-height: 400px;
+  overflow: scroll;
+}
+
+.grid-notes {
+  background-color: #ebdbc1;
+  margin-right: 10px;
+  padding-top: 3px;
+}
+
+.grid-info-header {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding-bottom: 8px;
+  border: 1px solid #EAD2AC;
+  margin-left: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.grid-info-stats {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  padding-top: 3px;
+}
+
+.difficulty h3, .category h3, .action h3 {
+  font-size: 12px !important;
+}
+
+.seq-form-grid-action h3 {
+  font-size: 15px;
+}
+
+.seq-form-grid-action span {
+  color:  #bda681;
+  font-weight: bolder;
+}
+
+.seq-form-poses {
+  padding-top: 10px;
+  letter-spacing: 1px;
+  max-width: 850px;
+  overflow: scroll;
+}
+
+.seq-form-poses p {
+  text-align: center;
+  letter-spacing: 1px;
+  color:black;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.seq-form-all-poses {
+  padding-top: 10px;
+  letter-spacing: 1px;
+}
+
+.seq-form-all-poses p { 
+  text-align: center;
+  letter-spacing: 1px;
+  color:black;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.message {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  letter-spacing: 1px;
+  color:  #bda681;
+}
+
+@media only screen and (max-width:620px) {
+  .top-grid {
+    grid-template-columns: 100%;
+  }
+}
+/* ------------------------------------------------------------------ */
+/*  Sign Up Styles
+/* ------------------------------------------------------------------ */
+
+
+
+/* ------------------------------------------------------------------ */
+/*  Footer Styles
+/* ------------------------------------------------------------------ */
+
+#footer {
+  overflow: hidden; 
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+#footer .copy {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  letter-spacing: 1px;
 }

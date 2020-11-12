@@ -7,15 +7,12 @@ import Image from './Image'
 const HomePage = () => {
 
     return(
-        <div>
-            <div className="home-page">
-                <div className="home-image">
+        <section id="homepage">
+            <div className="homepage-grid">
                     <img src={yogi4} style={{width:"100%"}}  />
-                <h1 class="home-header"> FLOW FIND </h1>
-                <h2 class="subheader"> yoga poses, sequences, inspiration </h2>
-                </div>
+                    <h1 className="home-header"> FLOW FIND </h1>
             </div>
-        </div>
+        </section>
     )
 
     

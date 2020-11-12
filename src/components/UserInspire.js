@@ -3,7 +3,6 @@ import Clock from 'react-live-clock';
 import plant from '../assets/images/fancy-plants.png'
 import plant2 from '../assets/images/fancy-plants2.png'
 import yogiman from '../assets/images/yogiman.jpeg'
-import '../assets/css/modal.scss'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { FaRegLightbulb } from "react-icons/fa";
@@ -32,6 +31,8 @@ class UserInspire extends React.Component {
         this.setState({fade:'fade-in'})
     }
 
+
+
     getRandomQuote = () => {
         return (!this.props.quotes ? null : 
            this.props.quotes[Math.floor(Math.random() * this.props.quotes.length)]
@@ -41,38 +42,43 @@ class UserInspire extends React.Component {
 
     render(){
         return (!this.props.currentUser || !this.props.quotes ? null :
-            <div className="userinspire">
-                <h1 className="header"> TIME </h1><br/>
-                    <Clock format={'HH:mm'} ticking={true} timezone={'America/New_York'} />
-                    <br></br>
-                    <img src={yogiman} style={{width:"85%"}}/>
-                    <br></br><br></br>
-                <h1 className="seq-headers"> looking for inspiration? </h1>
-                    <button className="opener" id={this.state.depth} onClick={this.openPopUp} style={{width:"5%"}}> + </button>
-                        <section id="pop-up" className={this.state.animation_name}>
-                            <div id="innerPopUp" className={this.state.fade}>
-                            <div className="border-overlay">
-                                <div className="white"></div>
-                                <div className="black"></div>
-                            </div>
-                            <div className="text">
-                                <h1 className="seq-headers">Namaste</h1>
-                                <hr/>
-                                <br></br>
-                                <button className="mybtnClose" onClick={this.closePopUp}> X </button>
-                                {/* <p className="close" onClick={this.closePopUp}> &nbsp; X </p> */}
-                                    <p className="quotepop"> {this.props.quotes.quote} </p>
-                                            <p> {`- ${this.props.quotes.author}` }</p>
+            <section id="userinspire">
+                <div> 
+                    this is the user inspire section
+                </div>
+            </section>
+            // <div className="userinspire">
+            //     <h1 className="header"> TIME </h1><br/>
+            //         <Clock format={'HH:mm'} ticking={true} timezone={'America/New_York'} />
+            //         <br></br>
+            //         <img src={yogiman} style={{width:"85%"}}/>
+            //         <br></br><br></br>
+            //     <h1 className="seq-headers"> looking for inspiration? </h1>
+            //         <button className="opener" id={this.state.depth} onClick={this.openPopUp} style={{width:"5%"}}> + </button>
+            //             <section id="pop-up" className={this.state.animation_name}>
+            //                 <div id="innerPopUp" className={this.state.fade}>
+            //                 <div className="border-overlay">
+            //                     <div className="white"></div>
+            //                     <div className="black"></div>
+            //                 </div>
+            //                 <div className="text">
+            //                     <h1 className="seq-headers">Namaste</h1>
+            //                     <hr/>
+            //                     <br></br>
+            //                     <button className="mybtnClose" onClick={this.closePopUp}> X </button>
+            //                     {/* <p className="close" onClick={this.closePopUp}> &nbsp; X </p> */}
+            //                         <p className="quotepop"> {this.props.quotes.quote} </p>
+            //                                 <p> {`- ${this.props.quotes.author}` }</p>
 
                                 
-                            </div>
-                            <br></br>
-                            <div className="photo">
-                                <img src={plant2} />
-                            </div>
-                            </div>
-                        </section>
-            </div>
+            //                 </div>
+            //                 <br></br>
+            //                 <div className="photo">
+            //                     <img src={plant2} />
+            //                 </div>
+            //                 </div>
+            //             </section>
+            // </div>
         )
     }
 }

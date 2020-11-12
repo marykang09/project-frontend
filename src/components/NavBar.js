@@ -1,60 +1,38 @@
-import React from 'react'
-import { Link, NavLink, withRouter, Redirect } from "react-router-dom"
-import { Navbar, Nav, Form, NavDropdown, FormControl, Button } from 'react-bootstrap'
-import SearchBar from './SearchBar'
+import React, { Component } from 'react'
+import { Link, NavLink, withRouter } from "react-router-dom"
 import { connect } from 'react-redux'
 import { logoutCurrentUser } from '../redux/actions'
 
-const NavBar = (props) => {
+class NavBar extends Component {
+    state = {
+        active: null
+    }
 
-    return (
-        <Navbar className="sticky" fixed="top" expand="lg">
-        <Navbar.Brand href="/"> &#10061; </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="ml-auto">
-                    <Nav.Link href="/poses" className="nav-link" style={{color: "white"}}> POSES </Nav.Link>
-                    <br></br>
-                    <br></br>
-                    <Nav.Link href="/sequences" className="nav-link" style={{color: "white"}}> MY SEQUENCES </Nav.Link>
-                    <br></br>
-                    <br></br>
-                    <Nav.Link href="/dashboard" className="nav-link" style={{color: "white"}}> DASHBOARD </Nav.Link>
-                    <br></br>
-                    <br></br>
-                    <Nav.Link href="/quotes" className="nav-link" style={{color: "white"}}> INSPIRATION </Nav.Link>
-                    <br></br>
-                    <br></br>
-                    <Nav.Link href="/about" className="nav-link" style={{color: "white"}}> ABOUT </Nav.Link>
-                    {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                    </NavDropdown> */}
-                    <br></br>
-                    {props.currentUser ? <Button className="mybtn" variant="flat" size="md" onClick={()=> props.logoutCurrentUser()}> SIGN OUT </Button> : <Link to="/login"><Button className="mybtn" variant="flat" size="md"> SIGN IN </Button></Link> }
-                </Nav>
-            </Navbar.Collapse>
-        </Navbar>
+    handleClick = (event) => {
+        this.setState({
+            active: event.target.name
+        })
+    }
 
-
- 
-        // testing nav div
-        // <div id="nav-bar">
-        //     <div id="nav-logo">
-        //         Yoga App
-        //     </div>
-
-        //     <div id="nav-menu">
-        //         <div className="nav-button"> POSES </div>
-        //         {props.currentUser ? <div className="nav-button" onClick={()=> props.logoutCurrentUser()} > SIGN OUT </div> : <div className="nav-button"> SIGN IN </div> }
-        //     </div>
-        // </div>
-
-
-    )
+    render(){
+        return (
+            <section id="nav">
+                <nav id="nav-wrap">
+                    <ul id="nav">
+                        <li><NavLink className={this.state.active === "HOME" ? "current" : null} name="HOME" exact to="/home" onClick={this.handleClick}> HOME </NavLink></li>
+                        <li><NavLink className={this.state.active === "ABOUT" ? "current" : null} name="ABOUT" exact to="/about" onClick={this.handleClick}> ABOUT </NavLink></li>
+                        <li><NavLink className={this.state.active === "POSES" ? "current" : null} name="POSES" exact to="/poses" onClick={this.handleClick}> POSES </NavLink></li>
+                        <li><NavLink className={this.state.active === "SEQUENCES" ? "current" : null} name="SEQUENCES" exact to="/sequences" onClick={this.handleClick}> SEQUENCES </NavLink></li>
+                        <li><NavLink className={this.state.active === "QUOTES" ? "current" : null} name="QUOTES" exact to="/quotes" onClick={this.handleClick}> QUOTES </NavLink></li>
+                        <li><NavLink className={this.state.active === "DASHBOARD" ? "current" : null} name="DASHBOARD" exact to="/dashboard" onClick={this.handleClick}> DASHBOARD </NavLink></li>
+                        {this.props.currentUser ? 
+                            <li className={this.state.active === "SIGNOUT" ? "current" : null} name="SIGNOUT" onClick={()=> this.props.logoutCurrentUser()}> SIGN OUT </li> : 
+                            <li><NavLink className={this.state.active === "SIGNIN" ? "current" : null} name="SIGNIN" exact to="/login" onClick={this.handleClick}> SIGN IN </NavLink></li> }
+                    </ul>
+                </nav>
+            </section>
+        )
+    }
 }
 
 const mapStateToProps = (state) => {

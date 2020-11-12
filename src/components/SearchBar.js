@@ -5,31 +5,20 @@ import { Link } from 'react-router-dom'
 import { changeSearchText } from "../redux/actions"
 
 const SearchBar = (props) => {
-    
-    
-
     return (
-        <div>
-            <FormControl 
-                bsPrefix="customsearch"
-                type="text" 
-                placeholder="SEARCH..." 
-                className="mr-sm-2"
-                value={props.value}
-                onChange={e => props.onChange(e.target.value)} />
-
-
-                {/* <Link className="item" to='/poses' > */}
-                    <Button className="mybtn" variant="flat" size="md">
-                        SEARCH
-                    </Button>
-                {/* </Link> */}
-                    <br></br>
-            {/* <form class="search-container" >
-                <input type="text" id="search-bar" placeholder="What can I help you with today?">
-                <img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png" />
-            </form> */}
-        </div>
+        <section id="searchbar">
+            <form className="searchbar-form">
+                <i className="fa fa-search fa-lg"></i>  &nbsp;
+                <input
+                    type="text"
+                    placeholder="search..."
+                    name="search"
+                    value={props.value}
+                    onChange={e => props.onChange(e.target.value)}
+                    />
+                
+            </form>
+        </section>
     )
 }
 

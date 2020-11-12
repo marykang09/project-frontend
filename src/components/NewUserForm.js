@@ -83,31 +83,29 @@ class NewUserForm extends React.Component {
     }
 
     render(){
-        return this.props.currentUser ? <Redirect to="/sequences" /> : 
+        return this.props.currentUser ? <Redirect to="/dashboard" /> : 
 
-        <div className="user-form">
-            
-            <div>
-                <Form >
-                    <Form.Label> FIRST NAME </Form.Label>
-                    <FormControl id="first_name" type="text" placeholder="FIRST NAME" value={this.state.first_name} onChange={this.onChange} />
+        <section id="userform">
+            <form >
+                <label> First Name </label> &nbsp;
+                <input id="first_name" type="text" placeholder="" value={this.state.first_name} onChange={this.onChange} />
+                <br></br>
+                <label> Last Name </label> &nbsp;
+                <input id="last_name" type="text" placeholder="" value={this.state.last_name} onChange={this.onChange} />
+                <br></br>
+                <label> Username </label> &nbsp;
+                <input id="username" type="text" placeholder="" value={this.state.username} onChange={this.onChange} />
+                <br></br>
+                <label> Password </label> &nbsp;
+                <input id="password" type="text" placeholder="" value={this.state.password} onChange={this.onChange} />
+                <br></br>
+                <button variant="flat" size="md" onClick={this.onSubmit}> CREATE </button>
+            </form>
 
-                    <Form.Label> LAST NAME </Form.Label>
-                    <FormControl id="last_name" type="text" placeholder="LAST NAME" value={this.state.last_name} onChange={this.onChange} />
-
-                    <Form.Label> USERNAME </Form.Label>
-                    <FormControl id="username" type="text" placeholder="USERNAME" value={this.state.username} onChange={this.onChange} />
-
-                    <Form.Label> PASSWORD </Form.Label>
-                    <FormControl id="password" type="text" placeholder="PASSWORD" value={this.state.password} onChange={this.onChange} />
-
-                    <Button variant="flat" size="md" onClick={this.onSubmit}> CREATE </Button>
-                </Form>
-            </div>
             <div className="error">
                 { !this.state.usernameConfirm ? <div>{this.state.errors.username}</div> : null}
             </div>
-        </div>
+        </section>
     }
 
 }

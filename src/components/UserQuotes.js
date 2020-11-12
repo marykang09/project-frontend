@@ -7,17 +7,20 @@ class UserQuotes extends React.Component{
 
     render(){
         return(
-            <div className="userquotes">
-                <br></br><br></br> <br></br><br></br> 
+            <section id="userquotes">
+                <div>
+                    this is the user quotes section
+                </div>
+                {/* <br></br><br></br> <br></br><br></br> 
                 
                 <br></br><br></br> <br></br><br></br> <br></br>
                 <DropdownButton id="dropdown-item-button" title=" My Quotes " size="lg" bsPrefix="mybtn">
                     {this.props.user_quotes.map(uq=> <Dropdown.Item > {uq.quote.quote} </Dropdown.Item>)}
                     <Dropdown.Divider/>
                     <Link to="/quotes"><Dropdown.Item className="mybtn" as="button"> All Quotes </Dropdown.Item></Link>
-                </DropdownButton>
+                </DropdownButton> */}
                 
-            </div>
+            </section>
         )
     }
 }

@@ -9,26 +9,29 @@ class Quote extends React.Component {
 
     onDoubleClick = event => {
         event.preventDefault()
+        if (this.props.currentUser){
+            let userQuoteObj = {
+                user_id: this.props.currentUser.id,
+                quote_id: this.props.quote.id,
+            }
 
-        let userQuoteObj = {
-            user_id: this.props.currentUser.id,
-            quote_id: this.props.quote.id,
-        }
-
-        let userQuoteId
+            let userQuoteId
                 
-        if (this.props.userQuotes.find(q => q.quote_id === this.props.quote.id)){
-            console.log("delete this quote from userQuotes")
-            let theID = this.props.userQuotes.find(q =>q.quote_id === this.props.quote.id).id
-            console.log("theID", theID)
-            this.props.removingQuote(theID)
+            if (this.props.userQuotes.find(q => q.quote_id === this.props.quote.id)){
+                console.log("delete this quote from userQuotes")
+                let theID = this.props.userQuotes.find(q =>q.quote_id === this.props.quote.id).id
+                console.log("theID", theID)
+                this.props.removingQuote(theID)
+            } else {
+                console.log("adding this quote to userQuotes")
+                this.props.addingQuote(userQuoteObj)
+            }
+
+            console.log(this.props.userQuotes.find(q => q.quote_id === this.props.quote.id) ? "yes already liked" : "no, not liked")
+
         } else {
-            console.log("adding this quote to userQuotes")
-            this.props.addingQuote(userQuoteObj)
+            alert("Please sign in to save quotes")
         }
-
-        console.log(this.props.userQuotes.find(q => q.quote_id === this.props.quote.id) ? "yes already liked" : "no, not liked")
-
     }
 
     renderToolTip = (props) => {
@@ -50,52 +53,20 @@ class Quote extends React.Component {
 
         return (
             
-            <div className="inspPage">
-                    <CardColumns className="quoteCol">
-                    {/* <CardColumns style={{display: 'flex'}}> */}
-                    <OverlayTrigger placement="right" delay={{show: 100, hide: 200}} overlay={this.renderToolTip}>
-                        <Card className="p-3" style={{flex: 1}}>
+            <section id="quote">
+                <OverlayTrigger placement="right" delay={{show: 100, hide: 200}} overlay={this.renderToolTip}>
+                    <div className="card">
                             <blockquote className="blockquote mb-0 card-body">
                                 <p>{this.props.quote.quote}</p>
-                            <footer className="blockquote-footer">
+                                <footer className="blockquote-footer">
                                 <small className="text-muted"> {this.props.quote.author} </small>
-                            </footer>
+                                </footer>
                             </blockquote>
                             
-
-            <div className="icon" onDoubleClick={this.onDoubleClick}> {this.props.userQuotes.find(q => q.quote_id === this.props.quote.id) ? <FcLike/> : <FcLikePlaceholder/>} </div>
-                            </Card>
-                        </OverlayTrigger>
-                    </CardColumns>
-            </div>
-
-                                /* <div className="card-columns">
-                    <div className="card" >
-                        <blockquote className="blockquote mb-0">
-                            <p> {this.props.quote.quote}</p>
-                            <footer className="blockquote-footer">
-                                <small> {this.props.quote.author}</small>
-                            </footer>
-                        </blockquote>
+                            <div className="icon" onDoubleClick={this.onDoubleClick}> {this.props.userQuotes.find(q => q.quote_id === this.props.quote.id) ? <FcLike/> : <FcLikePlaceholder/>} </div>
                     </div>
-                </div> */
-
-
-                /* <Card className='card' border="light" style={{ width: '18rem' }}>
-                <Card.Body>
-                        <Card.Title> {this.props.quote.quote} </Card.Title>
-                        <Card.Text>
-                                    {this.props.quote.author} <br></br>
-                                    
-                            
-                            <Button variant="flat" size="md" onClick={this.onAdd}>
-                                Add
-                            </Button>
-                                    
-                    
-                        </Card.Text>
-                </Card.Body>
-                </Card> */
+                </OverlayTrigger>
+            </section>
             
         )
     }

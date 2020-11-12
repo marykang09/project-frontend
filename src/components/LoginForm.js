@@ -2,10 +2,8 @@ import React from 'react'
 import { loginUser } from '../redux/actions'
 import { connect} from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { Form, FormControl, Button} from 'react-bootstrap'
-import swal from '@sweetalert/with-react'
 import yogi from '../assets/images/yogi2.png'
-import { Link } from 'react-router-dom'
+import NewUserForm from './NewUserForm'
 
 class LoginForm extends React.Component { 
     constructor(){
@@ -17,20 +15,7 @@ class LoginForm extends React.Component {
     }
 
     onSubmit = (event) => {
-        console.log("inside onSubmit")
         event.preventDefault()
-
-        // if (this.props.errors.length > 0){
-        //     swal({
-        //         className: "swal",
-        //         text: this.props.errors,
-        //         buttons: "OK",
-        //         timer: 2500
-        //     })
-        // } else {
-        //     this.props.loginUser(this.state)
-        // }
-
         this.props.loginUser(this.state)
         this.setState({
             username: "",
@@ -39,53 +24,48 @@ class LoginForm extends React.Component {
     }
 
     onChange = (event) => {
-        console.log(event)
-
         this.setState({
             [event.currentTarget.id]: event.currentTarget.value
         }) // sets current typing text to state for both
     }
 
     render (){
-        return this.props.currentUser ? <Redirect to="/login"/> : 
-            <div className="padding">
-                <div className="login-page">
-                    <div className="login-image">
-                         
-                    </div>
-
+        return this.props.currentUser ? <Redirect to="/dashboard"/> : 
+                <section id="login-page">
                     <br></br>
-                    <br></br>
-
-                    <div className="login-form">
-                        
-                        <Form inline >
-                            <FormControl size="lg" type="text" placeholder="USERNAME" className="mx-sm-3" value={this.state.username} onChange={(event) => this.setState({ username: event.target.value})}  />
-                            <FormControl size="lg" type="text" placeholder="PASSWORD" className="mx-sm-3" value={this.state.password} onChange={(event) => this.setState({ password: event.target.value})}  />
-                            <Button className="mybtn" variant="flat" size="md" onClick={this.onSubmit}> SIGN IN </Button>
-                            <br></br>
-                            <br></br>
-                            <img src={yogi} style={{width: "50%"}}/> 
-                            <Link to="/signup"><h2 className="login-header"> New? Sign Up </h2></Link>
-                            
-                        </Form>
-                       
-                    </div>
-                    {/* <img src={yogi} style={{width: "50%"}}/> */}
-
-                    <br></br>
+                    <h1> SIGN IN TO YOUR ACCOUNT </h1>
+                    <div className="line"></div>
                     <div className="login-error"> { this.props.errors ? this.props.errors : null} </div>
-                </div>
-            </div>
-
-        
-    }
+                    <div className="login-grid"> 
+                        <div className="login-form">
+                            <h3> WELCOME BACK </h3>
+                            <form>
+                                <label> Username </label><input type="text" placeholder="" className="mx-sm-3" value={this.state.username} onChange={(event) => this.setState({ username: event.target.value})}  />
+                                <br></br>
+                                <label> Password </label><input type="text" placeholder="" className="mx-sm-3" value={this.state.password} onChange={(event) => this.setState({ password: event.target.value})}  />
+                                <br></br>
+                                <button onClick={this.onSubmit}> SIGN IN </button>                            
+                            </form>
+                            <br></br>
+                            <br></br>
+                            <br></br>
+                            <br></br>
+                            <h3> NEW AROUND HERE? </h3>
+                            <NewUserForm/>
+                        </div>
+                        <div className="login-img"> 
+                            <img src={yogi} alt="yogi"/>
+                            <br></br>
+                        </div>
+                    </div>
+                </section>
+    }    
 
 }
 
 const mapStateToProps = (state, ownProps) => {
-    console.log("in mapStateToProps, what is state?", state)
-    console.log("in mapStateToProps, what is ownProps?", ownProps)
+    // console.log("in mapStateToProps, what is state?", state)
+    // console.log("in mapStateToProps, what is ownProps?", ownProps)
 
     return {
         currentUser: state.currentUser,
@@ -95,7 +75,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, userInfo) => {
 
-    console.log("inside mapDispatchToProps, what is userInfo?", userInfo)
+    // console.log("inside mapDispatchToProps, what is userInfo?", userInfo)
     return {
         loginUser: (userInfo) => dispatch(loginUser(userInfo))
     }

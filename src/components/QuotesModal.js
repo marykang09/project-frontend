@@ -1,6 +1,5 @@
 import React from 'react'
 import '../assets/css/modal.scss'
-// import '../assets/css/inspire.scss'
 import { connect } from 'react-redux'
 
 class QuotesModal extends React.Component{

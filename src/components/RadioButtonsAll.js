@@ -185,35 +185,30 @@ class RadioButtonsAll extends React.Component {
 
 
         return(
-            <div className="radiobuttontop">
-                <div className="radiobuttons">
-                    <RadioButtonsCategory 
-                            updateChange={this.updateCategory}/>
+            <section id="radiobuttonsall">
+                <div className="poses-grid">
+                    <div className="radiobuttons">
+                        <RadioButtonsCategory 
+                                updateChange={this.updateCategory}/>
 
-                    <RadioButtonsAction
-                        updateChange={this.updateAction}/>
+                        <RadioButtonsAction
+                            updateChange={this.updateAction}/>
 
-                    <RadioButtonsDifficulty
-                        updateChange={this.updateDifficulty}/>
+                        <RadioButtonsDifficulty
+                            updateChange={this.updateDifficulty}/>
+                    </div>
+                    <div className="pose-list">
+                            {searchFilteredPoses.length > 0 ? searchFilteredPoses.map(pose => (
+                                <Pose
+                                    classname="card-pose"
+                                    key={pose.id}
+                                    pose={pose}
+                                    editing={false}
+                                    sequence={""} />
+                            )) :  <h3> No poses found, please try a different search </h3>}   
+                    </div>
                 </div>
-
-                {/* <PoseList/> */}
-                <div className="pose-list">
-                <br></br>
-                <Row>
-                    <Col xs lg="2"></Col>
-
-                        {searchFilteredPoses.length > 0 ? searchFilteredPoses.map(pose => (
-                            <Pose
-                                classname="card-pose"
-                                key={pose.id}
-                                pose={pose}
-                                editing={false}
-                                sequence={""} />
-                        )) : "No poses found; Please try a different search"}
-                </Row>
-                </div>
-            </div> 
+            </section> 
         )
     }
 }

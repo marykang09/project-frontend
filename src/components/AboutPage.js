@@ -1,45 +1,28 @@
 import React from 'react'
-import styled from 'styled-components';
-import headerphoto from '../assets/images/twitter_header_photo_1 copy.png'
 import { Link } from 'react-router-dom'
-import Homepage from './Homepage'
-
-// Create a <Title> react component that renders an <h1> which is
-// centered, palevioletred and sized at 1.5em
-const Title = styled.h1`
-  font-size: 3.5em;
-  text-align: center;
-  color: #987D7C;
-`;
 
 const AboutPage = () => {
+
     return (
-        <div>
-        <div className="about-page">
-            {/* <img 
-                src={headerphoto} 
-                style={{width:"100%"}}
-                padding="0" /> */}
+        <section id="about-page">
+
+                <h1> Use this app to browse poses, find inspiration, and create your own yoga sequences </h1>
+                <h2>
+                    Info about vinyasa yoga
+                </h2>
                 <br></br>
-                <br></br>
-                <Title> Use this app to browse poses, find inspiration, and create your own yoga sequences </Title>
-                <br></br>
-                <br></br>
-                <h1> 
+
+                <h1>
+                    Get Started!
+                    <br></br>
                     <Link to="/login"> Log In </Link>
                     <br></br> 
                     OR
                     <br></br> 
                     <Link to="/signup"> Sign Up</Link>
                 </h1>
-        </div>
-        </div>
-        )
-
-
-           
-
-    
+        </section>
+        )    
 }
 
 export default AboutPage

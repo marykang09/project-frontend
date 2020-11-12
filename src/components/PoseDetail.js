@@ -1,66 +1,45 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import styled from 'styled-components';
 
-// Create a <Title> react component that renders an <h1> which is
-// centered, palevioletred and sized at 1.5em
-const Title = styled.h1`
-  font-size: 2.5rem !important;
-  text-align: center;
-  color: #4281A4;
-  
-`;
-
-// Create a <Wrapper> react component that renders a <section> with
-// some padding and a papayawhip background
-const Wrapper = styled.section`
-  padding: 4em;
-  background: #a3b9c9;
-`;
-
-const TitleWrapper = styled.section`
-    padding: 1em;
-    background: #EAD2AC;
-    color: white;
-    font-weight: 800px;
-    font-size:2.5em;
-`;
 
 const PoseDetail = (props) => {
 
     return (!props.pose ? null : 
     //need to do this to account for INIT state = []
-        <div className="padding">
+        <section id="pose-detail">
             <h1 className="page-headers"> POSE DETAILS </h1>
             <br></br>
             <div className="line"></div>
             <br></br>
-            <img 
-                src={props.pose.img_url}
-                width={400}
-                height={400}
-                mode="fit"
-                ></img>
-            <div>
-                <TitleWrapper>
-                    <Title> 
-                        
-                            Name: {props.pose.english_name}
-                            <br></br>
-                            Sanksrit Name: {props.pose.sanskrit_name}
-                            <br></br>
-                            Category: {props.pose.category}
-                            <br></br>
-                            Action: {props.pose.action}
-                            <br></br>
-                            Difficulty: {props.pose.difficulty}
-
-                        
-                    </Title>
-                </TitleWrapper>
+            <div className="pose-detail-grid">
+                <div className="pose-detail-grid-img">
+                    <img 
+                        src={props.pose.img_url}
+                        width={400}
+                        height={400}
+                        mode="fit"
+                    ></img>
+                </div>
+                <div className="pose-detail-grid-info">
+                    <h3>
+                        Name <br></br><span> {props.pose.english_name} </span>
+                        <br></br>
+                        <br></br>
+                        Sanksrit Name <br></br><span> {props.pose.sanskrit_name} </span>
+                        <br></br>
+                        <br></br>
+                        Category <br></br><span> {props.pose.category} </span>
+                        <br></br>
+                        <br></br>
+                        Action <br></br><span> {props.pose.action} </span>
+                        <br></br>
+                        <br></br>
+                        Difficulty <br></br><span> {props.pose.difficulty} </span>
+                    </h3>
+                </div>
             </div>
-        </div>
+        </section>
     )
 }
 

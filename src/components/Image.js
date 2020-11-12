@@ -1,6 +1,6 @@
 import React from 'react';
 import lotusflower from '../assets/images/lotusflower.jpeg'
-// import yogiman from '../assets/images/yogiman.jpeg'
+
 
 class Image extends React.Component {  
 

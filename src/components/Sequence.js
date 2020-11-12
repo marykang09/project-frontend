@@ -2,36 +2,25 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { clickedSequence } from "../redux/actions"
-import Card from 'react-bootstrap/Card'
+
+
 
 const Sequence = (props) => {
-    console.log("Sequence's props:", props)
+    // console.log("Sequence's props:", props)
 
     return (!props.sequence ? null :
 
-        <div>
+        <section id="sequence-card">
                 <Link 
-                    className="item" 
+                    className="seq-card-link" 
                     to={`/sequences/${props.sequence.id}`}
                     onClick={()=> {props.clickedSequence(props.sequence) }} >
-                    <Card border="light" style={{ width: '18rem' }}>
-                        <Card.Body>
-                                <Card.Title> SEQUENCE: </Card.Title>
-                            
-                                    <Card.Text>
-            
-                                            {props.sequence.name}
-                                        
-                                        <br></br>
-                                        <br></br>
-                                        POSE COUNT: {props.sequence.sequence_poses.length}
-
-                                    </Card.Text>
-                        </Card.Body>            
-                    </Card>
+                    <div className="seq-card"> 
+                        <h3> {props.sequence.name} </h3>
+                        <p> Pose Count: {props.sequence.sequence_poses.length} </p>
+                    </div>
                 </Link>
-         </div>
-
+        </section>
     )
 }
 

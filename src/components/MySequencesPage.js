@@ -20,7 +20,7 @@ class MySequencesPage extends React.Component {
             return (
                 <div className="create-sequence-form">
                     <form>
-                        <label> Sequence Name </label>
+                        <label> sequence name </label>
                         <br></br>
                         <input 
                             type="text" 
@@ -28,7 +28,7 @@ class MySequencesPage extends React.Component {
                             value={this.state.newSequenceName}
                             onChange={(event) => this.setState({ newSequenceName: event.target.value})}></input>
                         <br></br>
-                        <label> Sequence Notes </label>
+                        <label> sequence notes </label>
                         <br></br>
                         <input
                             type="text"
@@ -37,7 +37,7 @@ class MySequencesPage extends React.Component {
                             onChange={(event) => this.setState({ newSequenceNotes: event.target.value})}></input>
                         <br></br>
                         <br></br>
-                        <button className="add" onClick={this.onCreate}> Create! </button>
+                        <button className="add" onClick={this.onCreate}> create! </button>
                     </form>
                 </div>
                 )
@@ -98,12 +98,12 @@ class MySequencesPage extends React.Component {
                         </div>
 
                         <div className="sequences-grid-add-seq">
-                            <h3> You have <br></br><span> {this.props.sequences.length} </span><br></br> sequences </h3>
+                            <h3> you have <br></br><span> {this.props.sequences.length} </span><br></br> sequences </h3>
                             <br></br>
                             <br></br>
                             
-                            <h3> Create a <br></br><span> new </span><br></br> sequence </h3>
-                            <button className="add" variant="flat" size="md" onClick={this.onShowCreateForm}>    
+                            <h3> create a <br></br><span> new </span><br></br> sequence </h3>
+                            <button className="add" onClick={this.onShowCreateForm}>    
                                 {this.state.showCreateForm ? "-" : "+"}
                             </button>
                             {this.showCreateFormDiv()}

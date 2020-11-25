@@ -1,9 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { Form, FormControl, Button } from 'react-bootstrap'
 import { createNewUser } from '../redux/actions'
-import swal from 'sweetalert'
 
 class NewUserForm extends React.Component {
     constructor(){
@@ -13,22 +11,42 @@ class NewUserForm extends React.Component {
             last_name: "",
             username: "",
             password: "",
-            usernameConfirm: true,
+            usernameConfirm: false,
+            formConfirm: false,
             errors: {
+                form: "",
                 username: ""
             }
         }
     }
 
+    formValidation = () => {
+        if (this.state.first_name.length > 0 && this.state.last_name.length > 0 && this.state.username.length > 0 && this.state.password.length > 0){
+            this.setState({
+                formConfirm: true
+            })
+        } else if (this.state.first_name.length === 0 || this.state.last_name.length === 0 || this.state.username.length === 0 || this.state.password.length === 0){
+            this.setState({
+                formConfirm: false,
+                errors: {
+                    ...this.state.errors,
+                    form: "please fill in all fields"
+                }
+            })
+        }
+    }
+
     usernameValidation = (username) => {
+
         fetch('http://localhost:3000/users')
         .then (response => response.json())
         .then(users => {
             let usernameTaken = users.find(user => user.username === username)
+
             if (usernameTaken){
-                this.usernameConfirmed()
-            } else {
                 this.usernameDenied()
+            } else {
+                this.usernameConfirmed()
             }
         })
     }
@@ -49,61 +67,62 @@ class NewUserForm extends React.Component {
             usernameConfirm: false,
             errors: {
                 ...this.state.errors,
-                username: "Username is not available. Please try another."
+                username: "username is already taken"
             }
         })
     }
 
     onChange = (event) => {
-        console.log("inside onChange, event", event)
-        console.log("inside onChange, event.currentTarget.id:", event.currentTarget.id)
-        console.log("inside onChange, event.currentTarget.value :", event.currentTarget.value)
-
         this.setState({
             [event.currentTarget.id]: event.currentTarget.value
         })
+        
+        if (event.currentTarget.id === "username"){
+            this.usernameValidation(event.currentTarget.value)
+        } // if a username is typed in, start checking, if this was done in onSubmit, will be too late
 
-        // if (event.currentTarget.id === "username"){
-        //     this.usernameValidation(event.currentTarget.value)
-        // }
+        this.formValidation()
     }
 
     onSubmit = (event) => {
         event.preventDefault()
+        // this.usernameValidation(this.state.username) -- this has been moved to check during onChange
+        // this.formValidation() -- same with this
 
-        if (this.state.usernameConfirm){
+        if (this.state.usernameConfirm && this.state.first_name.length > 0 && this.state.last_name.length > 0 && this.state.username.length > 0 && this.state.password.length > 0){
             this.props.createNewUser({ 
                 first_name: this.state.first_name,
                 last_name: this.state.last_name,
                 username: this.state.username,
                 password: this.state.password
-             })
+            })
         }
-        
     }
 
     render(){
+
         return this.props.currentUser ? <Redirect to="/dashboard" /> : 
 
         <section id="userform">
             <form >
-                <label> First Name </label> &nbsp;
+                <label> first name </label> &nbsp;
                 <input id="first_name" type="text" placeholder="" value={this.state.first_name} onChange={this.onChange} />
                 <br></br>
-                <label> Last Name </label> &nbsp;
+                <label> last name </label> &nbsp;
                 <input id="last_name" type="text" placeholder="" value={this.state.last_name} onChange={this.onChange} />
                 <br></br>
-                <label> Username </label> &nbsp;
+                <label> username </label> &nbsp;
                 <input id="username" type="text" placeholder="" value={this.state.username} onChange={this.onChange} />
                 <br></br>
-                <label> Password </label> &nbsp;
+                <label> password </label> &nbsp;
                 <input id="password" type="text" placeholder="" value={this.state.password} onChange={this.onChange} />
                 <br></br>
-                <button variant="flat" size="md" onClick={this.onSubmit}> CREATE </button>
+                <button className="affirm" onClick={this.onSubmit}> create </button>
             </form>
-
+            <br></br>
             <div className="error">
-                { !this.state.usernameConfirm ? <div>{this.state.errors.username}</div> : null}
+                <div className="error-text"> {this.state.first_name.length === 0 || this.state.last_name.length === 0 || this.state.username.length === 0 || this.state.password.length === 0 ? this.state.errors.form : null } </div>
+                <div className="error-text"> {!this.state.usernameConfirm ? this.state.errors.username : null }  </div>
             </div>
         </section>
     }

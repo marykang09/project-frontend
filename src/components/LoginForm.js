@@ -33,24 +33,24 @@ class LoginForm extends React.Component {
         return this.props.currentUser ? <Redirect to="/dashboard"/> : 
                 <section id="login-page">
                     <br></br>
-                    <h1> SIGN IN TO YOUR ACCOUNT </h1>
+                    <h1 className="page-headers"> SIGN IN TO YOUR ACCOUNT </h1>
                     <div className="line"></div>
                     <div className="login-error"> { this.props.errors ? this.props.errors : null} </div>
                     <div className="login-grid"> 
                         <div className="login-form">
-                            <h3> WELCOME BACK </h3>
+                            <h3> welcome back </h3>
                             <form>
-                                <label> Username </label><input type="text" placeholder="" className="mx-sm-3" value={this.state.username} onChange={(event) => this.setState({ username: event.target.value})}  />
+                                <label> username </label><input type="text" placeholder="" className="mx-sm-3" value={this.state.username} onChange={(event) => this.setState({ username: event.target.value})}  />
                                 <br></br>
-                                <label> Password </label><input type="text" placeholder="" className="mx-sm-3" value={this.state.password} onChange={(event) => this.setState({ password: event.target.value})}  />
+                                <label> password </label><input type="text" placeholder="" className="mx-sm-3" value={this.state.password} onChange={(event) => this.setState({ password: event.target.value})}  />
                                 <br></br>
-                                <button onClick={this.onSubmit}> SIGN IN </button>                            
+                                <button className="affirm" onClick={this.onSubmit}> sign in </button>                            
                             </form>
                             <br></br>
                             <br></br>
                             <br></br>
                             <br></br>
-                            <h3> NEW AROUND HERE? </h3>
+                            <h3> new around here? </h3>
                             <NewUserForm/>
                         </div>
                         <div className="login-img"> 

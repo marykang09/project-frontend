@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 
@@ -16,6 +16,7 @@ const PoseDetail = (props) => {
                 <div className="pose-detail-grid-img">
                     <img 
                         src={props.pose.img_url}
+                        alt={props.pose.english_name}
                         width={400}
                         height={400}
                         mode="fit"

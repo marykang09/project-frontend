@@ -17,7 +17,7 @@ const affirmations = [
     "I am doing a great job",
     "My mind is full of brilliant ideas",
     "I make a difference in the world by simply existing in it",
-    "I am learning valuable lessons from yourself every day",
+    "I am learning valuable lessons from myself every day",
     "I am worthy and deserving of respect",
     "I know more than I knew yesterday",
     "My life is already a miracle of chance waiting for you to shape its destiny",

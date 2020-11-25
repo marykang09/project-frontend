@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom'
-import {Container, Row, Col, Button, Card, CardColumns, OverlayTrigger, Tooltip} from 'react-bootstrap'
+import { withRouter } from 'react-router-dom'
+import { OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { FcLikePlaceholder, FcLike } from 'react-icons/fc'
 import { addingQuote, removingQuote } from '../redux/actions'
@@ -14,20 +14,17 @@ class Quote extends React.Component {
                 user_id: this.props.currentUser.id,
                 quote_id: this.props.quote.id,
             }
-
-            let userQuoteId
                 
             if (this.props.userQuotes.find(q => q.quote_id === this.props.quote.id)){
-                console.log("delete this quote from userQuotes")
+                // console.log("delete this quote from userQuotes")
                 let theID = this.props.userQuotes.find(q =>q.quote_id === this.props.quote.id).id
-                console.log("theID", theID)
+                // console.log("theID", theID)
                 this.props.removingQuote(theID)
             } else {
-                console.log("adding this quote to userQuotes")
+                // console.log("adding this quote to userQuotes")
                 this.props.addingQuote(userQuoteObj)
             }
 
-            console.log(this.props.userQuotes.find(q => q.quote_id === this.props.quote.id) ? "yes already liked" : "no, not liked")
 
         } else {
             alert("Please sign in to save quotes")
@@ -47,9 +44,6 @@ class Quote extends React.Component {
     }
 
     render(){
-        // console.log("inside Quote, what is this.props.userQuotes?", this.props.userQuotes)
-        // console.log("inside Quotes, what is this quote?", this.props.quote.id)
-
 
         return (
             

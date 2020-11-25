@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {Route, Switch, withRouter, Redirect} from 'react-router-dom'
+import { Route, Switch, withRouter, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {fetchingPoses, fetchingQuotes, findingUser} from './redux/actions'
 import NavBar from './components/NavBar'
@@ -15,10 +15,9 @@ import {Spinner} from 'react-bootstrap'
 import HomePage from './components/Homepage'
 import QuotesPage from './components/QuotesPage'
 import LoginForm from './components/LoginForm'
-import NewUserForm from './components/NewUserForm'
-import Dashboard from './components/Dashboard'
 import DashboardContainer from './components/DashboardContainer'
 import Footer from './components/Footer'
+
 
 class App extends React.Component {
 
@@ -53,8 +52,7 @@ class App extends React.Component {
           <NavBar /> 
           
           {this.state.loading ? <Spinner animation="border" variant="info" /> : 
-        
-              
+
               <Switch>
                 
                 <Route exact path="/" component={HomePage} />
@@ -71,6 +69,7 @@ class App extends React.Component {
                 <Route render={ErrorPage} />
 
               </Switch>
+
           }
           </div>
           <Footer/>

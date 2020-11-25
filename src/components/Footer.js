@@ -9,7 +9,7 @@ class Footer extends Component {
                 {/* <Wallpaper/>  */}
                 <div className="copy">
                     <div className="line"></div>
-                    &copy; Copyright 2020 | Made with 🖤  by Mary Kang 
+                    &copy; copyright 2020 | made with 🖤  by mary kang 
                 </div>
             </section>
         )

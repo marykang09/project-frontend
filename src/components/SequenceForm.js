@@ -1,13 +1,10 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import {Col, Container, Row, Button} from 'react-bootstrap'
 import SequencePose from './SequencePose'
 import Pose from './Pose'
 import {SortableContainer, SortableElement} from 'react-sortable-hoc';
-import arrayMove from 'array-move' 
 import { orderSequencePoseList, onSaveNewOrder } from '../redux/actions'
-import styled from 'styled-components'; 
 import SearchBar from './SearchBar'
 import swal from 'sweetalert'
 
@@ -36,7 +33,7 @@ let SortableList = SortableContainer(({poses, sequence}) => {
 class SortableComponent extends React.Component {
     
     render() {
-    console.log("in SortableComponent, this.props:" ,this.props)
+    // console.log("in SortableComponent, this.props:" ,this.props)
 
     return <SortableList poses={this.props.poses} sequence={this.props.sequence} onSortEnd={this.props.onSortEnd} axis="xy"/>;
     }
@@ -57,12 +54,12 @@ constructor() {
 componentDidMount(){
     return(
         swal({
-            text: "Add or remove poses, then drag them into order",
+            text: "add or remove poses, then drag them into order",
             value: true,
             visible: true,
             className: "swal",
             closeModal: true,
-            button: "Got it!"
+            button: "got it!"
         })
     )
 }
@@ -72,12 +69,12 @@ onSave = () => {
 
     return(
         swal({
-            text: "Your sequence has been saved!",
+            text: "your sequence has been saved!",
             value: true,
             visible: true,
             className: "swal",
             closeModal: true,
-            button: "OK"
+            button: "okay!"
         })
     )
 }
@@ -91,7 +88,7 @@ sortedPoses = () => {
 // this is to sort, if i need to sort by the position number attribute, use in place of this sequences poses when mapping to render <SequencePose> below
 
 render(){
-console.log("SequenceForm's props", this.props)
+// console.log("SequenceForm's props", this.props)
 
 return (!this.props.sequence ? null : 
 
@@ -103,8 +100,8 @@ return (!this.props.sequence ? null :
 
             <div className="top-grid">
                 <div className="seq-form-poses">
-                    <h3><strong> Poses in Sequence </strong></h3>
-                    <p> Drag and drop poses into your desired order, or Remove Poses </p>
+                    <h3><strong> current poses in sequence </strong></h3>
+                    <p> drag and drop poses into your desired order, or remove poses </p>
                     <div className="seq-form-grid-poses">
                         <SortableComponent poses={this.props.sequence.sequence_poses} sequence={this.props.sequence} onSortEnd={(args)=>{this.props.orderSequencePoseList(args, this.props.sequence.id)}} />
                     </div>
@@ -114,40 +111,40 @@ return (!this.props.sequence ? null :
                 <div className="seq-form-grid-action">
                     <div className="grid-info">
                         <div className="grid-info-header">
-                            <h3><strong> Pose Count </strong><br></br><span> {this.props.sequence.sequence_poses.length} </span></h3>
-                            <h3><strong> Save </strong><br></br><button className="save" onClick={this.onSave}> ✓ </button></h3>
+                            <h3><strong> pose count </strong><br></br><span> {this.props.sequence.sequence_poses.length} </span></h3>
+                            <h3><strong> save </strong><br></br><button className="save" onClick={this.onSave}> ✓ </button></h3>
                         </div>
 
                         <div className="grid-info-stats">
                             <div className="difficulty">
-                                <h3><em><strong> Difficulty </strong></em></h3>
-                                <h3> Beginner <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.difficulty === "beginner").length} </span></h3>
-                                <h3> Intermediate <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.difficulty === "intermediate").length} </span></h3>
-                                <h3> Advanced <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.difficulty === "advanced").length}  </span></h3>
+                                <h3><em><strong> difficulty </strong></em></h3>
+                                <h3> beginner <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.difficulty === "beginner").length} </span></h3>
+                                <h3> intermediate <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.difficulty === "intermediate").length} </span></h3>
+                                <h3> advanced <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.difficulty === "advanced").length}  </span></h3>
                             </div>
                             <div className="category">
-                                <h3><em><strong> Category </strong></em></h3>
-                                <h3> Standing <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.category === "standing").length} </span></h3>
-                                <h3> Seated <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.category === "seated").length} </span></h3>
-                                <h3> Supine <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.category === "supine").length}  </span></h3>
-                                <h3> Prone <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.category === "prone").length}  </span></h3>
-                                <h3> Arm & Leg Support <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.category === "arm and leg support").length}  </span></h3>
-                                <h3> Arm Balance & Inversion <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.category === "arm balance and inversion").length}  </span></h3>
+                                <h3><em><strong> category </strong></em></h3>
+                                <h3> standing <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.category === "standing").length} </span></h3>
+                                <h3> seated <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.category === "seated").length} </span></h3>
+                                <h3> supine <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.category === "supine").length}  </span></h3>
+                                <h3> prone <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.category === "prone").length}  </span></h3>
+                                <h3> arm & leg support <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.category === "arm and leg support").length}  </span></h3>
+                                <h3> arm balance & inversion <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.category === "arm balance and inversion").length}  </span></h3>
                             </div>
                             <div className="action">
-                                <h3><em><strong> Action </strong></em></h3>
-                                <h3> Back Bend <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.action === "back bend").length} </span></h3>
-                                <h3> Forward Bend <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.action === "forward bend").length} </span></h3>
-                                <h3> Lateral Bend <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.action === "lateral bend").length}  </span></h3>
-                                <h3> Twist <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.action === "twist").length}  </span></h3>
-                                <h3> Balance <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.action === "balance").length}  </span></h3>
-                                <h3> Neutral <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.action === "neutral").length}  </span></h3>
+                                <h3><em><strong> action </strong></em></h3>
+                                <h3> back bend <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.action === "back bend").length} </span></h3>
+                                <h3> forward bend <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.action === "forward bend").length} </span></h3>
+                                <h3> lateral bend <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.action === "lateral bend").length}  </span></h3>
+                                <h3> twist <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.action === "twist").length}  </span></h3>
+                                <h3> balance <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.action === "balance").length}  </span></h3>
+                                <h3> neutral <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.action === "neutral").length}  </span></h3>
                             </div>
                         </div>
                         
                     </div>
                     <div className="grid-notes">
-                        <h3> Notes <br></br><span> {this.props.sequence.notes.length > 0 ? this.props.sequence.notes : "N/A"} </span></h3>
+                        <h3> notes <br></br><span> {this.props.sequence.notes.length > 0 ? this.props.sequence.notes : "N/A"} </span></h3>
                     </div>
                     
                 </div>
@@ -156,8 +153,8 @@ return (!this.props.sequence ? null :
 
             <div className="line"></div>
             <div className="seq-form-all-poses">
-                <h3><strong> All Poses </strong></h3>
-                <p> Add Poses to your Sequence. Search by English or Sanskirt name. </p>
+                <h3><strong> all poses </strong></h3>
+                <p> add poses to your sequence - search by english or sanskirt name. </p>
                 <SearchBar/>
                 <div className="seq-form-grid-all-poses">
                     {this.props.poses.map(pose => (
@@ -168,55 +165,8 @@ return (!this.props.sequence ? null :
                             editing={true} />
                     ))}
                 </div>
-                {this.props.poses.length === 0 ? <div className="message"><h3><strong> - No matches, please try a new search! - </strong></h3></div> : null }
+                {this.props.poses.length === 0 ? <div className="message"><h3><strong> - no matches, please try a new search! - </strong></h3></div> : null }
             </div>
-
-
-            {/* <div>
-                <Row className="justify-content-md-center">
-                <Col md="auto"></Col>
-                
-                    <Button className="mybtn" variant="flat" size="md" onClick={this.onSave}> SAVE </Button>
-                </Row>
-                <br></br>
-                <Row className="justify-content-md-center">
-                <Col md="auto"></Col>
-                <h2> POSES IN SEQUENCE:  </h2>
-                <br></br>
-            
-                </Row>
-                <br></br>
-                <Row className="justify-content-md-center">
-                <Col md="auto"></Col>
-
-                    <SortableComponent poses={this.props.sequence.sequence_poses} sequence={this.props.sequence} onSortEnd={(args)=>{this.props.orderSequencePoseList(args, this.props.sequence.id)}} />
-
-                </Row>
-                <br></br>
-                <Row className="justify-content-md-center">
-                <Col md="auto"></Col>
-                <p>
-                    NOTES: {this.props.sequence.notes}
-                </p>
-                </Row>
-            
-                <br></br>
-        
-                <h2>POSES :</h2>
-                <div className="seqdiv">
-                    <Row className="justify-content-md-center">
-                    <br></br>
-                    <Col md="auto"></Col>
-                        {this.props.poses.map(pose => (
-                        <Pose
-                            key={pose.id}
-                            pose={pose}
-                            sequence={this.props.sequence}
-                            editing={true} />
-                    ))}
-                    </Row>
-                </div>
-            </div> */}
         </section>
         )
     }
@@ -226,7 +176,8 @@ const mapStateToProps = (state, ownProps) => {
 
     let sequenceId = parseInt(ownProps.match.params.id)
     //have to parseInt because the params id is a string
-    console.log("state.sequences", state.sequences)
+    // console.log("state.sequences", state.sequences)
+    
     return {
         // sequence_poses: this.state.sequence.sequence_poses,
         

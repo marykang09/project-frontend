@@ -38,23 +38,24 @@ class DashboardContainer extends React.Component {
 
                 <div className="dash-container">
                     <div className="user-quotes">
-                        <h3> My Saved Quotes </h3>
+                        <h3> My Saved Quotes </h3><br></br>
                         <div className="user-quotes-grid">
-                            {this.props.user_quotes.map(quote => <Quote key={quote.id} quote={quote.quote}/> )}
+                            {this.props.user_quotes.length === 0 ? <p> no quotes yet :( find some <Link to="/quotes"> here! </Link> </p> : this.props.user_quotes.map(quote => <Quote key={quote.id} quote={quote.quote}/> )}
                         </div>
-                        {this.props.user_quotes.length === 0 ? <h3> No quotes yet :( Find some <Link to="/quotes"> Here! </Link> </h3> : null}
                     </div>
                     <div className="user">
-                        <h3> My Affirmation </h3>
-                        <p> {this.state.affirmation} </p>
-                        <button className="add" onClick={()=> this.getRandomAffirmation()}> Receive Another </button>
-                        <img src={yogiman} />
+                        <h3> My Affirmation </h3><br></br>
+                        <div className="quote-area">
+                            <p> {this.state.affirmation} </p>
+                        </div>
+                        <button className="affirm" onClick={()=> this.getRandomAffirmation()}> receive another </button>
+                        <img src={yogiman} alt="yogi"/>
                         
                     </div>
                     <div className="user-sequences">
-                        <h3> My Saved Sequences </h3>
+                        <h3> My Saved Sequences </h3><br></br>
                         <div className="user-sequences-grid">
-                            {this.props.sequences.length === 0 ? <h3> No sequences yet :( Get started <Link to="/sequences"> Here! </Link> </h3> : this.props.sequences.map(sequence => ( <Sequence key={sequence.id} sequence={sequence} /> )) }
+                            {this.props.sequences.length === 0 ? <p> no sequences yet :( get started <Link to="/sequences"> here! </Link> </p> : this.props.sequences.map(sequence => ( <Sequence key={sequence.id} sequence={sequence} /> )) }
                         </div>
                     </div>
                 </div>

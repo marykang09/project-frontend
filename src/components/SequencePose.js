@@ -1,9 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {Card, Image, Button} from 'react-bootstrap'
 import { removingFromSequence } from '../redux/actions'
-import SweetAlert from 'react-bootstrap-sweetalert'
-import swal from 'sweetalert'
 
 class SequencePose extends React.Component {
 
@@ -20,7 +17,7 @@ class SequencePose extends React.Component {
 
 
     render(){
-    console.log("SequencePose's props", this.props.pose)
+
 
 
     
@@ -29,12 +26,12 @@ class SequencePose extends React.Component {
 
         <section id="seqpose-card">
             <div className="card">
-                <img src={this.props.pose.pose.img_url}></img>
+                <img src={this.props.pose.pose.img_url} alt={this.props.pose.pose.english_name}></img>
                 <div className="seqpose-card-info">
                     <h3> {this.props.pose.pose.english_name} </h3>
                     <p> {this.props.pose.pose.sanskrit_name} </p>
+                    {this.props.editing ? <button className="remove" onClick={this.onRemove}> Remove </button> : null }
                 </div>
-                {this.props.editing ? <button className="remove" onClick={this.onRemove}> Remove </button> : null }
             </div>
         </section>
 

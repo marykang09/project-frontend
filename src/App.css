@@ -1,260 +1,4 @@
 
-
-/* ------------DASHBOARD------------ */
-
-.userquotes {
-  grid-area: userquotes;
-  text-align: center;
-}
-
-.userinspire {
-  grid-area: userinspire;
-  text-align: center;
-  margin-top: -38px;
-}
-
-.usersequences {
-  grid-area: usersequences;
-  text-align: center;
-}
-
-.header {
-    text-align: center;
-    margin-bottom: 8px;
-}
-
-
-/* .dashboard-image {
-  position: absolute;
-  justify-content: flex-end;
-} */
-
-/* .right-div {
-  margin-top: 80px;
-  position: relative;
-  margin-left: 60em;
-} */
-
-
-/* ------------LOGINPAGE------------ */
-/* .login-page {
-  margin: auto !important;
-  padding: 20px !important;
-  left: auto !important;
-  right: auto !important;
-  align-content: center !important;
-  width: 60%;
-  display: inline-block;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.login-form {
-  align-content: center !important;
-  justify-content: space-evenly !important;
-} */
-
-/* .login-image {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  width: 100%
-} */
-
-
-
-
-/* ------------BUTTONS------------ */
- /* .mybtn {
-  background-color: #E6B89C !important;
-  outline: #E6B89C !important;
-  border: 1px solid #E6B89C !important;
-  color: 4281A4;
-  padding: 1rem 1.5rem !important;
-  font-size: 2rem !important;
-  font-weight: normal;
-  position: relative !important;
-  justify-content: center !important;
-  } */
-
-
-  /* .mybtnClose{
-    background-color: #E6B89C !important;
-    outline: #E6B89C !important;
-    border: 1px solid #E6B89C !important;
-    color: 4281A4;
-    padding: 1rem 1.5rem !important;
-    font-size: 2rem !important;
-    font-weight: normal;
-    position: absolute;
-    text-align: right;
-    top: -45px;
-    right: 6.9px;
-    position:absolute;
-    text-align: right;
-    top:-10px;
-    right:10px;
-    width:10px;
-    font-weight:700;
-    font-size:2em;
-    color:black;
-    cursor:pointer;
-  } */
-
- /* .my-btn button:focus{
-  outline: none;
- } */
-
- /* .my-btn button:active{
-  background-color:'#a09cb0' !important; 
-}
-.my-btn:not([disabled]):hover{
-  background-color:'#a09cb0' !important; 
-  -webkit-transition: all 0.3s ease-in-out; 
-  transition: all 0.3s ease-in-out; 
- } */ 
-
-/* ------------CARDS------------ */
-/* .card:hover {
-  transform: scale(1.1); 
-} */
-
-/* .card-pose{
-  font-size: px !important;
-} */
-
-/* .card-pose:link {
-  color: #4281A4 !important;
-} */
-/* .card-pose:visited {
-  color: #776D5A !important; 
-}  */
-
-/* ------------CARDS -- QUOTES------------ */
-/* .card-columns {
-  media-breakpoint-only(lg) {
-    column-count: 4;
-  };
-  media-breakpoint-only(xl) {
-    column-count: 5;
-  };
-} */
-/* ------------- QUOTES------------ */
-/* .inspPage{
-  max-width: 90;
-  overflow: hidden !important;
-}
-
-.quoteCol{
-  display: inline;
-  
-} */
-
-
-
-/* ------------NAVBAR------------ */
-/* .sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-  background-color: #4281A4 !important; 
-  height: 90px !important;
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important
-}
-
-.nav-link{
-  font-weight: normal;
-  font-size: 2.05em;
-  display: flex;
-  align-items: center;
-}
-
-.nav-link:link {
-  color: white !important;
-}
-
-.nav-link:visited {
-  color: white !important;
-} */
-/* .nav-link:active {
-  color: EAD2AC !important;
-} */
-
-/* .sign-out {
-  float: right !important;
-  overflow: hidden !important;
-} */
-
-
-/* NAVBAR */
-  /* position: fixed; */
-  /* top: 0;
-  width: 100%;
-  z-index: 100 !important;
-  background-color: #A09CB0 !important; 
-  height: 90px !important;
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-}
-.nav-link{
-  font-weight: normal;
-  font-size: 2.05em;
-  display: flex;
-  align-items: center;
-}
-.nav-link:link {
-  color: white !important;
-}
-.nav-link:visited {
-  color: white !important;
-}
-.sign-out {
-  float: right !important;
-  overflow: hidden !important;
-}
-
- /* ------------POSES PAGE------------ */
- /* .pose-page {
-  min-width: 100% !important;
-  height: 100% !important;
-  display: row;
-  flex-direction: column !important;
-  overflow: scroll !important;
- }
-
- .pose-div {
-  min-width: 100% !important;
-  margin-top: 100px !important;
-}
-
-.pose-list {
-  min-width: 100% !important;
-  height: 100% !important;
-  overflow: auto !important;
-} */
-
-
-
-.vline {
-  top: 20rem;
-  border-left: .90px solid #4281A4;
-  height: 950px;
-  position: absolute;
-  margin-left: 300px;
-}
-
-
-
-
-
-
-
 /*/------------- REFRESH STARTS HERE ------------- /*/
 /*/------------- REFRESH STARTS HERE ------------- /*/
 /*/------------- REFRESH STARTS HERE ------------- /*/
@@ -267,6 +11,10 @@
 .App {
   padding-top: 90px;
   text-align: center;
+}
+
+#poses-page, #sequencespage, #sequence-detail, #sequence-form, #pose-detail,
+#quotespage, #dashboard, #about-page, #footer {
   margin-left: 10%;
   margin-right: 10%;
 }
@@ -341,61 +89,57 @@ button {
   font-weight: normal;
 }
 
-.add, .save {
-	box-shadow:inset 0px 1px 0px 0px #f8fadc;
-	background:linear-gradient(to bottom, #fae9be 5%, #e8ca7f 100%);
-	background-color:#fae9be;
-	border-radius:6px;
-	border:1px solid #f2e385;
+.myButton {
+	background-color:#e8ca7f;
+	border-radius:28px;
+	/* border:1px solid #e2be62; */
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
-	font-size:12px;
-	font-weight:bold;
-	padding:4px 20px;
+  font-family: 'Noto Sans', sans-serif;
+	font-size:17px;
+	padding:10px 30px;
 	text-decoration:none;
-  text-shadow:0px 1px 0px #cca454;
+  /* text-shadow:0px 1px 0px #b1ada3; */
+  
 }
-.add:hover {
-	background:linear-gradient(to bottom, #e8ca7f 5%, #fae9be 100%);
-	background-color:#e8ca7f;
+.myButton:hover, .add:hover, .remove:hover, .affirm:hover {
+	background-color:#d4a328;
 }
-.add:active {
+.myButton:active, .add:active, .remove:active, .affirm:active  {
 	position:relative;
 	top:1px;
 }
 
-.remove {
-	box-shadow:inset 0px 1px 0px 0px #f8fadc;
-	background:linear-gradient(to bottom, #facabe 5%, #e6a87e 100%);
-	background-color:#facabe;
-	border-radius:6px;
-	border:1px solid #f0a184;
+.add, .save, .remove {
+	background-color:#e8ca7f;
+	border-radius:28px;
+	/* border:1px solid #e2be62; */
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
+  font-family: 'Noto Sans', sans-serif;
 	font-size:12px;
-	font-weight:bold;
-	padding:4px 20px;
+	padding:4px 16px;
 	text-decoration:none;
-  text-shadow:0px 1px 0px #cc5a56;
-  width: 65%;
-  margin-left: auto;
-  margin-right: auto;
 }
-.remove:hover {
-	background:linear-gradient(to bottom, #e6a87e 5%, #facabe 100%);
-	background-color:#e6a87e;
-}
-.remove:active {
-	position:relative;
-	top:1px;
+
+.affirm {
+  background-color:#e8ca7f;
+	border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+  font-family: 'Noto Sans', sans-serif;
+	font-size:16px;
+	padding:4px 16px;
+	text-decoration:none;
 }
 
 /* ---- HEADER H1 ---- */
 .page-headers {
+  font-family: 'Noto Serif', serif;
+  text-transform: lowercase;
   font-weight: bolder;
   font-size: 35px;
   letter-spacing: 1px;
@@ -404,6 +148,7 @@ button {
 
 /* ------------SWAL------------ */
 .swal{
+  font-family: 'Noto Serif', serif;
   font-size: 10px
 }
 
@@ -478,6 +223,7 @@ button {
 
 #nav-wrap {
   font-size: 15px;
+  font-weight: 600;
   width: 100%;
   letter-spacing: 1.5px;
   margin-left: auto;
@@ -486,8 +232,8 @@ button {
   position: fixed;
   left: 0;
   top: 0;
-  background-color: #4281A4;
-}
+  background-color: #aec5d4;
+} 
 
 ul#nav {
   min-height: 44px;
@@ -519,11 +265,11 @@ ul#nav .signout {
 }
 
 ul#nav li a:active {
-  color: rgb(199, 184, 118);
+  color: #c47b60;
 }
 
 ul#nav li a.current {
-  color: rgb(190, 162, 83);
+  color: #cc9483;
 }
 
 /* ------------------------------------------------------------------ */
@@ -549,9 +295,64 @@ form.searchbar-form input:active {
 /*  HomePage Styles
 /* ------------------------------------------------------------------ */
 
+.header-title {
+  font-size: 15vh;
+  padding-top: 160px;
+  /* font-family: 'Noto Serif', serif; */
+}
+
 #homepage .homepage-grid {
   display: grid;
   grid-template-columns: 60% 40%;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+#homepage .second-grid {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+  padding-right: 80px;
+  text-align: left;
+}
+
+#homepage .second-grid, .third-grid, .fourth-area p {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 20px;
+}
+
+#homepage .third-grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding-top: 10px;
+  padding-bottom: 60px;
+  padding-left: 70px;
+  padding-right: 70px;
+  text-align: right;
+}
+
+#homepage .banner {
+  background-color: lightpink;
+  padding-top: 0px;
+  padding-bottom: 100px;
+  text-align: center;
+}
+
+@media only screen and (max-width:620px) {
+  #homepage .homepage-grid, #homepage .second-grid, #homepage .third-grid {
+    grid-template-columns: 100%;
+    text-align: center;
+    font-size: 20px;
+  }
+  .header-title {
+    font-size: 40px;
+    padding-top: 10px;
+    /* font-family: 'Noto Serif', serif; */
+  }
 }
 
 /* ------------------------------------------------------------------ */
@@ -594,9 +395,27 @@ form.searchbar-form input:active {
 /*  About Styles
 /* ------------------------------------------------------------------ */
 
-/* #about-page {
-  padding-top: 90px;
-} */
+#about-page {
+  text-align: left;
+}
+
+.first, .second, .third, .fourth {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#about-page h1 {
+  font-family: 'Noto Serif', serif;
+  text-transform: lowercase;
+  font-weight: bolder;
+  font-size: 40px;
+  letter-spacing: 1px;
+}
+
+#about-page p {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 20px;
+}
 
 /* ------------------------------------------------------------------ */
 /*  Poses Styles
@@ -644,7 +463,12 @@ form.searchbar-form input:active {
   grid-column-gap: 2px;
 }
 
-
+@media only screen and (max-width:620px) {
+  #radiobuttonsall .pose-list {
+    grid-template-columns: 50% 50%;
+    grid-column-gap: 2px;
+  }
+}
 /* ------------------------------------------------------------------ */
 /*  Pose Card Styles
 /* ------------------------------------------------------------------ */
@@ -713,7 +537,7 @@ form.searchbar-form input:active {
 
 #login-page .login-grid {
   display: grid;
-  grid-template-columns: 45% auto;
+  grid-template-columns: 50% 50%;
   overflow: hidden;
   padding-top: 50px;
   padding-bottom: 30px;
@@ -732,6 +556,26 @@ form.searchbar-form input:active {
   width: 50%;
 }
 
+.login-form h3 {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 26px;
+}
+
+#login-page label {
+  font-size: 16px;
+}
+
+#userform .error {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 16px;
+}
+
+#userform .error-text {
+  margin-left: 190px;
+  margin-right: 190px;
+  background-color: rgb(245, 149, 136);
+  border-radius: 6px;
+}
 /* ------------------------------------------------------------------ */
 /*  Dashboard Styles
 /* ------------------------------------------------------------------ */
@@ -742,37 +586,88 @@ form.searchbar-form input:active {
   grid-column-gap: 5px;
 }
 
-.user img {
-  width: 100%;
-  padding-top: 60px;
-}
-
 .user {
   padding-left: 20px;
   padding-right: 20px;
+  max-height: 550px;
+}
+
+.user img {
+  width: 100%;
 }
 
 .user p {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 550;
   letter-spacing: 1px;
+  color: white;
 }
 
 .user-quotes h3, .user-sequences h3 {
   letter-spacing: 1px;
 }
 
+#dashboard h3 {
+  font-family: 'Noto Serif', serif;
+  text-transform: lowercase;
+}
+
+.user-quotes, .user-sequences p {
+  font-size: 18px;
+}
+
 .user button {
   margin-top: 30px;
 }
 
-.user-quotes-grid, .user-sequences-grid{
+.quote-area {
+  font-family: 'Noto Sans', sans-serif;
+  background-color: #f6d6c2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  padding: 8px;
+  max-width: 400px;
+  min-height: 110px;
+}
+
+.user-quotes-grid, .user-sequences-grid {
   display: grid;
   grid-template-columns: 50% 50%;
   padding-top: 13px;
-  max-height: 500px;
-  overflow: scroll;
+  min-height: 150px;
+  max-height: 315px;
+  overflow-y: scroll;
+  border-radius: 5px;
+  padding: 24px;
+  border: 1px solid #f6d6c2;
+
 }
+
+
+/* -- scrollbar -- */
+/* width */
+#dashboard ::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Handle */
+#dashboard ::-webkit-scrollbar-thumb {
+  background: #f6d6c2; 
+  border-radius: 8px;
+}
+
+/* Track */
+#dashboard ::-webkit-scrollbar-track {
+  background: #f7f5f5;
+}
+
+/* Handle on hover */
+#dashboard ::-webkit-scrollbar-thumb:hover {
+  background: #cc9483; 
+}
+/* scrollbar end */
 
 @media only screen and (max-width:620px) {
   .dash-container {
@@ -904,7 +799,6 @@ form.searchbar-form input:active {
   letter-spacing: 1px;
   color:black;
   font-size: 25px;
-  text-transform: uppercase;
   margin-bottom: 30px;
 }
 
@@ -964,18 +858,52 @@ form.searchbar-form input:active {
 .top-grid {
   display: grid;
   grid-template-columns: 70% 30%;
+  grid-column-gap: 10px;
   padding-bottom: 20px;
 }
+
+.seq-form-poses {
+  margin-top: 10px;
+  padding-top: 10px;
+  letter-spacing: 1px;
+  max-width: 850px;
+  overflow: scroll;
+  border: 1px solid #EAD2AC;
+}
+
 .seq-form-grid-action {
-  margin-top: 80px;
+  margin-top: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
   border: 1px solid #EAD2AC;
   display: grid;
   grid-template-columns: 70% 30%;
-  max-height: 400px;
-  overflow: scroll;
+  overflow: none;
 }
+
+/* scrollbar */
+/* width */
+#sequence-form ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+#sequence-form  ::-webkit-scrollbar-track {
+  background: #f7f5f5;
+}
+ 
+/* Handle */
+#sequence-form  ::-webkit-scrollbar-thumb {
+  background: #EAD2AC; 
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+#sequence-form  ::-webkit-scrollbar-thumb:hover {
+  background: #EAD2AC; 
+}
+/* scrollbar end */
 
 .grid-notes {
   background-color: #ebdbc1;
@@ -1000,7 +928,11 @@ form.searchbar-form input:active {
 }
 
 .difficulty h3, .category h3, .action h3 {
-  font-size: 12px !important;
+  font-size: 14px !important;
+}
+
+.seq-form-grid-poses {
+  max-height: 100px;
 }
 
 .seq-form-grid-action h3 {
@@ -1010,13 +942,6 @@ form.searchbar-form input:active {
 .seq-form-grid-action span {
   color:  #bda681;
   font-weight: bolder;
-}
-
-.seq-form-poses {
-  padding-top: 10px;
-  letter-spacing: 1px;
-  max-width: 850px;
-  overflow: scroll;
 }
 
 .seq-form-poses p {

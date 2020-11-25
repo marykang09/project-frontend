@@ -4,7 +4,7 @@ import RadioButtonsAction from './RadioButtonsAction'
 import RadioButtonsDifficulty from './RadioButtonsDifficulty.js'
 import Pose from './Pose'
 import { connect } from 'react-redux'
-import { Col, Row} from 'react-bootstrap'
+
 
 class RadioButtonsAll extends React.Component {
     constructor(){

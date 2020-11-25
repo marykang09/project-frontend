@@ -1,4 +1,4 @@
-import { useStore } from "react-redux"
+// import { useStore } from "react-redux"
 
 const url = "http://localhost:3000"
 
@@ -203,6 +203,7 @@ function onSaveNewOrder(sequence){
     return (dispatch, getState) => {
 
         let sequencePoseArray = sequence.sequence_poses
+        let sequenceId = getState().sequence.id
 
         sequencePoseArray.forEach(sp => {
             fetch(`${url}/sequence_poses/${sp.id}`, {
@@ -213,9 +214,17 @@ function onSaveNewOrder(sequence){
                 })
             })
             .then(response => response.json())
-            .then(data => console.log(data))
+            .then(sequenceId => dispatch(updateSequence(sequenceId)))
         })
 
+    }
+}
+
+function updateSequence(sequence){
+
+    return {
+        type: "UPDATE_SEQUENCE",
+        payload: sequence
     }
 }
 
@@ -245,7 +254,7 @@ function loginUser(userInfo){
                 dispatch(setCurrentUser(data.user_data))
                 dispatch(fetchedUserSequences(data.user_data.sequences))
                 dispatch(fetchedUserQuotes(data.user_data.user_quotes))
-                console.log("user data on login fetch", data)
+                // console.log("user data on login fetch", data)
                 // dispatch(fetchingUserSequences(data.user_data))
                 // dispatch(fetchingUserPoses(data.user_data))
             }
@@ -284,7 +293,7 @@ function findingUser(token){
         })
         .then(response => response.json())
         .then(data => {
-            console.log("inside findingUser, what is user_data?", data)
+            // console.log("inside findingUser, what is user_data?", data)
 
             dispatch(setCurrentUser(data.user_data))
             dispatch(fetchedUserSequences(data.user_data.sequences))
@@ -298,7 +307,6 @@ function findingUser(token){
 
 
 function setCurrentUser(user_data){
-    console.log(user_data)
 
     return {
         type: "SET_CURRENT_USER",
@@ -334,7 +342,7 @@ function createNewUser(newUserObj){
 /////////////////////////////////////////////////////////////////////////////////////////
 
 function addingQuote(userQuoteObj){
-    console.log("in addingQuote, what is userQuoteObj?", userQuoteObj)
+    // console.log("in addingQuote, what is userQuoteObj?", userQuoteObj)
     return (dispatch, getState) => {
         fetch(`${url}/user_quotes`, {
             method: "POST",
@@ -355,7 +363,7 @@ function addedQuote(userQuote){
 }
 
 function removingQuote(theID){
-    console.log("in removingQuote, what is userQuoteOjbs", theID)
+    // console.log("in removingQuote, what is userQuoteOjbs", theID)
 
     return (dispatch) => {
         fetch(`${url}/user_quotes/${theID}`, {
@@ -377,4 +385,4 @@ function removedQuote(theID){
 export { fetchingPoses, changeSearchText, clickedSequence, addingToSequence, addedToSequence, 
     removingFromSequence, removedFromSequence, deleteSequence, addingNewSequence, addedSequence, 
     orderSequencePoseList, onSaveNewOrder, fetchingQuotes, findingUser, loginUser, setCurrentUser, 
-    logoutCurrentUser, createNewUser, addingQuote, addedQuote, removingQuote, removedQuote }
+    logoutCurrentUser, createNewUser, addingQuote, addedQuote, removingQuote, removedQuote, updateSequence }

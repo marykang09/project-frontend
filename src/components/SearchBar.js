@@ -1,7 +1,5 @@
 import React from 'react'
-import { Navbar, Nav, Form, NavDropdown, FormControl, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { changeSearchText } from "../redux/actions"
 
 const SearchBar = (props) => {

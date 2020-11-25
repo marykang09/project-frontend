@@ -90,7 +90,7 @@ class SequenceDetail extends React.Component {
 
                 <div className="sequence-detail-grid">
                     <div className="seq-detail-pose-section">
-                        <h1> Poses </h1>
+                        <h1> poses </h1>
                         <div className="seq-detail-grid-pose">
                             {this.sortedPoses().map(pose => <SequencePose pose={pose} key={pose.id} editing={false}/>)}
                         </div>
@@ -98,21 +98,21 @@ class SequenceDetail extends React.Component {
                     </div>
 
                     <div className="seq-detail-grid-actions">
-                        <h3> Pose Count <br></br> <span> {this.props.sequence.sequence_poses.length} </span></h3>
+                        <h3> pose count <br></br> <span> {this.props.sequence.sequence_poses.length} </span></h3>
                         <br></br>
-                        <h3> Difficulty </h3>
-                        <h3> Beginner Poses <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.difficulty === "beginner").length} </span></h3>
-                        <h3> Intermediate Poses <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.difficulty === "intermediate").length} </span></h3>
-                        <h3> Advanced Poses <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.difficulty === "advanced").length}  </span></h3>
+                        <h3> difficulty </h3>
+                        <h3> beginner poses <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.difficulty === "beginner").length} </span></h3>
+                        <h3> intermediate poses <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.difficulty === "intermediate").length} </span></h3>
+                        <h3> advanced poses <br></br><span>{this.props.sequence.sequence_poses.filter(p => p.pose.difficulty === "advanced").length}  </span></h3>
                         <br></br>
-                        <h3> {this.state.showNotes ? "Hide Notes" : "Read Notes" } </h3>
-                        <button onClick={this.onReadNotes}> {this.state.showNotes ? "-" : "+" }</button><br></br>
+                        <h3> {this.state.showNotes ? "hide notes" : "read notes" } </h3>
+                        <button className="add" onClick={this.onReadNotes}> {this.state.showNotes ? "-" : "+" }</button><br></br>
                         {this.showReadNotesDiv()}
                         <br></br>
                         <Link to={`${this.props.sequence.id}/edit`}>
-                            <h3> Edit Sequence </h3>
+                            <h3> edit sequence </h3>
                         </Link>
-                        <h3 className="delete" onClick={this.handleShowAlert}> Delete Sequence </h3>
+                        <h3 className="delete" onClick={this.handleShowAlert}> delete sequence </h3>
                     </div>
                 </div>
             </section>

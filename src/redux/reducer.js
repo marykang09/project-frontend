@@ -64,7 +64,7 @@ const sequencesReducer = (state=[], action) => {
             return [...state, action.payload]
             
         case "REORDER_SEQUENCE_POSES":
-            console.log("in reducer, action.payload:", action.payload)
+            // console.log("in reducer, action.payload:", action.payload)
 
             let changedSequencePoses = state.map(sequence => {
                 
@@ -80,6 +80,19 @@ const sequencesReducer = (state=[], action) => {
             // debugger
 
             return changedSequencePoses
+        
+        case "UPDATE_SEQUENCE":
+            return state.map(sequence => {
+                if (sequence.id === action.payload){
+                    return {
+                        ...sequence
+                    }
+                } else {
+                    return sequence
+                }
+            })
+            // this section is what I just added on 11/12
+
 
         default: 
             return state

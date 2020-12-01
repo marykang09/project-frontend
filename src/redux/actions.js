@@ -104,13 +104,23 @@ function addingToSequence(info){
             })
         })
         .then(response => response.json())
-        .then(sequencePose => dispatch(addedToSequence(sequencePose)))
+        .then(sequencePose => {
+            dispatch(addedToSequence(sequencePose))
+            dispatch(addToClickedSequence(sequencePose))
+        })
     } // this updates the backend, then dispatches to update frontend
 }
 
 function addedToSequence(sequencePose){
     return {
         type: "CREATED_SEQUENCE_POSE",
+        payload: sequencePose
+    }
+}
+
+function addToClickedSequence(sequencePose){
+    return {
+        type: "ADD_TO_CLICKED_SEQUENCE",
         payload: sequencePose
     }
 }
@@ -125,13 +135,21 @@ function removingFromSequence(info){
         }) // this updates the backend
 
         dispatch(removedFromSequence(info))
+        dispatch(removeFromClickedSequence(info))
+
     } // this will update the frontend
 }
 
 function removedFromSequence(info){
-
     return {
         type: "REMOVED_SEQUENCE_POSE",
+        payload: info
+    }
+}
+
+function removeFromClickedSequence(info){
+    return {
+        type: "REMOVE_FROM_CLICKED_SEQUENCE",
         payload: info
     }
 }
@@ -203,7 +221,7 @@ function onSaveNewOrder(sequence){
     return (dispatch, getState) => {
 
         let sequencePoseArray = sequence.sequence_poses
-        let sequenceId = getState().sequence.id
+        // let sequenceId = getState().sequence.id
 
         sequencePoseArray.forEach(sp => {
             fetch(`${url}/sequence_poses/${sp.id}`, {
@@ -214,19 +232,28 @@ function onSaveNewOrder(sequence){
                 })
             })
             .then(response => response.json())
-            .then(sequenceId => dispatch(updateSequence(sequenceId)))
+            .then(sequencePose => dispatch(updateToSavedOrder(sequencePose)))
+            // .then(data => console.log("what is data from onSaveNewOrder?", data))
+
+            // .then(sequence => dispatch(updateClickedSequence(sequence)))
         })
 
     }
 }
 
-function updateSequence(sequence){
-
+function updateToSavedOrder(sequencePose){
     return {
-        type: "UPDATE_SEQUENCE",
-        payload: sequence
+        type: "UPDATE_TO_SAVED_ORDER",
+        payload: sequencePose
     }
 }
+
+function updateClickedSequence(oldIndex, newIndex, sequenceId){
+    return {
+        type: "UPDATE_CLICKED_SEQUENCE",
+        payload: { oldIndex, newIndex, sequenceId }
+    }
+} // this might be redundant
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -385,4 +412,4 @@ function removedQuote(theID){
 export { fetchingPoses, changeSearchText, clickedSequence, addingToSequence, addedToSequence, 
     removingFromSequence, removedFromSequence, deleteSequence, addingNewSequence, addedSequence, 
     orderSequencePoseList, onSaveNewOrder, fetchingQuotes, findingUser, loginUser, setCurrentUser, 
-    logoutCurrentUser, createNewUser, addingQuote, addedQuote, removingQuote, removedQuote, updateSequence }
+    logoutCurrentUser, createNewUser, addingQuote, addedQuote, removingQuote, removedQuote, updateClickedSequence, updateToSavedOrder }

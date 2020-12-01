@@ -24,19 +24,19 @@ const PoseDetail = (props) => {
                 </div>
                 <div className="pose-detail-grid-info">
                     <h3>
-                        Name <br></br><span> {props.pose.english_name} </span>
+                        name <br></br><span> {props.pose.english_name} </span>
                         <br></br>
                         <br></br>
-                        Sanksrit Name <br></br><span> {props.pose.sanskrit_name} </span>
+                        sanksrit name <br></br><span> {props.pose.sanskrit_name} </span>
                         <br></br>
                         <br></br>
-                        Category <br></br><span> {props.pose.category} </span>
+                        category <br></br><span> {props.pose.category} </span>
                         <br></br>
                         <br></br>
-                        Action <br></br><span> {props.pose.action} </span>
+                        action <br></br><span> {props.pose.action} </span>
                         <br></br>
                         <br></br>
-                        Difficulty <br></br><span> {props.pose.difficulty} </span>
+                        difficulty <br></br><span> {props.pose.difficulty} </span>
                     </h3>
                 </div>
             </div>

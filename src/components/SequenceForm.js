@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import SequencePose from './SequencePose'
 import Pose from './Pose'
 import {SortableContainer, SortableElement} from 'react-sortable-hoc';
-import { orderSequencePoseList, onSaveNewOrder } from '../redux/actions'
+import { orderSequencePoseList, onSaveNewOrder, updateClickedSequence } from '../redux/actions'
 import SearchBar from './SearchBar'
 import swal from 'sweetalert'
 
@@ -19,10 +19,11 @@ let SortableItem = SortableElement(({pose, sequence}) => {
         </li>
     )
 })
-
+//this.props.sequence.sequence_poses.sort((a, b) => (a.position_num  > b.position_num) ? 1: -1)
 let SortableList = SortableContainer(({poses, sequence}) => {
     return (
         <ul className="row" style={{listStyleType: "none"}}>
+            {/* {poses.map((pose, index) => ( */}
             {poses.map((pose, index) => (
             <SortableItem key={`pose-${pose.id}`} index={index} pose={pose} sequence={sequence} />
             ))}
@@ -80,10 +81,8 @@ onSave = () => {
 }
 
 sortedPoses = () => {
-    return(!this.props.sequence ? null : 
-    this.props.sequence.sequence_poses.sort((a, b) => (a.position_num  > b.position_num) ? 1: -1)
+    return(!this.props.sequence ? null : this.props.sequence.sequence_poses.sort((a, b) => (a.position_num  > b.position_num) ? 1: -1))
 //list.sort((a, b) => (a.color > b.color) ? 1 : -1)
-    )
 } 
 // this is to sort, if i need to sort by the position number attribute, use in place of this sequences poses when mapping to render <SequencePose> below
 
@@ -174,16 +173,19 @@ return (!this.props.sequence ? null :
 
 const mapStateToProps = (state, ownProps) => {
 
-    let sequenceId = parseInt(ownProps.match.params.id)
+    // let sequenceId = parseInt(ownProps.match.params.id)
     //have to parseInt because the params id is a string
     // console.log("state.sequences", state.sequences)
     
     return {
         // sequence_poses: this.state.sequence.sequence_poses,
-        
+        //   this.props.sequence.sequence_poses.sort((a, b) => (a.position_num  > b.position_num) ? 1: -1))
+
         sequences: state.sequences,
-        sequence: state.sequences.find(s => parseInt(s.id) === sequenceId) || 
-                state.sequences.find(s => parseInt(s.id) === ownProps.sequenceId),
+        sequence: state.sequence,
+        // sequence: state.sequences.find(s => parseInt(s.id) === sequenceId) || 
+        //         state.sequences.find(s => parseInt(s.id) === ownProps.sequenceId),
+
         // sequence_poses: state.sequences.find(s => parseInt(s.id) === sequenceId).sequence_poses,
         poses: state.poses.filter(
             pose => 
@@ -199,8 +201,9 @@ const mapDispatchToProps = (dispatch, props) => ({
 
     orderSequencePoseList: ({oldIndex, newIndex}, sequenceId) => { 
         // console.log(args)
-        dispatch (orderSequencePoseList( oldIndex, newIndex, sequenceId))},
-    
+        dispatch (orderSequencePoseList( oldIndex, newIndex, sequenceId))
+        dispatch (updateClickedSequence( oldIndex, newIndex, sequenceId))
+    },
     onSaveNewOrder: (sequence, ownProps) => { 
         dispatch (onSaveNewOrder(sequence))}
 })

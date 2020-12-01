@@ -42,7 +42,7 @@ class SequenceDetail extends React.Component {
 
     handleShowAlert = (event, onClick) => {
         event.preventDefault()
-        console.log("hit the handleShowAlert")
+        // console.log("hit the handleShowAlert")
         this.setState({ showAlert: true })
         
         swal({
@@ -116,84 +116,6 @@ class SequenceDetail extends React.Component {
                     </div>
                 </div>
             </section>
-
-
-
-
-
-
-            // <div className="padding">
-            //     <h1> SEQUENCE: {this.props.sequence.name} </h1>
-            //     <br></br>
-            //     <div className="line"></div>
-            //      <br></br>
-            //     <Container>
-            //         <Wrapper>
-            //             <Title>
-                            
-            //                 {this.props.sequence.sequence_poses.length === 0 ? "ADD SOME POSES" : `POSE COUNT: ${this.props.sequence.sequence_poses.length}`}
-                            
-            //             </Title>
-            //         </Wrapper>
-
-
-
-            //         <br></br>
-            //         <br></br>
-            //         <>
-            //         <style type="text/css">
-            //             {`
-            //             .btn-flat {
-            //             background-color: #ABDAE1;
-            //             color: white;
-            //             }
-
-            //             .btn-md {
-            //             padding: 1rem 1.5rem;
-            //             font-size: 1.5rem;
-            //             }
-            //             `}
-            //         </style>
-                    
-                    
-            //         <ButtonGroup>
-            //             <Link to={`${this.props.sequence.id}/edit`}>
-            //             {/* why wont the link above work?!?! */}
-            //             {/* <Link to={`/sequences/${this.props.sequence.id}`}> */}
-            //                 <Button className="mybtn" variant="flat" size="md"> EDIT </Button>
-            //             </Link>    
-            //         </ButtonGroup>
-            //         &nbsp;
-            //         <ButtonGroup>
-            //                 <Button className="mybtn" variant="flat" size="md" onClick={this.handleShowAlert}> DELETE </Button>
-            //                  {/* {this.state.showAlert ? this.showAlert() : null} */}
-                            
-            //         </ButtonGroup>
-                    
-            //         </>
-            //         <br></br>
-
-
-            //             <br></br>
-            //             POSES IN SEQUENCE:  
-            //             <Row className="justify-content-md-center">
-            //             <Col md="auto"></Col>
-            //             {this.sortedPoses().map(pose => <SequencePose pose={pose} key={pose.id} editing={false}/>)}
-            //             </Row>
-            //             <br></br>
-            //             <Row className="justify-content-md-center">
-            //                 <Col md="auto">
-            //                     <Button className="mybtn" variant="flat" size="sm" onClick={this.onReadNotes}> {this.state.showNotes ? "HIDE NOTES" : "READ NOTES" }</Button>
-            //                     <br></br>
-            //                     <br></br>
-            //                     {this.showReadNotesDiv()}
-            //                     <br></br>
-            //                     <br></br>
-            //                 </Col>
-            //             </Row>
-
-            //     </Container>
-            // </div>
         )
     }
 }
@@ -207,11 +129,12 @@ const mapStateToProps = (state, ownProps) => {
     //use seqence_poses array, use the pose_id
     //map over the poses array in store and find match
 
-    let sequenceId = parseInt(ownProps.match.params.id)
+    // let sequenceId = parseInt(ownProps.match.params.id)
     //have to parseInt because the params id is a string
 
     return {
-        sequence: state.sequences.find(s => parseInt(s.id) === sequenceId),
+        sequence: state.sequence,
+        // sequence: state.sequences.find(s => parseInt(s.id) === sequenceId),
         currentUser: state.currentUser 
     }
 }

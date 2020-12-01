@@ -673,6 +673,9 @@ form.searchbar-form input:active {
   .dash-container {
     grid-template-columns: 100%;
   }
+  .user-quotes-grid, .user-sequences-grid {
+    grid-template-columns: 100%;
+  }
 }
 
 /* ------------------------------------------------------------------ */

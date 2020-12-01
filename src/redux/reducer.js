@@ -78,21 +78,39 @@ const sequencesReducer = (state=[], action) => {
                 }
             })
             // debugger
-
             return changedSequencePoses
-        
-        case "UPDATE_SEQUENCE":
+
+        case "UPDATE_TO_SAVED_ORDER":
+            // if sequence id === action.payload.sequenceId, then return the sequence with the new sequence poses saved
             return state.map(sequence => {
-                if (sequence.id === action.payload){
+                if (sequence.id === action.payload.sequence_id){
+                    let otherPoses = sequence.sequence_poses.filter(sp => sp.id !== action.payload.id)
+                    // console.log([...otherPoses, action.payload])
+
                     return {
-                        ...sequence
+                        ...sequence,
+                        sequence_poses: [...otherPoses, action.payload]
                     }
                 } else {
                     return sequence
                 }
             })
-            // this section is what I just added on 11/12
-
+            // let updatedSequencePose = state.map(sequence => {
+            //     if (sequence.id === action.payload.sequence_id){
+            //         sequence.sequence_poses.map(sp => {
+            //             if(sp.id === action.payload.id){
+            //                 return {
+            //                     sp: action.payload
+            //                 }
+            //             } else {
+            //                 return sp
+            //             }
+            //         })
+            //     } else {
+            //         return sequence
+            //     }
+            // })
+            // return updatedSequencePose
 
         default: 
             return state
@@ -143,6 +161,35 @@ const clickedSequenceReducer = (state="", action) => {
     switch (action.type){
         case "CLICKED_SEQUENCE":
             return action.payload
+
+        case "ADD_TO_CLICKED_SEQUENCE":
+            if (state.id === action.payload.sequence_id){
+                return {
+                    ...state,
+                    sequence_poses: [...state.sequence_poses, action.payload]
+                }
+            } else {
+                return state
+            }
+        
+        case "REMOVE_FROM_CLICKED_SEQUENCE":
+            if (state.id === action.payload.sequenceId){
+                return {
+                    ...state,
+                    sequence_poses: state.sequence_poses.filter(sp => sp.id !== action.payload.sequencePoseId)
+                }
+            } else {
+                return state
+            }
+        case "UPDATE_CLICKED_SEQUENCE":
+            if (state.id === action.payload.sequenceId){
+                return {
+                    ...state,
+                    sequence_poses: arrayMove(state.sequence_poses, action.payload.oldIndex, action.payload.newIndex)
+                }
+            } else {
+                return state
+            }
         default:
             return state
     }

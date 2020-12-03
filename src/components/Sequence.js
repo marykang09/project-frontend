@@ -17,7 +17,7 @@ const Sequence = (props) => {
                     onClick={()=> {props.clickedSequence(props.sequence) }} >
                     <div className="seq-card"> 
                         <h3> {props.sequence.name} </h3>
-                        <p> Pose Count: {props.sequence.sequence_poses.length} </p>
+                        <p> pose count: {props.sequence.sequence_poses.length} </p>
                     </div>
                 </Link>
         </section>

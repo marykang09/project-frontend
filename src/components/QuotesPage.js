@@ -26,7 +26,7 @@ class QuotesPage extends React.Component{
                     <SearchBar/> 
                     <br></br>      
                     <div className="quotes-grid">   
-                        {this.props.quotes.map(quote => <Quote key={quote.id} quote={quote}/> )}
+                        {this.props.quotes.length > 0 ? this.props.quotes.map(quote => <Quote key={quote.id} quote={quote}/> ) : <h3> no quotes found... </h3>}
                     </div>   
                 </div>
                 <i className="fa fa-long-arrow-up fa-lg" id="scroll" onClick={scrollToTop}></i>

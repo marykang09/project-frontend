@@ -1,185 +1,95 @@
 import React from 'react'
-import RadioButtonsCategory from './RadioButtonsCategory'
-import RadioButtonsAction from './RadioButtonsAction'
-import RadioButtonsDifficulty from './RadioButtonsDifficulty.js'
 import Pose from './Pose'
 import { connect } from 'react-redux'
 
-
 class RadioButtonsAll extends React.Component {
+
     constructor(){
         super()
         this.state = {
             categoryAllOn: true,
-            category: "",
+            category: "All Categories",
+            categoryPoses: [],
             actionAllOn: true,
-            action: "",
+            action: "All Actions",
+            actionPoses: [],
             difficultyAllOn: true,
-            difficulty: "",
-            filteredPoses: []
+            difficulty: "All Difficulties",
+            difficultyPoses: []
         }
     }
 
-    updateCategory = (update) => {
-        console.log("made it up to parents, what is udpate?", update)
+    componentDidMount(){
+        console.log("component did mount")
+        const allPoses = this.props.poses
         
-        if (update === "All Categories"){
-            this.setState({ 
-                category: "",
-                categoryAllOn: true})
+        this.setState({
+            categoryPoses: allPoses,
+            actionPoses: allPoses,
+            difficultyPoses: allPoses
+        })
+    }
+
+    onCategoryChange = (event) => {
+        this.setState({ category: event.target.value})
+
+        let allPoses = this.props.poses
+        if (event.target.value!=="All Categories"){
+            this.setState({
+                categoryPoses: allPoses.filter(p => p.category === event.target.value),
+                categoryAllOn: false
+            })
         } else {
-        this.setState({ 
-            category: update,
-            categoryAllOn: false
+            this.setState({
+                categoryPoses: allPoses,
+                categoryAllOn: true
             })
         }
-
-        let allPoses = this.props.poses
-        let updatedPoses
-
-        if (this.state.categoryAllOn === true){
-            console.log("are we hitting this first?")
-            if (this.state.actionAllOn === true && this.state.difficultyAllOn === true){
-                this.setState({filteredPoses: allPoses})
-            } else if (this.state.actionAllOn === false && this.state.difficultyAllOn === true){
-                updatedPoses = allPoses.filter(p => p.action === this.state.action)
-                this.setState({ filteredPoses: updatedPoses})
-            } else if (this.state.actionAllOn === true && this.state.difficultyAllOn === false){
-                updatedPoses = allPoses.filter(p => p.difficulty === this.state.difficulty)
-                this.setState({ filteredPoses: updatedPoses})
-            } else { // if no category filter, but action and difficulty filters
-                updatedPoses = allPoses.filter(p => p.action === this.state.action && p.difficulty === this.state.difficulty)
-                this.setState({ filteredPoses: updatedPoses})
-            }
-        } else if (this.state.categoryAllOn === false){ // if this.state.categoryAllOn is false and there is a filter
-            console.log("are we hitting this too?")
-            if (this.state.actionAllOn === true && this.state.difficultyAllOn === true){
-                updatedPoses = allPoses.filter(p => p.category === update)
-                console.log(updatedPoses)
-                this.setState({ filteredPoses: updatedPoses})
-            } else if (this.state.actionAllOn === false && this.state.difficultyAllOn === true){
-                updatedPoses = allPoses.filter(p => p.category === update && p.action === this.state.action)
-                this.setState({ filteredPoses: updatedPoses})
-            } else if (this.state.actionAllOn === true && this.state.difficultyAllOn === false){
-                updatedPoses = allPoses.filter(p => p.category === update && p.difficulty === this.state.difficulty)
-                this.setState({ filteredPoses: updatedPoses})
-            } else { // if filters for everything
-                updatedPoses = allPoses.filter(p => p.category === this.state.category && p.action === this.state.action && p.difficulty === this.state.difficulty)
-                this.setState({ filteredPoses: updatedPoses})
-            } 
-        } 
-
     }
 
-    updateAction = (update) => {
-        console.log("made it up to parents, what is update?", update)
-
-        if (update === "All Actions"){
-            this.setState({ 
-                action: "",
-                actionAllOn: true})
-        } else {
-        this.setState({ 
-            action: update,
-            actionAllOn: false})
-        }
+    onActionChange = (event) => {
+        this.setState({ action: event.target.value})
 
         let allPoses = this.props.poses
-        let updatedPoses
-
-        if (this.state.actionAllOn === true){
-            if (this.state.categoryAllOn === true && this.state.difficultyAllOn === true){
-                this.setState({filteredPoses: []})
-            } else if (this.state.categoryAllOn === false && this.state.difficultyAllOn === true){
-                updatedPoses = allPoses.filter(p => p.category === this.state.category)
-                this.setState({ filteredPoses: updatedPoses})
-            } else if (this.state.categoryAllOn === true && this.state.difficultyAllOn === false){
-                updatedPoses = allPoses.filter(p => p.difficulty === this.state.difficulty)
-                this.setState({ filteredPoses: updatedPoses})
-            } else { 
-                updatedPoses = allPoses.filter(p => p.category === this.state.category && p.difficulty === this.state.difficulty)
-                this.setState({ filteredPoses: updatedPoses})
-            }
-        } else if (this.state.actionAllOn === false){ // if this.state.actionAllOn is false and there is a filter
-            if (this.state.categoryAllOn === true && this.state.difficultyAllOn === true){
-                updatedPoses = allPoses.filter(p => p.action === update)
-                this.setState({ filteredPoses: updatedPoses})
-            } else if (this.state.categoryAllOn === false && this.state.difficultyAllOn === true){
-                updatedPoses = allPoses.filter(p => p.action === update && p.category === this.state.category)
-                this.setState({ filteredPoses: updatedPoses})
-            } else if (this.state.categoryAllOn === true && this.state.difficultyAllOn === false){
-                updatedPoses = allPoses.filter(p => p.action === update && p.difficulty === this.state.difficulty)
-                this.setState({ filteredPoses: updatedPoses})
-            } else { // if filters for everything
-                updatedPoses = allPoses.filter(p => p.category === this.state.category && p.action === this.state.action && p.difficulty === this.state.difficulty)
-                this.setState({ filteredPoses: updatedPoses})
-            } 
+        if (event.target.value!=="All Actions"){
+            this.setState({
+                actionPoses: allPoses.filter(p => p.action === event.target.value),
+                actionAllOn: false
+            })
+        } else {
+            this.setState({
+                actionPoses: allPoses,
+                actionAllOn: true
+            })
         }
     }
 
-    updateDifficulty = (update) => {
-        console.log("made it up to parents, what is udpate?", update)
+    onDifficultyChange = (event) => {
+        this.setState({ difficulty: event.target.value})
 
-        if (update === "All Difficulties"){
-            this.setState({ 
-                difficulty: "",
-                difficultyAllOn: true})
-        } else {
-        this.setState({ 
-                difficulty: update,
+        let allPoses = this.props.poses
+        if (event.target.value!=="All Difficulties"){
+            this.setState({
+                difficultyPoses: allPoses.filter(p => p.difficulty === event.target.value),
                 difficultyAllOn: false
             })
+        } else {
+            this.setState({
+                difficultyPoses: allPoses,
+                difficultyAllOn: true
+            })
         }
-
-        let allPoses = this.props.poses
-        let updatedPoses
-
-        if (this.state.difficultyAllOn === true){
-            if (this.state.categoryAllOn === true && this.state.actionAllOn === true){
-                this.setState({filteredPoses: []})
-            } else if (this.state.categoryAllOn === false && this.state.actionAllOn === true){
-                updatedPoses = allPoses.filter(p => p.category === this.state.category)
-                this.setState({ filteredPoses: updatedPoses})
-            } else if (this.state.categoryAllOn === true && this.state.actionAllOn === false){
-                updatedPoses = allPoses.filter(p => p.action === this.state.action)
-                this.setState({ filteredPoses: updatedPoses})
-            } else { 
-                updatedPoses = allPoses.filter(p => p.category === this.state.category && p.action === this.state.action)
-                this.setState({ filteredPoses: updatedPoses})
-            }
-        } else if (this.state.difficultyAllOn === false){ // if this.state.actionAllOn is false and there is a filter
-            if (this.state.categoryAllOn === true && this.state.actionAllOn === true){
-                updatedPoses = allPoses.filter(p => p.difficulty === update)
-                this.setState({ filteredPoses: updatedPoses})
-            } else if (this.state.categoryAllOn === false && this.state.actionAllOn === true){
-                updatedPoses = allPoses.filter(p => p.difficulty === update && p.category === this.state.category)
-                this.setState({ filteredPoses: updatedPoses})
-            } else if (this.state.categoryAllOn === true && this.state.actionAllOn === false){
-                updatedPoses = allPoses.filter(p => p.difficulty === update && p.action === this.state.action)
-                this.setState({ filteredPoses: updatedPoses})
-            } else { // if filters for everything
-                updatedPoses = allPoses.filter(p => p.category === this.state.category && p.action === this.state.action && p.difficulty === this.state.difficulty)
-                this.setState({ filteredPoses: updatedPoses})
-            } 
-        }
-        // let allPoses = this.props.poses
-        // let updatedPoses
-
-        // updatedPoses = allPoses.filter(p => p.difficulty === update)
-        
-        // if (this.state.categoryAllOn === false || this.state.actionAllOn === false){
-        //     let keepFilteredPoses
-        //     keepFilteredPoses = this.state.filteredPoses.filter(p => p.difficulty === update)
-        //     this.setState({ filteredPoses: keepFilteredPoses})
-        // } else {
-        // this.setState({ filteredPoses: updatedPoses })
-        // }
     }
 
 
     render(){
-        let showFilteredPoses = this.state.filteredPoses.length > 0 ? this.state.filteredPoses : this.props.poses
-        let searchFilteredPoses = showFilteredPoses.filter( pose => 
+        let filteredPoses = this.state.categoryPoses.filter( pose => this.state.actionPoses.includes(pose) && this.state.difficultyPoses.includes(pose))
+        console.log("filteredPoses", filteredPoses)
+
+        let posesToShow = this.state.categoryAllOn && this.state.actionAllOn && this.state.difficultyAllOn ? this.props.poses : filteredPoses
+        console.log("posesToShow", posesToShow)
+        // let showFilteredPoses = this.state.filteredPoses.length > 0 ? this.state.filteredPoses : this.props.poses
+        let searchFilteredPoses = posesToShow.filter( pose => 
                                                                 pose.english_name.toLowerCase().includes(this.props.searchText.toLowerCase()) ||
                                                                 pose.sanskrit_name.toLowerCase().includes(this.props.searchText.toLowerCase()))
 
@@ -188,15 +98,279 @@ class RadioButtonsAll extends React.Component {
             <section id="radiobuttonsall">
                 <div className="poses-grid">
                     <div className="radiobuttons">
-                        <RadioButtonsCategory 
-                                updateChange={this.updateCategory}/>
+                        <form>
+                            {/* <form onSubmit={this.handleFormSubmit}> */}
+                            <label className="radiolabel">Category</label>
+                            <div className="form-check">
+                                <label>
+                                <input
+                                    type="radio"
+                                    name="category"
+                                    value="All Categories"
+                                    checked={this.state.category === "All Categories"}
+                                    onChange={this.onCategoryChange}
+                                    className="form-check-input"
+                                />
+                                <span className="checkmark"></span>
+                                All Categories
+                                </label>
+                            </div>
+                            <div className="form-check">
+                                <label>
+                                <input
+                                    type="radio"
+                                    name="category"
+                                    value="standing"
+                                    checked={this.state.category === "standing"}
+                                    onChange={this.onCategoryChange}
+                                    className="form-check-input"
+                                />
+                                <span className="checkmark"></span>
+                                Standing
+                                </label>
+                            </div>
+                            <div className="form-check">
+                                <label>
+                                <input
+                                    type="radio"
+                                    name="category"
+                                    value="seated"
+                                    checked={this.state.category === "seated"}
+                                    onChange={this.onCategoryChange}
+                                    className="form-check-input"
+                                />
+                                <span className="checkmark"></span>
+                                Seated
+                                </label>
+                            </div>
+                            <div className="form-check">
+                                <label>
+                                <input
+                                    type="radio"
+                                    name="category"
+                                    value="supine"
+                                    checked={this.state.category === "supine"}
+                                    onChange={this.onCategoryChange}
+                                    className="form-check-input"
+                                />
+                                <span className="checkmark"></span>
+                                Supine
+                                </label>
+                            </div>
+                            <div className="form-check">
+                                <label>
+                                <input
+                                    type="radio"
+                                    name="category"
+                                    value="prone"
+                                    checked={this.state.category === "prone"}
+                                    onChange={this.onCategoryChange}
+                                    className="form-check-input"
+                                />
+                                <span className="checkmark"></span>
+                                Prone
+                                </label>
+                            </div>
+                            <div className="form-check">
+                                <label>
+                                <input
+                                    type="radio"
+                                    name="category"
+                                    value="arm and leg support"
+                                    checked={this.state.category === "arm and leg support"}
+                                    onChange={this.onCategoryChange}
+                                    className="form-check-input"
+                                />
+                                <span className="checkmark"></span>
+                                Arm & Leg Support
+                                </label>
+                            </div>
+                            <div className="form-check">
+                                <label>
+                                <input
+                                    type="radio"
+                                    name="category"
+                                    value="arm balance and inversion"
+                                    checked={this.state.category === "arm balance and inversion"}
+                                    onChange={this.onCategoryChange}
+                                    className="form-check-input"
+                                />
+                                <span className="checkmark"></span>
+                                Arm Balance & Inversion
+                                </label>
+                            </div>
+                            <div className="form-group">
+                            </div>
+                        </form>
 
-                        <RadioButtonsAction
-                            updateChange={this.updateAction}/>
+                        <form>
+                            <label className="radiolabel">Action</label>
+                            <div className="form-check">
+                                <label>
+                                <input
+                                    type="radio"
+                                    name="action"
+                                    value="All Actions"
+                                    checked={this.state.action === "All Actions"}
+                                    onChange={this.onActionChange}
+                                    className="form-check-input"
+                                />
+                                <span className="checkmark"></span>
+                                All Actions
+                                </label>
+                            </div>
+                            <div className="form-check">
+                                <label>
+                                <input
+                                    type="radio"
+                                    name="action"
+                                    value="back bend"
+                                    checked={this.state.action === "back bend"}
+                                    onChange={this.onActionChange}
+                                    className="form-check-input"
+                                />
+                                <span className="checkmark"></span>
+                                Back Bend
+                                </label>
+                            </div>
+                            <div className="form-check">
+                                <label>
+                                <input
+                                    type="radio"
+                                    name="action"
+                                    value="forward bend"
+                                    checked={this.state.action === "forward bend"}
+                                    onChange={this.onActionChange}
+                                    className="form-check-input"
+                                />
+                                <span className="checkmark"></span>
+                                Forward Bend
+                                </label>
+                            </div>
+                            <div className="form-check">
+                                <label>
+                                <input
+                                    type="radio"
+                                    name="action"
+                                    value="lateral bend"
+                                    checked={this.state.action === "lateral bend"}
+                                    onChange={this.onActionChange}
+                                    className="form-check-input"
+                                />
+                                <span className="checkmark"></span>
+                                Lateral Bend
+                                </label>
+                            </div>
+                            <div className="form-check">
+                                <label>
+                                <input
+                                    type="radio"
+                                    name="action"
+                                    value="twist"
+                                    checked={this.state.action=== "twist"}
+                                    onChange={this.onActionChange}
+                                    className="form-check-input"
+                                />
+                                <span className="checkmark"></span>
+                                Twist
+                                </label>
+                            </div>
+                            <div className="form-check">
+                                <label>
+                                <input
+                                    type="radio"
+                                    name="action"
+                                    value="balance"
+                                    checked={this.state.action === "balance"}
+                                    onChange={this.onActionChange}
+                                    className="form-check-input"
+                                />
+                                <span className="checkmark"></span>
+                                Balance
+                                </label>
+                            </div>
+                            <div className="form-check">
+                                <label>
+                                <input
+                                    type="radio"
+                                    name="action"
+                                    value="neutral"
+                                    checked={this.state.action=== "neutral"}
+                                    onChange={this.onActionChange}
+                                    className="form-check-input"
+                                />
+                                <span className="checkmark"></span>
+                                Neutral
+                                </label>
+                            </div>
+                            <div className="form-group">
+                            </div>
+                            </form>
 
-                        <RadioButtonsDifficulty
-                            updateChange={this.updateDifficulty}/>
+                            <form>
+                            <label className="radiolabel">Difficulty</label>
+                            <div className="form-check">
+                                <label>
+                                <input
+                                    type="radio"
+                                    name="difficulty"
+                                    value="All Difficulties"
+                                    checked={this.state.difficulty === "All Difficulties"}
+                                    onChange={this.onDifficultyChange}
+                                    className="form-check-input"
+                                />
+                                <span className="checkmark"></span>
+                                All Difficulties
+                                </label>
+                            </div>
+                            <div className="form-check">
+                                <label>
+                                <input
+                                    type="radio"
+                                    name="difficulty"
+                                    value="beginner"
+                                    checked={this.state.difficulty === "beginner"}
+                                    onChange={this.onDifficultyChange}
+                                    className="form-check-input"
+                                />
+                                <span className="checkmark"></span>
+                                Beginner
+                                </label>
+                            </div>
+                            <div className="form-check">
+                                <label>
+                                <input
+                                    type="radio"
+                                    name="difficulty"
+                                    value="intermediate"
+                                    checked={this.state.difficulty === "intermediate"}
+                                    onChange={this.onDifficultyChange}
+                                    className="form-check-input"
+                                />
+                                <span className="checkmark"></span>
+                                Intermediate
+                                </label>
+                            </div>
+                            <div className="form-check">
+                                <label>
+                                <input
+                                    type="radio"
+                                    name="difficulty"
+                                    value="advanced"
+                                    checked={this.state.difficulty === "advanced"}
+                                    onChange={this.onDifficultyChange}
+                                    className="form-check-input"
+                                />
+                                <span className="checkmark"></span>
+                                Advanced
+                                </label>
+                            </div>
+                            <div className="form-group">
+                            </div>
+                        </form>
+
                     </div>
+
                     <div className="pose-list">
                             {searchFilteredPoses.length > 0 ? searchFilteredPoses.map(pose => (
                                 <Pose
@@ -205,7 +379,7 @@ class RadioButtonsAll extends React.Component {
                                     pose={pose}
                                     editing={false}
                                     sequence={""} />
-                            )) :  <h3> No poses found, please try a different search </h3>}   
+                            )) :  <h3> no poses found, please try a different search </h3>}   
                     </div>
                 </div>
             </section> 

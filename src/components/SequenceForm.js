@@ -99,12 +99,14 @@ return (!this.props.sequence ? null :
 
             <div className="top-grid">
                 <div className="seq-form-poses">
-                    <h3><strong> current poses in sequence </strong></h3>
-                    <p> drag and drop poses into your desired order, or remove poses </p>
-                    <div className="seq-form-grid-poses">
-                        <SortableComponent poses={this.props.sequence.sequence_poses} sequence={this.props.sequence} onSortEnd={(args)=>{this.props.orderSequencePoseList(args, this.props.sequence.id)}} />
+                    <div className="inner">
+                        <h3><strong> current poses in sequence </strong></h3>
+                        <p> drag and drop poses into your desired order, or remove poses </p>
+                        <div className="seq-form-grid-poses">
+                            <SortableComponent poses={this.props.sequence.sequence_poses} sequence={this.props.sequence} onSortEnd={(args)=>{this.props.orderSequencePoseList(args, this.props.sequence.id)}} />
+                        </div>
+                        {this.props.sequence.sequence_poses.length === 0 ? <div className="message"><h3><strong> - No poses yet, add some below! - </strong></h3></div> : null }
                     </div>
-                    {this.props.sequence.sequence_poses.length === 0 ? <div className="message"><h3><strong> - No poses yet, add some below! - </strong></h3></div> : null }
                 </div>
 
                 <div className="seq-form-grid-action">

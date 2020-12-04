@@ -675,18 +675,40 @@ form.searchbar-form input:active {
 
 .dash-container {
   display: grid;
-  grid-template-columns: 30% 40% 30%;
-  grid-column-gap: 5px;
+  grid-template-columns: 70% 30%;
+  grid-column-gap: 25px;
+  justify-content: center;
+  /* align-content: center; */
+  
 }
 
-.user {
-  padding-left: 20px;
+.user-top {
+  margin-left: 30%;
+  margin-right: 30%;
+
+}
+
+.user-sequences, .user-quotes {
+  padding-top: 50px;
+  padding-bottom: 50px;
   padding-right: 20px;
-  max-height: 560px;
+  margin-right: 20px;
+}
+
+
+.dash-title h3{
+  margin-left: 20px;
+  margin-right: 20px;
+  justify-content: center;
 }
 
 .user img {
-  width: 100%;
+  width: 80%;
+  /* justify-content: center;
+  align-content: center;
+  text-align: center;
+  margin-left: 100%;
+  margin-right: 100%; */
 }
 
 .user p {
@@ -725,6 +747,7 @@ form.searchbar-form input:active {
   padding: 8px;
   max-width: 400px;
   min-height: 100px;
+  
 }
 
 h3.dash-title {
@@ -738,6 +761,9 @@ h3.dash-title {
   padding-top: 10px;
   padding-bottom: 10px;
   max-width: 400px;
+  text-align: center;
+  margin-left:10px;
+  margin-right: 10px;
 }
 
 .user-quotes-grid, .user-sequences-grid {
@@ -766,6 +792,7 @@ h3.dash-title {
 /* width */
 #dashboard ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 /* Handle */

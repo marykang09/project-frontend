@@ -5,6 +5,7 @@ FlowFind is a web application for yoga students of all styles and levels. Use th
 
 ### Check out the live app here:
 [FlowFind](https://flowfind.netlify.app/)
+![alt text](https://i.ibb.co/y0zWsYG/Screen-Shot-2020-12-04-at-2-53-48-PM.png)
 
 ### Frontend Build:
 - Javascript

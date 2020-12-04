@@ -1,6 +1,10 @@
 // import { useStore } from "react-redux"
 
-const url = "http://localhost:3000"
+// local
+// const url = "http://localhost:3000"
+
+// deployment
+const url = "https://whispering-brook-50619.herokuapp.com/"
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
